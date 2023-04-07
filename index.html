@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RH FrontEnd DEV</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+</head>
+<body>
+    <header class="header">
+        <section class="border glow">
+            <img src="" alt="" class="logo">
+            <h1>Welcome on my portfolio page <br><br>I am <span>Radosław Halupczok</span> <br>Front-End Developer</h1>
+            <img src="" alt="" class="my-picture">
+            <a class="neon-button" href="#">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Go to website
+            </a>
+        </section>
+    </header>
+    <main class="main hidden">
+        <div class="nav-border"><a href="#" id="menuBtn">MENU</a></div>
+            <nav class="nav-menu">
+                <a class="homeBtn">HOME</a>
+                <a id="about-me-nav">ABOUT ME</a>
+                <a id="my-work-nav">MY WORK</a>
+                <a id="contact-nav">CONTACT</a>
+                <a id="cv-nav">CV</a>
+            </nav>
+        
+        <section id="about">
+            <h1>About me</h1>
+            <div class="description">
+                <img src="images/profile_picture.jpg" alt="profile-picture">
+                <p>Hi! My name is <span>Radoslaw</span>. I live in Silesian Voivodeship in Poland. I am graduated from Silesian 
+                University of technology and after that for 7 years I have been working as Robotics Programmer. <br>
+                Currently all my time I am spending on boardering my knowleadge of Front-End Development. I am creating responsive websites and applications. Let check some examples of my work.
+            </div>
+            <h2>Technologies I use</h2>
+            <div class="langs">
+                <a href="#"> <img src="images/html5.svg" alt="" class="langs-img"><span>HTML</span></a>
+                <a href="#"><img src="images/css3.svg" alt="" class="langs-img"> CSS</a>
+                <a href="#"><img src="images/square-js.svg" alt="" class="langs-img"> JAVASCRIPT</a>
+                <a href="#"><img src="images/sass.svg" alt="" class="langs-img"> SCSS</a>
+                <a href="#"><img src="images/node-js.svg" alt="" class="langs-img"> NODE.JS</a>
+                <a href="#"><img src="images/react.svg" alt="" class="langs-img"> REACT</a>
+                <a href="#"><img src="images/code-branch-solid.svg" alt="" class="langs-img"> GIT</a>
+                <a href="#"><img src="images/bootstrap.svg" alt="" class="langs-img"> BOOTSTRAP</a>
+            </div>
+        </section>
+
+        <section id="my-work">
+            <h1>My Work</h1>
+            
+        </section>
+
+        <section id="contact">
+            <h1>Contact</h1>
+            <div class="fcf-body">
+
+                <div id="fcf-form">
+                <h3 class="fcf-h3">Contact me</h3>
+            
+                <form id="fcf-form-id" class="fcf-form-class" method="post" action="contact-form-process.php">
+                    
+                    <div class="fcf-form-group">
+                        <label for="Name" class="fcf-label">Your name</label>
+                        <div class="fcf-input-group">
+                            <input type="text" id="Name" name="Name" class="fcf-form-control" required>
+                        </div>
+                    </div>
+            
+                    <div class="fcf-form-group">
+                        <label for="Email" class="fcf-label">Your email address</label>
+                        <div class="fcf-input-group">
+                            <input type="email" id="Email" name="Email" class="fcf-form-control" required>
+                        </div>
+                    </div>
+            
+                    <div class="fcf-form-group">
+                        <label for="Message" class="fcf-label">Your message</label>
+                        <div class="fcf-input-group">
+                            <textarea id="Message" name="Message" class="fcf-form-control" rows="6" maxlength="3000" required></textarea>
+                        </div>
+                    </div>
+            
+                    <div class="fcf-form-group">
+                        <button type="submit" id="fcf-button" class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block">Send Message</button>
+                    </div>
+            
+          
+                </form>
+                </div>
+            </div>
+
+
+        </section>
+        
+    </main>
+
+    <footer id="footer" class="hidden">
+        <section class="social">
+            <a href="mailto:r.halupczok@gmail.com"><img src="images/envelope.svg" alt="" class="social-img"></a>
+            <a href="https://www.linkedin.com/in/rados%C5%82aw-halupczok-6b6a75104/" target="_blank"><img src="images/linkedin.svg" alt="" class="social-img"></a>
+            <a href="https://github.com/rhalupczok" target="_blank"><img src="images/github.svg" alt="" class="social-img"></a>
+        </section>
+        <p>Radoslaw Halupczok <span>&copy 2023</span></p>
+    </footer>
+
+    
+    
+    
+    <script src="main.js"></script>
+</body>
+</html>
