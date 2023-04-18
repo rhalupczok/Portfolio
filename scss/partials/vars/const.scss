@@ -2,9 +2,30 @@
     display: flex;
     justify-content: center;
     align-items: center;
-
 }
 
 @mixin hidden {
     display: none;
+}
+
+.btn {
+    margin: 1rem;
+    padding: 1rem;
+    color: #000000;
+    background: #ff0000;
+    border: 2px solid black;
+    border-radius: 1rem;
+    text-transform: uppercase;
+    text-decoration: none;
+    font-size: 1.5rem;
+    overflow: hidden;
+    transition: 0.2s;
+    font-weight: 700;
+    text-align: center;
+}
+
+.btn:hover {
+    color: #ff0000;
+    background: #000000;
+    box-shadow: 0 0 10px 10px #ff0000;
 }

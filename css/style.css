@@ -55,6 +55,28 @@
     font-size: 3vw;
   }
 }
+.btn {
+  margin: 1rem;
+  padding: 1rem;
+  color: #000000;
+  background: #ff0000;
+  border: 2px solid black;
+  border-radius: 1rem;
+  text-transform: uppercase;
+  text-decoration: none;
+  font-size: 1.5rem;
+  overflow: hidden;
+  transition: 0.2s;
+  font-weight: 700;
+  text-align: center;
+}
+
+.btn:hover {
+  color: #ff0000;
+  background: #000000;
+  box-shadow: 0 0 10px 10px #ff0000;
+}
+
 .header {
   display: flex;
   justify-content: center;
@@ -94,7 +116,8 @@
   background: linear-gradient(0deg, black, grey);
 }
 
-.glow::before, .glow::after {
+.glow::before,
+.glow::after {
   content: "";
   position: absolute;
   left: -5px;
@@ -196,12 +219,29 @@
   transition-delay: 0.75s;
 }
 
-@media screen and (max-width: 768px) {
+@media screen and (max-width: 1200px) {
+  .border {
+    width: 80%;
+    height: 80vh;
+  }
   .header h1 {
-    font-size: 3vw;
+    font-size: 2rem;
   }
   .header h1 span {
-    font-size: 4vw;
+    font-size: 2rem;
+  }
+}
+@media screen and (max-width: 768px) {
+  .header h1 {
+    font-size: 1.5rem;
+  }
+  .header h1 span {
+    font-size: 1.5rem;
+  }
+}
+@media screen and (max-height: 680px) {
+  .border {
+    height: 80vh;
   }
 }
 main {
@@ -312,9 +352,16 @@ main {
   max-width: 1200px;
 }
 
-.description p span {
+.txt-highlight {
   color: red;
   font-weight: 700;
+  text-decoration: none;
+}
+
+a.txt-highlight:hover {
+  color: #5a0000;
+  font-weight: 700;
+  text-decoration: underline;
 }
 
 #about {
@@ -403,7 +450,56 @@ main .langs img {
 
 #my-work {
   width: 100vw;
-  height: 100vh;
+  height: auto;
+}
+
+#projects-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 1rem;
+  margin: 1rem;
+  margin-top: 3rem;
+  text-align: center;
+}
+
+.projects {
+  width: 300px;
+  height: 350px;
+  border: 2px solid black;
+  background: linear-gradient(0deg, black, red);
+  position: relative;
+}
+
+.projects img {
+  height: 300px;
+  width: 100%;
+  background: gray;
+}
+
+.project-buttons {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  position: absolute;
+  width: 100%;
+  height: 300px;
+  top: 0;
+  left: 0;
+  background: linear-gradient(0deg, rgba(117, 0, 0, 0.75), rgba(0, 0, 0, 0.75));
+  opacity: 0;
+  transition: 0.5s;
+}
+
+.project-buttons:hover {
+  opacity: 1;
+}
+
+.project-desc {
+  font-weight: 700;
+  color: white;
+  margin-top: 0.5rem;
 }
 
 #contact {
@@ -462,7 +558,8 @@ main .langs img {
   border: 1px solid red;
 }
 
-select.fcf-form-control[size], select.fcf-form-control[multiple] {
+select.fcf-form-control[size],
+select.fcf-form-control[multiple] {
   height: auto;
 }
 
@@ -502,7 +599,8 @@ label.fcf-label {
   text-decoration: none;
 }
 
-.fcf-btn:focus, .fcf-btn.focus {
+.fcf-btn:focus,
+.fcf-btn.focus {
   outline: 0;
   box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
 }
@@ -519,13 +617,15 @@ label.fcf-label {
   border-color: rgb(102, 4, 4);
 }
 
-.fcf-btn-primary:focus, .fcf-btn-primary.focus {
+.fcf-btn-primary:focus,
+.fcf-btn-primary.focus {
   color: #fff;
   background-color: #0069d9;
   border-color: #0062cc;
 }
 
-.fcf-btn-lg, .fcf-btn-group-lg > .fcf-btn {
+.fcf-btn-lg,
+.fcf-btn-group-lg > .fcf-btn {
   padding: 0.5rem 1rem;
   font-size: 1.25rem;
   line-height: 1.5;
@@ -541,7 +641,9 @@ label.fcf-label {
   margin-top: 0.5rem;
 }
 
-input[type=submit].fcf-btn-block, input[type=reset].fcf-btn-block, input[type=button].fcf-btn-block {
+input[type=submit].fcf-btn-block,
+input[type=reset].fcf-btn-block,
+input[type=button].fcf-btn-block {
   width: 100%;
 }
 

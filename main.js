@@ -1,7 +1,7 @@
-window.onload = function(){
+window.onload = function () {
     header.init();
     menu.init();
-}
+};
 
 class Header {
     header = null;
@@ -18,10 +18,9 @@ class Header {
         this.goToWebBtn = document.querySelector(".neon-button");
         this.homeBtn = document.querySelector(".homeBtn");
 
-
         this.goToWebBtn.addEventListener("click", this.blankHeader);
-        this.homeBtn.addEventListener("click", this.displayHeader)
-    };
+        this.homeBtn.addEventListener("click", this.displayHeader);
+    }
 
     blankHeader = () => {
         if (this.header.classList.contains("hidden")) return;
@@ -36,7 +35,7 @@ class Header {
         this.header.classList.remove("hidden");
         this.main.classList.add("hidden");
         this.footer.classList.add("hidden");
-    }
+    };
 }
 
 class Menu {
@@ -46,8 +45,8 @@ class Menu {
     myWork = null;
     contact = null;
 
-    init(){
-        this.navMenu = document.querySelector(".nav-menu")
+    init() {
+        this.navMenu = document.querySelector(".nav-menu");
         this.menuBtn = document.getElementById("menuBtn");
         this.aboutMe = document.getElementById("about");
         this.myWork = document.getElementById("my-work");
@@ -55,27 +54,38 @@ class Menu {
 
         this.navMenu.addEventListener("click", this.scrollTo);
         menuBtn.addEventListener("click", this.openMenu);
-        
-    };
+    }
 
     openMenu = () => {
-        if(this.navMenu.className === "nav-menu"){
+        if (this.navMenu.className === "nav-menu") {
             this.navMenu.className += " responsive";
-        }else{
+        } else {
             this.navMenu.className = "nav-menu";
         }
-    }
+    };
 
     scrollTo = (e) => {
-        if (e.target.id === "about-me-nav") this.aboutMe.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-        if (e.target.id === "my-work-nav") this.myWork.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-        if (e.target.id === "contact-nav") this.contact.scrollIntoView({ behavior: "smooth", block: "start", inline: "nearest" });
-
-    }
-
-
-
+        this.openMenu();
+        if (e.target.id === "about-me-nav")
+            this.aboutMe.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+            });
+        if (e.target.id === "my-work-nav")
+            this.myWork.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+            });
+        if (e.target.id === "contact-nav")
+            this.contact.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+            });
     };
+}
 
 const menu = new Menu();
 const header = new Header();

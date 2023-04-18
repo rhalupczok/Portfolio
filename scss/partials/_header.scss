@@ -1,8 +1,7 @@
-@forward 'vars/vars';
-@forward 'vars/const';
-@use 'vars/vars' as *;
-@use 'vars/const' as *;
-
+@forward "vars/vars";
+@forward "vars/const";
+@use "vars/vars" as *;
+@use "vars/const" as *;
 
 .header {
     @include flex;
@@ -16,18 +15,17 @@
 }
 
 .header h1 {
-  text-align: center;
-  padding: 20px;;
-  color: white;
-  font-size: 2rem;
-  animation: none;
+    text-align: center;
+    padding: 20px;
+    color: white;
+    font-size: 2rem;
+    animation: none;
 }
 
-
 .header h1 span {
-  color: blue;
-  font-size: 3rem;
-  animation: none;
+    color: blue;
+    font-size: 3rem;
+    animation: none;
 }
 
 .border {
@@ -37,36 +35,34 @@
     position: relative;
     width: 50%;
     height: 50vh;
-    background: linear-gradient(0deg , black, grey);
+    background: linear-gradient(0deg, black, grey);
 }
 
-.glow::before, .glow::after {
+.glow::before,
+.glow::after {
     content: "";
     position: absolute;
     left: -5px;
     top: -5px;
-    background: linear-gradient(45deg , red, blue, green);
+    background: linear-gradient(45deg, red, blue, green);
     width: calc(100% + 10px);
     height: calc(100% + 10px);
     z-index: -1;
     filter: blur(5px);
-    
 }
 
 @keyframes effect {
-  0% {
-    filter: hue-rotate(0deg);
-  }
-  100% {
-      filter: hue-rotate(360deg);
-  }
+    0% {
+        filter: hue-rotate(0deg);
+    }
+    100% {
+        filter: hue-rotate(360deg);
+    }
 }
-
-
 
 //-------------------------button----------------------------------
 
-.neon-button{
+.neon-button {
     position: relative;
     display: inline-block;
     padding: 15px 30px;
@@ -79,89 +75,103 @@
     transition: 0.2s;
     font-weight: 700;
     text-align: center;
-  }
-  
-  .neon-button:hover {
+}
+
+.neon-button:hover {
     color: #255784;
     background: #2196f3;
     box-shadow: 0 0 10px #2196f3;
     transition-delay: 1s;
-  }
-  
-  .neon-button span {
+}
+
+.neon-button span {
     position: absolute;
     display: block;
-  }
-  
-  .neon-button span:nth-child(1) {
+}
+
+.neon-button span:nth-child(1) {
     top: 0;
     left: -100%;
     width: 100%;
     height: 2px;
     background: linear-gradient(90deg, transparent, #2196f3);
-  }
-  
-  .neon-button:hover span:nth-child(1) {
+}
+
+.neon-button:hover span:nth-child(1) {
     left: 100%;
     transition: 1s;
-  }
-  
-  .neon-button span:nth-child(2) {
+}
+
+.neon-button span:nth-child(2) {
     top: -100%;
     right: 0;
     width: 2px;
     height: 100%;
     background: linear-gradient(180deg, transparent, #2196f3);
-  }
-  
-  .neon-button:hover span:nth-child(2) {
+}
+
+.neon-button:hover span:nth-child(2) {
     top: 100%;
     transition: 1s;
     transition-delay: 0.25s;
-  }
-  
-  .neon-button span:nth-child(3) {
+}
+
+.neon-button span:nth-child(3) {
     bottom: 0;
     right: -100%;
     width: 100%;
     height: 2px;
     background: linear-gradient(270deg, transparent, #2196f3);
-  }
-  
-  .neon-button:hover span:nth-child(3) {
+}
+
+.neon-button:hover span:nth-child(3) {
     right: 100%;
     transition: 1s;
     transition-delay: 0.5s;
-  }
-  
-  .neon-button span:nth-child(4) {
+}
+
+.neon-button span:nth-child(4) {
     bottom: -100%;
     left: 0;
     width: 2px;
     height: 100%;
     background: linear-gradient(0deg, transparent, #2196f3);
-  }
-  
-  .neon-button:hover span:nth-child(4) {
+}
+
+.neon-button:hover span:nth-child(4) {
     bottom: 100%;
     transition: 1s;
     transition-delay: 0.75s;
-  }
-
-  // ---------------------button---------------------------
-
-  @media screen and (max-width:1200px){
-
 }
 
-@media screen and (max-width:768px){
-  .header h1 {
-    font-size: 3vw;
-  }
-  
-  
-  .header h1 span {
-    font-size: 4vw;
-  }
-    
+// ---------------------button---------------------------
+
+@media screen and (max-width: 1200px) {
+    .border {
+        width: 80%;
+        height: 80vh;
     }
+    .header h1 {
+        font-size: 2rem;
+    }
+
+    .header h1 span {
+        font-size: 2rem;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .header h1 {
+        font-size: 1.5rem;
+    }
+
+    .header h1 span {
+        font-size: 1.5rem;
+    }
+}
+
+@media screen and (max-height: 680px) {
+    .border {
+        height: 80vh;
+    }
+}
