@@ -72,7 +72,7 @@ class Menu {
                 block: "start",
                 inline: "nearest",
             });
-        if (e.target.id === "my-work-nav")
+        if (e.target.id === "my-work-nav" || e.target.id === "myWorkAbout")
             this.myWork.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
@@ -87,5 +87,35 @@ class Menu {
     };
 }
 
+class Popup {
+    popUp = document.getElementById("popUp");
+    myJob = document.getElementById("myJob");
+    closePopup = document.getElementById("closePopup");
+
+    myWork = document
+        .getElementById("myWorkAbout")
+        .addEventListener("click", (e) => {
+            e.preventDefault();
+            menu.scrollTo(e);
+        });
+
+    closePopup2 = document
+        .getElementById("closePopup")
+        .addEventListener("click", () => {
+            this.popUp.style.display = "none";
+            this.closePopup.style.display = "none";
+        });
+
+    roboticsProgrammer = document
+        .getElementById("roboticsProgrammerAbout")
+        .addEventListener("click", (e) => {
+            e.preventDefault();
+            this.popUp.style.display = "block";
+            this.myJob.style.display = "flex";
+            this.closePopup.style.display = "block";
+        });
+}
+
 const menu = new Menu();
 const header = new Header();
+const popup = new Popup();
