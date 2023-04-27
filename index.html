@@ -14,7 +14,7 @@
         />
     </head>
     <body>
-        <header class="header">
+        <header class="header hidden">
             <section class="border glow">
                 <img src="" alt="" class="logo" />
                 <h1>
@@ -22,7 +22,7 @@
                     <span>Radosław Halupczok</span> <br />Front-End Developer
                 </h1>
                 <img src="" alt="" class="my-picture" />
-                <a class="neon-button" href="#">
+                <a class="neon-button">
                     <span></span>
                     <span></span>
                     <span></span>
@@ -31,7 +31,7 @@
                 </a>
             </section>
         </header>
-        <main class="main hidden">
+        <main class="main">
             <div class="nav-border"><a id="menuBtn">MENU</a></div>
             <nav class="nav-menu">
                 <a class="homeBtn">HOME</a>
@@ -43,6 +43,39 @@
 
             <section id="about">
                 <h1>About me</h1>
+                <div id="characters">
+                    <div>
+                        <img
+                            src="images/characters-reiable.png"
+                            alt=""
+                            class="characters-img"
+                        /><p>REIABLE</p></div
+                    >
+                    <div href="#"
+                        ><img src="images/characters-organised.png" alt="" class="characters-img" />
+                        <p>ORGANISED</p></div
+                    >
+                    <div href="#"
+                        ><img
+                            src="images/characters-motivated.png"
+                            alt=""
+                            class="characters-img"
+                        />
+                        <p>MOTIVATED</p></div
+                    >
+                    <div href="#"
+                        ><img src="images/characters-creative.png" alt="" class="characters-img" />
+                        <p>CREATIVE</p></div
+                    >
+                    <div href="#"
+                        ><img
+                            src="images/characters-self-improvement.png"
+                            alt=""
+                            class="characters-img"
+                        />
+                        <p>SELF - IMPROVEMENT</p></div
+                    >
+                </div>
                 <div class="description">
                     <img
                         src="images/profile_picture.jpg"
@@ -54,7 +87,7 @@
                         Silesian Voivodeship in Poland. I graduated from
                         Silesian University of technology and after that for 7
                         years I have been working as
-                        <a id="roboticsProgrammerAbout" href="" class="txt-highlight"
+                        <a id="roboticsProgrammerAbout" class="txt-highlight"
                             >Robotics Programmer.</a
                         >
                         <br /><br />
@@ -67,12 +100,12 @@
                         projects I am working on are stored using GIT commands.
                         At this time I am learning React and Typescript. Let
                         check some examples of
-                        <a id="myWorkAbout" href="#" class="txt-highlight">my work</a>. <br />I
+                        <a id="myWorkAbout" class="txt-highlight">my work</a>. <br />I
                         am determined and 100% oriented on this kind of job. Let
                         give me a chance and I promise I will not let you down.
                         <br /><br />
-                        If you are sill not bored you can take a short look at
-                        <a href="#" class="txt-highlight">my hobbies</a>.
+                        If you are still not bored you can take a short look at
+                        <a class="txt-highlight">my hobbies</a>.
                     </p>
                 </div>
 
@@ -80,42 +113,42 @@
                 <div class="langs">
                     <a href="#">
                         <img
-                            src="images/html5.svg"
+                            src="images/langs-html5.svg"
                             alt=""
                             class="langs-img"
                         /><span>HTML</span></a
                     >
                     <a href="#"
-                        ><img src="images/css3.svg" alt="" class="langs-img" />
+                        ><img src="images/langs-css3.svg" alt="" class="langs-img" />
                         CSS</a
                     >
                     <a href="#"
                         ><img
-                            src="images/square-js.svg"
+                            src="images/langs-square-js.svg"
                             alt=""
                             class="langs-img"
                         />
                         JAVASCRIPT</a
                     >
                     <a href="#"
-                        ><img src="images/sass.svg" alt="" class="langs-img" />
+                        ><img src="images/langs-sass.svg" alt="" class="langs-img" />
                         SCSS</a
                     >
                     <a href="#"
                         ><img
-                            src="images/node-js.svg"
+                            src="images/langs-node-js.svg"
                             alt=""
                             class="langs-img"
                         />
                         NODE.JS</a
                     >
                     <a href="#"
-                        ><img src="images/react.svg" alt="" class="langs-img" />
+                        ><img src="images/langs-react.svg" alt="" class="langs-img" />
                         REACT</a
                     >
                     <a href="#"
                         ><img
-                            src="images/code-branch-solid.svg"
+                            src="images/langs-code-branch-solid.svg"
                             alt=""
                             class="langs-img"
                         />
@@ -123,7 +156,7 @@
                     >
                     <a href="#"
                         ><img
-                            src="images/bootstrap.svg"
+                            src="images/langs-bootstrap.svg"
                             alt=""
                             class="langs-img"
                         />
@@ -131,8 +164,8 @@
                     >
                 </div>
                 <!-- popUp -->
-                <div id="popUp">
-                    <div id="closePopup"></div>
+                <div class="popUp">
+                    <div id="closePopUp"></div>
                     <!-- My JOB - Robot Programmer -->
                     <div id="myJob">
                         <div id="pictures">
@@ -146,14 +179,41 @@
                             />
                         </div>
                         <p>
-                            We implements automation and robotics projects for the big automotive brands such as Audi, BMW, VW, Tesla etc.
-                            The scope of work was from project and planning, throuht offline simulation till build up the whole line on factory plant what is very big and complicated process with many difficult steps which you have to face to. </br></br>
-                            At the beginning of my Automotive adventure I had a simple tasks like fulfilling documentations or checking simple robots movements. With increasing experience I became a project leader and managing a whole project. </br></br>
-                            Why do I want to change it? Because I fill that I will not develop myself anymore in this branch of industry. I am looking for new challenges and I want to improve myself. 
+                            We implement automation and robotics projects for the big automotive brands such as Audi, BMW, VW, Tesla etc.
+                            The scope of work is from project and planning, throuht offline simulation which is virtual building whole production lines, till build up the whole line in reality on factory plant. It is very big, time consuming and complicated process with many difficult steps which we always have to face to. </br></br>
+                            At the beginning of my Automotive adventure I had a simple tasks like fulfilling documentations or checking simple robots movements. With increasing experience I became a project leader and manage a whole project scope. </br></br>
+                            Why do I want to change it? Because I fill that I will not develop myself anymore in this branch of industry. I am looking for new opportunities and challenges.
 
                         </p>
                     </div>
                     <!-- My JOB - Robot Programmer -->
+                    <!-- my hobbies -->
+                    <!-- <div id="myHobbies">
+                        <div id="pictures">
+                            <img
+                                src="images/my-job-1.jpg"
+                                alt="my-job-first-picture"
+                            />
+                            <img
+                                src="images/my-job-2.jpg"
+                                alt="my-job-second-picture"
+                            />
+                        </div>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam sapiente explicabo doloremque porro, odio iusto inventore voluptatibus ipsam exercitationem! Qui ea mollitia accusantium sint quod non maiores tempore rem, consequuntur vitae asperiores quam accusamus, commodi aperiam, ipsa porro fugit cupiditate dolorum quos totam consequatur quisquam neque. Iusto, non laudantium?
+                        </p>
+
+                    </div> -->
+
+                    <!-- My Work popup -->
+                    <div id="learnMoreCyberPopup" class="popup">
+                        <div class="pictures">
+                            <img src="" alt="">
+                        </div>
+                        <div class="description">
+                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, eveniet?</p>
+                        </div>
+                    </div>
                 </div>
             </section>
 
@@ -172,7 +232,7 @@
                                 target="_blank"
                                 ><button class="btn">Play</button></a
                             >
-                            <button class="btn">Learn more</button>
+                            <button id="learnMoreCyber" class="btn learnMore">Learn more</button>
                         </div>
                         <p class="project-desc">CYBER GAME</p>
                     </div>
@@ -188,7 +248,7 @@
                                 target="_blank"
                                 ><button class="btn">Open</button></a
                             >
-                            <button class="btn">Learn more</button>
+                            <button id="learnMoreOrganiser" class="btn learnMore">Learn more</button>
                         </div>
                         <p class="project-desc">Pocket organiser</p>
                     </div>
@@ -204,7 +264,7 @@
                                 target="_blank"
                                 ><button class="btn">Play</button></a
                             >
-                            <button class="btn">Learn more</button>
+                            <button id="learnMoreSnake" class="btn learnMore">Learn more</button>
                         </div>
                         <p class="project-desc">SNAKE GAME</p>
                     </div>
@@ -220,7 +280,7 @@
                                 target="_blank"
                                 ><button class="btn">Open</button></a
                             >
-                            <button class="btn">Learn more</button>
+                            <button id="learnMoreWeather" class="btn learnMore">Learn more</button>
                         </div>
                         <p class="project-desc">Weather app (API)</p>
                     </div>
@@ -228,7 +288,7 @@
                         <img src="" alt="" class="project-img" />
                         <div class="project-buttons">
                             <button class="btn">Open</button>
-                            <button class="btn">Learn more</button>
+                            <button class="btn learnmore">Learn more</button>
                         </div>
                         <p class="project-desc">Lorem ipsum dolor sit amet.</p>
                     </div>
@@ -327,7 +387,7 @@
                     ><img src="images/linkedin.svg" alt="" class="social-img"
                 /></a>
                 <a href="https://github.com/rhalupczok" target="_blank"
-                    ><img src="images/github.svg" alt="" class="social-img"
+                    ><img src="images/langs-github.svg" alt="" class="social-img"
                 /></a>
             </section>
             <p>Radoslaw Halupczok <span>&copy 2023</span></p>

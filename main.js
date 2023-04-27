@@ -1,6 +1,7 @@
 window.onload = function () {
     header.init();
     menu.init();
+    popup.init();
 };
 
 class Header {
@@ -88,10 +89,26 @@ class Menu {
 }
 
 class Popup {
-    popUp = document.getElementById("popUp");
     myJob = document.getElementById("myJob");
-    closePopup = document.getElementById("closePopup");
+    closePopUp = document.getElementById("closePopUp");
+    roboticsProgrammer = document.getElementById("roboticsProgrammerAbout");
+    popups = Array.from(document.querySelectorAll(".popup"));
+    // learnMoreBtns = Array.from(document.querySelectorAll(".learnMore")).foreach(
+    //     (btn) => {
+    //         btn.addEventListener("click", learnMorePopup(e));
+    //     }
+    // );
 
+    init() {
+        this.closePopUps();
+        this.roboticsProgrammer.addEventListener("click", (e) => {
+            this.closePopUp.style.display = "block";
+            this.myJob.style.display = "flex";
+        });
+        this.closePopUp.addEventListener("click", () => {
+            this.closePopUps();
+        });
+    }
     myWork = document
         .getElementById("myWorkAbout")
         .addEventListener("click", (e) => {
@@ -99,21 +116,10 @@ class Popup {
             menu.scrollTo(e);
         });
 
-    closePopup2 = document
-        .getElementById("closePopup")
-        .addEventListener("click", () => {
-            this.popUp.style.display = "none";
-            this.closePopup.style.display = "none";
-        });
-
-    roboticsProgrammer = document
-        .getElementById("roboticsProgrammerAbout")
-        .addEventListener("click", (e) => {
-            e.preventDefault();
-            this.popUp.style.display = "block";
-            this.myJob.style.display = "flex";
-            this.closePopup.style.display = "block";
-        });
+    closePopUps() {
+        this.closePopUp.style.display = "none";
+        this.myJob.style.display = "none";
+    }
 }
 
 const menu = new Menu();
