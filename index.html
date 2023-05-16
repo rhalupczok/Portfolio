@@ -32,6 +32,7 @@
             </section>
         </header>
         <main class="main">
+            <div id="close-popup-bg" class="hide-popup"></div>
             <div class="nav-border"><a id="menuBtn">MENU</a></div>
             <nav class="nav-menu">
                 <a class="homeBtn">HOME</a>
@@ -49,32 +50,41 @@
                             src="images/characters-reiable.png"
                             alt=""
                             class="characters-img"
-                        /><p>REIABLE</p></div
-                    >
-                    <div href="#"
-                        ><img src="images/characters-organised.png" alt="" class="characters-img" />
-                        <p>ORGANISED</p></div
-                    >
-                    <div href="#"
-                        ><img
+                        />
+                        <p>REIABLE</p>
+                    </div>
+                    <div href="#">
+                        <img
+                            src="images/characters-organised.png"
+                            alt=""
+                            class="characters-img"
+                        />
+                        <p>ORGANISED</p>
+                    </div>
+                    <div href="#">
+                        <img
                             src="images/characters-motivated.png"
                             alt=""
                             class="characters-img"
                         />
-                        <p>MOTIVATED</p></div
-                    >
-                    <div href="#"
-                        ><img src="images/characters-creative.png" alt="" class="characters-img" />
-                        <p>CREATIVE</p></div
-                    >
-                    <div href="#"
-                        ><img
+                        <p>MOTIVATED</p>
+                    </div>
+                    <div href="#">
+                        <img
+                            src="images/characters-creative.png"
+                            alt=""
+                            class="characters-img"
+                        />
+                        <p>CREATIVE</p>
+                    </div>
+                    <div href="#">
+                        <img
                             src="images/characters-self-improvement.png"
                             alt=""
                             class="characters-img"
                         />
-                        <p>SELF - IMPROVEMENT</p></div
-                    >
+                        <p>SELF - IMPROVEMENT</p>
+                    </div>
                 </div>
                 <div class="description">
                     <img
@@ -87,7 +97,9 @@
                         Silesian Voivodeship in Poland. I graduated from
                         Silesian University of technology and after that for 7
                         years I have been working as
-                        <a id="roboticsProgrammerAbout" class="txt-highlight"
+                        <a
+                            id="my-job-popup-btn"
+                            class="txt-highlight open-popup-btn"
                             >Robotics Programmer.</a
                         >
                         <br /><br />
@@ -100,29 +112,102 @@
                         projects I am working on are stored using GIT commands.
                         At this time I am learning React and Typescript. Let
                         check some examples of
-                        <a id="myWorkAbout" class="txt-highlight">my work</a>. <br />I
-                        am determined and 100% oriented on this kind of job. Let
-                        give me a chance and I promise I will not let you down.
-                        <br /><br />
+                        <a id="my-work-btn" class="txt-highlight scroll-to"
+                            >my work</a
+                        >. <br />I am determined and 100% oriented on this kind
+                        of job. Let give me a chance and I promise I will not
+                        let you down. <br /><br />
                         If you are still not bored you can take a short look at
-                        <a class="txt-highlight">my hobbies</a>.
+                        <a
+                            id="my-hobbies-popup-btn"
+                            class="txt-highlight open-popup-btn"
+                            >my hobbies</a
+                        >.
                     </p>
                 </div>
+                <!-- popUp -->
+                <!-- My JOB - Robot Programmer -->
+                <div id="my-job-popup">
+                    <button
+                        id="popup-arrow-left"
+                        aria-label="previous"
+                        class="popup-arrow hide-popup"
+                    >
+                        <
+                    </button>
+                    <button
+                        id="popup-arrow-right"
+                        aria-label="Next"
+                        class="popup-arrow hide-popup"
+                    >
+                        >
+                    </button>
+                    <div class="popup-pictures hide-popup">
+                        <img id="popup-img" src="" alt="popup-picture" />
+                        <!-- <img
+                                src="images/my-job-2.jpg"
+                                alt="my-job-second-picture"
+                            /> -->
+                    </div>
+                    <div class="popup-outer hide-popup">
+                        <div class="popup-inner">
+                            <!-- <p>
+                                    We implement automation and robotics projects for the big automotive    brands such as Audi, BMW, VW, Tesla etc.
+                                    The scope of work is from project and planning, throuht offline     simulation which is virtual building whole production lines, till build     up the whole line in reality on factory plant. It is very big, time     consuming and complicated process with many difficult steps which we    always have to face to. </br></br>
+                                    At the beginning of my Automotive adventure I had a simple tasks like   fulfilling documentations or checking simple robots movements. With   increasing experience I became a project leader and manage a whole    project scope. </br></br>
+                                    Why do I want to change it? Because I fill that I will not develop myself   anymore in this branch of industry. I am looking for new opportunities    and challenges.
+                                
+                                </p> -->
+                        </div>
+                    </div>
+                </div>
+                <!-- /My JOB - Robot Programmer -->
+                <!-- my hobbies -->
+                <div id="my-hobbies-popup" class="popup-outer hide-popup">
+                    <div class="popup-inner">
+                        <div class="popup-pictures">
+                            <img
+                                src="images/my-job-1.jpg"
+                                alt="my-job-first-picture"
+                            />
+                            <img
+                                src="images/my-job-2.jpg"
+                                alt="my-job-second-picture"
+                            />
+                        </div>
+                        <p>
+                            Lorem, ipsum dolor sit amet consectetur adipisicing
+                            elit. Cumque veniam sapiente explicabo doloremque
+                            porro, odio iusto inventore voluptatibus ipsam
+                            exercitationem! Qui ea mollitia accusantium sint
+                            quod non maiores tempore rem, consequuntur vitae
+                            asperiores quam accusamus, commodi aperiam, ipsa
+                            porro fugit cupiditate dolorum quos totam
+                            consequatur quisquam neque. Iusto, non laudantium?
+                        </p>
+                    </div>
+                </div>
+                <!-- /my hobbies -->
+                <!-- /popUp -->
 
                 <h2>Technologies I learned</h2>
                 <div class="langs">
-                    <a href="#">
+                    <a>
                         <img
                             src="images/langs-html5.svg"
                             alt=""
                             class="langs-img"
                         /><span>HTML</span></a
                     >
-                    <a href="#"
-                        ><img src="images/langs-css3.svg" alt="" class="langs-img" />
+                    <a
+                        ><img
+                            src="images/langs-css3.svg"
+                            alt=""
+                            class="langs-img"
+                        />
                         CSS</a
                     >
-                    <a href="#"
+                    <a
                         ><img
                             src="images/langs-square-js.svg"
                             alt=""
@@ -130,11 +215,15 @@
                         />
                         JAVASCRIPT</a
                     >
-                    <a href="#"
-                        ><img src="images/langs-sass.svg" alt="" class="langs-img" />
+                    <a
+                        ><img
+                            src="images/langs-sass.svg"
+                            alt=""
+                            class="langs-img"
+                        />
                         SCSS</a
                     >
-                    <a href="#"
+                    <a
                         ><img
                             src="images/langs-node-js.svg"
                             alt=""
@@ -142,11 +231,15 @@
                         />
                         NODE.JS</a
                     >
-                    <a href="#"
-                        ><img src="images/langs-react.svg" alt="" class="langs-img" />
+                    <a
+                        ><img
+                            src="images/langs-react.svg"
+                            alt=""
+                            class="langs-img"
+                        />
                         REACT</a
                     >
-                    <a href="#"
+                    <a
                         ><img
                             src="images/langs-code-branch-solid.svg"
                             alt=""
@@ -154,7 +247,7 @@
                         />
                         GIT</a
                     >
-                    <a href="#"
+                    <a
                         ><img
                             src="images/langs-bootstrap.svg"
                             alt=""
@@ -163,58 +256,6 @@
                         BOOTSTRAP</a
                     >
                 </div>
-                <!-- popUp -->
-                <div class="popUp">
-                    <div id="closePopUp"></div>
-                    <!-- My JOB - Robot Programmer -->
-                    <div id="myJob">
-                        <div id="pictures">
-                            <img
-                                src="images/my-job-1.jpg"
-                                alt="my-job-first-picture"
-                            />
-                            <img
-                                src="images/my-job-2.jpg"
-                                alt="my-job-second-picture"
-                            />
-                        </div>
-                        <p>
-                            We implement automation and robotics projects for the big automotive brands such as Audi, BMW, VW, Tesla etc.
-                            The scope of work is from project and planning, throuht offline simulation which is virtual building whole production lines, till build up the whole line in reality on factory plant. It is very big, time consuming and complicated process with many difficult steps which we always have to face to. </br></br>
-                            At the beginning of my Automotive adventure I had a simple tasks like fulfilling documentations or checking simple robots movements. With increasing experience I became a project leader and manage a whole project scope. </br></br>
-                            Why do I want to change it? Because I fill that I will not develop myself anymore in this branch of industry. I am looking for new opportunities and challenges.
-
-                        </p>
-                    </div>
-                    <!-- My JOB - Robot Programmer -->
-                    <!-- my hobbies -->
-                    <!-- <div id="myHobbies">
-                        <div id="pictures">
-                            <img
-                                src="images/my-job-1.jpg"
-                                alt="my-job-first-picture"
-                            />
-                            <img
-                                src="images/my-job-2.jpg"
-                                alt="my-job-second-picture"
-                            />
-                        </div>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing elit. Cumque veniam sapiente explicabo doloremque porro, odio iusto inventore voluptatibus ipsam exercitationem! Qui ea mollitia accusantium sint quod non maiores tempore rem, consequuntur vitae asperiores quam accusamus, commodi aperiam, ipsa porro fugit cupiditate dolorum quos totam consequatur quisquam neque. Iusto, non laudantium?
-                        </p>
-
-                    </div> -->
-
-                    <!-- My Work popup -->
-                    <div id="learnMoreCyberPopup" class="popup">
-                        <div class="pictures">
-                            <img src="" alt="">
-                        </div>
-                        <div class="description">
-                            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Delectus, eveniet?</p>
-                        </div>
-                    </div>
-                </div>
             </section>
 
             <section id="my-work">
@@ -222,7 +263,7 @@
                 <div id="projects-container">
                     <div id="project1" class="projects">
                         <img
-                            src="images/cyber_game.jpg"
+                            src="images/my-work-cyber_game.jpg"
                             alt="app picture"
                             class="project-img"
                         />
@@ -232,13 +273,18 @@
                                 target="_blank"
                                 ><button class="btn">Play</button></a
                             >
-                            <button id="learnMoreCyber" class="btn learnMore">Learn more</button>
+                            <button
+                                id="cyber-game-popup-btn"
+                                class="btn open-popup-btn"
+                            >
+                                Learn more
+                            </button>
                         </div>
                         <p class="project-desc">CYBER GAME</p>
                     </div>
                     <div id="project1" class="projects">
                         <img
-                            src="images/pocket_organiser.png"
+                            src="images/my-work-pocket_organiser.png"
                             alt="app picture"
                             class="project-img"
                         />
@@ -248,13 +294,18 @@
                                 target="_blank"
                                 ><button class="btn">Open</button></a
                             >
-                            <button id="learnMoreOrganiser" class="btn learnMore">Learn more</button>
+                            <button
+                                id="organiser-popup-btn"
+                                class="btn open-popup-btn"
+                            >
+                                Learn more
+                            </button>
                         </div>
                         <p class="project-desc">Pocket organiser</p>
                     </div>
                     <div id="project1" class="projects">
                         <img
-                            src="images/snake_game.png"
+                            src="images/my-work-snake_game.png"
                             alt="app picture"
                             class="project-img"
                         />
@@ -264,13 +315,18 @@
                                 target="_blank"
                                 ><button class="btn">Play</button></a
                             >
-                            <button id="learnMoreSnake" class="btn learnMore">Learn more</button>
+                            <button
+                                id="snake-popup-btn"
+                                class="btn open-popup-btn"
+                            >
+                                Learn more
+                            </button>
                         </div>
                         <p class="project-desc">SNAKE GAME</p>
                     </div>
                     <div id="project1" class="projects">
                         <img
-                            src="images/weather_app.png"
+                            src="images/my-work-weather_app.png"
                             alt="app picture"
                             class="project-img"
                         />
@@ -280,27 +336,134 @@
                                 target="_blank"
                                 ><button class="btn">Open</button></a
                             >
-                            <button id="learnMoreWeather" class="btn learnMore">Learn more</button>
+                            <button
+                                id="weather-popup-btn"
+                                class="btn open-popup-btn"
+                            >
+                                Learn more
+                            </button>
                         </div>
                         <p class="project-desc">Weather app (API)</p>
                     </div>
                     <div id="project1" class="projects">
-                        <img src="" alt="" class="project-img" />
+                        <img
+                            src="images/my-work-portfolio.png"
+                            alt="app picture"
+                            class="project-img"
+                        />
                         <div class="project-buttons">
-                            <button class="btn">Open</button>
-                            <button class="btn learnmore">Learn more</button>
+                            <button
+                                id="portfolio-popup-btn"
+                                class="btn open-popup-btn"
+                            >
+                                Learn more
+                            </button>
                         </div>
-                        <p class="project-desc">Lorem ipsum dolor sit amet.</p>
+                        <p class="project-desc">This portfolio page</p>
                     </div>
                     <div id="project1" class="projects">
-                        <img src="" alt="" class="project-img" />
+                        <img
+                            src="images/my-work-others.png"
+                            alt="app picture"
+                            class="project-img"
+                        />
                         <div class="project-buttons">
-                            <button class="btn">Open</button>
-                            <button class="btn">Learn more</button>
+                            <button
+                                id="other-projects-popup-btn"
+                                class="btn open-popup-btn"
+                            >
+                                Open
+                            </button>
                         </div>
-                        <p class="project-desc">Lorem ipsum dolor sit amet.</p>
+                        <p class="project-desc">
+                            Small projects created during learning
+                        </p>
                     </div>
                 </div>
+                <!-- My Work popup -->
+
+                <!-- zrobić przełączanie na strzałkach i ostylowac pierwszą strone wyglądu
+                w JS utworzyc obiekt i logike przałączającą zdjęcia i opis -->
+
+                <div id="cyber-game-popup" class="popup-outer hide-popup">
+                    <div class="popup-inner">
+                        <div class="popup-pictures">
+                            <img src="" alt="" />
+                        </div>
+                        <p>
+                            cyber-game-popup Lorem ipsum dolor sit amet
+                            consectetur adipisielit. Delectus, eveniet?
+                        </p>
+                    </div>
+                </div>
+
+                <div id="snake-popup" class="popup-outer hide-popup">
+                    <div class="popup-inner">
+                        <div class="pictures">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="description">
+                            <p>
+                                snake-popup Lorem ipsum dolor sit amet
+                                consectetur adipisielit. Delectus, eveniet?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="organiser-popup" class="popup-outer hide-popup">
+                    <div class="popup-inner">
+                        <div class="pictures">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="description">
+                            <p>
+                                organiser-popup Lorem ipsum dolor sit amet
+                                consectetur adipisielit. Delectus, eveniet?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="weather-popup" class="popup-outer hide-popup">
+                    <div class="popup-inner">
+                        <div class="pictures">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="description">
+                            <p>
+                                weather-popup Lorem ipsum dolor sit amet
+                                consectetur adipisielit. Delectus, eveniet?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="portfolio-popup" class="popup-outer hide-popup">
+                    <div class="popup-inner">
+                        <div class="pictures">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="description">
+                            <p>
+                                portfolio-popup Lorem ipsum dolor sit amet
+                                consectetur adipisielit. Delectus, eveniet?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+                <div id="others-projects-popup" class="popup-outer hide-popup">
+                    <div class="popup-inner">
+                        <div class="pictures">
+                            <img src="" alt="" />
+                        </div>
+                        <div class="description">
+                            <p>
+                                others-projects-popup Lorem ipsum dolor sit amet
+                                consectetur adipisielit. Delectus, eveniet?
+                            </p>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- /popup -->
             </section>
 
             <section id="contact">
@@ -379,15 +542,24 @@
         <footer id="footer" class="hidden">
             <section class="social">
                 <a href="mailto:r.halupczok@gmail.com"
-                    ><img src="images/envelope.svg" alt="" class="social-img"
+                    ><img
+                        src="images/footer-envelope.svg"
+                        alt=""
+                        class="social-img"
                 /></a>
                 <a
                     href="https://www.linkedin.com/in/rados%C5%82aw-halupczok-6b6a75104/"
                     target="_blank"
-                    ><img src="images/linkedin.svg" alt="" class="social-img"
+                    ><img
+                        src="images/footer-linkedin.svg"
+                        alt=""
+                        class="social-img"
                 /></a>
                 <a href="https://github.com/rhalupczok" target="_blank"
-                    ><img src="images/langs-github.svg" alt="" class="social-img"
+                    ><img
+                        src="images/langs-github.svg"
+                        alt=""
+                        class="social-img"
                 /></a>
             </section>
             <p>Radoslaw Halupczok <span>&copy 2023</span></p>

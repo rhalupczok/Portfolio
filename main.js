@@ -44,6 +44,7 @@ class Menu {
     menuBtn = null;
     aboutMe = null;
     myWork = null;
+    scroolToBtns = null;
     contact = null;
 
     init() {
@@ -52,8 +53,7 @@ class Menu {
         this.aboutMe = document.getElementById("about");
         this.myWork = document.getElementById("my-work");
         this.contact = document.getElementById("contact");
-
-        this.navMenu.addEventListener("click", this.scrollTo);
+        this.navMenu.addEventListener("click", (e) => this.scrollTo(e));
         menuBtn.addEventListener("click", this.openMenu);
     }
 
@@ -66,7 +66,7 @@ class Menu {
     };
 
     scrollTo = (e) => {
-        this.openMenu();
+        this.navMenu.className = "nav-menu";
         if (e.target.id === "about-me-nav")
             this.aboutMe.scrollIntoView({
                 behavior: "smooth",
@@ -89,37 +89,250 @@ class Menu {
 }
 
 class Popup {
-    myJob = document.getElementById("myJob");
-    closePopUp = document.getElementById("closePopUp");
-    roboticsProgrammer = document.getElementById("roboticsProgrammerAbout");
-    popups = Array.from(document.querySelectorAll(".popup"));
-    // learnMoreBtns = Array.from(document.querySelectorAll(".learnMore")).foreach(
-    //     (btn) => {
-    //         btn.addEventListener("click", learnMorePopup(e));
-    //     }
-    // );
+    closePopupBG = document.getElementById("close-popup-bg");
+    myJob = document.getElementById("my-job-popup");
+    myHobbies = document.getElementById("my-hobbies-popup");
+    cyberGame = document.getElementById("cyber-game-popup");
+    snake = document.getElementById("snake-popup");
+    organiser = document.getElementById("organiser-popup");
+    weather = document.getElementById("weather-popup");
+    portfolio = document.getElementById("portfolio-popup");
+    otherProjects = document.getElementById("other-projects-popup");
+
+    currentPopup = this.underConstruction;
+    currentPopupNum = 0;
+
+    popupPictures = document.querySelector(".popup-pictures");
+    popupIMG = document.getElementById("popup-img");
+    popupOuter = document.querySelector(".popup-outer");
+    popupInner = document.querySelector(".popup-inner");
+    popupArrowLeft = document.getElementById("popup-arrow-left");
+    popupArrowRight = document.getElementById("popup-arrow-right");
+
+    popupBtns = Array.from(document.querySelectorAll(".open-popup-btn"));
 
     init() {
-        this.closePopUps();
-        this.roboticsProgrammer.addEventListener("click", (e) => {
-            this.closePopUp.style.display = "block";
-            this.myJob.style.display = "flex";
-        });
-        this.closePopUp.addEventListener("click", () => {
-            this.closePopUps();
-        });
+        this.closePopups();
+        document.addEventListener("keydown", (e) => this.keyDown(e));
+        this.closePopupBG.addEventListener("click", this.closePopups);
+        this.popupBtns.forEach((btn) =>
+            btn.addEventListener("click", (e) => this.openPopup(e))
+        );
+        this.popupArrowLeft.addEventListener("click", this.previousPopup);
+        this.popupArrowRight.addEventListener("click", this.nextPopup);
     }
-    myWork = document
-        .getElementById("myWorkAbout")
-        .addEventListener("click", (e) => {
-            e.preventDefault();
-            menu.scrollTo(e);
-        });
 
-    closePopUps() {
-        this.closePopUp.style.display = "none";
-        this.myJob.style.display = "none";
+    previousPopup = () => {
+        if (this.currentPopupNum > 0) {
+            this.currentPopupNum--;
+            this.popupContent();
+        }
+    };
+
+    nextPopup = () => {
+        if (this.currentPopupNum < Object.keys(this.currentPopup).length - 1) {
+            this.currentPopupNum++;
+            this.popupContent();
+        }
+    };
+
+    popupContent = () => {
+        console.log(this.currentPopupNum);
+        this.popupIMG.src = this.currentPopup[this.currentPopupNum].img;
+        this.popupInner.innerHTML =
+            this.currentPopup[this.currentPopupNum].text;
+    };
+
+    openPopup(e) {
+        this.currentPopup = this.underConstruction;
+        this.currentPopupNum = 0;
+        this.closePopupBG.classList.add("show-popup");
+        this.popupPictures.classList.add("show-popup");
+        this.popupOuter.classList.add("show-popup");
+        switch (e.target.id) {
+            case "my-job-popup-btn":
+                this.currentPopup = this.myJob;
+                break;
+            //     case "my-hobbies-popup-btn":
+            //         this.myHobbies.classList.add("show-popup");
+            //         break;
+            case "cyber-game-popup-btn":
+                this.currentPopup = this.cyberGame;
+                break;
+            case "snake-popup-btn":
+                this.currentPopup = this.snake;
+                break;
+            case "organiser-popup-btn":
+                this.currentPopup = this.pocketOrganiser;
+                break;
+            //     case "weather-popup-btn":
+            //         this.weather.classList.add("show-popup");
+            //         break;
+            //     case "portfolio-popup-btn":
+            //         this.portfolio.classList.add("show-popup");
+            //         break;
+            //     case "other-projects-popup-btn":
+            //         this.otherProjects.classList.add("show-popup");
+            //         break;
+        }
+        if (this.currentPopup[1]) {
+            this.popupArrowLeft.classList.add("show-popup");
+            this.popupArrowRight.classList.add("show-popup");
+        }
+        this.popupContent();
     }
+
+    closePopups() {
+        document.querySelectorAll(".show-popup").forEach((el) => {
+            el.classList.remove("show-popup");
+        });
+        if (innerWidth <= 768) menu.navMenu.className = "nav-menu";
+    }
+    keyDown(e) {
+        if (e.keyCode === 27) {
+            this.closePopups();
+            if (innerWidth <= 768) menu.navMenu.className = "nav-menu";
+        }
+    }
+
+    underConstruction = {
+        0: {
+            img: "images/popup-in-build-1.png",
+            text: `<p>
+                    <br>
+                    Sorry, content of this popup has been not finished yet.
+                    <br><br>
+                    </p>`,
+        },
+    };
+    myJob = {
+        0: {
+            img: "images/my-job-1.jpg",
+            text: `<p>
+                        We implement automation and robotics projects for the big automotive brands such as Audi, BMW, VW, Tesla etc.
+                        The scope of work is from project and planning, throuht offline simulation which is virtual building whole production lines, till build up the whole line in reality on factory plant. It is very big, time consuming and complicated process with many difficult steps which we always have to face to. </br></br>
+                        At the beginning of my Automotive adventure I had a simple tasks like fulfilling documentations or checking simple robots movements. With increasing experience I became a project leader   and   manage a whole project scope. </br></br>
+                        Why do I want to change it? Because I fill that I will not develop myself anymore in this branch of industry. I am looking for new opportunities and challenges.
+                    </p>`,
+        },
+    };
+
+    cyberGame = {
+        0: {
+            img: "images/popup-cyber-game-0.jpg",
+            text: `<p>
+            The game was created inspired by standard Air Hockey game which you can find in many touristic places. <br><br>
+            Code rep: 
+            <a
+            href="https://github.com/rhalupczok/Cyber_Game"
+            target="_blank"
+            class="txt-highlight"
+            ><span>GITHUB REPO</span></a>  
+        </p>`,
+        },
+        1: {
+            img: "images/popup-cyber-game-1.png",
+            text: `<p>
+            Control player by mouse or touchpad on mobile devices            
+        </p>`,
+        },
+        2: {
+            img: "images/popup-cyber-game-2.png",
+            text: `<p>
+            The phisics of hitting the ball was created based on real phisics laws, taken into acount all movement vectors and masses of ball/players.<br>
+            <a
+            href="https://github.com/rhalupczok/Cyber_Game/blob/gh-pages/main.js#L344"
+            target="_blank"
+            class="txt-highlight"
+            ><span>Physics JS Code</span></a>               
+        </p>`,
+        },
+        3: {
+            img: "images/popup-cyber-game-3.png",
+            text: `<p>
+            AI Player logic try to save the goal and score<br>
+            <a
+            href="https://github.com/rhalupczok/Cyber_Game/blob/gh-pages/main.js#L400"
+            target="_blank"
+            class="txt-highlight"
+            ><span>AI Player JS Code</span></a>                     
+        </p>`,
+        },
+    };
+
+    pocketOrganiser = {
+        0: {
+            img: "images/popup-pocket-organiser-0.png",
+            text: `<p>
+            Simple app with task or shopping list <br><br>
+            Code rep: 
+            <a
+            href="https://github.com/rhalupczok/pocket_organiser"
+            target="_blank"
+            class="txt-highlight"
+            ><span>GITHUB REPO</span></a>            
+        </p>`,
+        },
+        1: {
+            img: "images/popup-pocket-organiser-1.png",
+            text: `<p>
+            Entry the task or item on prepared form. <br><br>You can set deadline for tasks and amount or shop for items.
+        </p>`,
+        },
+        2: {
+            img: "images/popup-pocket-organiser-2.png",
+            text: `<p>
+            You can dynamically switch the language by click on the flag in left bottom corner.
+        </p>`,
+        },
+        3: {
+            img: "images/popup-pocket-organiser-3.png",
+            text: `<p>
+            You can filter the item list by the shop name. <br><br> The filter window is moveable.
+        </p>`,
+        },
+        4: {
+            img: "images/popup-pocket-organiser-4.png",
+            text: `<p>
+            The data are kept in local storage.<br>
+            <a
+            href="https://github.com/rhalupczok/pocket_organiser/blob/gh-pages/main.js#LL421C1-L421C1"
+            target="_blank"
+            class="txt-highlight"
+            ><span>Local storage JS Code</span></a>    
+        </p>`,
+        },
+    };
+
+    snake = {
+        0: {
+            img: "images/popup-snake-0.png",
+            text: `<p>
+                The game was created inspired by memories of iconic phone Nokia 3310.<br><br>
+                Code rep: 
+                <a
+                href="https://github.com/rhalupczok/Snake"
+                target="_blank"
+                class="txt-highlight"
+                ><span>GITHUB REPO</span></a>            
+            </p>`,
+        },
+        1: {
+            img: "images/popup-snake-1.png",
+            text: `<p>
+                Level define the Snake speed and amount of points for each food.
+            </p>`,
+        },
+        2: {
+            img: "images/popup-snake-2.png",
+            text: `<p>
+                3 way of control:<br>
+                - Keyboard arrows<br>
+                - Wirtual keyboard on screen<br>
+                - By touching the game area - Snake will follow the touch<br>
+            </p>`,
+        },
+    };
 }
 
 const menu = new Menu();
