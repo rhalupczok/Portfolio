@@ -165,12 +165,12 @@ class Popup {
             case "organiser-popup-btn":
                 this.currentPopup = this.pocketOrganiser;
                 break;
-            //     case "weather-popup-btn":
-            //         this.weather.classList.add("show-popup");
-            //         break;
-            //     case "portfolio-popup-btn":
-            //         this.portfolio.classList.add("show-popup");
-            //         break;
+            case "weather-popup-btn":
+                this.currentPopup = this.weather;
+                break;
+            case "portfolio-popup-btn":
+                this.currentPopup = this.portfolio;
+                break;
             //     case "other-projects-popup-btn":
             //         this.otherProjects.classList.add("show-popup");
             //         break;
@@ -308,7 +308,8 @@ class Popup {
         0: {
             img: "images/popup-snake-0.png",
             text: `<p>
-                The game was created inspired by memories of iconic phone Nokia 3310.<br><br>
+                The game was created inspired by memories of iconic phone Nokia 3310.<br></p>
+                <p>
                 Code rep: 
                 <a
                 href="https://github.com/rhalupczok/Snake"
@@ -330,6 +331,52 @@ class Popup {
                 - Keyboard arrows<br>
                 - Wirtual keyboard on screen<br>
                 - By touching the game area - Snake will follow the touch<br>
+            </p>`,
+        },
+    };
+
+    weather = {
+        0: {
+            img: "images/popup-weather-0.png",
+            text: `<p>
+                Simple weather application based on data delivered in API format<br></p>
+                <p>
+                Code rep: 
+                <a
+                href="https://github.com/rhalupczok/WeatherApp"
+                target="_blank"
+                class="txt-highlight"
+                ><span>GITHUB REPO</span></a>            
+            </p>`,
+        },
+        1: {
+            img: "images/popup-weather-1.png",
+            text: `<p>
+            You can check the weather by your current location or write the city name. <br>
+            Just click in any day on the bottom to check the forecast weather details.
+            </p>`,
+        },
+        2: {
+            img: "images/popup-weather-2.png",
+            text: `<p>
+            Just click on the city name to open the map in new tab.
+            </p>`,
+        },
+    };
+    portfolio = {
+        0: {
+            img: "images/my-work-portfolio.png",
+            text: `<p>
+                The portfolio page was created using SCSS superset </p>
+                <p>
+                For more details you can look at github repositorium.</p>
+                <p>
+                Code rep: 
+                <a
+                href="https://github.com/rhalupczok/Portfolio"
+                target="_blank"
+                class="txt-highlight"
+                ><span>GITHUB REPO</span></a>            
             </p>`,
         },
     };

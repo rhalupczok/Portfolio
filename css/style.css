@@ -429,7 +429,7 @@ main {
 }
 
 .description p {
-  font-size: 0.8rem;
+  font-size: 1rem;
   padding: 1rem;
   max-width: 1200px;
 }
@@ -478,7 +478,7 @@ main .langs {
   margin: 1rem auto;
   display: grid;
   grid-template-columns: repeat(8, 100px);
-  gap: 0.5rem;
+  gap: 1rem;
   justify-content: center;
   max-width: 1200px;
 }
@@ -537,7 +537,7 @@ main .langs img {
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
-  gap: 1rem;
+  gap: 2rem;
   margin: 1rem;
   margin-top: 1rem;
   text-align: center;
@@ -770,9 +770,9 @@ input[type=button].fcf-btn-block {
 .popup-pictures {
   position: fixed;
   margin-bottom: 1rem;
-  top: 50%;
+  bottom: 35%;
   left: 50%;
-  transform: translate(-50%, -110%);
+  transform: translate(-50%, 0%);
   z-index: 98;
 }
 .popup-pictures img {
@@ -781,7 +781,7 @@ input[type=button].fcf-btn-block {
   min-width: 200px;
   min-height: 200px;
   max-width: 80vw;
-  max-height: 40vh;
+  max-height: 55vh;
 }
 
 .popup-outer {
@@ -791,7 +791,7 @@ input[type=button].fcf-btn-block {
   background: linear-gradient(to right top, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0.8));
   backdrop-filter: blur(4px);
   position: fixed;
-  top: 50%;
+  top: 65%;
   left: 50%;
   transform: translate(-50%, 0%);
   align-items: center;
@@ -802,10 +802,10 @@ input[type=button].fcf-btn-block {
 .popup-inner {
   display: flex;
   flex-wrap: wrap;
-  justify-content: center;
+  justify-content: flex-start;
   min-width: 200px;
-  width: 60vw;
-  max-height: 40vh;
+  width: 80vw;
+  max-height: 30vh;
   overflow-y: auto;
   padding: 10px;
 }
@@ -819,6 +819,7 @@ input[type=button].fcf-btn-block {
 .show-popup {
   visibility: visible;
   opacity: 1;
+  transition: opacity 0.5s;
 }
 
 * {

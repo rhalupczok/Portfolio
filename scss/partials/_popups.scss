@@ -43,9 +43,9 @@
 .popup-pictures {
     position: fixed;
     margin-bottom: 1rem;
-    top: 50%;
+    bottom: 35%;
     left: 50%;
-    transform: translate(-50%, -110%);
+    transform: translate(-50%, 0%);
     z-index: 98;
     img {
         border-radius: 20px;
@@ -53,7 +53,7 @@
         min-width: 200px;
         min-height: 200px;
         max-width: 80vw;
-        max-height: 40vh;
+        max-height: 55vh;
     }
 }
 
@@ -68,7 +68,7 @@
     );
     backdrop-filter: blur(4px);
     position: fixed;
-    top: 50%;
+    top: 65%;
     left: 50%;
     transform: translate(-50%, 0%);
     align-items: center;
@@ -79,10 +79,10 @@
 .popup-inner {
     display: flex;
     flex-wrap: wrap;
-    justify-content: center;
+    justify-content: flex-start;
     min-width: 200px;
-    width: 60vw;
-    max-height: 40vh;
+    width: 80vw;
+    max-height: 30vh;
     overflow-y: auto;
     padding: 10px;
 }
@@ -96,6 +96,7 @@
 .show-popup {
     visibility: visible;
     opacity: 1;
+    transition: opacity 0.5s;
 }
 // .popup {
 //     position: fixed;

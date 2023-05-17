@@ -139,7 +139,7 @@ main {
 
 .description {
     p {
-        font-size: 0.8rem;
+        font-size: 1rem;
         padding: 1rem;
         max-width: 1200px;
     }
@@ -190,7 +190,7 @@ main {
         margin: 1rem auto;
         display: grid;
         grid-template-columns: repeat(8, 100px);
-        gap: 0.5rem;
+        gap: 1rem;
         justify-content: center;
         max-width: 1200px;
 
@@ -264,7 +264,7 @@ main {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 1rem;
+    gap: 2rem;
     margin: 1rem;
     margin-top: 1rem;
     text-align: center;
