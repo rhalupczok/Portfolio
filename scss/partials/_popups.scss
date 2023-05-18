@@ -22,12 +22,12 @@
     height: 60px;
     width: 60px;
     top: 50%;
-    cursor: pointer;
     z-index: 99;
     transform: translate(0%, -110%) scaleX(0.5);
 }
 
-.popup-arrow:hover {
+.popup-arrow:not(.no-hover):hover {
+    cursor: pointer;
     background: rgba(255, 255, 255, 1);
     font-weight: 700;
 }
@@ -75,6 +75,13 @@
     box-sizing: border-box;
     z-index: 98;
 }
+
+// .popup-outer:hover {
+//     // transform: translate(-50%, 0%);
+//     transform: rotate(45deg);
+
+//     transition: all 2s;
+// }
 
 .popup-inner {
     display: flex;

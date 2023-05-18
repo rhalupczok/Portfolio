@@ -116,7 +116,7 @@ class Popup {
     init() {
         this.closePopups();
         document.addEventListener("keydown", (e) => this.keyDown(e));
-        this.closePopupBG.addEventListener("click", () => this.closePopups());
+        this.closePopupBG.addEventListener("click", this.closePopups);
         this.popupBtns.forEach((btn) =>
             btn.addEventListener("click", (e) => this.openPopup(e))
         );
@@ -124,92 +124,49 @@ class Popup {
         this.popupArrowRight.addEventListener("click", this.nextPopup);
     }
 
-    createPopups = () => {
+    createPopup = () => {
         for (let i = 0; i < Object.keys(this.currentPopup).length; i++) {
             let popupPictures = document.createElement("div");
-            popupPictures.setAttribute("number", i);
-            i == 0
-                ? popupPictures.classList.add(
-                      "popup-pictures",
-                      "hide-popup",
-                      "show-popup"
-                  )
-                : popupPictures.classList.add("popup-pictures", "hide-popup");
-            let popupIMG = document.createElement("img");
-            popupIMG.src = this.currentPopup[i].img;
+            popupPictures.classList.add("popup-pictures");
+
+            let popupIMG = document.createElement("div");
             popupIMG.classList.add("popup-img");
-            popupPictures.appendChild(popupIMG);
 
             let popupOuter = document.createElement("div");
-            i == 0
-                ? popupOuter.classList.add(
-                      "popup-outer",
-                      "hide-popup",
-                      "show-popup"
-                  )
-                : popupOuter.classList.add("popup-outer", "hide-popup");
-            popupOuter.setAttribute("number", i);
+            popupOuter.classList.add("popup-outer");
+
             let popupInner = document.createElement("div");
             popupInner.classList.add("popup-inner");
-            popupInner.innerHTML = this.currentPopup[i].text;
-            popupOuter.appendChild(popupInner);
-
-            this.popup.appendChild(popupPictures);
-            this.popup.appendChild(popupOuter);
         }
     };
 
     previousPopup = () => {
         if (this.currentPopupNum > 0) {
-            let current = document.querySelectorAll(
-                `div[number="${this.currentPopupNum}"]`
-            );
-            current.forEach((el) => el.classList.remove("show-popup"));
-            console.log(current);
             this.currentPopupNum--;
-            let next = document.querySelectorAll(
-                `div[number="${this.currentPopupNum}"]`
-            );
-            next.forEach((el) => el.classList.add("show-popup"));
+            this.popupContent();
         }
-        if (this.currentPopupNum != Object.keys(this.currentPopup).length - 1)
-            this.popupArrowRight.classList.remove("no-hover");
-        if (this.currentPopupNum === 0)
-            this.popupArrowLeft.classList.add("no-hover");
     };
 
     nextPopup = () => {
         if (this.currentPopupNum < Object.keys(this.currentPopup).length - 1) {
-            let current = document.querySelectorAll(
-                `div[number="${this.currentPopupNum}"]`
-            );
-            current.forEach((el) => el.classList.remove("show-popup"));
-            console.log(current);
             this.currentPopupNum++;
-            let next = document.querySelectorAll(
-                `div[number="${this.currentPopupNum}"]`
-            );
-            next.forEach((el) => el.classList.add("show-popup"));
+            this.popupContent();
         }
-        if (this.currentPopupNum === Object.keys(this.currentPopup).length - 1)
-            this.popupArrowRight.classList.add("no-hover");
-        if (this.currentPopupNum != 0)
-            this.popupArrowLeft.classList.remove("no-hover");
     };
 
-    // popupContent = () => {
-    //     console.log(this.currentPopupNum);
-    //     this.popupIMG.src = this.currentPopup[this.currentPopupNum].img;
-    //     this.popupInner.innerHTML =
-    //         this.currentPopup[this.currentPopupNum].text;
-    // };
+    popupContent = () => {
+        console.log(this.currentPopupNum);
+        this.popupIMG.src = this.currentPopup[this.currentPopupNum].img;
+        this.popupInner.innerHTML =
+            this.currentPopup[this.currentPopupNum].text;
+    };
 
     openPopup(e) {
         this.currentPopup = this.underConstruction;
         this.currentPopupNum = 0;
         this.closePopupBG.classList.add("show-popup");
-        // this.popupPictures.classList.add("show-popup");
-        // this.popupOuter.classList.add("show-popup");
+        this.popupPictures.classList.add("show-popup");
+        this.popupOuter.classList.add("show-popup");
         switch (e.target.id) {
             case "my-job-popup-btn":
                 this.currentPopup = this.myJob;
@@ -237,17 +194,13 @@ class Popup {
             //         break;
         }
         if (this.currentPopup[1]) {
-            this.popupArrowLeft.classList.add("no-hover");
-            this.popupArrowRight.classList.remove("no-hover");
             this.popupArrowLeft.classList.add("show-popup");
             this.popupArrowRight.classList.add("show-popup");
         }
-
-        this.createPopups();
+        this.popupContent();
     }
 
     closePopups() {
-        this.popup.replaceChildren();
         document.querySelectorAll(".show-popup").forEach((el) => {
             el.classList.remove("show-popup");
         });
