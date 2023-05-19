@@ -106,6 +106,7 @@
   width: 100vw;
   height: 100vh;
   animation: effect 10s linear infinite;
+  cursor: default;
 }
 
 .header h1 {
@@ -175,6 +176,7 @@
   background: #2196f3;
   box-shadow: 0 0 10px #2196f3;
   transition-delay: 1s;
+  cursor: pointer;
 }
 
 .neon-button span {
@@ -266,6 +268,7 @@ main {
   width: 100vw;
   height: auto;
   background: linear-gradient(180deg, rgb(179, 177, 177), white);
+  cursor: default;
 }
 
 .nav-border {
@@ -371,7 +374,7 @@ main {
   width: 100px;
   background: rgb(255, 0, 55);
   border-radius: 1rem;
-  box-shadow: 0 0 2px 2px rgb(255, 0, 55);
+  box-shadow: 0 0 15px 1px rgb(0, 0, 0);
 }
 #characters div p {
   margin-top: 1rem;
@@ -642,57 +645,18 @@ label.fcf-label {
     transition: none;
   }
 }
-.fcf-btn:hover {
-  color: #212529;
-  text-decoration: none;
+.CV-content {
+  display: flex;
+  justify-content: center;
+  margin-top: 1rem;
 }
 
-.fcf-btn:focus,
-.fcf-btn.focus {
-  outline: 0;
-  box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
-}
-
-.fcf-btn-primary {
-  color: #fff;
-  background-color: red;
-  border-color: red;
-}
-
-.fcf-btn-primary:hover {
-  color: #fff;
-  background-color: rgb(102, 4, 4);
-  border-color: rgb(102, 4, 4);
-}
-
-.fcf-btn-primary:focus,
-.fcf-btn-primary.focus {
-  color: #fff;
-  background-color: #0069d9;
-  border-color: #0062cc;
-}
-
-.fcf-btn-lg,
-.fcf-btn-group-lg > .fcf-btn {
-  padding: 0.5rem 1rem;
-  font-size: 1.25rem;
-  line-height: 1.5;
-  border-radius: 0.3rem;
-}
-
-.fcf-btn-block {
-  display: block;
-  width: 100%;
-}
-
-.fcf-btn-block + .fcf-btn-block {
-  margin-top: 0.5rem;
-}
-
-input[type=submit].fcf-btn-block,
-input[type=reset].fcf-btn-block,
-input[type=button].fcf-btn-block {
-  width: 100%;
+.CV-img {
+  box-shadow: 0 0 20px 5px rgb(0, 0, 0);
+  border-radius: 20px;
+  object-fit: contain;
+  min-width: 200px;
+  max-width: 50vw;
 }
 
 #close-popup-bg {

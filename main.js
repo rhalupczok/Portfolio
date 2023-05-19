@@ -44,16 +44,20 @@ class Menu {
     menuBtn = null;
     aboutMe = null;
     myWork = null;
-    scroolToBtns = null;
     contact = null;
+    cv = null;
+    myWorkBtn = null;
 
     init() {
         this.navMenu = document.querySelector(".nav-menu");
         this.menuBtn = document.getElementById("menuBtn");
         this.aboutMe = document.getElementById("about");
         this.myWork = document.getElementById("my-work");
+        this.myWorkBtn = document.getElementById("my-work-btn");
+        this.cv = document.getElementById("cv");
         this.contact = document.getElementById("contact");
         this.navMenu.addEventListener("click", (e) => this.scrollTo(e));
+        this.myWorkBtn.addEventListener("click", (e) => this.scrollTo(e));
         menuBtn.addEventListener("click", this.openMenu);
     }
 
@@ -73,8 +77,14 @@ class Menu {
                 block: "start",
                 inline: "nearest",
             });
-        if (e.target.id === "my-work-nav" || e.target.id === "myWorkAbout")
+        if (e.target.id === "my-work-nav" || e.target.id === "my-work-btn")
             this.myWork.scrollIntoView({
+                behavior: "smooth",
+                block: "start",
+                inline: "nearest",
+            });
+        if (e.target.id === "cv-nav")
+            this.cv.scrollIntoView({
                 behavior: "smooth",
                 block: "start",
                 inline: "nearest",

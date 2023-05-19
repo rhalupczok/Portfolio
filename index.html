@@ -14,12 +14,13 @@
         />
     </head>
     <body>
-        <header class="header hidden">
+        <header class="header">
             <section class="border glow">
                 <img src="" alt="" class="logo" />
                 <h1>
                     Welcome on my portfolio page <br /><br />I am
                     <span>Radosław Halupczok</span> <br />Front-End Developer
+                    Candidate
                 </h1>
                 <img src="" alt="" class="my-picture" />
                 <a class="neon-button">
@@ -31,15 +32,33 @@
                 </a>
             </section>
         </header>
-        <main class="main">
+        <main class="main hidden">
+            <!-- popUp -->
+            <button
+                id="popup-arrow-left"
+                aria-label="previous"
+                class="popup-arrow hide-popup"
+            >
+                <
+            </button>
+            <button
+                id="popup-arrow-right"
+                aria-label="Next"
+                class="popup-arrow hide-popup"
+            >
+                >
+            </button>
             <div id="close-popup-bg" class="hide-popup"></div>
+            <div id="popup"></div>
+            <!-- /popUp -->
+
             <div class="nav-border"><a id="menuBtn">MENU</a></div>
             <nav class="nav-menu">
                 <a class="homeBtn">HOME</a>
                 <a id="about-me-nav">ABOUT ME</a>
                 <a id="my-work-nav">MY WORK</a>
-                <a id="contact-nav">CONTACT</a>
                 <a id="cv-nav">CV</a>
+                <a id="contact-nav">CONTACT</a>
             </nav>
 
             <section id="about">
@@ -114,10 +133,13 @@
                         check some examples of
                         <a id="my-work-btn" class="txt-highlight scroll-to"
                             >my work</a
-                        >. <br />I am determined and 100% oriented on this kind
-                        of job. Let give me a chance and I promise I will not
-                        let you down. <br /><br />
-                        If you are still not bored you can take a short look at
+                        >. <br />I am aware that I am on the begining and there
+                        is a lot of hard work in front of me but I am determined
+                        and 100% oriented on this kind of job. Let give me a
+                        chance and I promise I will do my best to not let you
+                        down. <br /><br />
+                        if you want to know something more about me you can take
+                        a short look at
                         <a
                             id="my-hobbies-popup-btn"
                             class="txt-highlight open-popup-btn"
@@ -125,50 +147,6 @@
                         >.
                     </p>
                 </div>
-                <!-- popUp -->
-                <button
-                    id="popup-arrow-left"
-                    aria-label="previous"
-                    class="popup-arrow hide-popup"
-                >
-                    <
-                </button>
-                <button
-                    id="popup-arrow-right"
-                    aria-label="Next"
-                    class="popup-arrow hide-popup"
-                >
-                    >
-                </button>
-                <div id="popup"></div>
-                <!-- /My JOB - Robot Programmer -->
-                <!-- my hobbies -->
-                <div id="my-hobbies-popup" class="popup-outer hide-popup">
-                    <div class="popup-inner">
-                        <div class="popup-pictures">
-                            <img
-                                src="images/my-job-1.jpg"
-                                alt="my-job-first-picture"
-                            />
-                            <img
-                                src="images/my-job-2.jpg"
-                                alt="my-job-second-picture"
-                            />
-                        </div>
-                        <p>
-                            Lorem, ipsum dolor sit amet consectetur adipisicing
-                            elit. Cumque veniam sapiente explicabo doloremque
-                            porro, odio iusto inventore voluptatibus ipsam
-                            exercitationem! Qui ea mollitia accusantium sint
-                            quod non maiores tempore rem, consequuntur vitae
-                            asperiores quam accusamus, commodi aperiam, ipsa
-                            porro fugit cupiditate dolorum quos totam
-                            consequatur quisquam neque. Iusto, non laudantium?
-                        </p>
-                    </div>
-                </div>
-                <!-- /my hobbies -->
-                <!-- /popUp -->
 
                 <h2>Technologies I learned</h2>
                 <div class="langs">
@@ -362,102 +340,48 @@
                 </div>
             </section>
 
+            <section id="cv">
+                <h1>CV</h1>
+                <div class="CV-content">
+                    <a
+                        href="https://drive.google.com/file/d/1RpX8tDqm2XqX9dXLayduohOIU62Cu2pI/view?usp=share_link"
+                        target="_blank"
+                        ><img
+                            src="images/CV-Radoslaw_Halupczok_eng.png"
+                            alt=""
+                            class="CV-img"
+                    /></a>
+                </div>
+            </section>
+
             <section id="contact">
                 <h1>Contact</h1>
-                <div class="fcf-body">
-                    <div id="fcf-form">
-                        <h3 class="fcf-h3">Contact me</h3>
-
-                        <form
-                            id="fcf-form-id"
-                            class="fcf-form-class"
-                            method="post"
-                            action="contact-form-process.php"
-                        >
-                            <div class="fcf-form-group">
-                                <label for="Name" class="fcf-label"
-                                    >Your name</label
-                                >
-                                <div class="fcf-input-group">
-                                    <input
-                                        type="text"
-                                        id="Name"
-                                        name="Name"
-                                        class="fcf-form-control"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            <div class="fcf-form-group">
-                                <label for="Email" class="fcf-label"
-                                    >Your email address</label
-                                >
-                                <div class="fcf-input-group">
-                                    <input
-                                        type="email"
-                                        id="Email"
-                                        name="Email"
-                                        class="fcf-form-control"
-                                        required
-                                    />
-                                </div>
-                            </div>
-
-                            <div class="fcf-form-group">
-                                <label for="Message" class="fcf-label"
-                                    >Your message</label
-                                >
-                                <div class="fcf-input-group">
-                                    <textarea
-                                        id="Message"
-                                        name="Message"
-                                        class="fcf-form-control"
-                                        rows="6"
-                                        maxlength="3000"
-                                        required
-                                    ></textarea>
-                                </div>
-                            </div>
-
-                            <div class="fcf-form-group">
-                                <button
-                                    type="submit"
-                                    id="fcf-button"
-                                    class="fcf-btn fcf-btn-primary fcf-btn-lg fcf-btn-block"
-                                >
-                                    Send Message
-                                </button>
-                            </div>
-                        </form>
-                    </div>
+                <div class="social">
+                    <a href="mailto:r.halupczok@gmail.com"
+                        ><img
+                            src="images/footer-envelope.svg"
+                            alt=""
+                            class="social-img"
+                    /></a>
+                    <a
+                        href="https://www.linkedin.com/in/rados%C5%82aw-halupczok-6b6a75104/"
+                        target="_blank"
+                        ><img
+                            src="images/footer-linkedin.svg"
+                            alt=""
+                            class="social-img"
+                    /></a>
+                    <a href="https://github.com/rhalupczok" target="_blank"
+                        ><img
+                            src="images/langs-github.svg"
+                            alt=""
+                            class="social-img"
+                    /></a>
                 </div>
             </section>
         </main>
 
         <footer id="footer" class="hidden">
-            <section class="social">
-                <a href="mailto:r.halupczok@gmail.com"
-                    ><img
-                        src="images/footer-envelope.svg"
-                        alt=""
-                        class="social-img"
-                /></a>
-                <a
-                    href="https://www.linkedin.com/in/rados%C5%82aw-halupczok-6b6a75104/"
-                    target="_blank"
-                    ><img
-                        src="images/footer-linkedin.svg"
-                        alt=""
-                        class="social-img"
-                /></a>
-                <a href="https://github.com/rhalupczok" target="_blank"
-                    ><img
-                        src="images/langs-github.svg"
-                        alt=""
-                        class="social-img"
-                /></a>
-            </section>
             <p>Radoslaw Halupczok <span>&copy 2023</span></p>
         </footer>
 
