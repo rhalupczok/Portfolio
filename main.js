@@ -40,7 +40,7 @@ class Header {
         this.goToWebBtn.classList.add("focus");
         setTimeout(() => {
             this.goToWebBtn.classList.remove("focus");
-            this.goToWebBtn.style.background = "#2195f375";
+            // this.goToWebBtn.style.background = "#2195f375";
         }, 3000);
     };
 

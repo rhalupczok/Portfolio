@@ -29,36 +29,42 @@ header {
     z-index: 0;
 }
 #header-text-content {
+    box-sizing: border-box;
     text-align: center;
-    padding: 20px;
+    padding: 2rem;
     color: $fonts_color;
-    font-size: 2rem;
+    font-size: 1.5rem;
     z-index: 99;
     position: relative;
-    width: 50%;
+    width: 50vw;
     height: 50vh;
+    display: flex;
+    justify-content: center;
+    p {
+        margin: 1rem;
+    }
+
+    a {
+        position: absolute;
+        color: $highlight_color;
+        font-size: 1.5rem;
+        bottom: 30px;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }
 
 #sound-btn {
-    width: 50px;
-    height: 50px;
+    width: 30px;
+    height: 30px;
     position: absolute;
-    top: 30px;
-    right: 30px;
+    top: 10px;
+    right: 10px;
 }
 
 .header-txt-highlight {
     color: $highlight_color;
-    font-size: 3rem;
-}
-
-#header-text-content a {
-    position: absolute;
-    color: $highlight_color;
-    font-size: 3rem;
-    bottom: 20px;
-    left: 50%;
-    transform: translateX(-50%);
+    font-size: 2rem;
 }
 
 .border {
@@ -66,7 +72,7 @@ header {
     flex-direction: column;
     justify-content: space-around;
     position: relative;
-    width: 50%;
+    width: 50vw;
     height: 50vh;
     background: linear-gradient(0deg, black, grey);
 }
@@ -99,7 +105,7 @@ header {
     position: relative;
     display: inline-block;
     padding: 15px 30px;
-    color: #2196f3;
+    color: $highlight_color;
     text-transform: uppercase;
     letter-spacing: 4px;
     text-decoration: none;
@@ -112,9 +118,9 @@ header {
 }
 
 .neon-button.focus {
-    color: #255784;
-    background: #2196f3;
-    box-shadow: 0 0 20px #2196f3;
+    color: $fonts_color;
+    background: $highlight_color_hover;
+    box-shadow: 0 0 30px $highlight_color_hover;
     transition-delay: 1s;
 }
 
@@ -128,7 +134,7 @@ header {
     left: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(90deg, transparent, #2196f3);
+    background: linear-gradient(90deg, transparent, $highlight_color_hover);
 }
 
 .neon-button.focus span:nth-child(1) {
@@ -141,7 +147,7 @@ header {
     right: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(180deg, transparent, #2196f3);
+    background: linear-gradient(180deg, transparent, $highlight_color_hover);
 }
 
 .neon-button.focus span:nth-child(2) {
@@ -155,7 +161,7 @@ header {
     right: -100%;
     width: 100%;
     height: 2px;
-    background: linear-gradient(270deg, transparent, #2196f3);
+    background: linear-gradient(270deg, transparent, $highlight_color_hover);
 }
 
 .neon-button.focus span:nth-child(3) {
@@ -169,7 +175,7 @@ header {
     left: 0;
     width: 2px;
     height: 100%;
-    background: linear-gradient(0deg, transparent, #2196f3);
+    background: linear-gradient(0deg, transparent, $highlight_color_hover);
 }
 
 .neon-button.focus span:nth-child(4) {
@@ -182,30 +188,37 @@ header {
 
 @media screen and (max-width: 1200px) {
     .border {
-        width: 80%;
-        height: 80vh;
-    }
-    .header h1 {
-        font-size: 2rem;
+        width: 75vw;
+        height: 75vh;
     }
 
-    .header h1 span {
-        font-size: 2rem;
+    #header-text-content {
+        width: 75vw;
+        height: 75vh;
     }
 }
 
-@media screen and (max-width: 768px) {
-    .header h1 {
-        font-size: 1.5rem;
-    }
+//     .header h1 {
+//         font-size: 2rem;
+//     }
 
-    .header h1 span {
-        font-size: 1.5rem;
-    }
-}
+//     .header h1 span {
+//         font-size: 2rem;
+//     }
+// }
 
-@media screen and (max-height: 680px) {
-    .border {
-        height: 80vh;
-    }
-}
+// @media screen and (max-width: 768px) {
+//     .header h1 {
+//         font-size: 1.5rem;
+//     }
+
+//     .header h1 span {
+//         font-size: 1.5rem;
+//     }
+// }
+
+// @media screen and (max-height: 680px) {
+//     .border {
+//         height: 80vh;
+//     }
+// }
