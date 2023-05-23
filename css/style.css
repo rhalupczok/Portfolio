@@ -1,5 +1,5 @@
 #footer {
-  background: rgb(29, 29, 29);
+  background: #222831;
   width: 100%;
   height: auto;
 }
@@ -18,7 +18,7 @@
   margin: 2rem;
   height: 80px;
   width: 80px;
-  background: black;
+  background: #00adb5;
   box-shadow: 0 0 5px 1px rgb(0, 0, 0);
   border-radius: 1rem;
 }
@@ -30,8 +30,7 @@
 }
 
 .social a:hover {
-  border: 5px solid red;
-  box-sizing: border-box;
+  background: #00f2ff;
 }
 
 #footer p {
@@ -39,10 +38,11 @@
   font-weight: 700;
   margin: auto;
   text-align: center;
+  color: #eeeeee;
 }
 
 #footer p span {
-  color: red;
+  color: #00adb5;
 }
 
 @media screen and (max-width: 768px) {
@@ -96,7 +96,21 @@
     opacity: 1;
   }
 }
-.header {
+header {
+  cursor: default;
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+  background: #222831;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+#header-background {
+  position: absolute;
+  top: 0;
+  left: 0;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -107,21 +121,40 @@
   width: 100vw;
   height: 100vh;
   animation: effect 10s linear infinite;
-  cursor: default;
+  z-index: 0;
 }
 
-.header h1 {
+#header-text-content {
   text-align: center;
   padding: 20px;
-  color: white;
+  color: #eeeeee;
   font-size: 2rem;
-  animation: none;
+  z-index: 99;
+  position: relative;
+  width: 50%;
+  height: 50vh;
 }
 
-.header h1 span {
-  color: blue;
+#sound-btn {
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  top: 30px;
+  right: 30px;
+}
+
+.header-txt-highlight {
+  color: #00adb5;
   font-size: 3rem;
-  animation: none;
+}
+
+#header-text-content a {
+  position: absolute;
+  color: #00adb5;
+  font-size: 3rem;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
 }
 
 .border {
@@ -170,14 +203,14 @@
   transition: 0.2s;
   font-weight: 700;
   text-align: center;
+  cursor: pointer;
 }
 
-.neon-button:hover {
+.neon-button.focus {
   color: #255784;
   background: #2196f3;
-  box-shadow: 0 0 10px #2196f3;
+  box-shadow: 0 0 20px #2196f3;
   transition-delay: 1s;
-  cursor: pointer;
 }
 
 .neon-button span {
@@ -193,7 +226,7 @@
   background: linear-gradient(90deg, transparent, #2196f3);
 }
 
-.neon-button:hover span:nth-child(1) {
+.neon-button.focus span:nth-child(1) {
   left: 100%;
   transition: 1s;
 }
@@ -206,7 +239,7 @@
   background: linear-gradient(180deg, transparent, #2196f3);
 }
 
-.neon-button:hover span:nth-child(2) {
+.neon-button.focus span:nth-child(2) {
   top: 100%;
   transition: 1s;
   transition-delay: 0.25s;
@@ -220,7 +253,7 @@
   background: linear-gradient(270deg, transparent, #2196f3);
 }
 
-.neon-button:hover span:nth-child(3) {
+.neon-button.focus span:nth-child(3) {
   right: 100%;
   transition: 1s;
   transition-delay: 0.5s;
@@ -234,7 +267,7 @@
   background: linear-gradient(0deg, transparent, #2196f3);
 }
 
-.neon-button:hover span:nth-child(4) {
+.neon-button.focus span:nth-child(4) {
   bottom: 100%;
   transition: 1s;
   transition-delay: 0.75s;
@@ -268,13 +301,14 @@
 main {
   width: 100vw;
   height: auto;
-  background: linear-gradient(180deg, rgb(179, 177, 177), white);
+  background: linear-gradient(180deg, #393e46, #393e46);
+  color: #eeeeee;
   cursor: default;
 }
 
 .nav-border {
   width: 100%;
-  background: rgb(26, 28, 31);
+  background: #222831;
   position: fixed;
   padding: 10px 0;
   height: 20px;
@@ -289,12 +323,12 @@ main {
   padding: 0px 20px;
   font-weight: 700;
   text-decoration: none;
-  color: white;
+  color: #eeeeee;
   transition: color 0.5s ease-out;
 }
 
 .nav-border > a:hover {
-  color: red;
+  color: #00adb5;
 }
 
 .nav-border::after {
@@ -304,7 +338,7 @@ main {
   bottom: 0;
   height: 5px;
   width: 100%;
-  background: red;
+  background: #00adb5;
 }
 
 .nav-menu {
@@ -326,13 +360,13 @@ main {
   padding: 0 20px;
   font-weight: 700;
   text-decoration: none;
-  color: white;
+  color: #eeeeee;
   transition: color 0.5s ease-out;
   cursor: pointer;
 }
 
 .nav-menu > a:hover {
-  color: red;
+  color: #00adb5;
 }
 
 @media screen and (max-width: 768px) {
@@ -373,7 +407,7 @@ main {
 #characters div img {
   height: 100px;
   width: 100px;
-  background: rgb(255, 0, 55);
+  background: #00adb5;
   border-radius: 1rem;
   box-shadow: 0 0 15px 1px rgb(0, 0, 0);
 }
@@ -381,7 +415,6 @@ main {
   margin-top: 1rem;
   font-size: 0.8rem;
   font-weight: 700;
-  color: black;
   text-align: center;
 }
 
@@ -395,7 +428,7 @@ main {
 .description img {
   border-radius: 2rem;
   width: 150px;
-  box-shadow: 0px 0px 8px 8px red;
+  box-shadow: 0px 0px 8px 8px #00adb5;
   margin-right: 2rem;
 }
 
@@ -406,13 +439,13 @@ main {
 }
 
 .txt-highlight {
-  color: red;
+  color: #00adb5;
   font-weight: 700;
   text-decoration: none;
 }
 
 a.txt-highlight:hover {
-  color: #5a0000;
+  color: #00f2ff;
   font-weight: 700;
   text-decoration: underline;
   cursor: pointer;
@@ -425,7 +458,7 @@ a.txt-highlight:hover {
 
 main h1 {
   font-size: 1.5rem;
-  color: red;
+  color: #00adb5;
   text-shadow: 0 0 2px rgb(0, 0, 0);
   text-align: center;
   padding-top: 60px;
@@ -437,12 +470,12 @@ main h1::after {
   bottom: -5px;
   left: calc(50% - 70px);
   height: 0.2rem;
-  background: red;
+  background: #00adb5;
   width: 140px;
 }
 main h2 {
   font-size: 1.5rem;
-  color: red;
+  color: #00adb5;
   text-align: center;
   padding-top: 1rem;
 }
@@ -462,12 +495,12 @@ main .langs a {
   text-decoration: none;
   height: 100px;
   width: 100px;
-  background: rgb(255, 0, 55);
+  background: #00adb5;
   border-radius: 1rem;
   box-shadow: 0 0 15px 1px rgb(0, 0, 0);
   text-align: center;
   font-weight: 700;
-  color: rgb(87, 22, 22);
+  color: black;
   font-size: 0.8rem;
 }
 main .langs img {
@@ -520,9 +553,9 @@ main .langs img {
 .projects {
   width: 200px;
   height: 250px;
-  border: 2px solid black;
+  border: 2px solid #00adb5;
   box-shadow: 0 0 15px 1px rgb(0, 0, 0);
-  background: linear-gradient(0deg, black, red);
+  background: #00adb5;
   position: relative;
 }
 

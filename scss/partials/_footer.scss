@@ -1,7 +1,7 @@
 @use "vars/vars" as *;
 
 #footer {
-    background: rgb(29, 29, 29);
+    background: $bg_color_black;
     width: 100%;
     height: auto;
 }
@@ -21,7 +21,7 @@
         margin: 2rem;
         height: 80px;
         width: 80px;
-        background: black;
+        background: $highlight_color;
         box-shadow: 0 0 5px 1px rgb(0, 0, 0);
         border-radius: 1rem;
     }
@@ -39,8 +39,7 @@
 
 .social {
     a:hover {
-        border: 5px solid red;
-        box-sizing: border-box;
+        background: $highlight_color_hover;
     }
 }
 
@@ -50,13 +49,14 @@
         font-weight: 700;
         margin: auto;
         text-align: center;
+        color: $fonts_color;
     }
 }
 
 #footer {
     p {
         span {
-            color: red;
+            color: $highlight_color;
         }
     }
 }

@@ -10,18 +10,39 @@ class Header {
     footer = null;
     goToWebBtn = null;
     homeBtn = null;
+    soundBtn = null;
+    sound = false;
 
     init() {
+        textType.textTyping(textType.headerTxt);
         this.header = document.querySelector(".header");
         this.main = document.querySelector(".main");
         this.footer = document.querySelector("#footer");
 
+        this.soundBtn = document.getElementById("sound-btn");
         this.goToWebBtn = document.querySelector(".neon-button");
         this.homeBtn = document.querySelector(".homeBtn");
 
+        this.soundBtn.addEventListener("click", this.audioSound);
+        this.goToWebBtn.addEventListener("mouseover", this.hoverEffect);
         this.goToWebBtn.addEventListener("click", this.blankHeader);
         this.homeBtn.addEventListener("click", this.displayHeader);
     }
+
+    audioSound = () => {
+        this.sound = !this.sound;
+        this.sound
+            ? (this.soundBtn.src = "images/header-audio-on.png")
+            : (this.soundBtn.src = "images/header-audio-off.png");
+        if (!this.sound) textType.kayboardTypingAudio.pause();
+    };
+    hoverEffect = () => {
+        this.goToWebBtn.classList.add("focus");
+        setTimeout(() => {
+            this.goToWebBtn.classList.remove("focus");
+            this.goToWebBtn.style.background = "#2195f375";
+        }, 3000);
+    };
 
     blankHeader = () => {
         if (this.header.classList.contains("hidden")) return;
@@ -457,6 +478,77 @@ class Popup {
     };
 }
 
+class TextType {
+    headerTxt = Array.from(
+        document.querySelectorAll("#header-text-content .text-typing")
+    );
+
+    kayboardTypingAudio = document.getElementById("keyboard-typing-audio");
+
+    i = 0;
+    j = 0;
+    k = 0;
+    speed = 150;
+    txt;
+
+    event = new MouseEvent("mouseover", {
+        view: window,
+        bubbles: true,
+        cancelable: true,
+    });
+
+    textTyping(content) {
+        //prepare content
+        this.txt = [];
+        for (let i = 0; i < content.length; i++) {
+            let v = content[i].innerText;
+            this.txt[i] = v;
+        }
+        console.log(this.txt);
+        this.headerTxt.forEach((el) => (el.textContent = ""));
+        this.blinkingCursor();
+    }
+
+    blinkingCursor() {
+        if (this.k < 6) {
+            this.headerTxt[this.j].textContent === ""
+                ? (this.headerTxt[this.j].textContent = "|")
+                : (this.headerTxt[this.j].textContent = "");
+            this.k++;
+            setTimeout(() => this.blinkingCursor(), this.speed * 3);
+        } else {
+            this.k = 0;
+            this.typeWriter();
+        }
+    }
+
+    typeWriter() {
+        if (header.sound) this.kayboardTypingAudio.play();
+        if (this.j < this.txt.length) {
+            if (this.i < this.txt[this.j].length) {
+                this.headerTxt[this.j].textContent += this.txt[this.j].charAt(
+                    this.i
+                );
+                this.i++;
+                setTimeout(() => this.typeWriter(), this.speed);
+            }
+        }
+        if (this.j < this.txt.length) {
+            if (this.i == this.txt[this.j].length) {
+                this.i = 0;
+                this.j++;
+            }
+        } else {
+            this.i = 0;
+            this.j = 0;
+            this.kayboardTypingAudio.pause();
+            this.kayboardTypingAudio.currentTime = 0;
+            header.hoverEffect();
+        }
+    }
+}
+
 const menu = new Menu();
 const header = new Header();
 const popup = new Popup();
+const textType = new TextType();

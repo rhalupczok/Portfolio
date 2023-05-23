@@ -15,14 +15,23 @@
     </head>
     <body>
         <header class="header">
-            <section class="border glow">
-                <img src="" alt="" class="logo" />
+            <div id="header-text-content">
+                <img
+                    id="sound-btn"
+                    class="btn-sound-off"
+                    src="images/header-audio-off.png"
+                    alt=""
+                />
                 <h1>
-                    Welcome on my portfolio page <br /><br />I am
-                    <span>Radosław Halupczok</span> <br />Front-End Developer
-                    Candidate
+                    <p class="text-typing">Welcome on my portfolio page</p>
+                    <p>
+                        <span class="text-typing">My name is</span>
+                        <span class="header-txt-highlight text-typing"
+                            >Radosław Halupczok</span
+                        >
+                    </p>
+                    <p class="text-typing">Front-End Developer Candidate</p>
                 </h1>
-                <img src="" alt="" class="my-picture" />
                 <a class="neon-button">
                     <span></span>
                     <span></span>
@@ -30,7 +39,14 @@
                     <span></span>
                     Go to website
                 </a>
-            </section>
+            </div>
+            <div id="header-background">
+                <div class="border glow"></div>
+            </div>
+            <audio
+                id="keyboard-typing-audio"
+                src="audio/keyboard-typing-audio.wav"
+            ></audio>
         </header>
         <main class="main hidden">
             <!-- popUp -->
