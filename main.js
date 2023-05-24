@@ -7,18 +7,20 @@ window.onload = function () {
 class Header {
     header = null;
     main = null;
-    footer = null;
+    // footer = null;
     goToWebBtn = null;
     homeBtn = null;
     soundBtn = null;
     repeatBtn = null;
     sound = false;
+    // htmlBody = null;
 
     init() {
         textType.textTyping();
         this.header = document.querySelector(".header");
         this.main = document.querySelector(".main");
-        this.footer = document.querySelector("#footer");
+        // this.footer = document.querySelector("#footer");
+        // this.htmlBody = document.querySelectorAll(".if-header");
 
         this.soundBtn = document.getElementById("sound-btn");
         this.repeatBtn = document.getElementById("repeat-btn");
@@ -50,7 +52,9 @@ class Header {
     blankHeader = () => {
         this.header.classList.toggle("hidden");
         this.main.classList.toggle("hidden");
-        this.footer.classList.toggle("hidden");
+        // window.scrollTo(0, 0);
+        // this.footer.classList.toggle("hidden");
+        // this.htmlBody.forEach((el) => el.classList.toggle("if-header"));
         if (this.sound) this.audioSound();
     };
 }

@@ -8,9 +8,6 @@ body {
 }
 
 header {
-    position: absolute;
-    top: 0;
-    left: 0;
     cursor: default;
     width: 100vw;
     height: 100vh;
@@ -24,7 +21,7 @@ header {
 }
 
 #header-background {
-    position: absolute;
+    position: fixed;
     top: 0;
     left: 0;
     @include flex;
@@ -44,7 +41,7 @@ header {
     color: $fonts_color;
     font-size: 1.5rem;
     z-index: 99;
-    position: relative;
+    position: fixed;
     width: 50vw;
     height: 50vh;
     display: flex;
