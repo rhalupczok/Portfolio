@@ -11,22 +11,26 @@ class Header {
     goToWebBtn = null;
     homeBtn = null;
     soundBtn = null;
+    repeatBtn = null;
     sound = false;
 
     init() {
-        textType.textTyping(textType.headerTxt);
+        textType.textTyping();
         this.header = document.querySelector(".header");
         this.main = document.querySelector(".main");
         this.footer = document.querySelector("#footer");
 
         this.soundBtn = document.getElementById("sound-btn");
+        this.repeatBtn = document.getElementById("repeat-btn");
+
         this.goToWebBtn = document.querySelector(".neon-button");
         this.homeBtn = document.querySelector(".homeBtn");
 
+        this.repeatBtn.addEventListener("click", textType.textTyping);
         this.soundBtn.addEventListener("click", this.audioSound);
         this.goToWebBtn.addEventListener("mouseover", this.hoverEffect);
         this.goToWebBtn.addEventListener("click", this.blankHeader);
-        this.homeBtn.addEventListener("click", this.displayHeader);
+        this.homeBtn.addEventListener("click", this.blankHeader);
     }
 
     audioSound = () => {
@@ -34,7 +38,6 @@ class Header {
         this.sound
             ? (this.soundBtn.src = "images/header-audio-on.png")
             : (this.soundBtn.src = "images/header-audio-off.png");
-        if (!this.sound) textType.kayboardTypingAudio.pause();
     };
     hoverEffect = () => {
         this.goToWebBtn.classList.add("focus");
@@ -45,18 +48,10 @@ class Header {
     };
 
     blankHeader = () => {
-        if (this.header.classList.contains("hidden")) return;
-        this.header.classList.add("hidden");
-        this.main.classList.remove("hidden");
-        this.footer.classList.remove("hidden");
-        // this.header.style.display = "none";
-    };
-
-    displayHeader = () => {
-        if (!this.header.classList.contains("hidden")) return;
-        this.header.classList.remove("hidden");
-        this.main.classList.add("hidden");
-        this.footer.classList.add("hidden");
+        this.header.classList.toggle("hidden");
+        this.main.classList.toggle("hidden");
+        this.footer.classList.toggle("hidden");
+        if (this.sound) this.audioSound();
     };
 }
 
@@ -482,35 +477,28 @@ class TextType {
     headerTxt = Array.from(
         document.querySelectorAll("#header-text-content .text-typing")
     );
-
+    headerTxtStorage = [
+        "Welcome on my portfolio page",
+        "My name is",
+        "Radosław Halupczok",
+        "Front-End Developer Candidate",
+    ];
     kayboardTypingAudio = document.getElementById("keyboard-typing-audio");
-
+    animationIsRunning = false;
     i = 0;
     j = 0;
     k = 0;
     speed = 150;
-    txt;
 
-    event = new MouseEvent("mouseover", {
-        view: window,
-        bubbles: true,
-        cancelable: true,
-    });
-
-    textTyping(content) {
-        //prepare content
-        this.txt = [];
-        for (let i = 0; i < content.length; i++) {
-            let v = content[i].innerText;
-            this.txt[i] = v;
-        }
-        console.log(this.txt);
+    textTyping = () => {
+        if (this.animationIsRunning) return;
+        this.animationIsRunning = true;
         this.headerTxt.forEach((el) => (el.textContent = ""));
         this.blinkingCursor();
-    }
+    };
 
-    blinkingCursor() {
-        if (this.k < 6) {
+    blinkingCursor = () => {
+        if (this.k < 6 && this.animationIsRunning) {
             this.headerTxt[this.j].textContent === ""
                 ? (this.headerTxt[this.j].textContent = "|")
                 : (this.headerTxt[this.j].textContent = "");
@@ -520,21 +508,23 @@ class TextType {
             this.k = 0;
             this.typeWriter();
         }
-    }
+    };
 
-    typeWriter() {
-        if (header.sound) this.kayboardTypingAudio.play();
-        if (this.j < this.txt.length) {
-            if (this.i < this.txt[this.j].length) {
-                this.headerTxt[this.j].textContent += this.txt[this.j].charAt(
-                    this.i
-                );
+    typeWriter = () => {
+        header.sound
+            ? this.kayboardTypingAudio.play()
+            : this.kayboardTypingAudio.pause();
+        if (this.j < this.headerTxtStorage.length && this.animationIsRunning) {
+            if (this.i < this.headerTxtStorage[this.j].length) {
+                this.headerTxt[this.j].textContent += this.headerTxtStorage[
+                    this.j
+                ].charAt(this.i);
                 this.i++;
                 setTimeout(() => this.typeWriter(), this.speed);
             }
         }
-        if (this.j < this.txt.length) {
-            if (this.i == this.txt[this.j].length) {
+        if (this.j < this.headerTxtStorage.length && this.animationIsRunning) {
+            if (this.i == this.headerTxtStorage[this.j].length) {
                 this.i = 0;
                 this.j++;
             }
@@ -544,8 +534,10 @@ class TextType {
             this.kayboardTypingAudio.pause();
             this.kayboardTypingAudio.currentTime = 0;
             header.hoverEffect();
+            header.repeatBtn.style.visibility = "visible";
+            this.animationIsRunning = false;
         }
-    }
+    };
 }
 
 const menu = new Menu();

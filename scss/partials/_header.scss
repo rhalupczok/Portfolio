@@ -3,7 +3,14 @@
 @use "vars/vars" as *;
 @use "vars/const" as *;
 
+body {
+    background: $bg_color_black;
+}
+
 header {
+    position: absolute;
+    top: 0;
+    left: 0;
     cursor: default;
     width: 100vw;
     height: 100vh;
@@ -12,6 +19,8 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
+    // visibility: visible;
+    transition: opacity 0.2s;
 }
 
 #header-background {
@@ -25,7 +34,7 @@ header {
     font-weight: 700;
     width: 100vw;
     height: 100vh;
-    animation: effect 10s linear infinite;
+    animation: effect 5s linear infinite;
     z-index: 0;
 }
 #header-text-content {
@@ -54,12 +63,26 @@ header {
     }
 }
 
-#sound-btn {
+.header-btn {
     width: 30px;
     height: 30px;
     position: absolute;
+    transition: transform 0.2s;
+}
+
+#sound-btn {
     top: 10px;
     right: 10px;
+}
+#repeat-btn {
+    visibility: hidden;
+    top: 10px;
+    left: 10px;
+}
+
+.header-btn:hover {
+    cursor: pointer;
+    transform: scale(1.5);
 }
 
 .header-txt-highlight {
