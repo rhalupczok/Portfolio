@@ -6,6 +6,7 @@ main {
     top: 0;
     left: 0;
     width: 100vw;
+    max-width: 100%;
     height: auto;
     background: linear-gradient(180deg, $bg_color_grey, $bg_color_grey);
     color: $fonts_color;
@@ -22,7 +23,7 @@ main {
     position: fixed;
     padding: 10px 0;
     height: 20px;
-    z-index: 1;
+    z-index: 2;
 }
 
 .nav-border a {
@@ -49,6 +50,7 @@ main {
     height: 5px;
     width: 100%;
     background: $highlight_color;
+    z-index: 2;
 }
 
 .nav-menu {
@@ -82,19 +84,21 @@ main {
     }
 
     .nav-menu {
-        display: none;
-        position: fixed;
+        visibility: hidden;
         flex-direction: column;
         justify-content: space-around;
         top: 40px;
         width: 160px;
         height: 150px;
         background: rgb(26, 28, 31);
-        z-index: 97;
+        z-index: 1;
+        transform: translateY(-100%);
+        transition: all 0.5s;
     }
 
     .nav-menu.responsive {
-        display: flex;
+        visibility: visible;
+        transform: translateY(0);
     }
 }
 
@@ -103,7 +107,7 @@ main {
 //--------------about
 
 #characters {
-    margin: 1rem auto;
+    margin: 1rem 0.5rem;
     display: flex;
     justify-content: space-around;
     align-items: flex-start;
@@ -132,23 +136,19 @@ main {
 }
 
 .description {
-    @include flex;
-    margin: 0px 3rem;
-}
-.description {
+    margin: 2rem;
     img {
+        float: left;
+        margin: 2rem;
         border-radius: 2rem;
         width: 150px;
         box-shadow: 0px 0px 8px 8px $highlight_color;
-        margin-right: 2rem;
     }
-}
-
-.description {
     p {
         font-size: 1rem;
         padding: 1rem;
         max-width: 1200px;
+        margin-left: 220px;
     }
 }
 
@@ -166,7 +166,7 @@ a.txt-highlight:hover {
 }
 
 #about {
-    width: 100vw;
+    width: 100%;
     height: auto;
 }
 main {
@@ -175,7 +175,7 @@ main {
         color: $highlight_color;
         text-shadow: 0 0 2px rgb(0, 0, 0);
         text-align: center;
-        padding-top: 60px;
+        padding-top: 50px;
         position: relative;
     }
     h1::after {
@@ -242,20 +242,22 @@ main {
         }
     }
     .description {
-        flex-wrap: wrap;
-    }
-
-    .description {
-        img {
-            margin: 2rem auto;
-        }
-    }
-    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
         p {
-            font-size: 0.8rem;
-            padding: 0;
-            max-width: 1200px;
+            text-align: justify;
+            margin-left: 0;
         }
+        img {
+            float: none;
+        }
+    }
+    .description :nth-child(1) {
+        order: 0;
+    }
+    .description :nth-child(2) {
+        order: -1;
     }
 }
 
@@ -266,7 +268,7 @@ main {
 //   ---------------------- my work -----------------------
 
 #my-work {
-    width: 100vw;
+    width: 100%;
     height: auto;
 }
 
@@ -285,6 +287,7 @@ main {
     height: 250px;
     border: 2px solid $highlight_color;
     box-shadow: 0 0 15px 1px rgb(0, 0, 0);
+    border-radius: 1rem;
     background: $highlight_color;
     position: relative;
 }
@@ -293,23 +296,23 @@ main {
     height: 200px;
     width: 100%;
     background: gray;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
 }
 
 .project-buttons {
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
+    justify-content: center;
     align-items: center;
+    box-sizing: border-box;
     position: absolute;
     width: 100%;
-    height: 200px;
+    height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(
-        0deg,
-        rgba(117, 0, 0, 0.75),
-        rgba(0, 0, 0, 0.75)
-    );
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    border-radius: 1rem;
     opacity: 0;
     transition: 0.5s;
 }

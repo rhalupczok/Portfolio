@@ -1,3 +1,5 @@
+@use "vars" as *;
+
 @mixin flex {
     display: flex;
     justify-content: center;
@@ -12,9 +14,9 @@
 .btn {
     margin: 1rem;
     padding: 1rem;
-    color: #000000;
-    background: #ff0000;
-    border: 2px solid black;
+    color: $fonts_color;
+    background: $highlight_color;
+    box-shadow: 0 0 5px 1px rgb(0, 0, 0);
     border-radius: 1rem;
     text-transform: uppercase;
     text-decoration: none;
@@ -27,9 +29,8 @@
 }
 
 .btn:hover {
-    color: #ff0000;
-    background: #000000;
-    box-shadow: 0 0 10px 10px #ff0000;
+    background: $highlight_color_hover;
+    box-shadow: 0 0 5px 1px $highlight_color_hover;
 }
 
 /* Add animation (fade in the popup) */

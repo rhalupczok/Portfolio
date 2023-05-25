@@ -12,6 +12,7 @@ class Header {
     homeBtn = null;
     soundBtn = null;
     repeatBtn = null;
+    finishBtn = null;
     sound = false;
     // htmlBody = null;
 
@@ -23,12 +24,16 @@ class Header {
         // this.htmlBody = document.querySelectorAll(".if-header");
 
         this.soundBtn = document.getElementById("sound-btn");
+        this.finishBtn = document.getElementById("finish-animation");
         this.repeatBtn = document.getElementById("repeat-btn");
 
         this.goToWebBtn = document.querySelector(".neon-button");
         this.homeBtn = document.querySelector(".homeBtn");
 
         this.repeatBtn.addEventListener("click", textType.textTyping);
+        this.finishBtn.addEventListener("click", () => {
+            textType.animationIsRunning = false;
+        });
         this.soundBtn.addEventListener("click", this.audioSound);
         this.goToWebBtn.addEventListener("mouseover", this.hoverEffect);
         this.goToWebBtn.addEventListener("click", this.blankHeader);
@@ -52,9 +57,10 @@ class Header {
     blankHeader = () => {
         this.header.classList.toggle("hidden");
         this.main.classList.toggle("hidden");
-        // window.scrollTo(0, 0);
-        // this.footer.classList.toggle("hidden");
-        // this.htmlBody.forEach((el) => el.classList.toggle("if-header"));
+        if (!this.main.classList.contains("hidden")) {
+            window.scrollTo(0, 0);
+            textType.animationIsRunning = false;
+        }
         if (this.sound) this.audioSound();
     };
 }
@@ -82,11 +88,12 @@ class Menu {
     }
 
     openMenu = () => {
-        if (this.navMenu.className === "nav-menu") {
-            this.navMenu.className += " responsive";
-        } else {
-            this.navMenu.className = "nav-menu";
-        }
+        this.navMenu.classList.toggle("responsive");
+        // if (this.navMenu.className === "nav-menu") {
+        //     this.navMenu.className += " responsive";
+        // } else {
+        //     this.navMenu.className = "nav-menu";
+        // }
     };
 
     scrollTo = (e) => {
@@ -494,6 +501,20 @@ class TextType {
     k = 0;
     speed = 150;
 
+    finishAnimation = () => {
+        header.hoverEffect();
+        this.i = 0;
+        this.j = 0;
+        this.kayboardTypingAudio.pause();
+        this.kayboardTypingAudio.currentTime = 0;
+        this.headerTxt.forEach((el) => {
+            el.textContent = this.headerTxtStorage[this.i];
+            this.i++;
+        });
+        this.i = 0;
+        header.repeatBtn.style.visibility = "visible";
+    };
+
     textTyping = () => {
         if (this.animationIsRunning) return;
         this.animationIsRunning = true;
@@ -533,13 +554,8 @@ class TextType {
                 this.j++;
             }
         } else {
-            this.i = 0;
-            this.j = 0;
-            this.kayboardTypingAudio.pause();
-            this.kayboardTypingAudio.currentTime = 0;
-            header.hoverEffect();
-            header.repeatBtn.style.visibility = "visible";
             this.animationIsRunning = false;
+            this.finishAnimation();
         }
     };
 }

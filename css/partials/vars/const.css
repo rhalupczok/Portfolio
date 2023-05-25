@@ -1,9 +1,9 @@
 .btn {
   margin: 1rem;
   padding: 1rem;
-  color: #000000;
-  background: #ff0000;
-  border: 2px solid black;
+  color: #eeeeee;
+  background: #00adb5;
+  box-shadow: 0 0 5px 1px rgb(0, 0, 0);
   border-radius: 1rem;
   text-transform: uppercase;
   text-decoration: none;
@@ -16,9 +16,8 @@
 }
 
 .btn:hover {
-  color: #ff0000;
-  background: #000000;
-  box-shadow: 0 0 10px 10px #ff0000;
+  background: #00f2ff;
+  box-shadow: 0 0 5px 1px #00f2ff;
 }
 
 /* Add animation (fade in the popup) */

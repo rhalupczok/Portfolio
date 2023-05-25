@@ -4,12 +4,15 @@
 @use "vars/const" as *;
 
 body {
+    width: 100vw;
+    max-width: 100%;
     background: $bg_color_black;
 }
 
 header {
     cursor: default;
     width: 100vw;
+    max-width: 100%;
     height: 100vh;
     position: relative;
     background: $bg_color_black;
@@ -29,7 +32,7 @@ header {
     background-repeat: no-repeat;
     background-size: cover;
     font-weight: 700;
-    width: 100vw;
+    width: 100%;
     height: 100vh;
     animation: effect 5s linear infinite;
     z-index: 0;
@@ -73,6 +76,11 @@ header {
 }
 #repeat-btn {
     visibility: hidden;
+    top: 10px;
+    left: 50px;
+}
+
+#finish-animation {
     top: 10px;
     left: 10px;
 }
