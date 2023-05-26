@@ -139,7 +139,7 @@ class Popup {
     currentPopup = this.underConstruction;
     currentPopupNum = 0;
 
-    popup = document.getElementById("popup");
+    // popup = document.getElementById("popup");
 
     popupPictures = document.querySelector(".popup-pictures");
     popupIMG = document.querySelector(".popup-img");
@@ -163,36 +163,31 @@ class Popup {
 
     createPopups = () => {
         for (let i = 0; i < Object.keys(this.currentPopup).length; i++) {
-            let popupPictures = document.createElement("div");
-            popupPictures.setAttribute("number", i);
+            let popup = document.createElement("div");
+            popup.setAttribute("number", i);
             i == 0
-                ? popupPictures.classList.add(
-                      "popup-pictures",
-                      "hide-popup",
-                      "show-popup"
-                  )
-                : popupPictures.classList.add("popup-pictures", "hide-popup");
+                ? popup.classList.add("popup-card", "hide-popup", "show-popup")
+                : popup.classList.add("popup-card", "hide-popup");
+
+            let popupPictures = document.createElement("div");
+            popupPictures.classList.add("popup-pictures");
+
             let popupIMG = document.createElement("img");
             popupIMG.src = this.currentPopup[i].img;
             popupIMG.classList.add("popup-img");
             popupPictures.appendChild(popupIMG);
 
             let popupOuter = document.createElement("div");
-            i == 0
-                ? popupOuter.classList.add(
-                      "popup-outer",
-                      "hide-popup",
-                      "show-popup"
-                  )
-                : popupOuter.classList.add("popup-outer", "hide-popup");
-            popupOuter.setAttribute("number", i);
+            popupOuter.classList.add("popup-outer");
             let popupInner = document.createElement("div");
             popupInner.classList.add("popup-inner");
             popupInner.innerHTML = this.currentPopup[i].text;
             popupOuter.appendChild(popupInner);
 
-            this.popup.appendChild(popupPictures);
-            this.popup.appendChild(popupOuter);
+            popup.appendChild(popupPictures);
+            popup.appendChild(popupOuter);
+
+            this.closePopupBG.appendChild(popup);
         }
     };
 
@@ -284,7 +279,7 @@ class Popup {
     }
 
     closePopups() {
-        this.popup.replaceChildren();
+        this.closePopupBG.replaceChildren();
         document.querySelectorAll(".show-popup").forEach((el) => {
             el.classList.remove("show-popup");
         });
