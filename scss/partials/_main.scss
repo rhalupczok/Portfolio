@@ -112,12 +112,15 @@ main {
     justify-content: space-around;
     align-items: flex-start;
     gap: 0.5rem;
+    width: 100%;
     max-width: 1200px;
     flex-wrap: wrap;
     div {
         @include flex;
         flex-direction: column;
         width: 100px;
+        transform: scale(0) rotateZ(180deg);
+        transition: all 1s;
         img {
             height: 100px;
             width: 100px;
@@ -168,6 +171,8 @@ a.txt-highlight:hover {
 #about {
     width: 100%;
     height: auto;
+    @include flex;
+    flex-direction: column;
 }
 main {
     h1 {

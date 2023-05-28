@@ -60,6 +60,7 @@ class Header {
         if (!this.main.classList.contains("hidden")) {
             window.scrollTo(0, 0);
             textType.animationIsRunning = false;
+            effects.init();
         }
         if (this.sound) this.audioSound();
     };
@@ -125,6 +126,23 @@ class Menu {
     };
 }
 
+class Effects {
+    //characters
+    characters = Array.from(document.getElementById("characters").children);
+
+    init() {
+        // this.characters.forEach((el) => {
+        //     el.style.transform = "scale(0)";
+        // });
+
+        for (let i = 0; i < this.characters.length; i++) {
+            setTimeout(() => {
+                this.characters[i].style.transform = "scale(1)";
+            }, 500 + i * 1000);
+        }
+    }
+}
+
 class Popup {
     closePopupBG = document.getElementById("close-popup-bg");
     myJob = document.getElementById("my-job-popup");
@@ -153,7 +171,7 @@ class Popup {
     init() {
         this.closePopups();
         document.addEventListener("keydown", (e) => this.keyDown(e));
-        this.closePopupBG.addEventListener("click", () => this.closePopups());
+        // this.closePopupBG.addEventListener("click", () => this.closePopups());
         this.popupBtns.forEach((btn) =>
             btn.addEventListener("click", (e) => this.openPopup(e))
         );
@@ -161,13 +179,52 @@ class Popup {
         this.popupArrowRight.addEventListener("click", this.nextPopup);
     }
 
+    // createPopups = () => {
+    //     for (let i = 0; i < Object.keys(this.currentPopup).length; i++) {
+    //         let popup = document.createElement("div");
+    //         popup.setAttribute("data-pos", i - 2);
+    //         i == 0
+    //             ? popup.classList.add(
+    //                   "popup-card",
+    //                   "carousel__item",
+    //                   "hide-popup",
+    //                   "show-popup"
+    //               )
+    //             : popup.classList.add("popup-card", "hide-popup");
+
+    //         let popupPictures = document.createElement("div");
+    //         popupPictures.classList.add("popup-pictures");
+
+    //         let popupIMG = document.createElement("img");
+    //         popupIMG.src = this.currentPopup[i].img;
+    //         popupIMG.classList.add("popup-img");
+    //         popupPictures.appendChild(popupIMG);
+
+    //         let popupOuter = document.createElement("div");
+    //         popupOuter.classList.add("popup-outer");
+    //         let popupInner = document.createElement("div");
+    //         popupInner.classList.add("popup-inner");
+    //         popupInner.innerHTML = this.currentPopup[i].text;
+    //         popupOuter.appendChild(popupInner);
+
+    //         popup.appendChild(popupPictures);
+    //         popup.appendChild(popupOuter);
+
+    //         this.closePopupBG.appendChild(popup);
+    //     }
+    // };
+
     createPopups = () => {
         for (let i = 0; i < Object.keys(this.currentPopup).length; i++) {
             let popup = document.createElement("div");
-            popup.setAttribute("number", i);
+            popup.setAttribute("data-pos", i);
             i == 0
-                ? popup.classList.add("popup-card", "hide-popup", "show-popup")
-                : popup.classList.add("popup-card", "hide-popup");
+                ? popup.classList.add(
+                      "popup-card",
+                      "carousel__item",
+                      "carousel__item_active"
+                  )
+                : popup.classList.add("popup-card", "carousel__item");
 
             let popupPictures = document.createElement("div");
             popupPictures.classList.add("popup-pictures");
@@ -188,6 +245,9 @@ class Popup {
             popup.appendChild(popupOuter);
 
             this.closePopupBG.appendChild(popup);
+
+            this.carouselItems = document.querySelectorAll(".carousel__item");
+            this.elems = Array.from(this.carouselItems);
         }
     };
 
@@ -477,6 +537,58 @@ class Popup {
             </p>`,
         },
     };
+
+    state = {};
+    carouselList = document
+        .querySelector(".carousel__list")
+        .addEventListener("click", (event) => {
+            var newActive = event.target;
+            console.log(newActive);
+            var isItem = newActive.closest(".carousel__item"); // looking for first matches upwards
+            console.log(isItem);
+
+            if (
+                !isItem ||
+                newActive.classList.contains("carousel__item_active")
+            ) {
+                return;
+            }
+
+            this.update(newActive);
+        });
+    // carouselItems = document.querySelectorAll(".carousel__item");
+    // elems = Array.from(this.carouselItems);
+
+    update = (newActive) => {
+        const newActivePos = newActive.dataset.pos;
+        console.log(newActive);
+        arr = [];
+
+        const current = this.elems.find((elem) => elem.dataset.pos == 0);
+        const prev = this.elems.find((elem) => elem.dataset.pos == -1);
+        const next = this.elems.find((elem) => elem.dataset.pos == 1);
+        const first = this.elems.find((elem) => elem.dataset.pos == -2);
+        const last = this.elems.find((elem) => elem.dataset.pos == 2);
+
+        current.classList.remove("carousel__item_active");
+
+        [current, prev, next, first, last].forEach((item) => {
+            var itemPos = item.dataset.pos;
+
+            item.dataset.pos = this.getPos(itemPos, newActivePos);
+        });
+        newActive.classList.add("carousel__item_active");
+    };
+
+    getPos = (current, active) => {
+        const diff = current - active;
+
+        if (Math.abs(current - active) > 2) {
+            return -current;
+        }
+
+        return diff;
+    };
 }
 
 class TextType {
@@ -559,3 +671,4 @@ const menu = new Menu();
 const header = new Header();
 const popup = new Popup();
 const textType = new TextType();
+const effects = new Effects();
