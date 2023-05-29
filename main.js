@@ -127,20 +127,25 @@ class Menu {
 }
 
 class Effects {
-    //characters
+    //--------section about
     characters = Array.from(document.getElementById("characters").children);
+    profileIMG = document.getElementById("profile-img");
+    profileIMGcontainer = document.getElementById("profile-img-container");
 
     init() {
-        // this.characters.forEach((el) => {
-        //     el.style.transform = "scale(0)";
-        // });
-
         for (let i = 0; i < this.characters.length; i++) {
             setTimeout(() => {
-                this.characters[i].style.transform = "scale(1)";
-            }, 500 + i * 1000);
+                this.characters[i].style.transform = "none";
+            }, 1000 + i * 1000);
         }
+        setTimeout(() => {
+            this.profileIMGcontainer.style.transform = "none";
+        }, 6000);
+        setTimeout(() => {
+            this.profileIMG.style.opacity = "1";
+        }, 7000);
     }
+    //--------/section about
 }
 
 class Popup {
@@ -163,8 +168,8 @@ class Popup {
     popupIMG = document.querySelector(".popup-img");
     popupOuter = document.querySelector(".popup-outer");
     popupInner = document.querySelector(".popup-inner");
-    popupArrowLeft = document.getElementById("popup-arrow-left");
-    popupArrowRight = document.getElementById("popup-arrow-right");
+    // popupArrowLeft = document.getElementById("popup-arrow-left");
+    // popupArrowRight = document.getElementById("popup-arrow-right");
 
     popupBtns = Array.from(document.querySelectorAll(".open-popup-btn"));
 
@@ -175,8 +180,8 @@ class Popup {
         this.popupBtns.forEach((btn) =>
             btn.addEventListener("click", (e) => this.openPopup(e))
         );
-        this.popupArrowLeft.addEventListener("click", this.previousPopup);
-        this.popupArrowRight.addEventListener("click", this.nextPopup);
+        // this.popupArrowLeft.addEventListener("click", this.previousPopup);
+        // this.popupArrowRight.addEventListener("click", this.nextPopup);
     }
 
     // createPopups = () => {
@@ -251,43 +256,43 @@ class Popup {
         }
     };
 
-    previousPopup = () => {
-        if (this.currentPopupNum > 0) {
-            let current = document.querySelectorAll(
-                `div[number="${this.currentPopupNum}"]`
-            );
-            current.forEach((el) => el.classList.remove("show-popup"));
-            console.log(current);
-            this.currentPopupNum--;
-            let next = document.querySelectorAll(
-                `div[number="${this.currentPopupNum}"]`
-            );
-            next.forEach((el) => el.classList.add("show-popup"));
-        }
-        if (this.currentPopupNum != Object.keys(this.currentPopup).length - 1)
-            this.popupArrowRight.classList.remove("no-hover");
-        if (this.currentPopupNum === 0)
-            this.popupArrowLeft.classList.add("no-hover");
-    };
+    // previousPopup = () => {
+    //     if (this.currentPopupNum > 0) {
+    //         let current = document.querySelectorAll(
+    //             `div[number="${this.currentPopupNum}"]`
+    //         );
+    //         current.forEach((el) => el.classList.remove("show-popup"));
+    //         console.log(current);
+    //         this.currentPopupNum--;
+    //         let next = document.querySelectorAll(
+    //             `div[number="${this.currentPopupNum}"]`
+    //         );
+    //         next.forEach((el) => el.classList.add("show-popup"));
+    //     }
+    //     if (this.currentPopupNum != Object.keys(this.currentPopup).length - 1)
+    //         this.popupArrowRight.classList.remove("no-hover");
+    //     if (this.currentPopupNum === 0)
+    //         this.popupArrowLeft.classList.add("no-hover");
+    // };
 
-    nextPopup = () => {
-        if (this.currentPopupNum < Object.keys(this.currentPopup).length - 1) {
-            let current = document.querySelectorAll(
-                `div[number="${this.currentPopupNum}"]`
-            );
-            current.forEach((el) => el.classList.remove("show-popup"));
-            console.log(current);
-            this.currentPopupNum++;
-            let next = document.querySelectorAll(
-                `div[number="${this.currentPopupNum}"]`
-            );
-            next.forEach((el) => el.classList.add("show-popup"));
-        }
-        if (this.currentPopupNum === Object.keys(this.currentPopup).length - 1)
-            this.popupArrowRight.classList.add("no-hover");
-        if (this.currentPopupNum != 0)
-            this.popupArrowLeft.classList.remove("no-hover");
-    };
+    // nextPopup = () => {
+    //     if (this.currentPopupNum < Object.keys(this.currentPopup).length - 1) {
+    //         let current = document.querySelectorAll(
+    //             `div[number="${this.currentPopupNum}"]`
+    //         );
+    //         current.forEach((el) => el.classList.remove("show-popup"));
+    //         console.log(current);
+    //         this.currentPopupNum++;
+    //         let next = document.querySelectorAll(
+    //             `div[number="${this.currentPopupNum}"]`
+    //         );
+    //         next.forEach((el) => el.classList.add("show-popup"));
+    //     }
+    //     if (this.currentPopupNum === Object.keys(this.currentPopup).length - 1)
+    //         this.popupArrowRight.classList.add("no-hover");
+    //     if (this.currentPopupNum != 0)
+    //         this.popupArrowLeft.classList.remove("no-hover");
+    // };
 
     // popupContent = () => {
     //     console.log(this.currentPopupNum);
@@ -328,12 +333,12 @@ class Popup {
             //         this.otherProjects.classList.add("show-popup");
             //         break;
         }
-        if (this.currentPopup[1]) {
-            this.popupArrowLeft.classList.add("no-hover");
-            this.popupArrowRight.classList.remove("no-hover");
-            this.popupArrowLeft.classList.add("show-popup");
-            this.popupArrowRight.classList.add("show-popup");
-        }
+        // if (this.currentPopup[1]) {
+        //     this.popupArrowLeft.classList.add("no-hover");
+        //     this.popupArrowRight.classList.remove("no-hover");
+        //     this.popupArrowLeft.classList.add("show-popup");
+        //     this.popupArrowRight.classList.add("show-popup");
+        // }
 
         this.createPopups();
     }
@@ -547,47 +552,33 @@ class Popup {
             var isItem = newActive.closest(".carousel__item"); // looking for first matches upwards
             console.log(isItem);
 
-            if (
-                !isItem ||
-                newActive.classList.contains("carousel__item_active")
-            ) {
+            if (!isItem || isItem.classList.contains("carousel__item_active")) {
                 return;
+            } else {
+                isItem.classList.add("carousel__item_active");
+                this.update(isItem);
             }
-
-            this.update(newActive);
         });
-    // carouselItems = document.querySelectorAll(".carousel__item");
-    // elems = Array.from(this.carouselItems);
 
     update = (newActive) => {
         const newActivePos = newActive.dataset.pos;
-        console.log(newActive);
-        arr = [];
+        console.log(newActivePos);
 
-        const current = this.elems.find((elem) => elem.dataset.pos == 0);
-        const prev = this.elems.find((elem) => elem.dataset.pos == -1);
-        const next = this.elems.find((elem) => elem.dataset.pos == 1);
-        const first = this.elems.find((elem) => elem.dataset.pos == -2);
-        const last = this.elems.find((elem) => elem.dataset.pos == 2);
+        newActive;
 
-        current.classList.remove("carousel__item_active");
-
-        [current, prev, next, first, last].forEach((item) => {
-            var itemPos = item.dataset.pos;
-
-            item.dataset.pos = this.getPos(itemPos, newActivePos);
+        this.elems.forEach((el) => {
+            let currentNum = parseInt(el.dataset.pos);
+            if (currentNum == 0) el.classList.remove("carousel__item_active");
+            newActivePos > 0
+                ? (el.dataset.pos = currentNum - 1)
+                : (el.dataset.pos = currentNum + 1);
+            el.dataset.pos > 1
+                ? el.classList.add("right_popup")
+                : el.classList.remove("right_popup");
+            el.dataset.pos < -1
+                ? el.classList.add("left_popup")
+                : el.classList.remove("left_popup");
         });
-        newActive.classList.add("carousel__item_active");
-    };
-
-    getPos = (current, active) => {
-        const diff = current - active;
-
-        if (Math.abs(current - active) > 2) {
-            return -current;
-        }
-
-        return diff;
     };
 }
 
