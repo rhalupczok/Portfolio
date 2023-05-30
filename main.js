@@ -133,22 +133,48 @@ class Effects {
     profileIMGcontainer = document.getElementById("profile-img-container");
 
     init() {
+        console.log(this.characters[0].children[0]);
         for (let i = 0; i < this.characters.length; i++) {
             setTimeout(() => {
                 this.characters[i].style.transform = "none";
-            }, 1000 + i * 1000);
+            }, 1000 + i * 500);
         }
         setTimeout(() => {
             this.profileIMGcontainer.style.transform = "none";
-        }, 6000);
+        }, 4000);
         setTimeout(() => {
             this.profileIMG.style.opacity = "1";
-        }, 7000);
+        }, 5000);
+        for (let i = 0; i < this.characters.length; i++) {
+            setTimeout(() => {
+                this.characters[i].children[0].classList.toggle(
+                    "highlight-effect"
+                );
+            }, 6000 + i * 100);
+            setTimeout(() => {
+                this.characters[i].children[0].classList.toggle(
+                    "highlight-effect"
+                );
+            }, 10000);
+        }
     }
     //--------/section about
 }
 
 class Popup {
+    constructor() {
+        document.addEventListener("keydown", (e) => this.keyDown(e));
+        this.closePopupBG.addEventListener("click", (e) => {
+            if (
+                e.target.id === "close-popup-bg" ||
+                e.target.id === "popup-card"
+            )
+                this.closePopups();
+        });
+        this.popupBtns.forEach((btn) =>
+            btn.addEventListener("click", (e) => this.openPopup(e))
+        );
+    }
     closePopupBG = document.getElementById("close-popup-bg");
     myJob = document.getElementById("my-job-popup");
     myHobbies = document.getElementById("my-hobbies-popup");
@@ -173,13 +199,11 @@ class Popup {
 
     popupBtns = Array.from(document.querySelectorAll(".open-popup-btn"));
 
+    container;
+
     init() {
         this.closePopups();
-        document.addEventListener("keydown", (e) => this.keyDown(e));
-        // this.closePopupBG.addEventListener("click", () => this.closePopups());
-        this.popupBtns.forEach((btn) =>
-            btn.addEventListener("click", (e) => this.openPopup(e))
-        );
+
         // this.popupArrowLeft.addEventListener("click", this.previousPopup);
         // this.popupArrowRight.addEventListener("click", this.nextPopup);
     }
@@ -222,6 +246,7 @@ class Popup {
     createPopups = () => {
         for (let i = 0; i < Object.keys(this.currentPopup).length; i++) {
             let popup = document.createElement("div");
+            popup.id = "popup-card";
             popup.setAttribute("data-pos", i);
             i == 0
                 ? popup.classList.add(
@@ -230,6 +255,13 @@ class Popup {
                       "carousel__item_active"
                   )
                 : popup.classList.add("popup-card", "carousel__item");
+
+            i > 1
+                ? popup.classList.add("right_popup")
+                : popup.classList.remove("right_popup");
+            i < -1
+                ? popup.classList.add("left_popup")
+                : popup.classList.remove("left_popup");
 
             let popupPictures = document.createElement("div");
             popupPictures.classList.add("popup-pictures");
@@ -250,10 +282,14 @@ class Popup {
             popup.appendChild(popupOuter);
 
             this.closePopupBG.appendChild(popup);
-
-            this.carouselItems = document.querySelectorAll(".carousel__item");
-            this.elems = Array.from(this.carouselItems);
         }
+        this.carouselItems = document.querySelectorAll(".carousel__item");
+        this.elems = Array.from(this.carouselItems);
+        console.log(this.elems);
+
+        this.container = document.querySelector(".carousel__item_active");
+        this.container.addEventListener("touchstart", this.startTouch, false);
+        this.container.addEventListener("touchmove", this.moveTouch, false);
     };
 
     // previousPopup = () => {
@@ -343,6 +379,51 @@ class Popup {
         this.createPopups();
     }
 
+    carouselList = document
+        .querySelector(".carousel__list")
+        .addEventListener("click", (event) => {
+            var newActive = event.target;
+            console.log(newActive);
+            var isItem = newActive.closest(".carousel__item"); // looking for first matches upwards
+            console.log(isItem);
+
+            if (!isItem || isItem.classList.contains("carousel__item_active")) {
+                return;
+            } else {
+                this.updatePosition(isItem.dataset.pos);
+            }
+        });
+
+    updatePosition = (newActivePos) => {
+        let leftCheckFlag = false;
+        let rightCheckFlag = false;
+        this.elems.forEach((el) => {
+            let currentNum = parseInt(el.dataset.pos);
+            if (currentNum >= this.elems.length - 1 && newActivePos === "-1")
+                rightCheckFlag = true;
+            if (currentNum <= -this.elems.length + 1 && newActivePos === "1")
+                leftCheckFlag = true;
+        });
+        if (leftCheckFlag === true || rightCheckFlag === true) return;
+        this.elems.forEach((el) => {
+            let currentNum = parseInt(el.dataset.pos);
+            if (currentNum == 0) el.classList.remove("carousel__item_active");
+            newActivePos > 0
+                ? (el.dataset.pos = currentNum - 1)
+                : (el.dataset.pos = currentNum + 1);
+            if (el.dataset.pos == 0) el.classList.add("carousel__item_active");
+            el.dataset.pos > 1
+                ? el.classList.add("right_popup")
+                : el.classList.remove("right_popup");
+            el.dataset.pos < -1
+                ? el.classList.add("left_popup")
+                : el.classList.remove("left_popup");
+        });
+        this.container = document.querySelector(".carousel__item_active");
+        this.container.addEventListener("touchstart", this.startTouch, false);
+        this.container.addEventListener("touchmove", this.moveTouch, false);
+    };
+
     closePopups() {
         this.closePopupBG.replaceChildren();
         document.querySelectorAll(".show-popup").forEach((el) => {
@@ -350,13 +431,77 @@ class Popup {
         });
         if (innerWidth <= 768) menu.navMenu.className = "nav-menu";
     }
+
+    //-------------------navigate
+
     keyDown(e) {
         if (e.keyCode === 27) {
-            this.closePopups();
+            this.closePopups(e);
             if (innerWidth <= 768) menu.navMenu.className = "nav-menu";
         }
+
+        if (e.keyCode === 37) this.updatePosition("-1"); // left
+        if (e.keyCode === 39) this.updatePosition("1"); // right
     }
 
+    // --------------------- swipe
+
+    // Swipe Up / Down / Left / Right
+    initialX = null;
+    initialY = null;
+
+    startTouch = (e) => {
+        this.initialX = e.touches[0].clientX;
+        this.initialY = e.touches[0].clientY;
+    };
+
+    moveTouch = (e) => {
+        if (this.initialX === null) {
+            return;
+        }
+
+        if (this.initialY === null) {
+            return;
+        }
+
+        var currentX = e.touches[0].clientX;
+        var currentY = e.touches[0].clientY;
+
+        var diffX = this.initialX - currentX;
+        var diffY = this.initialY - currentY;
+
+        if (Math.abs(diffX) > Math.abs(diffY)) {
+            // sliding horizontally
+            if (diffX > 0) {
+                // swiped left
+                console.log("swiped left");
+                this.updatePosition("1");
+            } else {
+                // swiped right
+                console.log("swiped right");
+                this.updatePosition("-1");
+            }
+        } else {
+            // sliding vertically
+            if (diffY > 0) {
+                // swiped up
+                console.log("swiped up");
+            } else {
+                // swiped down
+                console.log("swiped down");
+            }
+        }
+
+        this.initialX = null;
+        this.initialY = null;
+
+        e.preventDefault();
+    };
+    // ----------------------/swipe
+
+    //------------------ /navigate
+
+    //-------------------content
     underConstruction = {
         0: {
             img: "images/popup-in-build-1.png",
@@ -541,44 +686,6 @@ class Popup {
                 ><span>GITHUB REPO</span></a>            
             </p>`,
         },
-    };
-
-    state = {};
-    carouselList = document
-        .querySelector(".carousel__list")
-        .addEventListener("click", (event) => {
-            var newActive = event.target;
-            console.log(newActive);
-            var isItem = newActive.closest(".carousel__item"); // looking for first matches upwards
-            console.log(isItem);
-
-            if (!isItem || isItem.classList.contains("carousel__item_active")) {
-                return;
-            } else {
-                isItem.classList.add("carousel__item_active");
-                this.update(isItem);
-            }
-        });
-
-    update = (newActive) => {
-        const newActivePos = newActive.dataset.pos;
-        console.log(newActivePos);
-
-        newActive;
-
-        this.elems.forEach((el) => {
-            let currentNum = parseInt(el.dataset.pos);
-            if (currentNum == 0) el.classList.remove("carousel__item_active");
-            newActivePos > 0
-                ? (el.dataset.pos = currentNum - 1)
-                : (el.dataset.pos = currentNum + 1);
-            el.dataset.pos > 1
-                ? el.classList.add("right_popup")
-                : el.classList.remove("right_popup");
-            el.dataset.pos < -1
-                ? el.classList.add("left_popup")
-                : el.classList.remove("left_popup");
-        });
     };
 }
 

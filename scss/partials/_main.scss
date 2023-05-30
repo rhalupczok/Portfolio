@@ -127,7 +127,7 @@ main {
             background: $highlight_color;
             border-radius: 1rem;
             box-shadow: 0 0 15px 1px rgb(0, 0, 0);
-            // box-shadow: 0 0 2px 2px $highlight_color;
+            transition: all 1s;
         }
         p {
             margin-top: 1rem;
@@ -166,6 +166,11 @@ main {
         max-width: 1200px;
         margin-left: 220px;
     }
+}
+
+.highlight-effect {
+    background: $highlight_color_hover !important;
+    box-shadow: 0 0 15px 1px $highlight_color_hover !important;
 }
 
 .txt-highlight {
