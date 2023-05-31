@@ -137,7 +137,7 @@ class Effects {
         for (let i = 0; i < this.characters.length; i++) {
             setTimeout(() => {
                 this.characters[i].style.transform = "none";
-            }, 1000 + i * 500);
+            }, 100 + i * 500);
         }
         setTimeout(() => {
             this.profileIMGcontainer.style.transform = "none";
@@ -175,6 +175,7 @@ class Popup {
             btn.addEventListener("click", (e) => this.openPopup(e))
         );
     }
+
     closePopupBG = document.getElementById("close-popup-bg");
     myJob = document.getElementById("my-job-popup");
     myHobbies = document.getElementById("my-hobbies-popup");
@@ -188,8 +189,6 @@ class Popup {
     currentPopup = this.underConstruction;
     currentPopupNum = 0;
 
-    // popup = document.getElementById("popup");
-
     popupPictures = document.querySelector(".popup-pictures");
     popupIMG = document.querySelector(".popup-img");
     popupOuter = document.querySelector(".popup-outer");
@@ -199,7 +198,15 @@ class Popup {
 
     popupBtns = Array.from(document.querySelectorAll(".open-popup-btn"));
 
-    container;
+    popupCard;
+
+    swipeMemory = {
+        x: [],
+        y: [],
+        match: "",
+    };
+    tolerance = 100;
+    mouseMoveStarted = false;
 
     init() {
         this.closePopups();
@@ -286,10 +293,31 @@ class Popup {
         this.carouselItems = document.querySelectorAll(".carousel__item");
         this.elems = Array.from(this.carouselItems);
         console.log(this.elems);
+        this.elems.forEach((el) => {
+            el.addEventListener("touchstart", (e) => this.touchStart(e), false);
+            el.addEventListener("touchmove", (e) => this.touchMove(e), false);
+            el.addEventListener("touchend", (e) => this.touchEnd(e), false);
+            el.addEventListener("mousedown", (e) => this.mouseStart(e), false);
+            el.addEventListener("mousemove", (e) => this.mouseMove(e), false);
+            el.addEventListener("mouseup", (e) => this.mouseEnd(e), false);
+        });
 
-        this.container = document.querySelector(".carousel__item_active");
-        this.container.addEventListener("touchstart", this.startTouch, false);
-        this.container.addEventListener("touchmove", this.moveTouch, false);
+        // this.popupCard = document.querySelector(".carousel__item_active");
+        // this.popupCard.addEventListener(
+        //     "touchstart",
+        //     (e) => this.touchStart(e),
+        //     false
+        // );
+        // this.popupCard.addEventListener(
+        //     "touchmove",
+        //     (e) => this.touchMove(e),
+        //     false
+        // );
+        // this.popupCard.addEventListener(
+        //     "touchend",
+        //     (e) => this.touchEnd(e),
+        //     false
+        // );
     };
 
     // previousPopup = () => {
@@ -379,22 +407,8 @@ class Popup {
         this.createPopups();
     }
 
-    carouselList = document
-        .querySelector(".carousel__list")
-        .addEventListener("click", (event) => {
-            var newActive = event.target;
-            console.log(newActive);
-            var isItem = newActive.closest(".carousel__item"); // looking for first matches upwards
-            console.log(isItem);
-
-            if (!isItem || isItem.classList.contains("carousel__item_active")) {
-                return;
-            } else {
-                this.updatePosition(isItem.dataset.pos);
-            }
-        });
-
     updatePosition = (newActivePos) => {
+        if (newActivePos === "0") return;
         let leftCheckFlag = false;
         let rightCheckFlag = false;
         this.elems.forEach((el) => {
@@ -419,9 +433,22 @@ class Popup {
                 ? el.classList.add("left_popup")
                 : el.classList.remove("left_popup");
         });
-        this.container = document.querySelector(".carousel__item_active");
-        this.container.addEventListener("touchstart", this.startTouch, false);
-        this.container.addEventListener("touchmove", this.moveTouch, false);
+        // this.popupCard = document.querySelector(".carousel__item_active");
+        // this.popupCard.addEventListener(
+        //     "touchstart",
+        //     (e) => this.touchStart(e),
+        //     false
+        // );
+        // this.popupCard.addEventListener(
+        //     "touchmove",
+        //     (e) => this.touchMove(e),
+        //     false
+        // );
+        // this.popupCard.addEventListener(
+        //     "touchend",
+        //     (e) => this.touchEnd(e),
+        //     false
+        // );
     };
 
     closePopups() {
@@ -446,57 +473,152 @@ class Popup {
 
     // --------------------- swipe
 
-    // Swipe Up / Down / Left / Right
-    initialX = null;
-    initialY = null;
-
-    startTouch = (e) => {
-        this.initialX = e.touches[0].clientX;
-        this.initialY = e.touches[0].clientY;
+    touchStart = (e) => {
+        // e.preventDefault();
+        for (let i = 0; i < e.touches.length; i++) {
+            this.swipeMemory.x.push(e.touches[i].clientX);
+            this.swipeMemory.y.push(e.touches[i].clientY);
+        }
+    };
+    touchMove = (e) => {
+        e.preventDefault();
+        for (let i = 0; i < e.touches.length; i++) {
+            this.swipeMemory.x.push(e.touches[i].clientX);
+            this.swipeMemory.y.push(e.touches[i].clientY);
+        }
     };
 
-    moveTouch = (e) => {
-        if (this.initialX === null) {
-            return;
+    touchEnd = () => {
+        let xTravel =
+            this.swipeMemory.x[this.swipeMemory.x.length - 1] -
+            this.swipeMemory.x[0];
+        let yTravel =
+            this.swipeMemory.y[this.swipeMemory.y.length - 1] -
+            this.swipeMemory.y[0];
+
+        if (
+            yTravel < this.tolerance &&
+            yTravel > -this.tolerance &&
+            xTravel < -this.tolerance
+        ) {
+            console.log("Swiped Left");
+            this.updatePosition("1");
         }
-
-        if (this.initialY === null) {
-            return;
+        if (
+            yTravel < this.tolerance &&
+            yTravel > -this.tolerance &&
+            xTravel > this.tolerance
+        ) {
+            console.log("Swiped Right");
+            this.updatePosition("-1");
         }
+        this.swipeMemory.x = [];
+        this.swipeMemory.y = [];
+        this.swipeMemory.match = xTravel = yTravel = "";
+    };
 
-        var currentX = e.touches[0].clientX;
-        var currentY = e.touches[0].clientY;
+    mouseStart = (e) => {
+        // e.preventDefault();
+        this.mouseMoveStarted = true;
+        this.swipeMemory.x.push(e.clientX);
+        this.swipeMemory.y.push(e.clientY);
+    };
+    mouseMove = (e) => {
+        e.preventDefault();
 
-        var diffX = this.initialX - currentX;
-        var diffY = this.initialY - currentY;
+        if (this.mouseMoveStarted) {
+            this.swipeMemory.x.push(e.clientX);
+            this.swipeMemory.y.push(e.clientY);
+        }
+    };
 
-        if (Math.abs(diffX) > Math.abs(diffY)) {
-            // sliding horizontally
-            if (diffX > 0) {
-                // swiped left
-                console.log("swiped left");
+    mouseEnd = (e) => {
+        let item = e.target.closest(".carousel__item");
+        let xTravel =
+            this.swipeMemory.x[this.swipeMemory.x.length - 1] -
+            this.swipeMemory.x[0];
+        let yTravel =
+            this.swipeMemory.y[this.swipeMemory.y.length - 1] -
+            this.swipeMemory.y[0];
+        if (item.dataset.pos === "0") {
+            if (
+                yTravel < this.tolerance &&
+                yTravel > -this.tolerance &&
+                xTravel < -this.tolerance
+            ) {
+                console.log("Swiped Left");
                 this.updatePosition("1");
-            } else {
-                // swiped right
-                console.log("swiped right");
+            }
+            if (
+                yTravel < this.tolerance &&
+                yTravel > -this.tolerance &&
+                xTravel > this.tolerance
+            ) {
+                console.log("Swiped Right");
                 this.updatePosition("-1");
             }
         } else {
-            // sliding vertically
-            if (diffY > 0) {
-                // swiped up
-                console.log("swiped up");
-            } else {
-                // swiped down
-                console.log("swiped down");
-            }
+            this.updatePosition(item.dataset.pos);
+            console.log("dsfdsf");
         }
 
-        this.initialX = null;
-        this.initialY = null;
-
-        e.preventDefault();
+        this.swipeMemory.x = [];
+        this.swipeMemory.y = [];
+        this.swipeMemory.match = xTravel = yTravel = "";
+        this.mouseMoveStarted = false;
     };
+
+    // Swipe Up / Down / Left / Right
+    // initialX = null;
+    // initialY = null;
+
+    // startTouch = (e) => {
+    //     this.initialX = e.touches[0].clientX;
+    //     this.initialY = e.touches[0].clientY;
+    // };
+
+    // moveTouch = (e) => {
+    //     if (this.initialX === null) {
+    //         return;
+    //     }
+
+    //     if (this.initialY === null) {
+    //         return;
+    //     }
+
+    //     var currentX = e.touches[0].clientX;
+    //     var currentY = e.touches[0].clientY;
+
+    //     var diffX = this.initialX - currentX;
+    //     var diffY = this.initialY - currentY;
+
+    //     if (Math.abs(diffX) > Math.abs(diffY)) {
+    //         // sliding horizontally
+    //         if (diffX > 0) {
+    //             // swiped left
+    //             console.log("swiped left");
+    //             this.updatePosition("1");
+    //         } else {
+    //             // swiped right
+    //             console.log("swiped right");
+    //             this.updatePosition("-1");
+    //         }
+    //     } else {
+    //         // sliding vertically
+    //         if (diffY > 0) {
+    //             // swiped up
+    //             console.log("swiped up");
+    //         } else {
+    //             // swiped down
+    //             console.log("swiped down");
+    //         }
+    //     }
+
+    //     this.initialX = null;
+    //     this.initialY = null;
+
+    //     e.preventDefault();
+    // };
     // ----------------------/swipe
 
     //------------------ /navigate
