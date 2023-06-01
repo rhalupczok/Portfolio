@@ -174,11 +174,15 @@ class Popup {
         this.popupBtns.forEach((btn) =>
             btn.addEventListener("click", (e) => this.openPopup(e))
         );
+        this.myHobbiesBtn.addEventListener("click", () =>
+            this.openHobbiesPopup()
+        );
     }
 
     closePopupBG = document.getElementById("close-popup-bg");
     myJob = document.getElementById("my-job-popup");
     myHobbies = document.getElementById("my-hobbies-popup");
+    myHobbiesBtn = document.getElementById("my-hobbies-popup-btn");
     cyberGame = document.getElementById("cyber-game-popup");
     snake = document.getElementById("snake-popup");
     organiser = document.getElementById("organiser-popup");
@@ -365,6 +369,20 @@ class Popup {
     //         this.currentPopup[this.currentPopupNum].text;
     // };
 
+    openHobbiesPopup = () => {
+        this.myHobbies.classList.toggle("show-hobbies");
+        this.closePopupBG.classList.add("show-popup");
+        const items = Array.from(
+            document.querySelectorAll(".hobbies-carousel-item")
+        );
+        items.forEach((el, index) => {
+            setTimeout(() => {
+                el.classList.toggle(`it${index + 1}`);
+                console.log(el, index);
+            }, index * 500);
+        });
+    };
+
     openPopup(e) {
         this.currentPopup = this.underConstruction;
         this.currentPopupNum = 0;
@@ -453,6 +471,9 @@ class Popup {
 
     closePopups() {
         this.closePopupBG.replaceChildren();
+        if (this.myHobbies.classList.contains("show-hobbies")) {
+            this.openHobbiesPopup();
+        }
         document.querySelectorAll(".show-popup").forEach((el) => {
             el.classList.remove("show-popup");
         });
