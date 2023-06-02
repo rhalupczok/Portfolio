@@ -430,8 +430,8 @@ main {
   align-items: center;
   flex-direction: column;
   width: 100px;
-  transform: translateX(-110vw);
-  transition: all 2s ease-out;
+  transform: scale(0);
+  transition: all 0.5s ease-in;
 }
 #characters div img {
   height: 100px;
@@ -460,7 +460,7 @@ main {
   background: white;
   box-shadow: 0px 0px 8px 8px #00adb5;
   overflow: hidden;
-  transform: scale(0);
+  transform: rotateY(90deg);
   transition: all 1s ease-in;
 }
 .description #profile-img-container img {
@@ -793,7 +793,6 @@ main .langs img {
 .hobbies-carousel {
   width: 100%;
   transform-style: preserve-3d;
-  animation: rotate 20s infinite linear; /*  speed:  */
 }
 
 .hobbies-carousel .hobbies-carousel-item {
@@ -835,19 +834,10 @@ main .langs img {
 }
 
 .hobbies-carousel:hover {
-  animation-play-state: paused;
   cursor: pointer;
 }
 
 /* animation rotate */
-@keyframes rotate {
-  from {
-    transform: rotateY(0deg);
-  }
-  to {
-    transform: rotateY(360deg);
-  }
-}
 .it1 {
   transform: rotateY(0deg) translateZ(30vw);
 }

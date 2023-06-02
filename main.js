@@ -127,38 +127,65 @@ class Menu {
 }
 
 class Effects {
+    constructor() {}
     //--------section about
+    rotation = 0;
+    playAnimation = false;
+    pauseAnimation = false;
+
     characters = Array.from(document.getElementById("characters").children);
     profileIMG = document.getElementById("profile-img");
     profileIMGcontainer = document.getElementById("profile-img-container");
+
+    hobbiesCarousel = document.querySelector(".hobbies-carousel");
 
     init() {
         console.log(this.characters[0].children[0]);
         for (let i = 0; i < this.characters.length; i++) {
             setTimeout(() => {
                 this.characters[i].style.transform = "none";
-            }, 100 + i * 500);
+            }, 100 + i * 1000);
         }
         setTimeout(() => {
             this.profileIMGcontainer.style.transform = "none";
-        }, 4000);
+        }, 5000);
         setTimeout(() => {
             this.profileIMG.style.opacity = "1";
-        }, 5000);
+        }, 6000);
         for (let i = 0; i < this.characters.length; i++) {
             setTimeout(() => {
                 this.characters[i].children[0].classList.toggle(
                     "highlight-effect"
                 );
-            }, 6000 + i * 100);
+            }, 8000 + i * 400);
             setTimeout(() => {
                 this.characters[i].children[0].classList.toggle(
                     "highlight-effect"
                 );
-            }, 10000);
+            }, 12000);
         }
     }
     //--------/section about
+
+    // carousel rotation
+    rotationAnimation = () => {
+        let lastTime;
+        const callback = (millis) => {
+            if (lastTime && !this.pauseAnimation) {
+                this.carouselRotation((millis - lastTime) / 1000); //calling the update finction with const time in sec
+            }
+            lastTime = millis;
+            if (this.animationFlag) requestAnimationFrame(callback);
+        };
+        callback();
+    };
+
+    carouselRotation = (dt) => {
+        let speed = 20;
+        this.rotation += dt * speed;
+        this.rotation > 360 ? (this.rotation = 0) : this.rotation;
+        this.hobbiesCarousel.style.transform = `RotateY(${this.rotation}deg)`;
+    };
 }
 
 class Popup {
@@ -174,9 +201,12 @@ class Popup {
         this.popupBtns.forEach((btn) =>
             btn.addEventListener("click", (e) => this.openPopup(e))
         );
-        this.myHobbiesBtn.addEventListener("click", () =>
-            this.openHobbiesPopup()
-        );
+        this.myHobbiesBtn.addEventListener("click", () => {
+            effects.animationFlag = true;
+            console.log(effects.animationFlag);
+            effects.rotationAnimation();
+            this.openHobbiesPopup();
+        });
     }
 
     closePopupBG = document.getElementById("close-popup-bg");
@@ -470,6 +500,7 @@ class Popup {
     };
 
     closePopups() {
+        effects.animationFlag = false;
         this.closePopupBG.replaceChildren();
         if (this.myHobbies.classList.contains("show-hobbies")) {
             this.openHobbiesPopup();

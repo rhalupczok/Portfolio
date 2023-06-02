@@ -253,7 +253,7 @@
 .hobbies-carousel {
     width: 100%;
     transform-style: preserve-3d;
-    animation: rotate 20s infinite linear; /*  speed:  */
+    // animation: rotate 20s infinite linear; /*  speed:  */
 }
 .hobbies-carousel .hobbies-carousel-item {
     width: 100%;
@@ -289,19 +289,19 @@
     position: absolute;
 }
 .hobbies-carousel:hover {
-    animation-play-state: paused;
+    // animation-play-state: paused;
     cursor: pointer;
 }
 
 /* animation rotate */
-@keyframes rotate {
-    from {
-        transform: rotateY(0deg);
-    }
-    to {
-        transform: rotateY(360deg);
-    }
-}
+// @keyframes rotate {
+//     from {
+//         transform: rotateY(0deg);
+//     }
+//     to {
+//         transform: rotateY(360deg);
+//     }
+// }
 .it1 {
     transform: rotateY(0deg) translateZ(30vw);
 }
