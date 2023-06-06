@@ -15,7 +15,46 @@
     </head>
     <body>
         <header class="header">
-            <div id="header-text-content">
+            <!-- ----------------------INTRO----------------------------------- -->
+
+            <div id="intro" class="intro">
+                <div class="intro-carousel">
+                    <img
+                        src="images/header-intro-my-picture.png"
+                        alt=""
+                        class="intro-picture"
+                    />
+                    <div class="intro-picture-gradient"></div>
+                    <div class="intro-carousel-item it1">
+                        <div class="intro-carousel-item-content">
+                            <h1>
+                                <p class="header-text-typing"></p>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="intro-carousel-item it2">
+                        <div class="intro-carousel-item-content">
+                            <h1>
+                                <p>
+                                    <span class="header-text-typing"></span>
+                                    <span
+                                        class="txt-highlight header-text-typing"
+                                    ></span>
+                                </p>
+                            </h1>
+                        </div>
+                    </div>
+                    <div class="intro-carousel-item it3">
+                        <div class="intro-carousel-item-content">
+                            <h1>
+                                <p class="header-text-typing"></p>
+                            </h1>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="header-buttons">
                 <img
                     id="sound-btn"
                     class="header-btn btn-sound-off"
@@ -34,32 +73,25 @@
                     src="images/header-finish-animation.png"
                     alt=""
                 />
+            </div>
 
-                <h1>
-                    <p class="text-typing"></p>
-                    <p>
-                        <span class="text-typing"></span>
-                        <span class="header-txt-highlight text-typing"></span>
-                    </p>
-                    <p class="text-typing"></p>
-                </h1>
-                <a class="neon-button">
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    <span></span>
-                    Go to website
-                </a>
-            </div>
-            <div id="header-background">
-                <div class="border glow"></div>
-            </div>
+            <a class="neon-button">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+                Go to website
+            </a>
             <audio
                 id="keyboard-typing-audio"
                 src="audio/keyboard-typing-audio.wav"
             ></audio>
+            <div id="intro-bg" class="hidden"></div>
+
+            <!-- ----------------------/INTRO----------------------------------- -->
         </header>
-        <main class="main hidden">
+
+        <main class="main">
             <!-- popUp -->
             <!-- <button
                 id="popup-arrow-left"
@@ -82,7 +114,7 @@
 
             <div class="nav-border"><a id="menuBtn">MENU</a></div>
             <nav class="nav-menu">
-                <a class="homeBtn">HOME</a>
+                <a class="intro-btn">INTRO</a>
                 <a id="about-me-nav">ABOUT ME</a>
                 <a id="my-work-nav">MY WORK</a>
                 <a id="cv-nav">CV</a>

@@ -2,50 +2,48 @@ window.onload = function () {
     header.init();
     menu.init();
     popup.init();
+    effects.init();
 };
 
 class Header {
-    header = null;
-    main = null;
-    // footer = null;
-    goToWebBtn = null;
-    homeBtn = null;
-    soundBtn = null;
-    repeatBtn = null;
-    finishBtn = null;
-    sound = false;
-    // htmlBody = null;
+    constructor() {}
+    header = document.querySelector(".header");
+    introBg = document.getElementById("intro-bg");
+    goToWebBtn = document.querySelector(".neon-button");
+    soundBtn = document.getElementById("sound-btn");
+    skipBtn = document.getElementById("finish-animation");
+    repeatBtn = document.getElementById("repeat-btn");
+    introCarousel = document.querySelector(".intro-carousel");
+    introCarouselItems = Array.from(
+        document.querySelectorAll(".intro-carousel-item")
+    );
+    headerTxt = Array.from(document.querySelectorAll(".header-text-typing"));
+    headerTxtStorage = [
+        "Welcome on my portfolio page",
+        "My name is",
+        "Radosław Halupczok",
+        "Front-End Developer Candidate",
+    ];
+
+    introStep;
+    introIsRunning = false;
 
     init() {
-        textType.textTyping();
-        this.header = document.querySelector(".header");
-        this.main = document.querySelector(".main");
-        // this.footer = document.querySelector("#footer");
-        // this.htmlBody = document.querySelectorAll(".if-header");
-
-        this.soundBtn = document.getElementById("sound-btn");
-        this.finishBtn = document.getElementById("finish-animation");
-        this.repeatBtn = document.getElementById("repeat-btn");
-
-        this.goToWebBtn = document.querySelector(".neon-button");
-        this.homeBtn = document.querySelector(".homeBtn");
-
-        this.repeatBtn.addEventListener("click", textType.textTyping);
-        this.finishBtn.addEventListener("click", () => {
-            textType.animationIsRunning = false;
-        });
-        this.soundBtn.addEventListener("click", this.audioSound);
+        this.repeatBtn.addEventListener("click", () => effects.init());
+        this.soundBtn.addEventListener(
+            "click",
+            effects.audioSwitch(this.soundBtn)
+        );
         this.goToWebBtn.addEventListener("mouseover", this.hoverEffect);
         this.goToWebBtn.addEventListener("click", this.blankHeader);
-        this.homeBtn.addEventListener("click", this.blankHeader);
+        this.skipBtn.addEventListener("click", this.skipIntro);
+        this.repeatBtn.addEventListener("click", this.repeatIntro);
+
+        this.introIsRunning = true;
+        this.introStep = 0;
+        this.introX();
     }
 
-    audioSound = () => {
-        this.sound = !this.sound;
-        this.sound
-            ? (this.soundBtn.src = "images/header-audio-on.png")
-            : (this.soundBtn.src = "images/header-audio-off.png");
-    };
     hoverEffect = () => {
         this.goToWebBtn.classList.add("focus");
         setTimeout(() => {
@@ -54,35 +52,94 @@ class Header {
         }, 3000);
     };
 
+    repeatIntro = () => {
+        effects.typingAnimationFlag = false;
+        effects.rotate(0, this.introCarousel);
+        this.headerTxt.forEach((el) => {
+            el.textContent = "";
+        });
+        setTimeout(() => {
+            effects.rotationAngle = 0;
+            this.introIsRunning = true;
+            this.introStep = 0;
+            this.introX();
+        }, 1000);
+    };
+
+    skipIntro = () => {
+        if (this.introIsRunning) {
+            this.introIsRunning = false;
+            effects.rotationSpeed = 30;
+            effects.typingAnimationFlag = false;
+        }
+
+        this.headerTxt.forEach((el, index) => {
+            el.textContent = this.headerTxtStorage[index];
+        });
+    };
+
+    introX = () => {
+        effects.typingAnimationFlag
+            ? (effects.pauseCarousel = true)
+            : (effects.pauseCarousel = false);
+        if (this.introStep == 0) {
+            effects.rotationAngle = 0;
+            effects.rotationSpeed = 40;
+            this.introBg.classList.toggle("hidden");
+            effects.typingAnimationFlag = true;
+            effects.pauseCarousel = true;
+            effects.carouselRotation(this.introCarousel);
+            effects.textTyping(this.headerTxtStorage[0], this.headerTxt[0]);
+            this.introStep++;
+        }
+        if (this.introStep == 1 && effects.rotationAngle > 120) {
+            effects.pauseCarousel = true;
+            effects.typingAnimationFlag = true;
+            effects.textTyping(this.headerTxtStorage[1], this.headerTxt[1]);
+            this.introStep++;
+        }
+        if (this.introStep == 2 && effects.typingAnimationFlag == false) {
+            effects.pauseCarousel = true;
+            effects.typingAnimationFlag = true;
+            effects.textTyping(this.headerTxtStorage[2], this.headerTxt[2]);
+            this.introStep++;
+        }
+        if (this.introStep == 3 && effects.rotationAngle > 240) {
+            effects.typingAnimationFlag = true;
+            effects.textTyping(this.headerTxtStorage[3], this.headerTxt[3]);
+            effects.rotationSpeed = 30;
+            this.introStep++;
+        }
+        if (this.introStep == 4 && effects.typingAnimationFlag == false) {
+            this.hoverEffect();
+            this.introIsRunning = false;
+        }
+
+        if (this.introIsRunning) {
+            setTimeout(() => this.introX(), 100);
+        }
+    };
+
     blankHeader = () => {
         this.header.classList.toggle("hidden");
-        this.main.classList.toggle("hidden");
-        if (!this.main.classList.contains("hidden")) {
-            window.scrollTo(0, 0);
-            textType.animationIsRunning = false;
-            effects.init();
-        }
+        if (!main.mainIntroFinished) main.mainIntro();
         if (this.sound) this.audioSound();
     };
 }
 
 class Menu {
-    navMenu = null;
-    menuBtn = null;
-    aboutMe = null;
-    myWork = null;
-    contact = null;
-    cv = null;
-    myWorkBtn = null;
+    constructor() {}
+    navMenu = document.querySelector(".nav-menu");
+    introBtn = document.querySelector(".intro-btn");
+    menuBtn = document.getElementById("menuBtn");
+    aboutMe = document.getElementById("about");
+    myWork = document.getElementById("my-work");
+    myWorkBtn = document.getElementById("my-work-btn");
+    cv = document.getElementById("cv");
+    contact = document.getElementById("contact");
 
     init() {
-        this.navMenu = document.querySelector(".nav-menu");
-        this.menuBtn = document.getElementById("menuBtn");
-        this.aboutMe = document.getElementById("about");
-        this.myWork = document.getElementById("my-work");
-        this.myWorkBtn = document.getElementById("my-work-btn");
-        this.cv = document.getElementById("cv");
-        this.contact = document.getElementById("contact");
+        this.introBtn.addEventListener("click", header.blankHeader);
         this.navMenu.addEventListener("click", (e) => this.scrollTo(e));
         this.myWorkBtn.addEventListener("click", (e) => this.scrollTo(e));
         menuBtn.addEventListener("click", this.openMenu);
@@ -129,85 +186,126 @@ class Menu {
 class Effects {
     constructor() {}
     //--------section about
-    rotation = 0;
-    playAnimation = false;
-    pauseAnimation = false;
-
-    characters = Array.from(document.getElementById("characters").children);
-    profileIMG = document.getElementById("profile-img");
-    profileIMGcontainer = document.getElementById("profile-img-container");
+    rotationAngle = 0;
+    rotationSpeed = 20;
+    turnOffCarousel = true;
+    pauseCarousel = false;
 
     hobbiesCarousel = document.querySelector(".hobbies-carousel");
+    introCarousel = document.querySelector(".intro-carousel");
 
-    init() {
-        console.log(this.characters[0].children[0]);
-        for (let i = 0; i < this.characters.length; i++) {
-            setTimeout(() => {
-                this.characters[i].style.transform = "none";
-            }, 100 + i * 1000);
-        }
-        setTimeout(() => {
-            this.profileIMGcontainer.style.transform = "none";
-        }, 5000);
-        setTimeout(() => {
-            this.profileIMG.style.opacity = "1";
-        }, 6000);
-        for (let i = 0; i < this.characters.length; i++) {
-            setTimeout(() => {
-                this.characters[i].children[0].classList.toggle(
-                    "highlight-effect"
-                );
-            }, 8000 + i * 400);
-            setTimeout(() => {
-                this.characters[i].children[0].classList.toggle(
-                    "highlight-effect"
-                );
-            }, 12000);
-        }
-    }
+    init() {}
+
     //--------/section about
 
     // carousel rotation
-    rotationAnimation = () => {
+
+    pic = document.querySelector(".intro-picture");
+
+    rotate = (dt, content) => {
+        if (!this.pauseCarousel) {
+            this.rotationAngle += dt * this.rotationSpeed;
+            this.rotationAngle > 360
+                ? (this.rotationAngle = 0)
+                : this.rotationAngle;
+            content.style.transform = `RotateY(${this.rotationAngle}deg)`;
+            this.pic.style.transform = `RotateY(${-this.rotationAngle}deg)`;
+        }
+    };
+
+    carouselRotation = (content) => {
         let lastTime;
         const callback = (millis) => {
-            if (lastTime && !this.pauseAnimation) {
-                this.carouselRotation((millis - lastTime) / 1000); //calling the update finction with const time in sec
+            if (lastTime) {
+                this.rotate((millis - lastTime) / 1000, content); //calling the update finction with const time in sec
             }
             lastTime = millis;
-            if (this.animationFlag) requestAnimationFrame(callback);
+            if (!this.turnOffCarousel) requestAnimationFrame(callback);
         };
+        this.turnOffCarousel = false;
         callback();
     };
 
-    carouselRotation = (dt) => {
-        let speed = 20;
-        this.rotation += dt * speed;
-        this.rotation > 360 ? (this.rotation = 0) : this.rotation;
-        this.hobbiesCarousel.style.transform = `RotateY(${this.rotation}deg)`;
+    //------------------------------sound
+    sound = false;
+    kayboardTypingAudio = document.getElementById("keyboard-typing-audio");
+
+    audioSwitch = (soundBtn) => {
+        this.sound = !this.sound;
+        this.sound
+            ? (soundBtn.src = "images/header-audio-on.png")
+            : (soundBtn.src = "images/header-audio-off.png");
+    };
+
+    //------------------------------text typing
+
+    typingAnimationFlag = false;
+    i = 0;
+    k = 0;
+    speed = 100;
+
+    textTyping = (txt, object) => {
+        if (this.k < 6 && this.typingAnimationFlag) {
+            object.textContent === ""
+                ? (object.textContent = "|")
+                : (object.textContent = "");
+            this.k++;
+            setTimeout(() => this.textTyping(txt, object), this.speed * 3);
+        } else {
+            // this.sound
+            //     ? this.kayboardTypingAudio.play()
+            //     : this.kayboardTypingAudio.pause();
+            if (this.i < txt.length && this.typingAnimationFlag) {
+                object.textContent += txt.charAt(this.i);
+                this.i++;
+                setTimeout(() => this.textTyping(txt, object), this.speed);
+            } else {
+                this.i = 0;
+                this.k = 0;
+                this.kayboardTypingAudio.pause();
+                this.kayboardTypingAudio.currentTime = 0;
+                object.textContent = txt;
+                this.typingAnimationFlag = false;
+            }
+        }
+    };
+}
+
+class Main {
+    constructor() {}
+    main = document.querySelector(".main");
+    characters = Array.from(document.getElementById("characters").children);
+    profileIMG = document.getElementById("profile-img");
+    profileIMGcontainer = document.getElementById("profile-img-container");
+    mainIntroFinished = false;
+
+    mainIntro = () => {
+        for (let i = 0; i < this.characters.length; i++) {
+            setTimeout(() => {
+                this.characters[i].style.transform = "none";
+            }, 2000 + i * 1000);
+        }
+        setTimeout(() => {
+            this.profileIMG.style.opacity = "1";
+        }, 100);
+        for (let i = 0; i < this.characters.length; i++) {
+            setTimeout(() => {
+                this.characters[i].children[0].classList.toggle(
+                    "highlight-effect"
+                );
+            }, 7000 + i * 200);
+            setTimeout(() => {
+                this.characters[i].children[0].classList.toggle(
+                    "highlight-effect"
+                );
+            }, 10000);
+        }
+        this.mainIntroFinished = true;
     };
 }
 
 class Popup {
-    constructor() {
-        document.addEventListener("keydown", (e) => this.keyDown(e));
-        this.closePopupBG.addEventListener("click", (e) => {
-            if (
-                e.target.id === "close-popup-bg" ||
-                e.target.id === "popup-card"
-            )
-                this.closePopups();
-        });
-        this.popupBtns.forEach((btn) =>
-            btn.addEventListener("click", (e) => this.openPopup(e))
-        );
-        this.myHobbiesBtn.addEventListener("click", () => {
-            effects.animationFlag = true;
-            console.log(effects.animationFlag);
-            effects.rotationAnimation();
-            this.openHobbiesPopup();
-        });
-    }
+    constructor() {}
 
     closePopupBG = document.getElementById("close-popup-bg");
     myJob = document.getElementById("my-job-popup");
@@ -243,6 +341,22 @@ class Popup {
     mouseMoveStarted = false;
 
     init() {
+        document.addEventListener("keydown", (e) => this.keyDown(e));
+        this.closePopupBG.addEventListener("click", (e) => {
+            if (
+                e.target.id === "close-popup-bg" ||
+                e.target.id === "popup-card"
+            )
+                this.closePopups();
+        });
+        this.popupBtns.forEach((btn) =>
+            btn.addEventListener("click", (e) => this.openPopup(e))
+        );
+        this.myHobbiesBtn.addEventListener("click", () => {
+            console.log(effects.animationFlag);
+            effects.rotationAnimation(effects.hobbiesCarousel);
+            this.openHobbiesPopup();
+        });
         this.closePopups();
 
         // this.popupArrowLeft.addEventListener("click", this.previousPopup);
@@ -863,84 +977,8 @@ class Popup {
     };
 }
 
-class TextType {
-    headerTxt = Array.from(
-        document.querySelectorAll("#header-text-content .text-typing")
-    );
-    headerTxtStorage = [
-        "Welcome on my portfolio page",
-        "My name is",
-        "Radosław Halupczok",
-        "Front-End Developer Candidate",
-    ];
-    kayboardTypingAudio = document.getElementById("keyboard-typing-audio");
-    animationIsRunning = false;
-    i = 0;
-    j = 0;
-    k = 0;
-    speed = 150;
-
-    finishAnimation = () => {
-        header.hoverEffect();
-        this.i = 0;
-        this.j = 0;
-        this.kayboardTypingAudio.pause();
-        this.kayboardTypingAudio.currentTime = 0;
-        this.headerTxt.forEach((el) => {
-            el.textContent = this.headerTxtStorage[this.i];
-            this.i++;
-        });
-        this.i = 0;
-        header.repeatBtn.style.visibility = "visible";
-    };
-
-    textTyping = () => {
-        if (this.animationIsRunning) return;
-        this.animationIsRunning = true;
-        this.headerTxt.forEach((el) => (el.textContent = ""));
-        this.blinkingCursor();
-    };
-
-    blinkingCursor = () => {
-        if (this.k < 6 && this.animationIsRunning) {
-            this.headerTxt[this.j].textContent === ""
-                ? (this.headerTxt[this.j].textContent = "|")
-                : (this.headerTxt[this.j].textContent = "");
-            this.k++;
-            setTimeout(() => this.blinkingCursor(), this.speed * 3);
-        } else {
-            this.k = 0;
-            this.typeWriter();
-        }
-    };
-
-    typeWriter = () => {
-        header.sound
-            ? this.kayboardTypingAudio.play()
-            : this.kayboardTypingAudio.pause();
-        if (this.j < this.headerTxtStorage.length && this.animationIsRunning) {
-            if (this.i < this.headerTxtStorage[this.j].length) {
-                this.headerTxt[this.j].textContent += this.headerTxtStorage[
-                    this.j
-                ].charAt(this.i);
-                this.i++;
-                setTimeout(() => this.typeWriter(), this.speed);
-            }
-        }
-        if (this.j < this.headerTxtStorage.length && this.animationIsRunning) {
-            if (this.i == this.headerTxtStorage[this.j].length) {
-                this.i = 0;
-                this.j++;
-            }
-        } else {
-            this.animationIsRunning = false;
-            this.finishAnimation();
-        }
-    };
-}
-
-const menu = new Menu();
 const header = new Header();
+const menu = new Menu();
+const main = new Main();
 const popup = new Popup();
-const textType = new TextType();
 const effects = new Effects();

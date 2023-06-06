@@ -9,6 +9,8 @@ body {
     background: $bg_color_black;
 }
 
+// ......................................................................
+
 header {
     cursor: default;
     width: 100vw;
@@ -19,9 +21,125 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    // visibility: visible;
     transition: opacity 0.2s;
 }
+
+.header-buttons {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    display: flex;
+    gap: 1rem;
+    z-index: 98;
+}
+
+.header-btn {
+    width: 30px;
+    height: 30px;
+    transition: transform 0.2s;
+}
+
+.header-btn:hover {
+    cursor: pointer;
+    transform: scale(1.5);
+}
+
+#intro-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 97;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    // perspective: 30px;
+}
+
+.intro {
+    position: fixed;
+    width: 30vw;
+    perspective: 1000px;
+    top: 0;
+    padding-top: 30vh;
+    z-index: 98;
+}
+
+.intro-carousel {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    transform-style: preserve-3d;
+}
+
+.intro-picture {
+    width: 75%;
+    position: absolute;
+    bottom: -25vw;
+}
+
+.intro-carousel .intro-carousel-item {
+    width: 100%;
+    height: 30vh;
+    position: absolute;
+    overflow: hidden;
+}
+.intro-carousel-item {
+    box-shadow: 0px 0px 20px 0px #000;
+    border-radius: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // transform: translateX(-150vw) rotateY(360deg);
+    transition: all 1s;
+}
+.intro-carousel-item-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    border-radius: 3vh;
+    background: $bg_color_grey;
+    box-shadow: 0px 0px 20px 0px $highlight_color;
+    position: relative;
+}
+
+.intro-carousel p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.scale {
+    transition: all 0.5s;
+    position: absolute;
+}
+.intro-carousel:hover {
+    cursor: pointer;
+}
+
+.intro-carousel-item.it1 {
+    transform: rotateY(0deg) translateZ(20vw);
+}
+.intro-carousel-item.it2 {
+    transform: rotateY(-120deg) translateZ(20vw);
+}
+.intro-carousel-item.it3 {
+    transform: rotateY(-240deg) translateZ(20vw);
+}
+
+.show-intro {
+    display: block;
+}
+
+// ......................................................................
 
 #header-background {
     position: fixed;
@@ -52,42 +170,6 @@ header {
     p {
         margin: 1rem;
     }
-
-    a {
-        position: absolute;
-        color: $highlight_color;
-        font-size: 1.5rem;
-        bottom: 30px;
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-.header-btn {
-    width: 30px;
-    height: 30px;
-    position: absolute;
-    transition: transform 0.2s;
-}
-
-#sound-btn {
-    top: 10px;
-    right: 10px;
-}
-#repeat-btn {
-    visibility: hidden;
-    top: 10px;
-    left: 50px;
-}
-
-#finish-animation {
-    top: 10px;
-    left: 10px;
-}
-
-.header-btn:hover {
-    cursor: pointer;
-    transform: scale(1.5);
 }
 
 .header-txt-highlight {
@@ -130,19 +212,23 @@ header {
 //-------------------------button----------------------------------
 
 .neon-button {
-    position: relative;
+    position: fixed;
+    color: $highlight_color;
+    font-size: 1.5rem;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
     display: inline-block;
     padding: 15px 30px;
-    color: $highlight_color;
     text-transform: uppercase;
     letter-spacing: 4px;
     text-decoration: none;
-    font-size: 24px;
     overflow: hidden;
     transition: 0.2s;
     font-weight: 700;
     text-align: center;
     cursor: pointer;
+    z-index: 98;
 }
 
 .neon-button.focus {
@@ -245,8 +331,11 @@ header {
 //     }
 // }
 
-// @media screen and (max-height: 680px) {
-//     .border {
-//         height: 80vh;
-//     }
-// }
+@media screen and (max-width: 500px) {
+    .intro-carousel p {
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-align: center;
+    }
+}
