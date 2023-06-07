@@ -17,6 +17,8 @@ class Header {
     introCarouselItems = Array.from(
         document.querySelectorAll(".intro-carousel-item")
     );
+
+    introPicture = document.querySelector(".intro-picture");
     headerTxt = Array.from(document.querySelectorAll(".header-text-typing"));
     headerTxtStorage = [
         "Welcome on my portfolio page",
@@ -26,22 +28,16 @@ class Header {
     ];
 
     introStep;
-    introIsRunning = false;
+    introStatus = false;
 
     init() {
-        this.repeatBtn.addEventListener("click", () => effects.init());
         this.soundBtn.addEventListener(
             "click",
             effects.audioSwitch(this.soundBtn)
         );
         this.goToWebBtn.addEventListener("mouseover", this.hoverEffect);
         this.goToWebBtn.addEventListener("click", this.blankHeader);
-        this.skipBtn.addEventListener("click", this.skipIntro);
-        this.repeatBtn.addEventListener("click", this.repeatIntro);
-
-        this.introIsRunning = true;
-        this.introStep = 0;
-        this.introX();
+        this.initIntro();
     }
 
     hoverEffect = () => {
@@ -53,53 +49,55 @@ class Header {
     };
 
     repeatIntro = () => {
-        effects.typingAnimationFlag = false;
-        effects.rotate(0, this.introCarousel);
-        this.headerTxt.forEach((el) => {
-            el.textContent = "";
-        });
-        setTimeout(() => {
-            effects.rotationAngle = 0;
-            this.introIsRunning = true;
-            this.introStep = 0;
-            this.introX();
-        }, 1000);
+        effects.carouselOff = true;
+        this.introStatus = true;
+        this.introSequence();
     };
 
     skipIntro = () => {
-        if (this.introIsRunning) {
-            this.introIsRunning = false;
-            effects.rotationSpeed = 30;
-            effects.typingAnimationFlag = false;
-        }
-
-        this.headerTxt.forEach((el, index) => {
-            el.textContent = this.headerTxtStorage[index];
-        });
+        effects.typingAnimationFlag = false;
+        this.introStep = 4;
     };
 
-    introX = () => {
+    initIntro = () => {
+        this.introBg.classList.toggle("hidden");
+        this.introStatus = true;
+        this.introStep = 0;
+        this.introSequence();
+    };
+
+    introSequence = () => {
         effects.typingAnimationFlag
-            ? (effects.pauseCarousel = true)
-            : (effects.pauseCarousel = false);
-        if (this.introStep == 0) {
+            ? (effects.carouselPaused = true)
+            : (effects.carouselPaused = false);
+        if (this.introStep == 0 && !effects.carouselStatus) {
+            this.skipBtn.addEventListener("click", this.skipIntro);
+            this.skipBtn.style.opacity = "1";
+            this.repeatBtn.removeEventListener("click", this.repeatIntro);
+            this.repeatBtn.style.opacity = "0.2";
+
+            this.introCarousel.style.transform = `rotateY(0deg)`;
+            this.introPicture.style.transform = `rotateY(0deg)`;
+            this.headerTxt.forEach((el, index) => {
+                el.textContent = "";
+            });
             effects.rotationAngle = 0;
             effects.rotationSpeed = 40;
-            this.introBg.classList.toggle("hidden");
             effects.typingAnimationFlag = true;
-            effects.pauseCarousel = true;
-            effects.carouselRotation(this.introCarousel);
+            effects.carouselPaused = true;
+            effects.carouselOff = false;
+            effects.carouselRotation(this.introCarousel, this.introPicture);
             effects.textTyping(this.headerTxtStorage[0], this.headerTxt[0]);
             this.introStep++;
         }
         if (this.introStep == 1 && effects.rotationAngle > 120) {
-            effects.pauseCarousel = true;
+            effects.carouselPaused = true;
             effects.typingAnimationFlag = true;
             effects.textTyping(this.headerTxtStorage[1], this.headerTxt[1]);
             this.introStep++;
         }
         if (this.introStep == 2 && effects.typingAnimationFlag == false) {
-            effects.pauseCarousel = true;
+            effects.carouselPaused = true;
             effects.typingAnimationFlag = true;
             effects.textTyping(this.headerTxtStorage[2], this.headerTxt[2]);
             this.introStep++;
@@ -112,12 +110,23 @@ class Header {
         }
         if (this.introStep == 4 && effects.typingAnimationFlag == false) {
             this.hoverEffect();
-            this.introIsRunning = false;
+            this.headerTxt.forEach((el, index) => {
+                el.textContent = this.headerTxtStorage[index];
+            });
+
+            this.skipBtn.removeEventListener("click", this.skipIntro);
+            this.skipBtn.style.opacity = "0.2";
+            this.repeatBtn.addEventListener("click", this.repeatIntro);
+            this.repeatBtn.style.opacity = "1";
+
+            effects.rotationSpeed = 30;
+            this.introStatus = false;
+            this.introStep = 0;
         }
 
-        if (this.introIsRunning) {
-            setTimeout(() => this.introX(), 100);
-        }
+        if (this.introStatus) {
+            setTimeout(() => this.introSequence(), 100);
+        } else this.introStatus = false;
     };
 
     blankHeader = () => {
@@ -188,8 +197,9 @@ class Effects {
     //--------section about
     rotationAngle = 0;
     rotationSpeed = 20;
-    turnOffCarousel = true;
-    pauseCarousel = false;
+    carouselOff = true;
+    carouselPaused = true;
+    carouselStatus = false;
 
     hobbiesCarousel = document.querySelector(".hobbies-carousel");
     introCarousel = document.querySelector(".intro-carousel");
@@ -200,29 +210,35 @@ class Effects {
 
     // carousel rotation
 
-    pic = document.querySelector(".intro-picture");
-
-    rotate = (dt, content) => {
-        if (!this.pauseCarousel) {
+    rotate = (dt, content, additionalContent = false) => {
+        if (!this.carouselPaused) {
             this.rotationAngle += dt * this.rotationSpeed;
             this.rotationAngle > 360
                 ? (this.rotationAngle = 0)
                 : this.rotationAngle;
-            content.style.transform = `RotateY(${this.rotationAngle}deg)`;
-            this.pic.style.transform = `RotateY(${-this.rotationAngle}deg)`;
+            content.style.transform = `rotateY(${this.rotationAngle}deg)`;
+            if (additionalContent)
+                additionalContent.style.transform = `rotateY(${-this
+                    .rotationAngle}deg)`;
         }
     };
 
-    carouselRotation = (content) => {
+    carouselRotation = (content, additionalContent) => {
         let lastTime;
         const callback = (millis) => {
+            this.carouselStatus = true;
             if (lastTime) {
-                this.rotate((millis - lastTime) / 1000, content); //calling the update finction with const time in sec
+                this.rotate(
+                    (millis - lastTime) / 1000,
+                    content,
+                    additionalContent
+                ); //calling the update finction with const time in sec
             }
             lastTime = millis;
-            if (!this.turnOffCarousel) requestAnimationFrame(callback);
+            !this.carouselOff
+                ? requestAnimationFrame(callback)
+                : (this.carouselStatus = false);
         };
-        this.turnOffCarousel = false;
         callback();
     };
 
@@ -245,7 +261,7 @@ class Effects {
     speed = 100;
 
     textTyping = (txt, object) => {
-        if (this.k < 6 && this.typingAnimationFlag) {
+        if (this.k < 4 && this.typingAnimationFlag) {
             object.textContent === ""
                 ? (object.textContent = "|")
                 : (object.textContent = "");
