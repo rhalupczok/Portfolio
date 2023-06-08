@@ -31,8 +31,7 @@ class Header {
     introStatus = false;
 
     init() {
-        this.soundBtn.addEventListener(
-            "click",
+        this.soundBtn.addEventListener("click", () =>
             effects.audioSwitch(this.soundBtn)
         );
         this.goToWebBtn.addEventListener("mouseover", this.hoverEffect);
@@ -90,7 +89,7 @@ class Header {
             effects.textTyping(this.headerTxtStorage[0], this.headerTxt[0]);
             this.introStep++;
         }
-        if (this.introStep == 1 && effects.rotationAngle > 120) {
+        if (this.introStep == 1 && effects.rotationAngle > 118) {
             effects.carouselPaused = true;
             effects.typingAnimationFlag = true;
             effects.textTyping(this.headerTxtStorage[1], this.headerTxt[1]);
@@ -102,7 +101,7 @@ class Header {
             effects.textTyping(this.headerTxtStorage[2], this.headerTxt[2]);
             this.introStep++;
         }
-        if (this.introStep == 3 && effects.rotationAngle > 240) {
+        if (this.introStep == 3 && effects.rotationAngle > 238) {
             effects.typingAnimationFlag = true;
             effects.textTyping(this.headerTxtStorage[3], this.headerTxt[3]);
             effects.rotationSpeed = 30;
@@ -268,9 +267,9 @@ class Effects {
             this.k++;
             setTimeout(() => this.textTyping(txt, object), this.speed * 3);
         } else {
-            // this.sound
-            //     ? this.kayboardTypingAudio.play()
-            //     : this.kayboardTypingAudio.pause();
+            this.sound
+                ? this.kayboardTypingAudio.play()
+                : this.kayboardTypingAudio.pause();
             if (this.i < txt.length && this.typingAnimationFlag) {
                 object.textContent += txt.charAt(this.i);
                 this.i++;
