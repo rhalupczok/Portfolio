@@ -103,6 +103,7 @@ body {
 }
 
 header {
+  visibility: visible;
   cursor: default;
   width: 100vw;
   max-width: 100%;
@@ -112,7 +113,7 @@ header {
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: opacity 0.2s;
+  transition: opacity 0.5s;
 }
 
 .header-buttons {
@@ -168,12 +169,17 @@ header {
 
 .intro-picture {
   width: 75%;
+  min-width: 100px;
+  max-width: 600px;
+  min-width: none;
   position: absolute;
   bottom: -25vw;
 }
 
 .intro-carousel .intro-carousel-item {
   width: 100%;
+  min-width: 150px;
+  max-width: 400px;
   height: 30vh;
   position: absolute;
   overflow: hidden;
@@ -229,8 +235,9 @@ header {
   transform: rotateY(-240deg) translateZ(20vw);
 }
 
-.show-intro {
-  display: block;
+.intro-carousel-item.it-out {
+  transform: rotateY(0deg) translateX(-220vw);
+  opacity: 0;
 }
 
 #header-background {
@@ -420,7 +427,6 @@ main {
   background: linear-gradient(180deg, #393e46, #393e46);
   color: #eeeeee;
   cursor: default;
-  transition: opacity 0.2s;
 }
 
 .nav-border {
@@ -554,7 +560,6 @@ main {
   background: white;
   box-shadow: 0px 0px 8px 8px #00adb5;
   overflow: hidden;
-  transition: all 1s ease-in;
 }
 .description #profile-img-container img {
   width: 150px;

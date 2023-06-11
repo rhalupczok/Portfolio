@@ -35,7 +35,7 @@ class Header {
             effects.audioSwitch(this.soundBtn)
         );
         this.goToWebBtn.addEventListener("mouseover", this.hoverEffect);
-        this.goToWebBtn.addEventListener("click", this.blankHeader);
+        this.goToWebBtn.addEventListener("click", this.blankIntro);
         this.initIntro();
     }
 
@@ -48,6 +48,7 @@ class Header {
     };
 
     repeatIntro = () => {
+        this.introStep = 0;
         effects.carouselOff = true;
         this.introStatus = true;
         this.introSequence();
@@ -59,7 +60,6 @@ class Header {
     };
 
     initIntro = () => {
-        this.introBg.classList.toggle("hidden");
         this.introStatus = true;
         this.introStep = 0;
         this.introSequence();
@@ -70,6 +70,7 @@ class Header {
             ? (effects.carouselPaused = true)
             : (effects.carouselPaused = false);
         if (this.introStep == 0 && !effects.carouselStatus) {
+            this.introCarouselItems[0].classList.remove("it-out");
             this.skipBtn.addEventListener("click", this.skipIntro);
             this.skipBtn.style.opacity = "1";
             this.repeatBtn.removeEventListener("click", this.repeatIntro);
@@ -90,6 +91,7 @@ class Header {
             this.introStep++;
         }
         if (this.introStep == 1 && effects.rotationAngle > 118) {
+            this.introCarouselItems[1].classList.remove("it-out");
             effects.carouselPaused = true;
             effects.typingAnimationFlag = true;
             effects.textTyping(this.headerTxtStorage[1], this.headerTxt[1]);
@@ -102,6 +104,7 @@ class Header {
             this.introStep++;
         }
         if (this.introStep == 3 && effects.rotationAngle > 238) {
+            this.introCarouselItems[2].classList.remove("it-out");
             effects.typingAnimationFlag = true;
             effects.textTyping(this.headerTxtStorage[3], this.headerTxt[3]);
             effects.rotationSpeed = 30;
@@ -111,6 +114,9 @@ class Header {
             this.hoverEffect();
             this.headerTxt.forEach((el, index) => {
                 el.textContent = this.headerTxtStorage[index];
+            });
+            this.introCarouselItems.forEach((el) => {
+                el.classList.remove("it-out");
             });
 
             this.skipBtn.removeEventListener("click", this.skipIntro);
@@ -128,10 +134,17 @@ class Header {
         } else this.introStatus = false;
     };
 
-    blankHeader = () => {
-        this.header.classList.toggle("hidden");
+    blankIntro = () => {
+        this.header.classList.add("hidden");
         if (!main.mainIntroFinished) main.mainIntro();
-        if (this.sound) this.audioSound();
+        this.skipIntro();
+        effects.carouselOff = true;
+        if (effects.soundIsOn) effects.audioSwitch(this.soundBtn);
+    };
+    displayIntro = () => {
+        this.header.classList.remove("hidden");
+        this.repeatIntro();
+        if (!effects.soundIsOn) effects.audioSwitch(this.soundBtn);
     };
 }
 
@@ -147,7 +160,7 @@ class Menu {
     contact = document.getElementById("contact");
 
     init() {
-        this.introBtn.addEventListener("click", header.blankHeader);
+        this.introBtn.addEventListener("click", header.displayIntro);
         this.navMenu.addEventListener("click", (e) => this.scrollTo(e));
         this.myWorkBtn.addEventListener("click", (e) => this.scrollTo(e));
         menuBtn.addEventListener("click", this.openMenu);
@@ -223,6 +236,8 @@ class Effects {
     };
 
     carouselRotation = (content, additionalContent) => {
+        this.carouselPaused = false;
+        this.carouselOff = false;
         let lastTime;
         const callback = (millis) => {
             this.carouselStatus = true;
@@ -242,14 +257,21 @@ class Effects {
     };
 
     //------------------------------sound
-    sound = false;
+    soundIsOn = false;
     kayboardTypingAudio = document.getElementById("keyboard-typing-audio");
+    bgMusic = document.getElementById("background-music");
 
     audioSwitch = (soundBtn) => {
-        this.sound = !this.sound;
-        this.sound
-            ? (soundBtn.src = "images/header-audio-on.png")
-            : (soundBtn.src = "images/header-audio-off.png");
+        if (!this.soundIsOn) {
+            this.soundIsOn = true;
+            soundBtn.src = "images/header-audio-on.png";
+            this.bgMusic.loop = true;
+            this.bgMusic.play();
+        } else {
+            this.soundIsOn = false;
+            soundBtn.src = "images/header-audio-off.png";
+            this.bgMusic.pause();
+        }
     };
 
     //------------------------------text typing
@@ -267,7 +289,7 @@ class Effects {
             this.k++;
             setTimeout(() => this.textTyping(txt, object), this.speed * 3);
         } else {
-            this.sound
+            this.soundIsOn
                 ? this.kayboardTypingAudio.play()
                 : this.kayboardTypingAudio.pause();
             if (this.i < txt.length && this.typingAnimationFlag) {
@@ -368,8 +390,7 @@ class Popup {
             btn.addEventListener("click", (e) => this.openPopup(e))
         );
         this.myHobbiesBtn.addEventListener("click", () => {
-            console.log(effects.animationFlag);
-            effects.rotationAnimation(effects.hobbiesCarousel);
+            effects.carouselRotation(effects.hobbiesCarousel);
             this.openHobbiesPopup();
         });
         this.closePopups();
@@ -529,6 +550,7 @@ class Popup {
     // };
 
     openHobbiesPopup = () => {
+        effects.rotationSpeed = 20;
         this.myHobbies.classList.toggle("show-hobbies");
         this.closePopupBG.classList.add("show-popup");
         const items = Array.from(
@@ -537,7 +559,6 @@ class Popup {
         items.forEach((el, index) => {
             setTimeout(() => {
                 el.classList.toggle(`it${index + 1}`);
-                console.log(el, index);
             }, index * 500);
         });
     };
@@ -546,15 +567,10 @@ class Popup {
         this.currentPopup = this.underConstruction;
         this.currentPopupNum = 0;
         this.closePopupBG.classList.add("show-popup");
-        // this.popupPictures.classList.add("show-popup");
-        // this.popupOuter.classList.add("show-popup");
         switch (e.target.id) {
             case "my-job-popup-btn":
                 this.currentPopup = this.myJob;
                 break;
-            //     case "my-hobbies-popup-btn":
-            //         this.myHobbies.classList.add("show-popup");
-            //         break;
             case "cyber-game-popup-btn":
                 this.currentPopup = this.cyberGame;
                 break;
@@ -570,16 +586,7 @@ class Popup {
             case "portfolio-popup-btn":
                 this.currentPopup = this.portfolio;
                 break;
-            //     case "other-projects-popup-btn":
-            //         this.otherProjects.classList.add("show-popup");
-            //         break;
         }
-        // if (this.currentPopup[1]) {
-        //     this.popupArrowLeft.classList.add("no-hover");
-        //     this.popupArrowRight.classList.remove("no-hover");
-        //     this.popupArrowLeft.classList.add("show-popup");
-        //     this.popupArrowRight.classList.add("show-popup");
-        // }
 
         this.createPopups();
     }
@@ -610,6 +617,7 @@ class Popup {
                 ? el.classList.add("left_popup")
                 : el.classList.remove("left_popup");
         });
+
         // this.popupCard = document.querySelector(".carousel__item_active");
         // this.popupCard.addEventListener(
         //     "touchstart",
@@ -629,7 +637,7 @@ class Popup {
     };
 
     closePopups() {
-        effects.animationFlag = false;
+        effects.carouselOff = true;
         this.closePopupBG.replaceChildren();
         if (this.myHobbies.classList.contains("show-hobbies")) {
             this.openHobbiesPopup();

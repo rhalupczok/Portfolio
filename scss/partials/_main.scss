@@ -12,7 +12,6 @@ main {
     color: $fonts_color;
     cursor: default;
     // visibility: visible;
-    transition: opacity 0.2s;
 }
 
 // ----------------------- navbar
@@ -149,7 +148,6 @@ main {
         background: white;
         box-shadow: 0px 0px 8px 8px $highlight_color;
         overflow: hidden;
-        transition: all 1s ease-in;
         img {
             width: 150px;
             border-radius: 2rem;

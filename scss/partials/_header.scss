@@ -12,6 +12,7 @@ body {
 // ......................................................................
 
 header {
+    visibility: visible;
     cursor: default;
     width: 100vw;
     max-width: 100%;
@@ -21,7 +22,7 @@ header {
     display: flex;
     align-items: center;
     justify-content: center;
-    transition: opacity 0.2s;
+    transition: opacity 0.5s;
 }
 
 .header-buttons {
@@ -78,12 +79,17 @@ header {
 
 .intro-picture {
     width: 75%;
+    min-width: 100px;
+    max-width: 600px;
+    min-width: none;
     position: absolute;
     bottom: -25vw;
 }
 
 .intro-carousel .intro-carousel-item {
     width: 100%;
+    min-width: 150px;
+    max-width: 400px;
     height: 30vh;
     position: absolute;
     overflow: hidden;
@@ -135,8 +141,9 @@ header {
     transform: rotateY(-240deg) translateZ(20vw);
 }
 
-.show-intro {
-    display: block;
+.intro-carousel-item.it-out {
+    transform: rotateY(0deg) translateX(-220vw);
+    opacity: 0;
 }
 
 // ......................................................................
