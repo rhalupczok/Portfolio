@@ -11,7 +11,6 @@ main {
     background: linear-gradient(180deg, $bg_color_grey, $bg_color_grey);
     color: $fonts_color;
     cursor: default;
-    // visibility: visible;
 }
 
 // ----------------------- navbar
@@ -235,13 +234,20 @@ main {
             font-weight: 700;
             color: black;
             font-size: 0.8rem;
+            transition: transform 0.2s;
         }
-    }
-    .langs {
+
         img {
             height: 75%;
             margin-bottom: 0.2rem;
         }
+    }
+}
+
+.langs {
+    a:hover {
+        background: $highlight_color_hover;
+        transform: scale(1.2);
     }
 }
 

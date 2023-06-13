@@ -648,10 +648,16 @@ main .langs a {
   font-weight: 700;
   color: black;
   font-size: 0.8rem;
+  transition: transform 0.2s;
 }
 main .langs img {
   height: 75%;
   margin-bottom: 0.2rem;
+}
+
+.langs a:hover {
+  background: #00f2ff;
+  transform: scale(1.2);
 }
 
 @media screen and (max-width: 1200px) {
@@ -935,7 +941,6 @@ main .langs img {
   cursor: pointer;
 }
 
-/* animation rotate */
 .it1 {
   transform: rotateY(0deg) translateZ(30vw);
 }

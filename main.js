@@ -320,7 +320,7 @@ class Main {
         for (let i = 0; i < this.characters.length; i++) {
             setTimeout(() => {
                 this.characters[i].style.transform = "none";
-            }, 2000 + i * 1000);
+            }, 1000 + i * 1000);
         }
         setTimeout(() => {
             this.profileIMG.style.opacity = "1";
@@ -330,7 +330,7 @@ class Main {
                 this.characters[i].children[0].classList.toggle(
                     "highlight-effect"
                 );
-            }, 7000 + i * 200);
+            }, 6000 + i * 150);
             setTimeout(() => {
                 this.characters[i].children[0].classList.toggle(
                     "highlight-effect"
@@ -362,9 +362,6 @@ class Popup {
     popupIMG = document.querySelector(".popup-img");
     popupOuter = document.querySelector(".popup-outer");
     popupInner = document.querySelector(".popup-inner");
-    // popupArrowLeft = document.getElementById("popup-arrow-left");
-    // popupArrowRight = document.getElementById("popup-arrow-right");
-
     popupBtns = Array.from(document.querySelectorAll(".open-popup-btn"));
 
     popupCard;
@@ -394,45 +391,7 @@ class Popup {
             this.openHobbiesPopup();
         });
         this.closePopups();
-
-        // this.popupArrowLeft.addEventListener("click", this.previousPopup);
-        // this.popupArrowRight.addEventListener("click", this.nextPopup);
     }
-
-    // createPopups = () => {
-    //     for (let i = 0; i < Object.keys(this.currentPopup).length; i++) {
-    //         let popup = document.createElement("div");
-    //         popup.setAttribute("data-pos", i - 2);
-    //         i == 0
-    //             ? popup.classList.add(
-    //                   "popup-card",
-    //                   "carousel__item",
-    //                   "hide-popup",
-    //                   "show-popup"
-    //               )
-    //             : popup.classList.add("popup-card", "hide-popup");
-
-    //         let popupPictures = document.createElement("div");
-    //         popupPictures.classList.add("popup-pictures");
-
-    //         let popupIMG = document.createElement("img");
-    //         popupIMG.src = this.currentPopup[i].img;
-    //         popupIMG.classList.add("popup-img");
-    //         popupPictures.appendChild(popupIMG);
-
-    //         let popupOuter = document.createElement("div");
-    //         popupOuter.classList.add("popup-outer");
-    //         let popupInner = document.createElement("div");
-    //         popupInner.classList.add("popup-inner");
-    //         popupInner.innerHTML = this.currentPopup[i].text;
-    //         popupOuter.appendChild(popupInner);
-
-    //         popup.appendChild(popupPictures);
-    //         popup.appendChild(popupOuter);
-
-    //         this.closePopupBG.appendChild(popup);
-    //     }
-    // };
 
     createPopups = () => {
         for (let i = 0; i < Object.keys(this.currentPopup).length; i++) {
@@ -476,7 +435,6 @@ class Popup {
         }
         this.carouselItems = document.querySelectorAll(".carousel__item");
         this.elems = Array.from(this.carouselItems);
-        console.log(this.elems);
         this.elems.forEach((el) => {
             el.addEventListener("touchstart", (e) => this.touchStart(e), false);
             el.addEventListener("touchmove", (e) => this.touchMove(e), false);
@@ -485,69 +443,7 @@ class Popup {
             el.addEventListener("mousemove", (e) => this.mouseMove(e), false);
             el.addEventListener("mouseup", (e) => this.mouseEnd(e), false);
         });
-
-        // this.popupCard = document.querySelector(".carousel__item_active");
-        // this.popupCard.addEventListener(
-        //     "touchstart",
-        //     (e) => this.touchStart(e),
-        //     false
-        // );
-        // this.popupCard.addEventListener(
-        //     "touchmove",
-        //     (e) => this.touchMove(e),
-        //     false
-        // );
-        // this.popupCard.addEventListener(
-        //     "touchend",
-        //     (e) => this.touchEnd(e),
-        //     false
-        // );
     };
-
-    // previousPopup = () => {
-    //     if (this.currentPopupNum > 0) {
-    //         let current = document.querySelectorAll(
-    //             `div[number="${this.currentPopupNum}"]`
-    //         );
-    //         current.forEach((el) => el.classList.remove("show-popup"));
-    //         console.log(current);
-    //         this.currentPopupNum--;
-    //         let next = document.querySelectorAll(
-    //             `div[number="${this.currentPopupNum}"]`
-    //         );
-    //         next.forEach((el) => el.classList.add("show-popup"));
-    //     }
-    //     if (this.currentPopupNum != Object.keys(this.currentPopup).length - 1)
-    //         this.popupArrowRight.classList.remove("no-hover");
-    //     if (this.currentPopupNum === 0)
-    //         this.popupArrowLeft.classList.add("no-hover");
-    // };
-
-    // nextPopup = () => {
-    //     if (this.currentPopupNum < Object.keys(this.currentPopup).length - 1) {
-    //         let current = document.querySelectorAll(
-    //             `div[number="${this.currentPopupNum}"]`
-    //         );
-    //         current.forEach((el) => el.classList.remove("show-popup"));
-    //         console.log(current);
-    //         this.currentPopupNum++;
-    //         let next = document.querySelectorAll(
-    //             `div[number="${this.currentPopupNum}"]`
-    //         );
-    //         next.forEach((el) => el.classList.add("show-popup"));
-    //     }
-    //     if (this.currentPopupNum === Object.keys(this.currentPopup).length - 1)
-    //         this.popupArrowRight.classList.add("no-hover");
-    //     if (this.currentPopupNum != 0)
-    //         this.popupArrowLeft.classList.remove("no-hover");
-    // };
-
-    // popupContent = () => {
-    //     console.log(this.currentPopupNum);
-    //     this.popupIMG.src = this.currentPopup[this.currentPopupNum].img;
-    //     this.popupInner.innerHTML =
-    //         this.currentPopup[this.currentPopupNum].text;
-    // };
 
     openHobbiesPopup = () => {
         effects.rotationSpeed = 20;
@@ -617,27 +513,11 @@ class Popup {
                 ? el.classList.add("left_popup")
                 : el.classList.remove("left_popup");
         });
-
-        // this.popupCard = document.querySelector(".carousel__item_active");
-        // this.popupCard.addEventListener(
-        //     "touchstart",
-        //     (e) => this.touchStart(e),
-        //     false
-        // );
-        // this.popupCard.addEventListener(
-        //     "touchmove",
-        //     (e) => this.touchMove(e),
-        //     false
-        // );
-        // this.popupCard.addEventListener(
-        //     "touchend",
-        //     (e) => this.touchEnd(e),
-        //     false
-        // );
     };
 
     closePopups() {
-        effects.carouselOff = true;
+        if (effects.carouselStatus && !header.introStatus)
+            effects.carouselOff = true;
         this.closePopupBG.replaceChildren();
         if (this.myHobbies.classList.contains("show-hobbies")) {
             this.openHobbiesPopup();
@@ -735,7 +615,6 @@ class Popup {
                 yTravel > -this.tolerance &&
                 xTravel < -this.tolerance
             ) {
-                console.log("Swiped Left");
                 this.updatePosition("1");
             }
             if (
@@ -743,12 +622,10 @@ class Popup {
                 yTravel > -this.tolerance &&
                 xTravel > this.tolerance
             ) {
-                console.log("Swiped Right");
                 this.updatePosition("-1");
             }
         } else {
             this.updatePosition(item.dataset.pos);
-            console.log("dsfdsf");
         }
 
         this.swipeMemory.x = [];
@@ -757,62 +634,6 @@ class Popup {
         this.mouseMoveStarted = false;
     };
 
-    // Swipe Up / Down / Left / Right
-    // initialX = null;
-    // initialY = null;
-
-    // startTouch = (e) => {
-    //     this.initialX = e.touches[0].clientX;
-    //     this.initialY = e.touches[0].clientY;
-    // };
-
-    // moveTouch = (e) => {
-    //     if (this.initialX === null) {
-    //         return;
-    //     }
-
-    //     if (this.initialY === null) {
-    //         return;
-    //     }
-
-    //     var currentX = e.touches[0].clientX;
-    //     var currentY = e.touches[0].clientY;
-
-    //     var diffX = this.initialX - currentX;
-    //     var diffY = this.initialY - currentY;
-
-    //     if (Math.abs(diffX) > Math.abs(diffY)) {
-    //         // sliding horizontally
-    //         if (diffX > 0) {
-    //             // swiped left
-    //             console.log("swiped left");
-    //             this.updatePosition("1");
-    //         } else {
-    //             // swiped right
-    //             console.log("swiped right");
-    //             this.updatePosition("-1");
-    //         }
-    //     } else {
-    //         // sliding vertically
-    //         if (diffY > 0) {
-    //             // swiped up
-    //             console.log("swiped up");
-    //         } else {
-    //             // swiped down
-    //             console.log("swiped down");
-    //         }
-    //     }
-
-    //     this.initialX = null;
-    //     this.initialY = null;
-
-    //     e.preventDefault();
-    // };
-    // ----------------------/swipe
-
-    //------------------ /navigate
-
-    //-------------------content
     underConstruction = {
         0: {
             img: "images/popup-in-build-1.png",
@@ -837,15 +658,18 @@ class Popup {
 
     cyberGame = {
         0: {
-            img: "images/popup-cyber-game-0.jpg",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-cyber-game-0.jpg"
+                    : "images/popup-cyber-game-0.jpg",
             text: `<p>
             The game was created inspired by standard Air Hockey game which you can find in many touristic places. <br><br>
-            Code rep: 
+            Code: 
             <a
             href="https://github.com/rhalupczok/Cyber_Game"
             target="_blank"
             class="txt-highlight"
-            ><span>GITHUB REPO</span></a>  
+            ><span>GITHUB</span></a>  
         </p>`,
         },
         1: {
@@ -883,12 +707,12 @@ class Popup {
             img: "images/popup-pocket-organiser-0.png",
             text: `<p>
             Simple app with task or shopping list <br><br>
-            Code rep: 
+            Code: 
             <a
             href="https://github.com/rhalupczok/pocket_organiser"
             target="_blank"
             class="txt-highlight"
-            ><span>GITHUB REPO</span></a>            
+            ><span>GITHUB</span></a>            
         </p>`,
         },
         1: {
@@ -926,14 +750,13 @@ class Popup {
         0: {
             img: "images/popup-snake-0.png",
             text: `<p>
-                The game was created inspired by memories of iconic phone Nokia 3310.<br></p>
-                <p>
-                Code rep: 
+                The game was created inspired by memories of iconic phone Nokia 3310. <br><br>
+                Code: 
                 <a
                 href="https://github.com/rhalupczok/Snake"
                 target="_blank"
                 class="txt-highlight"
-                ><span>GITHUB REPO</span></a>            
+                ><span>GITHUB</span></a>            
             </p>`,
         },
         1: {
@@ -957,14 +780,13 @@ class Popup {
         0: {
             img: "images/popup-weather-0.png",
             text: `<p>
-                Simple weather application based on data delivered in API format<br></p>
-                <p>
-                Code rep: 
+                Simple weather application based on data delivered in API format <br><br>
+                Code: 
                 <a
                 href="https://github.com/rhalupczok/WeatherApp"
                 target="_blank"
                 class="txt-highlight"
-                ><span>GITHUB REPO</span></a>            
+                ><span>GITHUB</span></a>            
             </p>`,
         },
         1: {
@@ -987,14 +809,13 @@ class Popup {
             text: `<p>
                 The portfolio page was created using SCSS superset </p>
                 <p>
-                For more details you can look at github repositorium.</p>
-                <p>
-                Code rep: 
+                For more details you can look at github repositorium. <br><br>
+                Code: 
                 <a
                 href="https://github.com/rhalupczok/Portfolio"
                 target="_blank"
                 class="txt-highlight"
-                ><span>GITHUB REPO</span></a>            
+                ><span>GITHUB</span></a>            
             </p>`,
         },
     };
