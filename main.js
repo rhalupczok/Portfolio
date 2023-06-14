@@ -443,6 +443,20 @@ class Popup {
             el.addEventListener("mousemove", (e) => this.mouseMove(e), false);
             el.addEventListener("mouseup", (e) => this.mouseEnd(e), false);
         });
+
+        this.fullScreenPic();
+    };
+
+    fullScreenPic = () => {
+        const imgs = document.querySelectorAll(".popup-img");
+        const fullScreenPic = document.querySelector("#full-screen-pic");
+
+        imgs.forEach((img) => {
+            img.addEventListener("dblclick", function () {
+                fullScreenPic.style.backgroundImage = "url(" + img.src + ")";
+                fullScreenPic.style.display = "block";
+            });
+        });
     };
 
     openHobbiesPopup = () => {
@@ -550,7 +564,6 @@ class Popup {
         }
     };
     touchMove = (e) => {
-        e.preventDefault();
         for (let i = 0; i < e.touches.length; i++) {
             this.swipeMemory.x.push(e.touches[i].clientX);
             this.swipeMemory.y.push(e.touches[i].clientY);
@@ -646,7 +659,10 @@ class Popup {
     };
     myJob = {
         0: {
-            img: "images/my-job-1.jpg",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/my-job-0-wide.png"
+                    : "images/my-job-0.png",
             text: `<p>
                         We implement automation and robotics projects for the big automotive brands such as Audi, BMW, VW, Tesla etc.
                         The scope of work is from project and planning, throuht offline simulation which is virtual building whole production lines, till build up the whole line in reality on factory plant. It is very big, time consuming and complicated process with many difficult steps which we always have to face to. </br></br>
@@ -660,7 +676,7 @@ class Popup {
         0: {
             img:
                 window.innerWidth > window.innerHeight
-                    ? "images/popup-cyber-game-0.jpg"
+                    ? "images/popup-cyber-game-0-wide.jpg"
                     : "images/popup-cyber-game-0.jpg",
             text: `<p>
             The game was created inspired by standard Air Hockey game which you can find in many touristic places. <br><br>
@@ -673,13 +689,19 @@ class Popup {
         </p>`,
         },
         1: {
-            img: "images/popup-cyber-game-1.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-cyber-game-1-wide.png"
+                    : "images/popup-cyber-game-1.png",
             text: `<p>
             Control player by mouse or touchpad on mobile devices            
         </p>`,
         },
         2: {
-            img: "images/popup-cyber-game-2.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-cyber-game-2-wide.png"
+                    : "images/popup-cyber-game-2.png",
             text: `<p>
             The phisics of hitting the ball was created based on real phisics laws, taken into acount all movement vectors and masses of ball/players.<br>
             <a
@@ -690,7 +712,10 @@ class Popup {
         </p>`,
         },
         3: {
-            img: "images/popup-cyber-game-3.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-cyber-game-3-wide.png"
+                    : "images/popup-cyber-game-3.png",
             text: `<p>
             AI Player logic try to save the goal and score<br>
             <a
@@ -704,7 +729,10 @@ class Popup {
 
     pocketOrganiser = {
         0: {
-            img: "images/popup-pocket-organiser-0.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-pocket-organiser-0-wide.png"
+                    : "images/popup-pocket-organiser-0.png",
             text: `<p>
             Simple app with task or shopping list <br><br>
             Code: 
@@ -716,25 +744,37 @@ class Popup {
         </p>`,
         },
         1: {
-            img: "images/popup-pocket-organiser-1.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-pocket-organiser-1-wide.png"
+                    : "images/popup-pocket-organiser-1.png",
             text: `<p>
             Entry the task or item on prepared form. <br><br>You can set deadline for tasks and amount or shop for items.
         </p>`,
         },
         2: {
-            img: "images/popup-pocket-organiser-2.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-pocket-organiser-2-wide.png"
+                    : "images/popup-pocket-organiser-2.png",
             text: `<p>
             You can dynamically switch the language by click on the flag in left bottom corner.
         </p>`,
         },
         3: {
-            img: "images/popup-pocket-organiser-3.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-pocket-organiser-3-wide.png"
+                    : "images/popup-pocket-organiser-3.png",
             text: `<p>
             You can filter the item list by the shop name. <br><br> The filter window is moveable.
         </p>`,
         },
         4: {
-            img: "images/popup-pocket-organiser-4.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-pocket-organiser-4-wide.png"
+                    : "images/popup-pocket-organiser-4.png",
             text: `<p>
             The data are kept in local storage.<br>
             <a
@@ -748,7 +788,10 @@ class Popup {
 
     snake = {
         0: {
-            img: "images/popup-snake-0.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-snake-0-wide.png"
+                    : "images/popup-snake-0.png",
             text: `<p>
                 The game was created inspired by memories of iconic phone Nokia 3310. <br><br>
                 Code: 
@@ -760,13 +803,19 @@ class Popup {
             </p>`,
         },
         1: {
-            img: "images/popup-snake-1.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-snake-1-wide.png"
+                    : "images/popup-snake-1.png",
             text: `<p>
                 Level define the Snake speed and amount of points for each food.
             </p>`,
         },
         2: {
-            img: "images/popup-snake-2.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-snake-2-wide.png"
+                    : "images/popup-snake-2.png",
             text: `<p>
                 3 way of control:<br>
                 - Keyboard arrows<br>
@@ -778,7 +827,10 @@ class Popup {
 
     weather = {
         0: {
-            img: "images/popup-weather-0.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-weather-0-wide.png"
+                    : "images/popup-snake-0.png",
             text: `<p>
                 Simple weather application based on data delivered in API format <br><br>
                 Code: 
@@ -790,14 +842,20 @@ class Popup {
             </p>`,
         },
         1: {
-            img: "images/popup-weather-1.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-weather-1-wide.png"
+                    : "images/popup-snake-1.png",
             text: `<p>
             You can check the weather by your current location or write the city name. <br>
             Just click in any day on the bottom to check the forecast weather details.
             </p>`,
         },
         2: {
-            img: "images/popup-weather-2.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-weather-2-wide.png"
+                    : "images/popup-snake-2.png",
             text: `<p>
             Just click on the city name to open the map in new tab.
             </p>`,
@@ -805,7 +863,10 @@ class Popup {
     };
     portfolio = {
         0: {
-            img: "images/my-work-portfolio.png",
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/my-work-portfolio.png"
+                    : "images/my-work-portfolio.png",
             text: `<p>
                 The portfolio page was created using SCSS superset </p>
                 <p>
