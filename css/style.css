@@ -976,7 +976,7 @@ main .langs img {
   background-size: contain;
   background-repeat: no-repeat no-repeat;
   background-position: center center;
-  background-color: transparent;
+  background-color: #222831;
 }
 
 * {
