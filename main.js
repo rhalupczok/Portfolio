@@ -865,18 +865,62 @@ class Popup {
         0: {
             img:
                 window.innerWidth > window.innerHeight
-                    ? "images/my-work-portfolio.png"
-                    : "images/my-work-portfolio.png",
+                    ? "images/popup-portfolio-0.png"
+                    : "images/popup-portfolio-0.png",
             text: `<p>
-                The portfolio page was created using SCSS superset </p>
+                The popup cards can be switched by arrows, by clicking on next/previous card or by swiped current card - either by mouse like as on the touchscreen<br>double click on picture - fullscreen<br><br>
+                Code: 
+                <a
+                href="https://github.com/rhalupczok/Portfolio/blob/c1d9db12fafebeebb83c85f0fa60b2445010fc4f/main.js#L504"
+                target="_blank"
+                class="txt-highlight"
+                ><span>GITHUB</span></a>            
+            </p>`,
+        },
+
+        1: {
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-portfolio-1.png"
+                    : "images/popup-portfolio-1.png",
+            text: `<p>
+                All effects like dynamic typing, carousels, popups were coded by myself in pure JS without using any external libraries
+                <br><br>
+                Github: 
+                <a
+                href="https://github.com/rhalupczok/Portfolio/blob/c1d9db12fafebeebb83c85f0fa60b2445010fc4f/main.js#L68"
+                target="_blank"
+                class="txt-highlight"
+                ><span>Intro</span></a> <br>     
+                Github: 
+                <a
+                href="https://github.com/rhalupczok/Portfolio/blob/c1d9db12fafebeebb83c85f0fa60b2445010fc4f/main.js#L207"
+                target="_blank"
+                class="txt-highlight"
+                ><span>Effects - carousel/textyping</span></a> <br>    
+                Github: 
+                <a
+                href="https://github.com/rhalupczok/Portfolio/blob/c1d9db12fafebeebb83c85f0fa60b2445010fc4f/main.js#L344"
+                target="_blank"
+                class="txt-highlight"
+                ><span>Popups</span></a> <br>          
+            </p>`,
+        },
+        2: {
+            img:
+                window.innerWidth > window.innerHeight
+                    ? "images/popup-portfolio-2.png"
+                    : "images/popup-portfolio-2.png",
+            text: `<p>
+                All content was styling using SCSS superset </p>
                 <p>
                 For more details you can look at github repositorium. <br><br>
-                Code: 
+                Whole repositorium: 
                 <a
                 href="https://github.com/rhalupczok/Portfolio"
                 target="_blank"
                 class="txt-highlight"
-                ><span>GITHUB</span></a>            
+                ><span>Github</span></a>            
             </p>`,
         },
     };
