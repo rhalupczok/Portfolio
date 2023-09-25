@@ -1,0 +1,97 @@
+@use "../vars/colours.scss" as *;
+@forward "../vars/colours.scss";
+@use "../vars/global.scss" as *;
+@forward "../vars/global.scss";
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.nav-border {
+    width: 100%;
+    background: $bg_color_black;
+    position: fixed;
+    padding: 10px 0;
+    height: 20px;
+    top: 0;
+    left: 0;
+    z-index: 98;
+}
+
+.nav-border::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    height: 5px;
+    width: 100%;
+    background: $highlight_color;
+}
+
+.nav-border--menuBtn {
+    display: none;
+    cursor: pointer;
+    float: left;
+    font-size: 1rem;
+    padding: 0px 20px;
+    font-weight: 700;
+    text-decoration: none;
+    transition: color 0.5s ease-out;
+}
+
+.nav-border--menuBtn:hover {
+    color: $highlight_color;
+}
+
+.nav-menu {
+    top: 0;
+    left: 0;
+    @include flex;
+    width: 100%;
+    flex-direction: row;
+    justify-content: flex-start;
+    flex-wrap: wrap;
+    position: fixed;
+    padding: 10px 0;
+    height: 16px;
+    z-index: 98;
+}
+.nav-menu {
+    span {
+        font-size: 1rem;
+        padding: 0 20px;
+        font-weight: 700;
+        text-decoration: none;
+        transition: color 0.5s ease-out;
+        cursor: pointer;
+    }
+    span:hover {
+        color: $highlight_color;
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .nav-border--menuBtn {
+        display: block;
+    }
+
+    .nav-menu {
+        visibility: hidden;
+        flex-direction: column;
+        justify-content: space-around;
+        top: 40px;
+        width: 160px;
+        height: 150px;
+        background: rgb(26, 28, 31);
+        transform: translateY(-100%);
+        transition: all 0.5s;
+        z-index: 97;
+    }
+
+    .nav-menu.responsive {
+        visibility: visible;
+        transform: translateY(0);
+    }
+}

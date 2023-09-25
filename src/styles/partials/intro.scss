@@ -1,0 +1,233 @@
+@use "../vars/colours.scss" as *;
+@use "../vars/global.scss" as *;
+
+#intro-bg {
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    background: rgba(0, 0, 0, 0.5);
+    backdrop-filter: blur(2px);
+    z-index: 97;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.intro {
+    position: fixed;
+    width: 30vw;
+    perspective: 1000px;
+    top: 0;
+    padding-top: 30vh;
+    z-index: 98;
+}
+
+.intro-carousel {
+    display: flex;
+    justify-content: center;
+    align-self: center;
+    width: 100%;
+    transform-style: preserve-3d;
+}
+
+.intro-picture {
+    width: 75%;
+    min-width: 100px;
+    max-width: 300px;
+    position: absolute;
+    top: -15vh;
+}
+
+.intro-carousel .intro-carousel-item {
+    width: 100%;
+    min-width: 150px;
+    max-width: 400px;
+    height: 30vh;
+    position: absolute;
+    overflow: hidden;
+}
+.intro-carousel-item {
+    box-shadow: 0px 0px 20px 0px #000;
+    border-radius: 3vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    // transform: translateX(-150vw) rotateY(360deg);
+    transition: all 1s;
+}
+.intro-carousel-item-content {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 80%;
+    height: 80%;
+    border-radius: 3vh;
+    background: $bg_color_grey;
+    box-shadow: 0px 0px 20px 0px $highlight_color;
+    position: relative;
+}
+
+.intro-carousel p {
+    color: white;
+    font-size: 1.5rem;
+    font-weight: 700;
+    text-align: center;
+}
+
+.scale {
+    transition: all 0.5s;
+    position: absolute;
+}
+.intro-carousel:hover {
+    cursor: pointer;
+}
+
+.intro-carousel-item.it1 {
+    transform: rotateY(0deg) translateZ(20vw);
+}
+.intro-carousel-item.it2 {
+    transform: rotateY(-120deg) translateZ(20vw);
+}
+.intro-carousel-item.it3 {
+    transform: rotateY(-240deg) translateZ(20vw);
+}
+
+.intro-carousel-item.it-out {
+    transform: rotateY(0deg) translateX(-220vw);
+    opacity: 0;
+}
+
+//-------------------------button----------------------------------
+
+.neon-button {
+    background-color: $bg_color_grey;
+    position: fixed;
+    color: $highlight_color;
+    font-size: 1.5rem;
+    bottom: 30px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: inline-block;
+    padding: 15px 30px;
+    text-transform: uppercase;
+    letter-spacing: 4px;
+    text-decoration: none;
+    overflow: hidden;
+    transition: 0.2s;
+    font-weight: 700;
+    text-align: center;
+    cursor: pointer;
+    z-index: 98;
+}
+
+.neon-button:hover {
+    color: $fonts_color;
+    background: $highlight_color_hover;
+    box-shadow: 0 0 30px $highlight_color_hover;
+    transition-delay: 1s;
+}
+
+.neon-button.focus {
+    color: $fonts_color;
+    background: $highlight_color_hover;
+    box-shadow: 0 0 30px $highlight_color_hover;
+    transition-delay: 1s;
+}
+
+.neon-button span {
+    position: absolute;
+    display: block;
+}
+
+.neon-button span:nth-child(1) {
+    top: 0;
+    left: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(90deg, transparent, $highlight_color_hover);
+}
+
+.neon-button:hover span:nth-child(1) {
+    left: 100%;
+    transition: 1s;
+}
+
+.neon-button span:nth-child(2) {
+    top: -100%;
+    right: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(180deg, transparent, $highlight_color_hover);
+}
+
+.neon-button:hover span:nth-child(2) {
+    top: 100%;
+    transition: 1s;
+    transition-delay: 0.25s;
+}
+
+.neon-button span:nth-child(3) {
+    bottom: 0;
+    right: -100%;
+    width: 100%;
+    height: 2px;
+    background: linear-gradient(270deg, transparent, $highlight_color_hover);
+}
+
+.neon-button:hover span:nth-child(3) {
+    right: 100%;
+    transition: 1s;
+    transition-delay: 0.5s;
+}
+
+.neon-button span:nth-child(4) {
+    bottom: -100%;
+    left: 0;
+    width: 2px;
+    height: 100%;
+    background: linear-gradient(0deg, transparent, $highlight_color_hover);
+}
+
+.neon-button:hover span:nth-child(4) {
+    bottom: 100%;
+    transition: 1s;
+    transition-delay: 0.75s;
+}
+
+// ---------------------/button---------------------------
+
+@media screen and (max-width: 1200px) {
+    .border {
+        width: 75vw;
+        height: 75vh;
+    }
+
+    #header-text-content {
+        width: 75vw;
+        height: 75vh;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .intro-carousel p {
+        color: white;
+        font-size: 0.8rem;
+        font-weight: 700;
+        text-align: center;
+    }
+}
+
+@media screen and (min-width: 1200px) {
+    .intro-carousel-item.it1 {
+        transform: rotateY(0deg) translateZ(240px);
+    }
+    .intro-carousel-item.it2 {
+        transform: rotateY(-120deg) translateZ(240px);
+    }
+    .intro-carousel-item.it3 {
+        transform: rotateY(-240deg) translateZ(240px);
+    }
+}

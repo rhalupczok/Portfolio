@@ -1,0 +1,16 @@
+@use "../vars/colours.scss" as *;
+@use "../vars/global.scss" as *;
+
+.CV--content {
+    display: flex;
+    justify-content: center;
+    margin-top: 1rem;
+}
+
+.CV--img {
+    box-shadow: 0 0 20px 5px rgb(0, 0, 0);
+    border-radius: 20px;
+    object-fit: contain;
+    min-width: 200px;
+    max-width: 50vw;
+}

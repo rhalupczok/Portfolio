@@ -1,0 +1,98 @@
+@use "../vars/colours.scss" as *;
+@use "../vars/global.scss" as *;
+
+#my-work {
+    width: 100%;
+    height: auto;
+}
+
+#projects-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin: 1rem;
+    margin-top: 1rem;
+    text-align: center;
+}
+
+.project {
+    width: 200px;
+    height: 250px;
+    border: 2px solid $highlight_color;
+    box-shadow: 0 0 15px 1px rgb(0, 0, 0);
+    border-radius: 1rem;
+    background: $highlight_color;
+    position: relative;
+}
+
+.project-img {
+    height: 200px;
+    width: 100%;
+    background: gray;
+    border-top-left-radius: 1rem;
+    border-top-right-radius: 1rem;
+}
+
+.project-buttons {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    box-sizing: border-box;
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    border-radius: 1rem;
+    opacity: 0;
+    transition: 0.5s;
+}
+
+.project-buttons:hover {
+    opacity: 1;
+}
+
+.project-desc {
+    font-size: 1rem;
+    font-weight: 700;
+    color: white;
+    margin-top: 0.7rem;
+}
+
+.used-technologies {
+    position: absolute;
+    width: 100%;
+    // top: -10px;
+    bottom: -20px;
+    left: 0;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 5px;
+}
+.used-technologies--img {
+    width: 30px;
+    height: 30px;
+    background: $highlight_color;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 2px black;
+    z-index: 1;
+}
+
+.used-technologies--img {
+    width: 30px;
+    height: 30px;
+    background: $highlight_color;
+    border-radius: 5px;
+    box-shadow: 0 0 2px 2px black;
+    transition: all 0.1s;
+}
+
+.used-technologies--img:hover {
+    scale: 1.5;
+    background: $highlight_color_hover;
+    z-index: 2;
+}

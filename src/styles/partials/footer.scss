@@ -1,0 +1,26 @@
+@use "../vars/colours.scss" as *;
+@use "../vars/global.scss" as *;
+
+.footer {
+    background: $bg_color_black;
+    width: 100%;
+    height: auto;
+    p {
+        font-size: 1rem;
+        font-weight: 700;
+        margin: auto;
+        text-align: center;
+        color: $fonts_color;
+        span {
+            color: $highlight_color;
+        }
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .footer {
+        p {
+            font-size: 1rem;
+        }
+    }
+}

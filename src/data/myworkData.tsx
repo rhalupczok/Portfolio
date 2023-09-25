@@ -1,0 +1,58 @@
+import { myWorkInterface } from "./interfaces";
+
+export const myWorkData: myWorkInterface[] = [
+    {
+        name: "portfolio",
+        imgSrc: "my-work-portfolio.png",
+        description: "This portfolio page",
+        isPlay: false,
+        isOpen: false,
+        href: "https://rhalupczok.github.io/Portfolio/",
+        technologies: ["HTML", "JAVASCRIPT", "SCSS", "REACT", "TYPESCRIPT"],
+    },
+    {
+        name: "weather",
+        imgSrc: "my-work-weather_app.png",
+        description: "Weather app (API)",
+        isPlay: false,
+        isOpen: true,
+        href: "https://rhalupczok.github.io/Weather-Application/",
+        technologies: ["HTML", "JAVASCRIPT", "CSS", "REACT", "TYPESCRIPT"],
+    },
+    {
+        name: "airhockey",
+        imgSrc: "my-work-airhockey.jpg",
+        description: "Air Hockey",
+        isPlay: true,
+        isOpen: true,
+        href: "https://rhalupczok.github.io/Air-Hockey/",
+        technologies: ["HTML", "JAVASCRIPT", "CSS"],
+    },
+    {
+        name: "pocketOrganiser",
+        imgSrc: "my-work-pocket_organiser.png",
+        description: "Pocket organiser",
+        isPlay: false,
+        isOpen: true,
+        href: "https://rhalupczok.github.io/Pocket-Organiser/",
+        technologies: ["HTML", "JAVASCRIPT", "CSS"],
+    },
+    {
+        name: "snake",
+        imgSrc: "my-work-snake_game.png",
+        description: "SNAKE",
+        isPlay: true,
+        isOpen: true,
+        href: "https://rhalupczok.github.io/Snake/",
+        technologies: ["HTML", "JAVASCRIPT", "CSS"],
+    },
+    {
+        name: "other_projects",
+        imgSrc: "my-work-others.png",
+        description: "Small learning projects",
+        isPlay: false,
+        isOpen: false,
+        href: "",
+        technologies: ["HTML", "JAVASCRIPT", "CSS", "REACT"],
+    },
+];

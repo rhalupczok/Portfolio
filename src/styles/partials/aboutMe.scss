@@ -1,0 +1,189 @@
+@use "../vars/colours.scss" as *;
+@use "../vars/global.scss" as *;
+
+@mixin flex {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+@mixin hide {
+    opacity: 0;
+    animation: none;
+}
+
+.characters {
+    margin: 1rem 0.5rem;
+    display: flex;
+    justify-content: space-around;
+    align-items: flex-start;
+    gap: 0.5rem;
+    width: 100%;
+    max-width: 1200px;
+    flex-wrap: wrap;
+    div {
+        @include flex;
+        flex-direction: column;
+        width: 100px;
+        // transform: scale(0);
+        transition: all 0.5s ease-in;
+        img {
+            height: 100px;
+            width: 100px;
+            background: $highlight_color;
+            border-radius: 1rem;
+            box-shadow: 0 0 15px 1px rgb(0, 0, 0);
+            transition: all 0.2s;
+        }
+        p {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            font-weight: 700;
+            text-align: center;
+        }
+    }
+}
+
+.description {
+    margin: 2rem;
+    #profile-img-container {
+        float: left;
+        margin: 2rem;
+        border-radius: 2rem;
+        width: 150px;
+        height: 190px;
+        background: white;
+        box-shadow: 0px 0px 8px 8px $highlight_color;
+        overflow: hidden;
+        img {
+            width: 150px;
+            border-radius: 2rem;
+            object-fit: contain;
+        }
+    }
+
+    p {
+        font-size: 1rem;
+        padding: 1rem;
+        padding-bottom: 0;
+        max-width: 1200px;
+        margin-left: 220px;
+        margin-bottom: 0;
+    }
+}
+
+.txt-highlight,
+.txt-highlight--no-hover {
+    color: $highlight_color;
+    font-weight: 700;
+    text-decoration: none;
+}
+
+.txt-highlight:hover {
+    color: $highlight_color_hover;
+    font-weight: 700;
+    text-decoration: underline;
+    cursor: pointer;
+}
+
+#about {
+    width: 100%;
+    height: auto;
+    @include flex;
+    flex-direction: column;
+}
+
+.main-section > h1 {
+    font-size: 1.5rem;
+    color: $highlight_color;
+    text-shadow: 0 0 2px rgb(0, 0, 0);
+    text-align: center;
+    padding-top: 50px;
+    position: relative;
+}
+.main-section > h1::after {
+    content: "";
+    position: absolute;
+    bottom: -5px;
+    left: calc(50% - 70px);
+    height: 0.2rem;
+    background: $highlight_color;
+    width: 140px;
+}
+h2 {
+    font-size: 1.5rem;
+    color: $highlight_color;
+    text-align: center;
+    padding-top: 1rem;
+}
+
+.langs {
+    margin: 1rem auto;
+    display: grid;
+    grid-template-columns: repeat(8, 100px);
+    gap: 2rem;
+    justify-content: center;
+    max-width: 1200px;
+}
+.langs div {
+    @include flex;
+    flex-direction: column;
+    text-decoration: none;
+    height: 100px;
+    width: 100px;
+    background: $highlight_color;
+    border-radius: 1rem;
+    box-shadow: 0 0 15px 1px rgb(0, 0, 0);
+    text-align: center;
+    font-weight: 700;
+    color: black;
+    font-size: 0.8rem;
+    transition: transform 0.2s;
+}
+
+.langs img {
+    height: 75%;
+    margin-bottom: 0.2rem;
+}
+
+.langs div:hover,
+.characters div img:hover {
+    background: $highlight_color_hover;
+    transform: scale(1.2);
+}
+
+@media screen and (max-width: 1200px) {
+    .langs {
+        grid-template-columns: repeat(4, 100px);
+        grid-template-rows: repeat(2, 100px);
+    }
+}
+
+@media screen and (max-width: 768px) {
+    .langs {
+        grid-template-columns: repeat(2, 100px);
+        grid-template-rows: repeat(4, 100px);
+    }
+    .description {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        p {
+            text-align: justify;
+            margin-left: 0;
+        }
+        img {
+            float: none;
+        }
+    }
+    .description :nth-child(1) {
+        order: 0;
+    }
+    .description :nth-child(2) {
+        order: -1;
+    }
+}
+
+.hidden {
+    @include hide;
+}
