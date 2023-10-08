@@ -8,6 +8,30 @@ interface Props {
 }
 
 const MyWork: React.FC<Props> = ({ setPopupHandle }) => {
+    const touchEvent = (e: React.TouchEvent) => {
+        //prevent click the button on touchscreens before they are shown
+        if (e.target instanceof Element) {
+            if (e.target.classList.contains("btn")) {
+                if (
+                    e.target.parentElement?.classList.contains(
+                        "project-buttons--hover"
+                    )
+                ) {
+                    e.target.parentElement?.classList.toggle(
+                        "project-buttons--hover"
+                    );
+                } else {
+                    e.preventDefault();
+                    e.target.parentElement?.classList.toggle(
+                        "project-buttons--hover"
+                    );
+                }
+            } else {
+                e.preventDefault();
+                e.target.classList.toggle("project-buttons--hover");
+            }
+        }
+    };
     const myWorkElements = myWorkData.map((myWorkElement: myWorkInterface) => (
         <div key={myWorkElement.name} className="project">
             <div className="used-technologies">
@@ -30,16 +54,20 @@ const MyWork: React.FC<Props> = ({ setPopupHandle }) => {
                 alt={`${myWorkElement.description} img`}
                 className="project-img"
             />
-            <div className="project-buttons">
+            <div
+                className="project-buttons"
+                onTouchEnd={(e) => {
+                    touchEvent(e);
+                }}
+            >
                 {myWorkElement.isOpen && (
                     <a
+                        className="btn"
                         href={myWorkElement.href}
                         target="_blank"
                         rel="noreferrer"
                     >
-                        <button className="btn">
-                            {myWorkElement.isPlay ? "PLAY" : "OPEN"}
-                        </button>
+                        {myWorkElement.isPlay ? "PLAY" : "OPEN"}
                     </a>
                 )}
                 <button

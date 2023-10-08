@@ -10,8 +10,13 @@ import HobbiesCarousel from "./components/HobbiesCarousel";
 import Intro from "./components/Intro";
 
 const App: React.FC = () => {
-    const [popup, setPopup] = React.useState({ content: "", isShow: false });
-    const [displayComponent, setDisplayComponent] = React.useState({
+    const [popup, setPopup] = React.useState<{
+        content: string;
+        isShow: boolean;
+    }>({ content: "", isShow: false });
+    const [displayComponent, setDisplayComponent] = React.useState<{
+        componentName: string;
+    }>({
         componentName: "intro",
     });
 
@@ -36,10 +41,8 @@ const App: React.FC = () => {
             <CV />
             <Contact />
             <Footer />
-            {popup.isShow ? (
+            {popup.isShow && (
                 <Popup setPopupHandle={setPopupHandle} popupContent={popup} />
-            ) : (
-                <></>
             )}
             {displayComponent.componentName === "hobbiesCarousel" && (
                 <HobbiesCarousel setDisplayHandle={setDisplayHandle} />

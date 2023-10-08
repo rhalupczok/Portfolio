@@ -14,16 +14,16 @@ export const languages: languagesInterface[] = [
         name: "CSS",
     },
     {
-        imgSrc: "langs-square-js.svg",
-        alt: "character",
-        className: "characters-img",
-        name: "JAVASCRIPT",
-    },
-    {
         imgSrc: "langs-sass.png",
         alt: "character",
         className: "characters-img",
         name: "SCSS",
+    },
+    {
+        imgSrc: "langs-square-js.svg",
+        alt: "character",
+        className: "characters-img",
+        name: "JAVASCRIPT",
     },
     {
         imgSrc: "langs-react.svg",

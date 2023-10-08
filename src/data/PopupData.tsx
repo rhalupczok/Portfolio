@@ -47,6 +47,10 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
+                        link: "https://rhalupczok.github.io/Air-Hockey/",
+                        desc: "PLAY",
+                    },
+                    {
                         link: "https://github.com/rhalupczok/Air-Hockey",
                         desc: "Complete repositorium on GITHUB",
                     },
@@ -62,8 +66,8 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Air-Hockey",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Air-Hockey/blob/46bebdb416639659070b656af910f70b3b4b4566/main.js#L596",
+                        desc: "Part of code - control",
                     },
                 ],
             },
@@ -80,8 +84,8 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Air-Hockey",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Air-Hockey/blob/46bebdb416639659070b656af910f70b3b4b4566/main.js#L343",
+                        desc: "Part of code - phisics",
                     },
                 ],
             },
@@ -95,13 +99,104 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Air-Hockey",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Air-Hockey/blob/46bebdb416639659070b656af910f70b3b4b4566/main.js#L402",
+                        desc: "Part of code - AI",
                     },
                 ],
             },
         ],
     },
+
+    {
+        name: "tenzi",
+        isFinished: true,
+        content: [
+            {
+                img:
+                    window.innerWidth > window.innerHeight
+                        ? "popup-tenzi-0-wide.png"
+                        : "popup-tenzi-0.png",
+                text: [
+                    `This tenzi application based on popular die family game`,
+                    `The goal is to set all dice the same`,
+                    `I met idea of this app during one of courses and decided to create a playable game by adding some functionality like stopWatch, best score table etc`,
+                ],
+                href: [
+                    {
+                        link: "https://rhalupczok.github.io/Tenzies/",
+                        desc: "PLAY",
+                    },
+                    {
+                        link: "https://github.com/rhalupczok/Tenzies/tree/main/src",
+                        desc: "Complete repositorium on GITHUB",
+                    },
+                ],
+            },
+            {
+                img:
+                    window.innerWidth > window.innerHeight
+                        ? "popup-tenzi-1-wide.png"
+                        : "popup-tenzi-1.png",
+                text: [`The app was created using React and Typescript.`],
+                href: [
+                    {
+                        link: "https://github.com/rhalupczok/Tenzies/blob/3ee9ad2f4746dc5eda876b097feaf1944f621faf/src/App.tsx#L1",
+                        desc: "Main App component",
+                    },
+                ],
+            },
+            {
+                img:
+                    window.innerWidth > window.innerHeight
+                        ? "popup-tenzi-2-wide.png"
+                        : "popup-tenzi-2.png",
+                text: [
+                    "The results and user name are kept in localStorage using React.useEffect",
+                    "5 best results got on the device are displayed in Local Best Scores table",
+                    "If there is no name in localStorage - by default user get one of 25 random nicks until enter own one",
+                ],
+                href: [
+                    {
+                        link: "https://github.com/rhalupczok/Tenzies/blob/3ee9ad2f4746dc5eda876b097feaf1944f621faf/src/App.tsx#L36",
+                        desc: "Part of code: LocalStorage - username",
+                    },
+                ],
+            },
+            {
+                img:
+                    window.innerWidth > window.innerHeight
+                        ? "popup-tenzi-3-wide.png"
+                        : "popup-tenzi-3.png",
+                text: [
+                    "Each separate result is also passed to global score database and next to local results there is a table with 50 best global scores",
+                    "As storage for this project used google cloud",
+                ],
+                href: [
+                    {
+                        link: "https://github.com/rhalupczok/Tenzies/blob/3ee9ad2f4746dc5eda876b097feaf1944f621faf/src/components/scoretable.tsx#L80",
+                        desc: "Part of code: global storage - firebase",
+                    },
+                ],
+            },
+            {
+                img:
+                    window.innerWidth > window.innerHeight
+                        ? "popup-tenzi-4-wide.png"
+                        : "popup-tenzi-4.png",
+                text: [
+                    "IN Syntax there are used dynamic styling, ternary or conditional operator",
+                    "Example on the picture",
+                ],
+                href: [
+                    {
+                        link: "https://github.com/rhalupczok/Tenzies/blob/3ee9ad2f4746dc5eda876b097feaf1944f621faf/src/components/die.tsx#L15",
+                        desc: "Part of code: example of dynamic styles in single die component",
+                    },
+                ],
+            },
+        ],
+    },
+
     {
         name: "pocketOrganiser",
         isFinished: true,
@@ -113,6 +208,10 @@ export const popupData: popupDataInterface[] = [
                         : "popup-pocket-organiser-0.png",
                 text: [`Simple app for task or shopping list`],
                 href: [
+                    {
+                        link: "https://rhalupczok.github.io/Pocket-Organiser/",
+                        desc: "OPEN",
+                    },
                     {
                         link: "https://github.com/rhalupczok/Pocket-Organiser",
                         desc: "Complete repositorium on GITHUB",
@@ -135,7 +234,13 @@ export const popupData: popupDataInterface[] = [
                         ? "popup-pocket-organiser-2-wide.png"
                         : "popup-pocket-organiser-2.png",
                 text: [
-                    `The language can be directly switched by onClick on the flag`,
+                    `Language can be directly switched by onClick on the flag`,
+                ],
+                href: [
+                    {
+                        link: "https://github.com/rhalupczok/Pocket-Organiser/blob/8e018d4cb854b6eede0b46bfc7f11cfa7b25ebb4/main.js#L440C9-L440C9",
+                        desc: "Part of code - Langue selection",
+                    },
                 ],
             },
             {
@@ -149,8 +254,12 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Pocket-Organiser",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Pocket-Organiser/blob/8e018d4cb854b6eede0b46bfc7f11cfa7b25ebb4/main.js#L358",
+                        desc: "Part of code - filter",
+                    },
+                    {
+                        link: "https://github.com/rhalupczok/Pocket-Organiser/blob/8e018d4cb854b6eede0b46bfc7f11cfa7b25ebb4/main.js#L504",
+                        desc: "Part of code - move window",
                     },
                 ],
             },
@@ -162,8 +271,8 @@ export const popupData: popupDataInterface[] = [
                 text: [`The data are kept in local storage`],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Pocket-Organiser",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Pocket-Organiser/blob/8e018d4cb854b6eede0b46bfc7f11cfa7b25ebb4/main.js#L413",
+                        desc: "Part of code - storage",
                     },
                 ],
             },
@@ -174,12 +283,6 @@ export const popupData: popupDataInterface[] = [
                         : "popup-pocket-organiser-5.png",
                 text: [
                     `It is also one of my first project created in pure JS. The app was coded using classes`,
-                ],
-                href: [
-                    {
-                        link: "https://github.com/rhalupczok/Pocket-Organiser",
-                        desc: "Link to mentioned part of code //not finished",
-                    },
                 ],
             },
         ],
@@ -199,6 +302,10 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
+                        link: "https://rhalupczok.github.io/Snake/",
+                        desc: "PLAY",
+                    },
+                    {
                         link: "https://github.com/rhalupczok/Snake",
                         desc: "Complete repositorium on GITHUB",
                     },
@@ -214,8 +321,8 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Snake",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Snake/blob/dbebc3df3e0f3719ef8787b385b00096c9a845ec/snake.js#L230",
+                        desc: "Part of code - level selection",
                     },
                 ],
             },
@@ -232,8 +339,8 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Snake",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Snake/blob/dbebc3df3e0f3719ef8787b385b00096c9a845ec/snake.js#L260",
+                        desc: "Part of code - control",
                     },
                 ],
             },
@@ -247,8 +354,8 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Snake",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Snake/blob/dbebc3df3e0f3719ef8787b385b00096c9a845ec/snake.js#L350",
+                        desc: "Part of code - resize canvas",
                     },
                 ],
             },
@@ -265,12 +372,16 @@ export const popupData: popupDataInterface[] = [
                         ? "popup-weather-0-wide.png"
                         : "popup-weather-0.png",
                 text: [
-                    `Simple weather application fetching the API weather data from server`,
+                    `Simple weather application fetching the API weather data`,
                     `Created using React and Typescript`,
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Weather-Application",
+                        link: "https://rhalupczok.github.io/Weather-Application/",
+                        desc: "OPEN",
+                    },
+                    {
+                        link: "https://github.com/rhalupczok/Weather-Application/tree/master/src",
                         desc: "Complete repositorium on GITHUB",
                     },
                 ],
@@ -281,13 +392,25 @@ export const popupData: popupDataInterface[] = [
                         ? "popup-weather-1-wide.png"
                         : "popup-weather-1.png",
                 text: [
-                    `The city is set by default using GPS location (by default) or can be input by user`,
+                    `The city is set using GPS data (by default) or can be input by user`,
                     `All data is catching using react components / props etc.`,
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Weather-Application",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Weather-Application/blob/2e50486dffb906bcf42c5bcc7691cd6c65f139b0/src/App.tsx#L70",
+                        desc: "Part of code - getting GPS coordinates",
+                    },
+                    {
+                        link: "https://github.com/rhalupczok/Weather-Application/blob/2e50486dffb906bcf42c5bcc7691cd6c65f139b0/src/App.tsx#L44",
+                        desc: "Part of code - setting weather data by GPS data",
+                    },
+                    {
+                        link: "https://github.com/rhalupczok/Weather-Application/blob/2e50486dffb906bcf42c5bcc7691cd6c65f139b0/src/components/Header.tsx#L10",
+                        desc: "Part of code - getting the city name",
+                    },
+                    {
+                        link: "https://github.com/rhalupczok/Weather-Application/blob/2e50486dffb906bcf42c5bcc7691cd6c65f139b0/src/App.tsx#L21",
+                        desc: "Part of code - setting weather data by city name",
                     },
                 ],
             },
@@ -302,8 +425,8 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Weather-Application",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Weather-Application/blob/44e7837cc951be6553c356640cc62815244dae4c/src/components/CurrentWeather.tsx#L11",
+                        desc: "Part of code - sunwalk effect",
                     },
                 ],
             },
@@ -321,10 +444,11 @@ export const popupData: popupDataInterface[] = [
                         : "popup-portfolio-0.png",
                 text: [
                     "The page was created with React, TypeScript and SCSS superset technologies",
+                    "In accordance with composable idea the components, content, TS interfaces and style are kept in separate files and the page is builded mapping by them",
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Portfolio",
+                        link: "https://github.com/rhalupczok/Portfolio/tree/master/src",
                         desc: "Complete repositorium on GITHUB",
                     },
                 ],
@@ -340,8 +464,8 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Portfolio",
-                        desc: "Link to mentioned part of code //not finished",
+                        link: "https://github.com/rhalupczok/Portfolio/blob/fa704b8823f97755a29391bfaf8cc3ff5324ea3c/src/components/HobbiesCarousel.tsx#L8",
+                        desc: "Part of code - hobby carousel popup",
                     },
                 ],
             },
@@ -369,20 +493,12 @@ export const popupData: popupDataInterface[] = [
                 text: ["A few small projects built during various courses"],
                 href: [
                     {
-                        link: "https://rhalupczok.github.io/Tenzies",
-                        desc: "Tenzies Game - PLAY",
-                    },
-                    {
-                        link: "https://github.com/rhalupczok/Tenzies",
-                        desc: "Tenzies game - GITHUB [HTML / JS / CSS / REACT]",
-                    },
-                    {
-                        link: "https://rhalupczok.github.io/Tenzies",
+                        link: "https://rhalupczok.github.io/Meme-Generator",
                         desc: "Meme generator - OPEN",
                     },
                     {
-                        link: "https://github.com/rhalupczok/Meme-Generator",
-                        desc: "Meme generator - GITHUB  [HTML / JS / CSS / REACT]",
+                        link: "https://github.com/rhalupczok/Meme-Generator/tree/master/src",
+                        desc: "Meme generator - GITHUB repositorium [HTML / JS / CSS / REACT]",
                     },
                 ],
             },

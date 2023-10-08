@@ -2,13 +2,22 @@ import { myWorkInterface } from "./interfaces";
 
 export const myWorkData: myWorkInterface[] = [
     {
-        name: "portfolio",
-        imgSrc: "my-work-portfolio.png",
-        description: "This portfolio page",
-        isPlay: false,
-        isOpen: false,
-        href: "https://rhalupczok.github.io/Portfolio/",
-        technologies: ["HTML", "JAVASCRIPT", "SCSS", "REACT", "TYPESCRIPT"],
+        name: "portfolio", //name used in popup component
+        imgSrc: "my-work-portfolio.png", //cover img
+        description: "This portfolio page", //description displayed below img
+        isPlay: false, //true if game
+        isOpen: false, // true if application/game. If true remember to add link in next line! If false there is no OPEN/PLAY button
+        href: "https://rhalupczok.github.io/Portfolio/", //link to app
+        technologies: ["HTML", "JAVASCRIPT", "SCSS", "REACT", "TYPESCRIPT"], //display tiles with used technologies [HTML, JAVASCRIPT, SCSS, REACT, TYPESCRIPT, NODE.JS, GIT]
+    },
+    {
+        name: "tenzi",
+        imgSrc: "my-work-tenzi.png",
+        description: "Tenzi Game",
+        isPlay: true,
+        isOpen: true,
+        href: "https://rhalupczok.github.io/Tenzies/",
+        technologies: ["HTML", "JAVASCRIPT", "CSS", "REACT"],
     },
     {
         name: "weather",
