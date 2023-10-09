@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "./static/css/main.0ac413e6.css",
-    "main.js": "./static/js/main.2551b0a2.js",
+    "main.css": "./static/css/main.fd7b74e6.css",
+    "main.js": "./static/js/main.291c4570.js",
     "static/js/787.1ed0c42c.chunk.js": "./static/js/787.1ed0c42c.chunk.js",
     "static/media/my-job-0-wide.png": "./static/media/my-job-0-wide.c9285f0b75860ade8297.png",
     "static/media/my-job-0.png": "./static/media/my-job-0.5f5aea0cc3df76e858e4.png",
@@ -54,11 +54,11 @@
     "static/media/popup-snake-2.png": "./static/media/popup-snake-2.100f255b8b2429767a97.png",
     "static/media/popup-pocket-organiser-5-wide.png": "./static/media/popup-pocket-organiser-5-wide.fba565f63e1ebac6b093.png",
     "static/media/popup-pocket-organiser-5.png": "./static/media/popup-pocket-organiser-5.fba565f63e1ebac6b093.png",
-    "static/media/my-work-others.png": "./static/media/my-work-others.a3a33f5efd1db8e03f1f.png",
     "static/media/popup-airhockey-3-wide.png": "./static/media/popup-airhockey-3-wide.e29d6abc9a8567837122.png",
     "static/media/popup-hobby-sport.jpg": "./static/media/popup-hobby-sport.eb767933f48a7628dc5b.jpg",
     "static/media/popup-airhockey-3.png": "./static/media/popup-airhockey-3.3aeae02372b14b302a34.png",
     "static/media/popup-airhockey-0-wide.jpg": "./static/media/popup-airhockey-0-wide.98efc6b68ef49f0c390f.jpg",
+    "static/media/my-work-others.png": "./static/media/my-work-others.8adec39866357e48eafc.png",
     "static/media/popup-tenzi-4-wide.png": "./static/media/popup-tenzi-4-wide.8643042ae093f460f690.png",
     "static/media/popup-tenzi-4.png": "./static/media/popup-tenzi-4.8643042ae093f460f690.png",
     "static/media/popup-snake-1-wide.png": "./static/media/popup-snake-1-wide.1425ec0e83d2dfe3b61d.png",
@@ -87,12 +87,12 @@
     "static/media/footer-linkedin.svg": "./static/media/footer-linkedin.0482c1237e7db4cb9ce4.svg",
     "static/media/langs-html5.svg": "./static/media/langs-html5.68fdf451aa340db1b8fd.svg",
     "static/media/langs-css3.svg": "./static/media/langs-css3.9cc4f134228dba496efc.svg",
-    "main.0ac413e6.css.map": "./static/css/main.0ac413e6.css.map",
-    "main.2551b0a2.js.map": "./static/js/main.2551b0a2.js.map",
+    "main.fd7b74e6.css.map": "./static/css/main.fd7b74e6.css.map",
+    "main.291c4570.js.map": "./static/js/main.291c4570.js.map",
     "787.1ed0c42c.chunk.js.map": "./static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.0ac413e6.css",
-    "static/js/main.2551b0a2.js"
+    "static/css/main.fd7b74e6.css",
+    "static/js/main.291c4570.js"
   ]
 }

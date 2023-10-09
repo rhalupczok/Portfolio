@@ -49,14 +49,15 @@
     border-radius: 1rem;
     opacity: 0;
     transition: 0.5s;
-}
-
-.project-buttons:hover {
-    opacity: 1;
+    overflow: hidden;
 }
 
 .project-buttons--hover {
     opacity: 1;
+}
+
+.scaled-down {
+    transform: scale(0);
 }
 
 .project-desc {

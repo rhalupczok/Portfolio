@@ -8,30 +8,42 @@ interface Props {
 }
 
 const MyWork: React.FC<Props> = ({ setPopupHandle }) => {
-    const touchEvent = (e: React.TouchEvent) => {
-        //prevent click the button on touchscreens before they are shown
-        if (e.target instanceof Element) {
-            if (e.target.classList.contains("btn")) {
-                if (
-                    e.target.parentElement?.classList.contains(
-                        "project-buttons--hover"
-                    )
-                ) {
-                    e.target.parentElement?.classList.toggle(
-                        "project-buttons--hover"
-                    );
-                } else {
-                    e.preventDefault();
-                    e.target.parentElement?.classList.toggle(
-                        "project-buttons--hover"
-                    );
-                }
-            } else {
-                e.preventDefault();
-                e.target.classList.toggle("project-buttons--hover");
+    const addHover = (e: Element) => {
+        e.classList.add("project-buttons--hover"); //adding class which set opactity to 1
+        e.childNodes.forEach((child) => {
+            //display btns - upscale all childnodes bo remove a class "scaled-down"
+            if (child instanceof Element) {
+                child.classList.remove("scaled-down");
             }
-        }
+        });
     };
+
+    const removeHover = () => {
+        const hoverElements = document.querySelectorAll(
+            ".project-buttons--hover"
+        );
+        hoverElements.forEach((el) => {
+            el.classList.remove("project-buttons--hover");
+            if (el instanceof Element) {
+                el.childNodes.forEach((child) => {
+                    if (child instanceof Element) {
+                        child.classList.add("scaled-down");
+                    }
+                });
+            }
+        });
+    };
+
+    // const touchEvent = (e: React.TouchEvent) => {
+    //     removeHover();
+    //     //prevent click the button on touchscreens before they are shown
+    //     if (e.target instanceof Element) addHover(e.target);
+    // };
+
+    const mouseEvent = (e: React.MouseEvent) => {
+        if (e.target instanceof Element) addHover(e.target);
+    };
+
     const myWorkElements = myWorkData.map((myWorkElement: myWorkInterface) => (
         <div key={myWorkElement.name} className="project">
             <div className="used-technologies">
@@ -56,13 +68,17 @@ const MyWork: React.FC<Props> = ({ setPopupHandle }) => {
             />
             <div
                 className="project-buttons"
-                onTouchEnd={(e) => {
-                    touchEvent(e);
+                // onTouchEnd={(e) => {
+                //     touchEvent(e);
+                // }}
+                onMouseEnter={(e) => {
+                    mouseEvent(e);
                 }}
+                onMouseLeave={removeHover}
             >
                 {myWorkElement.isOpen && (
                     <a
-                        className="btn"
+                        className="btn scaled-down"
                         href={myWorkElement.href}
                         target="_blank"
                         rel="noreferrer"
@@ -71,7 +87,7 @@ const MyWork: React.FC<Props> = ({ setPopupHandle }) => {
                     </a>
                 )}
                 <button
-                    className="btn open-popup-btn"
+                    className="btn scaled-down"
                     onClick={() => {
                         setPopupHandle(myWorkElement.name, true);
                     }}
