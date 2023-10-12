@@ -7,7 +7,7 @@
     left: 0;
     bottom: 0;
     right: 0;
-    background: rgba(0, 0, 0, 0.9);
+    background: rgba(0, 0, 0, 0.95);
     backdrop-filter: blur(2px);
     z-index: 99;
     display: flex;
@@ -31,8 +31,8 @@
 }
 
 .popup-card {
-    width: 80%;
-    height: 80%;
+    width: 90%;
+    height: 100%;
     display: flex;
     flex-direction: column;
     justify-content: flex-start;
@@ -43,10 +43,9 @@
     margin-bottom: 2rem;
     box-sizing: border-box;
     width: 100%;
-    height: 40%;
+    height: 45%;
     overflow: hidden;
     padding: 0.5rem;
-    box-sizing: border-box;
     display: flex;
     justify-content: center;
 
@@ -95,7 +94,7 @@
     &__item {
         position: absolute;
         transition: all 0.3s ease-in;
-        top: 10%;
+        top: 5px;
         z-index: -1;
         opacity: 0;
 
@@ -106,7 +105,7 @@
 
         &[data-pos="-1"],
         &[data-pos="1"] {
-            opacity: 0.2;
+            opacity: 0.1;
             filter: blur(1px) grayscale(10%);
         }
 
@@ -139,6 +138,7 @@
     opacity: 0.5;
     transform: translateY(-50%);
     transition: all 150ms ease;
+    z-index: 110;
 }
 .popup--nav--prev:hover,
 .popup--nav--next:hover,
