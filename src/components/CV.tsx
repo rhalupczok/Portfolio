@@ -1,4 +1,5 @@
 import React from "react";
+import "../styles/partials/CV.scss";
 
 const CV: React.FC = () => {
     return (

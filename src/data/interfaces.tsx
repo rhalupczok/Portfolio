@@ -1,14 +1,34 @@
+export interface aboutMeProps {
+    setPopupHandle: (content: string, show: boolean) => void;
+    setDisplayHandle: (componentName: string) => void;
+}
+
+export interface myWorkProps {
+    setPopupHandle: (content: string, show: boolean) => void;
+}
+
+export interface navMenuProps {
+    setDisplayHandle: (componentName: string) => void;
+}
+
+export interface introProps {
+    setDisplayHandle: (componentName: string) => void;
+}
+
+export interface popupProps {
+    setPopupHandle: (content: string, show: boolean) => void;
+    popupContent: { content: string; isShow: boolean };
+}
+
 export interface charactersInterface {
     imgSrc: string;
     alt: string;
-    className: string;
     name: string;
 }
 
 export interface languagesInterface {
     imgSrc: string;
     alt: string;
-    className: string;
     name: string;
 }
 

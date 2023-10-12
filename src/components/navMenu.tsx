@@ -1,11 +1,8 @@
 import React, { ReactElement } from "react";
-import { navMenuInterface } from "../data/interfaces";
+import "../styles/partials/navMenu.scss";
+import { navMenuInterface, navMenuProps } from "../data/interfaces";
 
-interface Props {
-    setDisplayHandle: (componentName: string) => void;
-}
-
-const NavMenu: React.FC<Props> = ({ setDisplayHandle }) => {
+const NavMenu: React.FC<navMenuProps> = ({ setDisplayHandle }) => {
     const navMenu: navMenuInterface[] = [
         { name: "INTRO", id: "intro--menu", target: "intro" },
         { name: "ABOUT ME", id: "about--menu", target: "about" },

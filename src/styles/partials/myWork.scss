@@ -10,10 +10,10 @@
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
-    gap: 2rem;
+    column-gap: 1rem;
+    row-gap: 3rem;
     margin: 1rem;
-    margin-top: 1rem;
-    text-align: center;
+    margin-bottom: 2rem;
 }
 
 .project {
@@ -24,6 +24,7 @@
     border-radius: 1rem;
     background: $highlight_color;
     position: relative;
+    text-align: center;
 }
 
 .project-img {
@@ -45,7 +46,7 @@
     height: 100%;
     top: 0;
     left: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.75), rgba(0, 0, 0, 0));
+    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
     border-radius: 1rem;
     opacity: 0;
     transition: 0.5s;
@@ -70,7 +71,6 @@
 .used-technologies {
     position: absolute;
     width: 100%;
-    // top: -10px;
     bottom: -20px;
     left: 0;
     display: flex;
@@ -100,4 +100,33 @@
     scale: 1.5;
     background: $highlight_color_hover;
     z-index: 2;
+}
+
+@media screen and (max-width: 768px) {
+    #projects-container {
+        column-gap: 0.8rem;
+        row-gap: 3rem;
+        margin: 1rem 0;
+        margin-bottom: 2rem;
+    }
+    .project {
+        width: 150px; //
+        height: 200px; //
+        border-radius: 0.5rem; //
+    }
+    .project-img {
+        height: 150px; //
+
+        border-top-left-radius: 0.5rem; //
+        border-top-right-radius: 0.5rem; //
+    }
+    .project-buttons {
+        border-radius: 0.5rem; //
+    }
+    .project-desc {
+        font-size: 0.7rem;
+        font-weight: 700;
+        color: white;
+        margin-top: 0.7rem;
+    }
 }

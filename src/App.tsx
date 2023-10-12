@@ -1,4 +1,5 @@
 import React from "react";
+import "./styles/global.scss";
 import NavMenu from "./components/navMenu";
 import AboutMe from "./components/AboutMe";
 import MyWork from "./components/MyWork";

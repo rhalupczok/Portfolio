@@ -1,11 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
-// import { myHobbiesData } from "../data/myHobbiesData";
+import "../styles/partials/intro.scss";
+import { introProps } from "../data/interfaces";
 
-interface Props {
-    setDisplayHandle: (componentName: string) => void;
-}
-
-const Intro: React.FC<Props> = ({ setDisplayHandle }) => {
+const Intro: React.FC<introProps> = ({ setDisplayHandle }) => {
     const useAnimationFrame = (callback: (deltaTime: number) => void) => {
         const requestRef = useRef<number | null>(null);
         const previousTimeRef = useRef<number | undefined>(undefined);

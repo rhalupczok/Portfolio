@@ -1,13 +1,9 @@
 import React from "react";
-import { popupDataInterface } from "../data/interfaces";
+import "../styles/partials/popup.scss";
+import { popupDataInterface, popupProps } from "../data/interfaces";
 import { popupData } from "../data/PopupData";
 
-interface Props {
-    setPopupHandle: (content: string, show: boolean) => void;
-    popupContent: { content: string; isShow: boolean };
-}
-
-const Popup: React.FC<Props> = ({ setPopupHandle, popupContent }) => {
+const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
     const targetPopupContent: popupDataInterface | undefined = popupData.find(
         ({ name }) => name === popupContent.content
     ); // finding content for popup in popupData based on content name passed by props

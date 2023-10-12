@@ -1,18 +1,19 @@
 import React, { ReactElement } from "react";
+import "../styles/partials/aboutMe.scss";
 import { characters } from "../data/charactersData";
 import { languages } from "../data/languagesData";
+import { aboutMeProps } from "../data/interfaces";
 
-interface Props {
-    setPopupHandle: (content: string, show: boolean) => void;
-    setDisplayHandle: (componentName: string) => void;
-}
-const AboutMe: React.FC<Props> = ({ setPopupHandle, setDisplayHandle }) => {
+const AboutMe: React.FC<aboutMeProps> = ({
+    setPopupHandle,
+    setDisplayHandle,
+}) => {
     const characterElements: ReactElement[] = characters.map((character) => (
         <div key={character.name}>
             <img
                 src={require(`../images/${character.imgSrc}`)}
                 alt={character.alt}
-                className={character.className}
+                className="characters-img"
             />
             <p>{character.name}</p>
         </div>
@@ -23,7 +24,7 @@ const AboutMe: React.FC<Props> = ({ setPopupHandle, setDisplayHandle }) => {
             <img
                 src={require(`../images/${language.imgSrc}`)}
                 alt={language.alt}
-                className={language.className}
+                className="langs-img"
             />
             {language.name}
         </div>
@@ -31,15 +32,17 @@ const AboutMe: React.FC<Props> = ({ setPopupHandle, setDisplayHandle }) => {
 
     return (
         <div id="about" className="main-section">
+            <div className="nav-menu--margin"></div>
             <h1>About me</h1>
-            <div className="characters">{characterElements}</div>
             <div className="description">
-                <div id="profile-img-container">
-                    <img
-                        id="profile--img"
-                        src={require(`../images/profile_picture.png`)}
-                        alt="profile"
-                    />
+                <div className="profile-img-characters-container">
+                    <div className="profile-img">
+                        <img
+                            src={require(`../images/profile_picture.png`)}
+                            alt="profile"
+                        />
+                    </div>
+                    <div className="characters">{characterElements}</div>
                 </div>
                 <p>
                     Hi! My name is
@@ -55,7 +58,6 @@ const AboutMe: React.FC<Props> = ({ setPopupHandle, setDisplayHandle }) => {
                         Robotics Programmer.
                     </span>
                 </p>
-
                 <p>
                     Currently most of my time I am spending on boardering my
                     knowleadge of Front-End Development. I am learning how to

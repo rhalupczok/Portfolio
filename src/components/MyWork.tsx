@@ -1,13 +1,10 @@
 import React from "react";
+import "../styles/partials/myWork.scss";
 import { myWorkData } from "../data/myworkData";
-import { myWorkInterface } from "../data/interfaces";
+import { myWorkInterface, myWorkProps } from "../data/interfaces";
 import { languages } from "../data/languagesData";
 
-interface Props {
-    setPopupHandle: (content: string, show: boolean) => void;
-}
-
-const MyWork: React.FC<Props> = ({ setPopupHandle }) => {
+const MyWork: React.FC<myWorkProps> = ({ setPopupHandle }) => {
     const addHover = (e: Element) => {
         e.classList.add("project-buttons--hover"); //adding class which set opactity to 1
         e.childNodes.forEach((child) => {
@@ -33,12 +30,6 @@ const MyWork: React.FC<Props> = ({ setPopupHandle }) => {
             }
         });
     };
-
-    // const touchEvent = (e: React.TouchEvent) => {
-    //     removeHover();
-    //     //prevent click the button on touchscreens before they are shown
-    //     if (e.target instanceof Element) addHover(e.target);
-    // };
 
     const mouseEvent = (e: React.MouseEvent) => {
         if (e.target instanceof Element) addHover(e.target);
@@ -68,9 +59,6 @@ const MyWork: React.FC<Props> = ({ setPopupHandle }) => {
             />
             <div
                 className="project-buttons"
-                // onTouchEnd={(e) => {
-                //     touchEvent(e);
-                // }}
                 onMouseEnter={(e) => {
                     mouseEvent(e);
                 }}

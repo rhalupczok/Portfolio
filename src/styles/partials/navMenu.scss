@@ -1,7 +1,5 @@
 @use "../vars/colours.scss" as *;
-@forward "../vars/colours.scss";
 @use "../vars/global.scss" as *;
-@forward "../vars/global.scss";
 
 @mixin flex {
     display: flex;

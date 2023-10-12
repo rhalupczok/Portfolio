@@ -1,4 +1,5 @@
 import React, { ReactElement } from "react";
+import "../styles/partials/contact.scss";
 import { contact } from "../data/contactData";
 
 const Contact: React.FC = () => {
