@@ -6,7 +6,7 @@ const Contact: React.FC = () => {
     const contactElements: ReactElement[] = contact.map((contact) => (
         <a href={contact.link} target={contact?.target} key={contact.name}>
             <img
-                src={require(`../images/${contact.imgSrc}`)}
+                src={require(`../images/contact/${contact.imgSrc}`)}
                 alt={contact.alt}
                 className={contact.className}
             />

@@ -58,7 +58,7 @@ const Intro: React.FC<introProps> = ({ setDisplayHandle }) => {
                 <div style={style.cards} className="intro-carousel">
                     <img
                         style={style.picture}
-                        src={require("../images/header-intro-my-picture.png")}
+                        src={require("../images/intro/intro-my-picture.png")}
                         alt="Profile"
                         className="intro-picture"
                     />

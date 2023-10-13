@@ -9,7 +9,7 @@ const HobbiesCarousel: React.FC<Props> = ({ setDisplayHandle }) => {
     const myHobbiesElements: ReactElement[] = myHobbiesData.map((hobby) => (
         <div key={hobby.name} className="hobbies-carousel-item">
             <img
-                src={require(`../images/${hobby.imgSrc}`)}
+                src={require(`../images/popup/${hobby.imgSrc}`)}
                 alt="hobby"
                 className="hobby-img"
             />

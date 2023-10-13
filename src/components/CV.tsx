@@ -12,7 +12,7 @@ const CV: React.FC = () => {
                     rel="noreferrer"
                 >
                     <img
-                        src={require(`../images/CV-Radoslaw_Halupczok_eng.png`)}
+                        src={require(`../images/cv/CV-Radoslaw_Halupczok_eng.png`)}
                         alt="CV"
                         className="CV--img"
                     />

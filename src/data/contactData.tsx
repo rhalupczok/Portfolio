@@ -17,7 +17,7 @@ export const contact: contactInterface[] = [
         target: "_blank",
     },
     {
-        imgSrc: "langs-github.svg",
+        imgSrc: "footer-github.svg",
         alt: "github--icon",
         className: "social--img",
         name: "github",

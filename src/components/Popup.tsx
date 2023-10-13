@@ -1,9 +1,31 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "../styles/partials/popup.scss";
 import { popupDataInterface, popupProps } from "../data/interfaces";
 import { popupData } from "../data/PopupData";
 
 const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
+    const [wideScreen, setWideScreen] = useState(false);
+
+    useEffect(() => {
+        const updateWindow = () => {
+            window.innerWidth > window.innerHeight
+                ? setWideScreen(true)
+                : setWideScreen(false);
+        };
+        window.addEventListener("resize", updateWindow);
+        return () => window.removeEventListener("resize", updateWindow);
+    }, []);
+
+    const horizontalStyle = {
+        gridTemplateRows: "1fr",
+        gridTemplateColumns: "1fr 1fr",
+    };
+    const VerticalStyle = {
+        gridTemplateRows: "1fr 1fr",
+        gridTemplateColumns: "1fr",
+    };
+    const popupStyle = wideScreen ? horizontalStyle : VerticalStyle;
+
     const targetPopupContent: popupDataInterface | undefined = popupData.find(
         ({ name }) => name === popupContent.content
     ); // finding content for popup in popupData based on content name passed by props
@@ -21,11 +43,16 @@ const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
     // first condition: if the name passed by props in not matching to any object in popupdata then targetContent is undefined. In that case object targetContent get the content of "underConstruction" popup. Second condition: If the content of popup is not finished (marked property in data) then targetContent is "underConstruction" too.
 
     const popupCards = targetContent.map((card, index) => (
-        <div className="popup-card carousel__item" data-pos={index} key={index}>
+        <div
+            className="popup-card carousel__item"
+            data-pos={index}
+            key={index}
+            style={popupStyle}
+        >
             <div className="popup-pictures">
                 <img
                     className="popup-img"
-                    src={require(`../images/${card.img}`)}
+                    src={require(`../images/popup/${card.img}`)}
                     alt="popup"
                     onClick={(e) => fullScreenIMG(e.target)}
                 />

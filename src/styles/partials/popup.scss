@@ -31,19 +31,16 @@
 }
 
 .popup-card {
+    display: grid;
+    gap: 1rem;
     width: 90%;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
+    height: 95%;
 }
 
 .popup-pictures {
-    margin-bottom: 2rem;
     box-sizing: border-box;
     width: 100%;
-    height: 45%;
+    height: 100%;
     overflow: hidden;
     padding: 0.5rem;
     display: flex;
@@ -51,11 +48,11 @@
 
     img {
         min-width: 200px;
-        max-width: 100%;
-        max-height: 100%;
+        width: 100%;
+        height: 100%;
         box-shadow: 0px 0px 8px 2px white;
         border-radius: 1rem;
-        object-fit: fill;
+        object-fit: cover;
         cursor: zoom-in;
     }
 }
@@ -64,12 +61,12 @@
     overflow: hidden;
     border-radius: 20px;
     box-shadow: 0px 0px 8px 2px $highlight_color;
-    background: $bg_color_grey;
+    // background: $bg_color_grey;
     backdrop-filter: blur(4px);
-    align-items: center;
     box-sizing: border-box;
     min-width: 200px;
     width: 100%;
+    // height: auto;
 }
 
 .popup-inner {
@@ -135,7 +132,7 @@
     text-decoration: none;
     position: absolute;
     top: 43%;
-    opacity: 0.5;
+    opacity: 0.7;
     transform: translateY(-50%);
     transition: all 150ms ease;
     z-index: 110;
@@ -158,6 +155,7 @@
 .popup--nav--close {
     top: 50px;
     right: 30px;
+    opacity: 1;
 }
 
 //hobbies

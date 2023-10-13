@@ -46,14 +46,14 @@ const MyWork: React.FC<myWorkProps> = ({ setPopupHandle }) => {
                         <img
                             key={lang}
                             className="used-technologies--img"
-                            src={require(`../images/${launguageData.imgSrc}`)}
+                            src={require(`../images/languages/${launguageData.imgSrc}`)}
                             alt={launguageData.imgSrc}
                         />
                     ) : null;
                 })}
             </div>
             <img
-                src={require(`../images/${myWorkElement.imgSrc}`)}
+                src={require(`../images/myWork/${myWorkElement.imgSrc}`)}
                 alt={`${myWorkElement.description} img`}
                 className="project-img"
             />

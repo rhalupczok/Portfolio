@@ -18,10 +18,7 @@ export const popupData: popupDataInterface[] = [
         isFinished: true,
         content: [
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "my-job-0-wide.png"
-                        : "my-job-0.png",
+                img: "my-job-0.png",
                 text: [
                     "We implement automation and robotics projects for the big automotive brands such as Audi, BMW, VW, Tesla etc. The scope of work is from project and planning, throuht offline simulation which is virtual building whole production lines, till build up the whole line in reality on factory plant. It is very big, time consuming and complicated process with many difficult steps which we always have to face to.",
                     "At the beginning of my Automotive adventure I had a simple tasks like fulfilling documentations or checking simple robots movements. With increasing experience I became a project leader   and   manage a whole project scope.",
@@ -36,10 +33,7 @@ export const popupData: popupDataInterface[] = [
         isFinished: true,
         content: [
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-airhockey-0-wide.jpg"
-                        : "popup-airhockey-0.jpg",
+                img: "popup-airhockey-0.jpg",
                 text: [
                     `The game was created inspired by standard Air Hockey game which you can find in many touristic places.`,
                     `At the begining I saw a simple pong game and decided to connect the pong game idea with phisics of colliding circle objects`,
@@ -57,10 +51,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-airhockey-1-wide.png"
-                        : "popup-airhockey-1.png",
+                img: "popup-airhockey-1.png",
                 text: [
                     `Player can be control by mouse or touchpad on mobile devices`,
                 ],
@@ -72,10 +63,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-airhockey-2-wide.png"
-                        : "popup-airhockey-2.png",
+                img: "popup-airhockey-2.png",
                 text: [
                     `
                 The phisics of hitting the ball was created based on real phisics laws, taken into acount all movement vectors and masses of ball/players.`,
@@ -90,10 +78,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-airhockey-3-wide.png"
-                        : "popup-airhockey-3.png",
+                img: "popup-airhockey-3.png",
                 text: [
                     `There is added simple AI Player logic - Tries to save the goal and score`,
                 ],
@@ -112,10 +97,7 @@ export const popupData: popupDataInterface[] = [
         isFinished: true,
         content: [
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-tenzi-0-wide.png"
-                        : "popup-tenzi-0.png",
+                img: "popup-tenzi-0.png",
                 text: [
                     `This tenzi application based on popular die family game`,
                     `The goal is to set all dice the same`,
@@ -133,10 +115,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-tenzi-1-wide.png"
-                        : "popup-tenzi-1.png",
+                img: "popup-tenzi-1.png",
                 text: [`The app was created using React and Typescript.`],
                 href: [
                     {
@@ -146,10 +125,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-tenzi-2-wide.png"
-                        : "popup-tenzi-2.png",
+                img: "popup-tenzi-2.png",
                 text: [
                     "The results and user name are kept in localStorage using React.useEffect",
                     "5 best results got on the device are displayed in Local Best Scores table",
@@ -163,10 +139,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-tenzi-3-wide.png"
-                        : "popup-tenzi-3.png",
+                img: "popup-tenzi-3.png",
                 text: [
                     "Each separate result is also passed to global score database and next to local results there is a table with 50 best global scores",
                     "As storage for this project used google cloud",
@@ -179,10 +152,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-tenzi-4-wide.png"
-                        : "popup-tenzi-4.png",
+                img: "popup-tenzi-4.png",
                 text: [
                     "IN Syntax there are used dynamic styling, ternary or conditional operator",
                     "Example on the picture",
@@ -202,10 +172,7 @@ export const popupData: popupDataInterface[] = [
         isFinished: true,
         content: [
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-pocket-organiser-0-wide.png"
-                        : "popup-pocket-organiser-0.png",
+                img: "popup-pocket-organiser-0.png",
                 text: [`Simple app for task or shopping list`],
                 href: [
                     {
@@ -219,20 +186,14 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-pocket-organiser-1-wide.png"
-                        : "popup-pocket-organiser-1.png",
+                img: "popup-pocket-organiser-1.png",
                 text: [
                     `Entry the task or item on prepared form`,
                     `As option set deadline for tasks and amount/shop for items`,
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-pocket-organiser-2-wide.png"
-                        : "popup-pocket-organiser-2.png",
+                img: "popup-pocket-organiser-2.png",
                 text: [
                     `Language can be directly switched by onClick on the flag`,
                 ],
@@ -244,10 +205,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-pocket-organiser-3-wide.png"
-                        : "popup-pocket-organiser-3.png",
+                img: "popup-pocket-organiser-3.png",
                 text: [
                     `The items can be filter by shop name`,
                     `Popup window is free moveable`,
@@ -264,10 +222,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-pocket-organiser-4-wide.png"
-                        : "popup-pocket-organiser-4.png",
+                img: "popup-pocket-organiser-4.png",
                 text: [`The data are kept in local storage`],
                 href: [
                     {
@@ -277,10 +232,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-pocket-organiser-5-wide.png"
-                        : "popup-pocket-organiser-5.png",
+                img: "popup-pocket-organiser-5.png",
                 text: [
                     `It is also one of my first project created in pure JS. The app was coded using classes`,
                 ],
@@ -293,10 +245,7 @@ export const popupData: popupDataInterface[] = [
         isFinished: true,
         content: [
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-snake-0-wide.png"
-                        : "popup-snake-0.png",
+                img: "popup-snake-0.png",
                 text: [
                     `The game was created inspired by memories of iconic phone Nokia 3310.`,
                 ],
@@ -312,10 +261,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-snake-1-wide.png"
-                        : "popup-snake-1.png",
+                img: "popup-snake-1.png",
                 text: [
                     `Level define the Snake speed and amount of points for each food.`,
                 ],
@@ -327,10 +273,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-snake-2-wide.png"
-                        : "popup-snake-2.png",
+                img: "popup-snake-2.png",
                 text: [
                     `3 way of control:`,
                     `-Keyboard arrows`,
@@ -345,10 +288,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-snake-3-wide.png"
-                        : "popup-snake-3.png",
+                img: "popup-snake-3.png",
                 text: [
                     `The dimensions of canvas depends on screen size and visibility of virtual arrows.`,
                 ],
@@ -367,10 +307,7 @@ export const popupData: popupDataInterface[] = [
         isFinished: true,
         content: [
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-weather-0-wide.png"
-                        : "popup-weather-0.png",
+                img: "popup-weather-0.png",
                 text: [
                     `Simple weather application fetching the API weather data`,
                     `Created using React and Typescript`,
@@ -387,10 +324,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-weather-1-wide.png"
-                        : "popup-weather-1.png",
+                img: "popup-weather-1.png",
                 text: [
                     `The city is set using GPS data (by default) or can be input by user`,
                     `All data is catching using react components / props etc.`,
@@ -415,10 +349,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-weather-2-wide.png"
-                        : "popup-weather-2.png",
+                img: "popup-weather-2.png",
                 text: [
                     "Added sun walk effect.",
                     "The sun is going from the sunrise to sunset symbol taken into account the time of sunrise/sunset from fetched data and current time",
@@ -438,10 +369,7 @@ export const popupData: popupDataInterface[] = [
         isFinished: true,
         content: [
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-portfolio-0.png"
-                        : "popup-portfolio-0.png",
+                img: "popup-portfolio-0.png",
                 text: [
                     "The page was created with React, TypeScript and SCSS superset technologies",
                     "In accordance with composable idea the components, content, TS interfaces and style are kept in separate files and the page is builded mapping by them",
@@ -455,10 +383,7 @@ export const popupData: popupDataInterface[] = [
             },
 
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-portfolio-1.png"
-                        : "popup-portfolio-1.png",
+                img: "popup-portfolio-1.png",
                 text: [
                     "All effects like intro, hobby carousel, popups were coded by myself without using any external libraries",
                 ],
@@ -470,10 +395,7 @@ export const popupData: popupDataInterface[] = [
                 ],
             },
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "popup-portfolio-2.png"
-                        : "popup-portfolio-2.png",
+                img: "popup-portfolio-2.png",
                 text: [
                     "Data such as pop-ups or my work content is stored within a distinct container component and integrated into the website through universal methods, enhancing its flexibility and simplifying the process of expanding it.",
                 ],
@@ -486,10 +408,7 @@ export const popupData: popupDataInterface[] = [
         isFinished: true,
         content: [
             {
-                img:
-                    window.innerWidth > window.innerHeight
-                        ? "my-work-others.png"
-                        : "my-work-others.png",
+                img: "my-work-others.png",
                 text: ["A few small projects built during various courses"],
                 href: [
                     {

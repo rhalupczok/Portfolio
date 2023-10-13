@@ -11,7 +11,7 @@ const AboutMe: React.FC<aboutMeProps> = ({
     const characterElements: ReactElement[] = characters.map((character) => (
         <div key={character.name}>
             <img
-                src={require(`../images/${character.imgSrc}`)}
+                src={require(`../images/aboutMe/${character.imgSrc}`)}
                 alt={character.alt}
                 className="characters-img"
             />
@@ -22,7 +22,7 @@ const AboutMe: React.FC<aboutMeProps> = ({
     const languageElements: ReactElement[] = languages.map((language) => (
         <div key={language.name}>
             <img
-                src={require(`../images/${language.imgSrc}`)}
+                src={require(`../images/languages/${language.imgSrc}`)}
                 alt={language.alt}
                 className="langs-img"
             />
@@ -38,7 +38,7 @@ const AboutMe: React.FC<aboutMeProps> = ({
                 <div className="profile-img-characters-container">
                     <div className="profile-img">
                         <img
-                            src={require(`../images/profile_picture.png`)}
+                            src={require(`../images/aboutMe/profile_picture.png`)}
                             alt="profile"
                         />
                     </div>
