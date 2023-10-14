@@ -3,8 +3,18 @@ import "../styles/partials/popup.scss";
 import { popupDataInterface, popupProps } from "../data/interfaces";
 import { popupData } from "../data/PopupData";
 
+const horizontalStyle = {
+    gridTemplateRows: "1fr",
+    gridTemplateColumns: "1fr 1fr",
+};
+const VerticalStyle = {
+    gridTemplateRows: "1fr 1fr",
+    gridTemplateColumns: "1fr",
+};
+
 const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
     const [wideScreen, setWideScreen] = useState(false);
+    const popupStyle = wideScreen ? horizontalStyle : VerticalStyle;
 
     useEffect(() => {
         const updateWindow = () => {
@@ -15,16 +25,6 @@ const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
         window.addEventListener("resize", updateWindow);
         return () => window.removeEventListener("resize", updateWindow);
     }, []);
-
-    const horizontalStyle = {
-        gridTemplateRows: "1fr",
-        gridTemplateColumns: "1fr 1fr",
-    };
-    const VerticalStyle = {
-        gridTemplateRows: "1fr 1fr",
-        gridTemplateColumns: "1fr",
-    };
-    const popupStyle = wideScreen ? horizontalStyle : VerticalStyle;
 
     const targetPopupContent: popupDataInterface | undefined = popupData.find(
         ({ name }) => name === popupContent.content

@@ -153,8 +153,8 @@
 }
 
 .popup--nav--close {
-    top: 50px;
-    right: 30px;
+    top: 30px;
+    right: 10px;
     opacity: 1;
 }
 
@@ -162,7 +162,7 @@
 
 .hobbies-popup {
     position: fixed;
-    width: 30vw;
+    width: 55vw;
     perspective: 1000px;
     top: 0; /* height to top */
     margin-left: 0;
@@ -182,22 +182,25 @@
     overflow: hidden;
 }
 .hobbies-carousel-item {
-    box-shadow: 0px 0px 20px 0px #000;
+    box-shadow: 0px 0px 10px 0px $highlight_color;
     border-radius: 3vh;
     display: flex;
     flex-direction: column;
-    justify-content: center;
+    justify-content: space-around;
     align-items: center;
     transform: translateX(-150vw) rotateY(360deg);
     transition: all 1s;
     padding-top: 1rem;
+    p {
+        margin-top: 1vw;
+    }
 }
 .hobby-img {
-    border-radius: 1rem;
+    border-radius: 1vh;
     transition: ease-in-out 0.5s;
     width: 90%;
-    max-height: 85%;
-    object-fit: contain;
+    height: 80%;
+    object-fit: cover;
 }
 .hobbies-carousel p {
     color: white;
@@ -205,29 +208,21 @@
     font-weight: 700;
     text-align: center;
 }
-.hobbies-carousel .img:hover {
-    transform: scale(1.1);
-    transition: all 0.5s;
-    position: absolute;
-}
-.hobbies-carousel:hover {
-    cursor: pointer;
-}
 
 .it1 {
-    transform: rotateY(0deg) translateZ(25vw);
+    transform: rotateY(0deg) translateZ(35vw);
 }
 .it2 {
-    transform: rotateY(72deg) translateZ(25vw);
+    transform: rotateY(72deg) translateZ(35vw);
 }
 .it3 {
-    transform: rotateY(144deg) translateZ(25vw);
+    transform: rotateY(144deg) translateZ(35vw);
 }
 .it4 {
-    transform: rotateY(216deg) translateZ(25vw);
+    transform: rotateY(216deg) translateZ(35vw);
 }
 .it5 {
-    transform: rotateY(288deg) translateZ(25vw);
+    transform: rotateY(288deg) translateZ(35vw);
 }
 
 .show-hobbies {
@@ -235,6 +230,10 @@
 }
 
 @media screen and (min-width: 1200px) {
+    .hobbies-popup {
+        width: 500px;
+    }
+
     .it1 {
         transform: rotateY(0deg) translateZ(300px);
     }

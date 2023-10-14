@@ -7,7 +7,7 @@ const CV: React.FC = () => {
             <h1>CV</h1>
             <div className="CV--content">
                 <a
-                    href="https://drive.google.com/file/d/1j3Nb6ZBMn09JIoSLr_Jsx1gyWW-ALqRd/view?usp=drive_link"
+                    href="https://drive.google.com/file/d/1SbrPWtqw2_H5UrPctwIUUvNgaqiiBsVe/view?usp=drive_link"
                     target="_blank"
                     rel="noreferrer"
                 >
