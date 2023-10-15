@@ -124,7 +124,9 @@
     width: 40px;
     line-height: 40px;
     font-size: 1.5rem;
-    text-align: center;
+    display: flex;
+    justify-content: center;
+    align-items: center;
     color: black;
     background: $highlight_color;
     box-shadow: 0 0 5px $highlight_color_hover;

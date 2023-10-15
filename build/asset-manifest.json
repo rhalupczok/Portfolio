@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "./static/css/main.02888d9a.css",
-    "main.js": "./static/js/main.7cba9571.js",
+    "main.css": "./static/css/main.baf032f6.css",
+    "main.js": "./static/js/main.fe944511.js",
     "static/js/787.1ed0c42c.chunk.js": "./static/js/787.1ed0c42c.chunk.js",
     "static/media/my-job-0.png": "./static/media/my-job-0.c9285f0b75860ade8297.png",
     "static/media/popup-portfolio-1.png": "./static/media/popup-portfolio-1.c6d8f3af310368c0c511.png",
     "static/media/popup-snake-0.png": "./static/media/popup-snake-0.2866d57a9b2305702527.png",
     "static/media/intro-my-picture.png": "./static/media/intro-my-picture.5badecdf97942ac2bcda.png",
-    "static/media/CV-Radoslaw_Halupczok_eng.png": "./static/media/CV-Radoslaw_Halupczok_eng.f918a9ac56f7e70f6d1b.png",
+    "static/media/CV-Radoslaw_Halupczok_eng.png": "./static/media/CV-Radoslaw_Halupczok_eng.888e498de3b1f552a411.png",
     "static/media/popup-pocket-organiser-1.png": "./static/media/popup-pocket-organiser-1.4941652406c8420932ea.png",
     "static/media/popup-hobby-mechanics.jpg": "./static/media/popup-hobby-mechanics.a5dc9107048e016f64de.jpg",
     "static/media/popup-tenzi-0.png": "./static/media/popup-tenzi-0.8843f7d6c5cbe3a1c157.png",
@@ -64,12 +64,12 @@
     "static/media/footer-linkedin.svg": "./static/media/footer-linkedin.0482c1237e7db4cb9ce4.svg",
     "static/media/langs-html5.svg": "./static/media/langs-html5.68fdf451aa340db1b8fd.svg",
     "static/media/langs-css3.svg": "./static/media/langs-css3.9cc4f134228dba496efc.svg",
-    "main.02888d9a.css.map": "./static/css/main.02888d9a.css.map",
-    "main.7cba9571.js.map": "./static/js/main.7cba9571.js.map",
+    "main.baf032f6.css.map": "./static/css/main.baf032f6.css.map",
+    "main.fe944511.js.map": "./static/js/main.fe944511.js.map",
     "787.1ed0c42c.chunk.js.map": "./static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.02888d9a.css",
-    "static/js/main.7cba9571.js"
+    "static/css/main.baf032f6.css",
+    "static/js/main.fe944511.js"
   ]
 }
