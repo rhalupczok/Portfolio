@@ -20,9 +20,13 @@ export const popupData: popupDataInterface[] = [
             {
                 img: "my-job-0.png",
                 text: [
-                    "We implement automation and robotics projects for the big automotive brands such as Audi, BMW, VW, Tesla etc. The scope of work is from project and planning, throuht offline simulation which is virtual building whole production lines, till build up the whole line in reality on factory plant. It is very big, time consuming and complicated process with many difficult steps which we always have to face to.",
-                    "At the beginning of my Automotive adventure I had a simple tasks like fulfilling documentations or checking simple robots movements. With increasing experience I became a project leader   and   manage a whole project scope.",
-                    "Why do I want to change it? Because I fill that I will not develop myself anymore in this branch of industry. I am looking for new opportunities and challenges.",
+                    "About Job:",
+                    "In this branch of industry we specialize in automation and robotics projects for the big automotive brands such as Audi, BMW, VW, Tesla, and more. The scope of work is from  initial planning and project management, through offline simulation, which involves creating virtual representations of entire production lines, to the physical construction of those lines within factory plants. This is a substantial, time-consuming, and complex process that involves overcoming various challenging steps.",
+                    "",
+                    "",
+                    "About Me:",
+                    "In the early stages of my automotive career, I began with simpler tasks like documentation management and basic robot movement checks. With growing experience, I evolved into a project leader, responsible for overseeing the entire project scope.",
+                    "Why do I want to make a change? I feel that I have reached a plateau in my development within this industry. I am actively seeking new opportunities and challenges to continue my professional growth.",
                 ],
             },
         ],

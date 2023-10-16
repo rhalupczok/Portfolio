@@ -91,11 +91,11 @@ const AboutMe: React.FC<aboutMeProps> = ({
                 <p>
                     I am aware that I am on the begining and there is a lot of
                     hard work in front of me but I am determined and 100%
-                    oriented on this kind of job. <br />A various challenges
-                    requiring logical thinking were always my scope of
-                    interesting. Solving programming tasks makes me satisfied
-                    and I very like it. Give me a chance and I promise I will do
-                    my best to not let you down.
+                    oriented on this kind of job. A various challenges requiring
+                    logical thinking were always my scope of interesting.
+                    Solving programming tasks makes me satisfied and I very like
+                    it. Give me a chance and I promise I will do my best to not
+                    let you down.
                 </p>
                 <p>
                     A bit more about me →{" "}
@@ -109,7 +109,7 @@ const AboutMe: React.FC<aboutMeProps> = ({
                     .
                 </p>
             </div>
-            <h2>Technologies I learned</h2>
+            <h2>Technologies I've Studied</h2>
             <div className="langs">{languageElements}</div>
         </div>
     );
