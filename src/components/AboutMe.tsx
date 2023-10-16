@@ -47,9 +47,9 @@ const AboutMe: React.FC<aboutMeProps> = ({
                 <p>
                     Hi! My name is
                     <span className="txt-highlight--no-hover"> Radoslaw</span>.
-                    I live in Silesian Voivodeship in Poland. I graduated from
-                    Silesian University of technology and after that for 7 years
-                    I have been working as{" "}
+                    I live in the Silesian Voivodeship in Poland. I graduated
+                    from the Silesian University of Technology, and for the past
+                    7 years, I have been working as a{" "}
                     <span
                         id="my-job-popup-btn"
                         className="txt-highlight open-popup-btn"
@@ -59,15 +59,15 @@ const AboutMe: React.FC<aboutMeProps> = ({
                     </span>
                 </p>
                 <p>
-                    Currently most of my time I am spending on boardering my
-                    knowleadge of Front-End Development. I am learning how to
-                    create responsive websites and applications. At the begining
-                    I started with python. Next I went throught Html, CSS and
-                    JavaScript courses and varoius documentations. I meet also
-                    the SASS, Node.js and Boostrap. After that I went thorught
-                    React and TypeScript. It has open my eyed how clean and
-                    composable the code can be. All projects I am working on are
-                    stored using GIT commands.
+                    Currently, most of my time is spent broadening my knowledge
+                    of Front-End Development. I am learning how to create
+                    responsive websites and applications. In the beginning, I
+                    started with Python. Next, I went through HTML, CSS, and
+                    JavaScript courses, as well as various documentations. I
+                    also got acquainted with SASS, Node.js, and Bootstrap. After
+                    that, I delved into React and TypeScript. It has opened my
+                    eyes to how clean and composable the code can be. All the
+                    projects I work on are stored using GIT commands.
                     <br /> Let check some examples of{" "}
                     <span
                         id="my-work-btn"
@@ -87,15 +87,14 @@ const AboutMe: React.FC<aboutMeProps> = ({
                     </span>
                     .
                 </p>
-
                 <p>
-                    I am aware that I am on the begining and there is a lot of
-                    hard work in front of me but I am determined and 100%
-                    oriented on this kind of job. A various challenges requiring
-                    logical thinking were always my scope of interesting.
-                    Solving programming tasks makes me satisfied and I very like
-                    it. Give me a chance and I promise I will do my best to not
-                    let you down.
+                    I am aware that I am at the beginning, and there is a lot of
+                    hard work ahead of me, but I am determined and 100% focused
+                    on this type of job. Various challenges requiring logical
+                    thinking have always been within my scope of interest.
+                    Solving programming tasks makes me satisfied, and I really
+                    enjoy it. Give me a chance, and I promise I will do my best
+                    not to let you down.
                 </p>
                 <p>
                     A bit more about me →{" "}

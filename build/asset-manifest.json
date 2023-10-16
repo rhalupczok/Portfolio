@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "./static/css/main.7380231c.css",
-    "main.js": "./static/js/main.fe944511.js",
+    "main.js": "./static/js/main.f5e70f87.js",
     "static/js/787.1ed0c42c.chunk.js": "./static/js/787.1ed0c42c.chunk.js",
     "static/media/my-job-0.png": "./static/media/my-job-0.c9285f0b75860ade8297.png",
     "static/media/popup-portfolio-1.png": "./static/media/popup-portfolio-1.c6d8f3af310368c0c511.png",
@@ -56,8 +56,8 @@
     "static/media/footer-github.svg": "./static/media/footer-github.566c7bedaf3ffffa06be.svg",
     "static/media/langs-github.svg": "./static/media/langs-github.566c7bedaf3ffffa06be.svg",
     "static/media/langs-node-js.svg": "./static/media/langs-node-js.9d8f79673721f5cbe682.svg",
-    "static/media/langs-bootstrap.svg": "./static/media/langs-bootstrap.c30cbb210b06a6d0f515.svg",
     "index.html": "./index.html",
+    "static/media/langs-bootstrap.svg": "./static/media/langs-bootstrap.c30cbb210b06a6d0f515.svg",
     "static/media/langs-square-js.svg": "./static/media/langs-square-js.74cefc535b92c4a31501.svg",
     "static/media/langs-code-branch-solid.svg": "./static/media/langs-code-branch-solid.746d0eb54cc2d2c944e2.svg",
     "static/media/footer-envelope.svg": "./static/media/footer-envelope.30e38c5430f3e330a2f8.svg",
@@ -65,11 +65,11 @@
     "static/media/langs-html5.svg": "./static/media/langs-html5.68fdf451aa340db1b8fd.svg",
     "static/media/langs-css3.svg": "./static/media/langs-css3.9cc4f134228dba496efc.svg",
     "main.7380231c.css.map": "./static/css/main.7380231c.css.map",
-    "main.fe944511.js.map": "./static/js/main.fe944511.js.map",
+    "main.f5e70f87.js.map": "./static/js/main.f5e70f87.js.map",
     "787.1ed0c42c.chunk.js.map": "./static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.7380231c.css",
-    "static/js/main.fe944511.js"
+    "static/js/main.f5e70f87.js"
   ]
 }
