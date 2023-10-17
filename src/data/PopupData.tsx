@@ -413,7 +413,7 @@ export const popupData: popupDataInterface[] = [
         content: [
             {
                 img: "my-work-others.png",
-                text: ["A few small projects built during various courses"],
+                text: ["Small projects built during various courses"],
                 href: [
                     {
                         link: "https://rhalupczok.github.io/Meme-Generator",
