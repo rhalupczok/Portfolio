@@ -47,6 +47,7 @@ const MyWork: React.FC<myWorkProps> = ({ setPopupHandle }) => {
                             key={lang}
                             className="used-technologies--img"
                             src={require(`../images/languages/${launguageData.imgSrc}`)}
+                            title={`${lang}`}
                             alt={launguageData.imgSrc}
                         />
                     ) : null;

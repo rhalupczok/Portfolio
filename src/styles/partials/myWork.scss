@@ -79,20 +79,13 @@
     gap: 5px;
 }
 .used-technologies--img {
+    position: relative;
     width: 30px;
     height: 30px;
     background: $highlight_color;
     border-radius: 5px;
     box-shadow: 0 0 2px 2px black;
     z-index: 1;
-}
-
-.used-technologies--img {
-    width: 30px;
-    height: 30px;
-    background: $highlight_color;
-    border-radius: 5px;
-    box-shadow: 0 0 2px 2px black;
     transition: all 0.1s;
 }
 

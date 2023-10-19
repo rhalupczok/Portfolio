@@ -17,7 +17,7 @@ export const myWorkData: myWorkInterface[] = [
         isPlay: true,
         isOpen: true,
         href: "https://rhalupczok.github.io/Tenzies/",
-        technologies: ["HTML", "JAVASCRIPT", "CSS", "REACT"],
+        technologies: ["HTML", "JAVASCRIPT", "CSS", "REACT", "TYPESCRIPT"],
     },
     {
         name: "weather",
