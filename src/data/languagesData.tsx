@@ -40,5 +40,12 @@ export const languages: languagesInterface[] = [
         imgSrc: "langs-node-js.svg",
         alt: "character",
         name: "NODE.JS",
+        inprogress: true,
+    },
+    {
+        imgSrc: "langs-restapi.png",
+        alt: "character",
+        name: "REST API",
+        inprogress: true,
     },
 ];

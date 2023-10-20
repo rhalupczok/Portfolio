@@ -20,7 +20,14 @@ const AboutMe: React.FC<aboutMeProps> = ({
     ));
 
     const languageElements: ReactElement[] = languages.map((language) => (
-        <div key={language.name}>
+        <div
+            key={language.name}
+            className={
+                language.inprogress
+                    ? "langs-container in-progress"
+                    : "langs-container"
+            }
+        >
             <img
                 src={require(`../images/languages/${language.imgSrc}`)}
                 alt={language.alt}
@@ -64,10 +71,12 @@ const AboutMe: React.FC<aboutMeProps> = ({
                     responsive websites and applications. In the beginning, I
                     started with Python. Next, I went through HTML, CSS, and
                     JavaScript courses, as well as various documentations. I
-                    also got acquainted with SASS, Node.js, and Bootstrap. After
-                    that, I delved into React and TypeScript. It has opened my
-                    eyes to how clean and composable the code can be. All the
-                    projects I work on are stored using GIT commands.
+                    also got acquainted with SASS and Bootstrap. After that, I
+                    delved into React and TypeScript. It has opened my eyes to
+                    how clean and composable the code can be. Curently I've
+                    started expand my knowledge towards Node.js/Express.js and
+                    REST API. All the projects I work on are stored using GIT
+                    commands.
                     <br /> Let check some examples of{" "}
                     <span
                         id="my-work-btn"

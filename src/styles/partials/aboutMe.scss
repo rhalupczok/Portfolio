@@ -50,8 +50,8 @@
     border-radius: 2rem;
     width: 150px;
     height: 190px;
-    background: white;
-    box-shadow: 0px 0px 8px 8px $highlight_color;
+    background: rgba(0, 0, 0, 0.1);
+    box-shadow: 0px 0px 8px 8px black;
     img {
         width: 150px;
         border-radius: 2rem;
@@ -139,13 +139,13 @@
 
 .langs {
     margin: 0 auto 1rem auto;
-    display: grid;
-    grid-template-columns: repeat(8, 75px);
+    padding: 0 20px;
+    display: flex;
+    flex-wrap: wrap;
     gap: 1rem;
     justify-content: center;
-    max-width: 1200px;
 }
-.langs div {
+.langs-container {
     @include flex;
     flex-direction: column;
     text-decoration: none;
@@ -159,6 +159,13 @@
     color: black;
     font-size: 0.7rem;
     transition: transform 0.2s;
+    position: relative;
+}
+
+.langs-container.in-progress {
+    background: linear-gradient(0deg, rgb(175, 0, 0), rgba(255, 255, 255, 0));
+    // opacity: 0.7;
+    position: relative;
 }
 
 .langs img {
@@ -166,17 +173,21 @@
     margin-bottom: 0.2rem;
 }
 
-.langs div:hover,
+.langs-container:hover,
 .characters div img:hover {
     background: $highlight_color_hover;
     transform: scale(1.2);
 }
 
-@media screen and (max-width: 1200px) {
-    .langs {
-        grid-template-columns: repeat(4, 75px);
-        grid-template-rows: repeat(2, 75px);
-    }
+.langs-container.in-progress:hover {
+    background: linear-gradient(0deg, rgb(175, 0, 0), rgba(255, 255, 255, 0));
+}
+
+.langs-container.in-progress:hover::after {
+    content: "IN PROGRESS";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
 }
 
 @media screen and (max-width: 768px) {
@@ -190,10 +201,6 @@
     }
     .description > :nth-child(2) {
         order: -1;
-    }
-    .langs {
-        grid-template-columns: repeat(2, 75px);
-        grid-template-rows: repeat(4, 75px);
     }
     .profile-img-characters-container {
         float: none;

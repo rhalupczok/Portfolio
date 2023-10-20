@@ -30,6 +30,7 @@ export interface languagesInterface {
     imgSrc: string;
     alt: string;
     name: string;
+    inprogress?: true;
 }
 
 export interface contactInterface {
