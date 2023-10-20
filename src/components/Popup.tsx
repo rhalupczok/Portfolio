@@ -26,6 +26,14 @@ const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
         return () => window.removeEventListener("resize", updateWindow);
     }, []);
 
+    useEffect(() => {
+        const body = document.querySelector("body");
+        if (body) body.classList.add("stop-scrolling");
+        return () => {
+            if (body) body.classList.remove("stop-scrolling");
+        };
+    }, []);
+
     const targetPopupContent: popupDataInterface | undefined = popupData.find(
         ({ name }) => name === popupContent.content
     ); // finding content for popup in popupData based on content name passed by props

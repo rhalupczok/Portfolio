@@ -33,6 +33,7 @@ const App: React.FC = () => {
 
     return (
         <div>
+            {/* <Intro setDisplayHandle={setDisplayHandle} /> */}
             <NavMenu setDisplayHandle={setDisplayHandle} />
             <AboutMe
                 setPopupHandle={setPopupHandle}
@@ -48,9 +49,9 @@ const App: React.FC = () => {
             {displayComponent.componentName === "hobbiesCarousel" && (
                 <HobbiesCarousel setDisplayHandle={setDisplayHandle} />
             )}
-            {displayComponent.componentName === "intro" && (
+            {/* {displayComponent.componentName === "intro" && (
                 <Intro setDisplayHandle={setDisplayHandle} />
-            )}
+            )} */}
         </div>
     );
 };

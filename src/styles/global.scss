@@ -18,3 +18,8 @@ body {
     color: $fonts_color;
     cursor: default;
 }
+
+.stop-scrolling {
+    height: 100%;
+    overflow: hidden;
+}
