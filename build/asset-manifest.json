@@ -1,6 +1,6 @@
 {
   "files": {
-    "main.css": "./static/css/main.7b2a7053.css",
+    "main.css": "./static/css/main.ac53cfb3.css",
     "main.js": "./static/js/main.c26d2627.js",
     "static/js/787.1ed0c42c.chunk.js": "./static/js/787.1ed0c42c.chunk.js",
     "static/media/my-job-0.png": "./static/media/my-job-0.e65fa4d81706c7d88e3b.png",
@@ -20,7 +20,6 @@
     "static/media/popup-pocket-organiser-3.png": "./static/media/popup-pocket-organiser-3.f8c68734c5c04dfc3c7a.png",
     "static/media/popup-portfolio-0.png": "./static/media/popup-portfolio-0.fd3c24eb6e7341d45865.png",
     "static/media/popup-weather-1.png": "./static/media/popup-weather-1.b82dedbc4e2ad8aafd75.png",
-    "static/media/intro-background.jpg": "./static/media/intro-background.4c742d6d6f65b104bc05.jpg",
     "static/media/popup-tenzi-3.png": "./static/media/popup-tenzi-3.8aaf198ba5d020044c42.png",
     "static/media/popup-pocket-organiser-2.png": "./static/media/popup-pocket-organiser-2.6784fd2fb2751a0c8d3e.png",
     "static/media/popup-airhockey-1.png": "./static/media/popup-airhockey-1.836ba830931660f19dce.png",
@@ -30,6 +29,7 @@
     "static/media/popup-snake-3.png": "./static/media/popup-snake-3.d6c793b7471af90a5e10.png",
     "static/media/popup-tenzi-2.png": "./static/media/popup-tenzi-2.18ba5b3bfb94516117b8.png",
     "static/media/profile_picture.png": "./static/media/profile_picture.9453b21c87499dadb5ad.png",
+    "static/media/intro-background.jpg": "./static/media/intro-background.81f7df854800648242eb.jpg",
     "static/media/my-work-weather_app.png": "./static/media/my-work-weather_app.789c66b779005ff84599.png",
     "static/media/my-work-tenzi.png": "./static/media/my-work-tenzi.13a629d83cd37953beca.png",
     "static/media/popup-portfolio-2.png": "./static/media/popup-portfolio-2.9e0bd53980bb6390c317.png",
@@ -66,12 +66,12 @@
     "static/media/footer-linkedin.svg": "./static/media/footer-linkedin.0482c1237e7db4cb9ce4.svg",
     "static/media/langs-html5.svg": "./static/media/langs-html5.68fdf451aa340db1b8fd.svg",
     "static/media/langs-css3.svg": "./static/media/langs-css3.9cc4f134228dba496efc.svg",
-    "main.7b2a7053.css.map": "./static/css/main.7b2a7053.css.map",
+    "main.ac53cfb3.css.map": "./static/css/main.ac53cfb3.css.map",
     "main.c26d2627.js.map": "./static/js/main.c26d2627.js.map",
     "787.1ed0c42c.chunk.js.map": "./static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.7b2a7053.css",
+    "static/css/main.ac53cfb3.css",
     "static/js/main.c26d2627.js"
   ]
 }
