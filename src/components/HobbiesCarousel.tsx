@@ -1,11 +1,8 @@
 import React, { ReactElement, useEffect, useRef, useState } from "react";
 import { myHobbiesData } from "../data/myHobbiesData";
+import { myhobbiesProps } from "../data/interfaces";
 
-interface Props {
-    setDisplayHandle: (componentName: string) => void;
-}
-
-const HobbiesCarousel: React.FC<Props> = ({ setDisplayHandle }) => {
+const HobbiesCarousel: React.FC<myhobbiesProps> = (props) => {
     const myHobbiesElements: ReactElement[] = myHobbiesData.map((hobby) => (
         <div key={hobby.name} className="hobbies-carousel-item">
             <img
@@ -75,7 +72,7 @@ const HobbiesCarousel: React.FC<Props> = ({ setDisplayHandle }) => {
             </div>
             <button
                 className="popup--nav--close"
-                onClick={() => setDisplayHandle("")}
+                onClick={() => props.toggleHobbiesHandle()}
             >
                 x
             </button>

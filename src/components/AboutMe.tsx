@@ -1,13 +1,16 @@
-import React, { ReactElement } from "react";
+import React, { ReactElement, useState } from "react";
 import "../styles/partials/aboutMe.scss";
 import { characters } from "../data/charactersData";
 import { languages } from "../data/languagesData";
-import { aboutMeProps } from "../data/interfaces";
+import HobbiesCarousel from "../components/HobbiesCarousel";
+import { setPopupProps } from "../data/interfaces";
 
-const AboutMe: React.FC<aboutMeProps> = ({
-    setPopupHandle,
-    setDisplayHandle,
-}) => {
+const AboutMe: React.FC<setPopupProps> = ({ setPopupHandle }) => {
+    const [displayHobbies, setDisplayHobbies] = useState<boolean>(false);
+    const toggleHobbies: () => void = () => {
+        setDisplayHobbies((prevstate) => !prevstate);
+    };
+
     const characterElements: ReactElement[] = characters.map((character) => (
         <div key={character.name}>
             <img
@@ -110,7 +113,7 @@ const AboutMe: React.FC<aboutMeProps> = ({
                     <span
                         id="my-hobbies-popup-btn"
                         className="txt-highlight"
-                        onClick={() => setDisplayHandle("hobbiesCarousel")}
+                        onClick={() => setDisplayHobbies(true)}
                     >
                         my hobbies
                     </span>
@@ -119,6 +122,9 @@ const AboutMe: React.FC<aboutMeProps> = ({
             </div>
             <h2>Technologies I've Studied</h2>
             <div className="langs">{languageElements}</div>
+            {displayHobbies && (
+                <HobbiesCarousel toggleHobbiesHandle={toggleHobbies} />
+            )}
         </div>
     );
 };

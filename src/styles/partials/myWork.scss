@@ -1,6 +1,12 @@
 @use "../vars/colours.scss" as *;
 @use "../vars/global.scss" as *;
 
+.nav-menu--margin {
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    height: 35px;
+}
 #my-work {
     width: 100%;
     height: auto;

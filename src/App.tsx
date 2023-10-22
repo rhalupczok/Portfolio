@@ -7,7 +7,6 @@ import CV from "./components/CV";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Popup from "./components/Popup";
-import HobbiesCarousel from "./components/HobbiesCarousel";
 import Intro from "./components/Intro";
 
 const App: React.FC = () => {
@@ -15,30 +14,16 @@ const App: React.FC = () => {
         content: string;
         isShow: boolean;
     }>({ content: "", isShow: false });
-    const [displayComponent, setDisplayComponent] = React.useState<{
-        componentName: string;
-    }>({
-        componentName: "intro",
-    });
 
     const setPopupHandle = (content: string, show: boolean) => {
         setPopup({ content: content, isShow: show });
     };
 
-    const setDisplayHandle = (componentName: string) => {
-        setDisplayComponent({
-            componentName: componentName,
-        });
-    };
-
     return (
         <div>
-            {/* <Intro setDisplayHandle={setDisplayHandle} /> */}
-            <NavMenu setDisplayHandle={setDisplayHandle} />
-            <AboutMe
-                setPopupHandle={setPopupHandle}
-                setDisplayHandle={setDisplayHandle}
-            />
+            <Intro />
+            <NavMenu />
+            <AboutMe setPopupHandle={setPopupHandle} />
             <MyWork setPopupHandle={setPopupHandle} />
             <CV />
             <Contact />
@@ -46,12 +31,6 @@ const App: React.FC = () => {
             {popup.isShow && (
                 <Popup setPopupHandle={setPopupHandle} popupContent={popup} />
             )}
-            {displayComponent.componentName === "hobbiesCarousel" && (
-                <HobbiesCarousel setDisplayHandle={setDisplayHandle} />
-            )}
-            {/* {displayComponent.componentName === "intro" && (
-                <Intro setDisplayHandle={setDisplayHandle} />
-            )} */}
         </div>
     );
 };

@@ -1,25 +1,3 @@
-export interface aboutMeProps {
-    setPopupHandle: (content: string, show: boolean) => void;
-    setDisplayHandle: (componentName: string) => void;
-}
-
-export interface myWorkProps {
-    setPopupHandle: (content: string, show: boolean) => void;
-}
-
-export interface navMenuProps {
-    setDisplayHandle: (componentName: string) => void;
-}
-
-export interface introProps {
-    setDisplayHandle: (componentName: string) => void;
-}
-
-export interface popupProps {
-    setPopupHandle: (content: string, show: boolean) => void;
-    popupContent: { content: string; isShow: boolean };
-}
-
 export interface charactersInterface {
     imgSrc: string;
     alt: string;
@@ -73,3 +51,16 @@ export interface myHobbiesInterface {
     imgSrc: string;
 }
 [];
+
+export interface myhobbiesProps {
+    toggleHobbiesHandle: () => void;
+}
+
+export interface popupProps {
+    popupContent: { content: string; isShow: boolean };
+    setPopupHandle: (content: string, show: boolean) => void;
+}
+
+export interface setPopupProps {
+    setPopupHandle: (content: string, show: boolean) => void;
+}

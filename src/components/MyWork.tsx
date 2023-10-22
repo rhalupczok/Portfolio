@@ -1,10 +1,10 @@
 import React from "react";
 import "../styles/partials/myWork.scss";
 import { myWorkData } from "../data/myworkData";
-import { myWorkInterface, myWorkProps } from "../data/interfaces";
+import { myWorkInterface, setPopupProps } from "../data/interfaces";
 import { languages } from "../data/languagesData";
 
-const MyWork: React.FC<myWorkProps> = ({ setPopupHandle }) => {
+const MyWork: React.FC<setPopupProps> = ({ setPopupHandle }) => {
     const addHover = (e: Element) => {
         e.classList.add("project-buttons--hover"); //adding class which set opactity to 1
         e.childNodes.forEach((child) => {
@@ -90,6 +90,7 @@ const MyWork: React.FC<myWorkProps> = ({ setPopupHandle }) => {
 
     return (
         <div id="my-work" className="main-section">
+            <div className="nav-menu--margin"></div>
             <h1>My Work</h1>
             <div id="projects-container">{myWorkElements}</div>
         </div>

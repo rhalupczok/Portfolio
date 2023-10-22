@@ -1,27 +1,24 @@
 @use "../vars/colours.scss" as *;
 @use "../vars/global.scss" as *;
 
-#intro-bg {
-    position: fixed;
-    top: 0;
-    bottom: 0;
-    left: 0;
-    right: 0;
-    background: rgba(0, 0, 0, 0.5);
-    backdrop-filter: blur(2px);
-    z-index: 97;
+.intro-bg {
+    background-image: url("../../images/intro/intro-background.jpg");
+    background-position: center;
+    background-size: cover;
     display: flex;
     justify-content: center;
     align-items: center;
+    width: 100%;
+    height: 100vh;
+    z-index: 3;
+    position: relative;
 }
 
 .intro {
-    position: fixed;
+    position: relative;
     width: 30vw;
     perspective: 1000px;
-    top: 0;
-    padding-top: 30vh;
-    z-index: 98;
+    top: -100px;
 }
 
 .intro-carousel {
@@ -81,9 +78,6 @@
     transition: all 0.5s;
     position: absolute;
 }
-.intro-carousel:hover {
-    cursor: pointer;
-}
 
 .intro-carousel-item.it1 {
     transform: rotateY(0deg) translateZ(20vw);
@@ -104,14 +98,14 @@
 
 .neon-button {
     background-color: $bg_color_grey;
-    position: fixed;
+    position: absolute;
     color: $highlight_color;
-    font-size: 1.5rem;
+    font-size: 3rem;
     bottom: 30px;
     left: 50%;
     transform: translateX(-50%);
     display: inline-block;
-    padding: 15px 30px;
+    padding: 0px 15px;
     text-transform: uppercase;
     letter-spacing: 4px;
     text-decoration: none;
@@ -146,7 +140,7 @@
     top: 0;
     left: -100%;
     width: 100%;
-    height: 2px;
+    height: 5px;
     background: linear-gradient(90deg, transparent, $highlight_color_hover);
 }
 
@@ -158,7 +152,7 @@
 .neon-button span:nth-child(2) {
     top: -100%;
     right: 0;
-    width: 2px;
+    width: 5px;
     height: 100%;
     background: linear-gradient(180deg, transparent, $highlight_color_hover);
 }
@@ -173,7 +167,7 @@
     bottom: 0;
     right: -100%;
     width: 100%;
-    height: 2px;
+    height: 5px;
     background: linear-gradient(270deg, transparent, $highlight_color_hover);
 }
 
@@ -186,7 +180,7 @@
 .neon-button span:nth-child(4) {
     bottom: -100%;
     left: 0;
-    width: 2px;
+    width: 5px;
     height: 100%;
     background: linear-gradient(0deg, transparent, $highlight_color_hover);
 }

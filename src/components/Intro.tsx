@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import "../styles/partials/intro.scss";
-import { introProps } from "../data/interfaces";
+import { scrollTo } from "../data/helperfunc";
 
-const Intro: React.FC<introProps> = ({ setDisplayHandle }) => {
+const Intro: React.FC = () => {
     const useAnimationFrame = (callback: (deltaTime: number) => void) => {
         const requestRef = useRef<number | null>(null);
         const previousTimeRef = useRef<number | undefined>(undefined);
@@ -53,8 +53,8 @@ const Intro: React.FC<introProps> = ({ setDisplayHandle }) => {
     useAnimationFrame(animateCallback);
 
     return (
-        <div className="popupBg">
-            <div id="intro" className="intro">
+        <div id="intro" className="intro-bg">
+            <div className="intro">
                 <div style={style.cards} className="intro-carousel">
                     <img
                         style={style.picture}
@@ -97,15 +97,11 @@ const Intro: React.FC<introProps> = ({ setDisplayHandle }) => {
                     </div>
                 </div>
             </div>
-            <button
-                className="neon-button"
-                onClick={() => setDisplayHandle("")}
-            >
+            <button className="neon-button" onClick={() => scrollTo("about")}>
                 <span></span>
                 <span></span>
                 <span></span>
-                <span></span>
-                Go to website
+                <span></span>⇩
             </button>
         </div>
     );

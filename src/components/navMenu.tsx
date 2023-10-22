@@ -1,32 +1,20 @@
 import React, { ReactElement } from "react";
 import "../styles/partials/navMenu.scss";
-import { navMenuProps } from "../data/interfaces";
 import { navMenuData } from "../data/navMenuData";
+import { scrollTo } from "../data/helperfunc";
 
 const openMenu: () => void = () => {
     const navMenu: HTMLElement | null = document.querySelector(".nav-menu");
     if (navMenu) navMenu.classList.toggle("responsive");
 };
 
-const scrollTo: (el: string) => void = (el) => {
-    const element: HTMLElement | null = document.getElementById(`${el}`); //get target from navMenuData (it is )
-    if (element)
-        element.scrollIntoView({
-            behavior: "smooth",
-            block: "start",
-            inline: "nearest",
-        });
-};
-
-const NavMenu: React.FC<navMenuProps> = ({ setDisplayHandle }) => {
+const NavMenu: React.FC = () => {
     const navMenuElements: ReactElement[] = navMenuData.map((menuElement) => (
         <span
             key={menuElement.id}
             id={menuElement.id}
             onClick={() => {
-                menuElement.target === "intro"
-                    ? setDisplayHandle(menuElement.target)
-                    : scrollTo(menuElement.target);
+                scrollTo(menuElement.target);
                 openMenu();
             }}
         >
