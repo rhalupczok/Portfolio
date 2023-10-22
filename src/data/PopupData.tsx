@@ -393,7 +393,7 @@ export const popupData: popupDataInterface[] = [
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Portfolio/blob/fa704b8823f97755a29391bfaf8cc3ff5324ea3c/src/components/HobbiesCarousel.tsx#L8",
+                        link: "https://github.com/rhalupczok/Portfolio/blob/239f457b61b763062dab44e839da56d6778c92b6/src/components/HobbiesCarousel.tsx#L1",
                         desc: "Part of code - hobby carousel popup",
                     },
                 ],

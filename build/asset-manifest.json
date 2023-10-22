@@ -1,12 +1,12 @@
 {
   "files": {
-    "main.css": "./static/css/main.c581dc32.css",
-    "main.js": "./static/js/main.f2a09e12.js",
+    "main.css": "./static/css/main.7b2a7053.css",
+    "main.js": "./static/js/main.c26d2627.js",
     "static/js/787.1ed0c42c.chunk.js": "./static/js/787.1ed0c42c.chunk.js",
     "static/media/my-job-0.png": "./static/media/my-job-0.e65fa4d81706c7d88e3b.png",
     "static/media/popup-portfolio-1.png": "./static/media/popup-portfolio-1.c6d8f3af310368c0c511.png",
     "static/media/my-work-portfolio.png": "./static/media/my-work-portfolio.898d8de50c1d3b48196e.png",
-    "static/media/CV-Radoslaw_Halupczok_eng.png": "./static/media/CV-Radoslaw_Halupczok_eng.3703e900c41d02c6b1d4.png",
+    "static/media/intro-my-picture.png": "./static/media/intro-my-picture.5badecdf97942ac2bcda.png",
     "static/media/popup-pocket-organiser-1.png": "./static/media/popup-pocket-organiser-1.b9aec2f65e9ba84faed9.png",
     "static/media/popup-hobby-mechanics.jpg": "./static/media/popup-hobby-mechanics.a5dc9107048e016f64de.jpg",
     "static/media/popup-tenzi-0.png": "./static/media/popup-tenzi-0.8843f7d6c5cbe3a1c157.png",
@@ -20,14 +20,16 @@
     "static/media/popup-pocket-organiser-3.png": "./static/media/popup-pocket-organiser-3.f8c68734c5c04dfc3c7a.png",
     "static/media/popup-portfolio-0.png": "./static/media/popup-portfolio-0.fd3c24eb6e7341d45865.png",
     "static/media/popup-weather-1.png": "./static/media/popup-weather-1.b82dedbc4e2ad8aafd75.png",
+    "static/media/intro-background.jpg": "./static/media/intro-background.4c742d6d6f65b104bc05.jpg",
     "static/media/popup-tenzi-3.png": "./static/media/popup-tenzi-3.8aaf198ba5d020044c42.png",
     "static/media/popup-pocket-organiser-2.png": "./static/media/popup-pocket-organiser-2.6784fd2fb2751a0c8d3e.png",
     "static/media/popup-airhockey-1.png": "./static/media/popup-airhockey-1.836ba830931660f19dce.png",
     "static/media/popup-weather-2.png": "./static/media/popup-weather-2.2561d386fcfbb942400b.png",
-    "static/media/profile_picture.png": "./static/media/profile_picture.fdb2375e4ca98a101f2f.png",
+    "static/media/profile_picture — kopia.png": "./static/media/profile_picture — kopia.fdb2375e4ca98a101f2f.png",
     "static/media/popup-tenzi-1.png": "./static/media/popup-tenzi-1.be8208276a0f8b1437ed.png",
     "static/media/popup-snake-3.png": "./static/media/popup-snake-3.d6c793b7471af90a5e10.png",
     "static/media/popup-tenzi-2.png": "./static/media/popup-tenzi-2.18ba5b3bfb94516117b8.png",
+    "static/media/profile_picture.png": "./static/media/profile_picture.9453b21c87499dadb5ad.png",
     "static/media/my-work-weather_app.png": "./static/media/my-work-weather_app.789c66b779005ff84599.png",
     "static/media/my-work-tenzi.png": "./static/media/my-work-tenzi.13a629d83cd37953beca.png",
     "static/media/popup-portfolio-2.png": "./static/media/popup-portfolio-2.9e0bd53980bb6390c317.png",
@@ -49,6 +51,7 @@
     "static/media/characters-motivated.png": "./static/media/characters-motivated.21154b644024c7efec24.png",
     "static/media/characters-self-improvement.png": "./static/media/characters-self-improvement.3d695d25006f73da9d1f.png",
     "static/media/characters-organised.png": "./static/media/characters-organised.b5db78685d0dc0983c94.png",
+    "static/media/CV-icon.png": "./static/media/CV-icon.d9bb815c97ea7149c0ff.png",
     "static/media/langs-sass.svg": "./static/media/langs-sass.ae25904772c26f0e4f02.svg",
     "static/media/langs-react.svg": "./static/media/langs-react.cf5c184debcb2092f4a4.svg",
     "static/media/langs-typescript.svg": "./static/media/langs-typescript.8b592475761a995cb554.svg",
@@ -63,12 +66,12 @@
     "static/media/footer-linkedin.svg": "./static/media/footer-linkedin.0482c1237e7db4cb9ce4.svg",
     "static/media/langs-html5.svg": "./static/media/langs-html5.68fdf451aa340db1b8fd.svg",
     "static/media/langs-css3.svg": "./static/media/langs-css3.9cc4f134228dba496efc.svg",
-    "main.c581dc32.css.map": "./static/css/main.c581dc32.css.map",
-    "main.f2a09e12.js.map": "./static/js/main.f2a09e12.js.map",
+    "main.7b2a7053.css.map": "./static/css/main.7b2a7053.css.map",
+    "main.c26d2627.js.map": "./static/js/main.c26d2627.js.map",
     "787.1ed0c42c.chunk.js.map": "./static/js/787.1ed0c42c.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.c581dc32.css",
-    "static/js/main.f2a09e12.js"
+    "static/css/main.7b2a7053.css",
+    "static/js/main.c26d2627.js"
   ]
 }
