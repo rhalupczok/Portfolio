@@ -67,7 +67,7 @@ const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
                                     href={href.link}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="txt-highlight"
+                                    className="txt-highlight popup-card--description--p"
                                     key={href.link}
                                 >
                                     <span>{href.desc}</span>
