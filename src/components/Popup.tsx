@@ -1,31 +1,9 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import "../styles/partials/popup.scss";
 import { popupDataInterface, popupProps } from "../data/interfaces";
 import { popupData } from "../data/PopupData";
 
-const horizontalStyle = {
-    gridTemplateRows: "1fr",
-    gridTemplateColumns: "1fr 1fr",
-};
-const VerticalStyle = {
-    gridTemplateRows: "1fr 1fr",
-    gridTemplateColumns: "1fr",
-};
-
 const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
-    const [wideScreen, setWideScreen] = useState(false);
-    const popupStyle = wideScreen ? horizontalStyle : VerticalStyle;
-
-    useEffect(() => {
-        const updateWindow = () => {
-            window.innerWidth > window.innerHeight
-                ? setWideScreen(true)
-                : setWideScreen(false);
-        };
-        window.addEventListener("resize", updateWindow);
-        return () => window.removeEventListener("resize", updateWindow);
-    }, []);
-
     useEffect(() => {
         const body = document.querySelector("body");
         if (body) body.classList.add("stop-scrolling");
@@ -51,26 +29,31 @@ const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
     // first condition: if the name passed by props in not matching to any object in popupdata then targetContent is undefined. In that case object targetContent get the content of "underConstruction" popup. Second condition: If the content of popup is not finished (marked property in data) then targetContent is "underConstruction" too.
 
     const popupCards = targetContent.map((card, index) => (
-        <div
-            className="popup-card carousel__item"
-            data-pos={index}
-            key={index}
-            style={popupStyle}
-        >
-            <div className="popup-pictures">
+        <div className="popup-card carousel__item" data-pos={index} key={index}>
+            <header className="popup-card--header">
+                {targetPopupContent?.name}
+                <button
+                    className="popup--nav--close"
+                    onClick={() => setPopupHandle(popupContent.content, false)}
+                >
+                    x
+                </button>
+            </header>
+            <div className="popup-card--content">
                 <img
-                    className="popup-img"
+                    className="popup-card--img"
                     src={require(`../images/popup/${card.img}`)}
                     alt="popup"
                     onClick={(e) => fullScreenIMG(e.target)}
                 />
-            </div>
-            <div className="popup-outer">
-                <div className="popup-inner">
+                <div className="popup-card--description">
                     {
                         //creating separate paragrapf for each content element in text array in popupdata
                         card.text.map((el, elIndex) => (
-                            <p className="popup-inner--paragraph" key={elIndex}>
+                            <p
+                                className="popup-card--description--p"
+                                key={elIndex}
+                            >
                                 {el}
                             </p>
                         ))
@@ -153,12 +136,6 @@ const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
                     </button>
                 </div>
             )}
-            <button
-                className="popup--nav--close"
-                onClick={() => setPopupHandle(popupContent.content, false)}
-            >
-                x
-            </button>
             <div
                 className="popup--full-screen-img"
                 onClick={(e) => {

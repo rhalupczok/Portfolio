@@ -3,6 +3,14 @@ import { myHobbiesData } from "../data/myHobbiesData";
 import { myhobbiesProps } from "../data/interfaces";
 
 const HobbiesCarousel: React.FC<myhobbiesProps> = (props) => {
+    useEffect(() => {
+        const body = document.querySelector("body");
+        if (body) body.classList.add("stop-scrolling");
+        return () => {
+            if (body) body.classList.remove("stop-scrolling");
+        };
+    }, []);
+
     const myHobbiesElements: ReactElement[] = myHobbiesData.map((hobby) => (
         <div key={hobby.name} className="hobbies-carousel-item">
             <img
