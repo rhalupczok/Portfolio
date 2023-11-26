@@ -1,3 +1,5 @@
+import { ReactNode } from "react";
+
 export interface charactersInterface {
     imgSrc: string;
     alt: string;
@@ -56,11 +58,19 @@ export interface myhobbiesProps {
     toggleHobbiesHandle: () => void;
 }
 
-export interface popupProps {
-    popupContent: { content: string; isShow: boolean };
-    setPopupHandle: (content: string, show: boolean) => void;
+export interface PopupContextProps {
+    popup: {
+        content: string;
+        isShow: boolean;
+    };
+    setPopup: React.Dispatch<
+        React.SetStateAction<{
+            content: string;
+            isShow: boolean;
+        }>
+    >;
 }
 
-export interface setPopupProps {
-    setPopupHandle: (content: string, show: boolean) => void;
+export interface PopupDataProviderProps {
+    children: ReactNode;
 }

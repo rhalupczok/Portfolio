@@ -119,10 +119,9 @@
 
 // export default Intro;
 
-import React, { useEffect, useRef, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import "../styles/partials/intro.scss";
 import { scrollTo } from "../data/helperfunc";
-import { render } from "@testing-library/react";
 
 const Intro: React.FC = () => {
     const [playCarousel, setPlayCarousel] = useState<boolean>(false); // Add play state
@@ -245,7 +244,7 @@ const Intro: React.FC = () => {
                         <div className="intro-carousel-item-content">
                             <h1>
                                 <p className="header-text-typing">
-                                    Front-End Developer Candidate
+                                    Full Stack Developer Candidate
                                 </p>
                             </h1>
                         </div>

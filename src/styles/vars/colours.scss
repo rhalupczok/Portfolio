@@ -1,5 +1,14 @@
-$bg_color_black: #222831;
-$bg_color_grey: #393e46;
-$highlight_color: #00adb5;
-$highlight_color_hover: #00f2ff;
-$fonts_color: #eeeeee;
+:root {
+    --bg_color_black: #222831;
+    --bg_color_grey: #393e46;
+    --highlight_color: #64ffff;
+    // --highlight_color: #00adb5;
+    --highlight_color_hover: #00ffff;
+    --fonts_color: #eeeeee;
+}
+
+$bg_color_black: var(--bg_color_black);
+$bg_color_grey: var(--bg_color_grey);
+$highlight_color: var(--highlight_color);
+$highlight_color_hover: var(--highlight_color_hover);
+$fonts_color: var(--fonts_color);

@@ -1,11 +1,11 @@
-import React, { ReactElement, useState } from "react";
+import { ReactElement, useState } from "react";
 import "../styles/partials/aboutMe.scss";
 import { characters } from "../data/charactersData";
-import { languages } from "../data/languagesData";
 import HobbiesCarousel from "../components/HobbiesCarousel";
-import { setPopupProps } from "../data/interfaces";
+import usePopup from "../Hooks/usePopup";
 
-const AboutMe: React.FC<setPopupProps> = ({ setPopupHandle }) => {
+const AboutMe: React.FC = () => {
+    const { setPopup } = usePopup();
     const [displayHobbies, setDisplayHobbies] = useState<boolean>(false);
     const toggleHobbies: () => void = () => {
         setDisplayHobbies((prevstate) => !prevstate);
@@ -19,24 +19,6 @@ const AboutMe: React.FC<setPopupProps> = ({ setPopupHandle }) => {
                 className="characters-img"
             />
             <p>{character.name}</p>
-        </div>
-    ));
-
-    const languageElements: ReactElement[] = languages.map((language) => (
-        <div
-            key={language.name}
-            className={
-                language.inprogress
-                    ? "langs-container in-progress"
-                    : "langs-container"
-            }
-        >
-            <img
-                src={require(`../images/languages/${language.imgSrc}`)}
-                alt={language.alt}
-                className="langs-img"
-            />
-            {language.name}
         </div>
     ));
 
@@ -57,59 +39,38 @@ const AboutMe: React.FC<setPopupProps> = ({ setPopupHandle }) => {
                 <p>
                     Hi! My name is
                     <span className="txt-highlight--no-hover"> Radoslaw</span>.
-                    I live in the Silesian Voivodeship in Poland. I graduated
-                    from the Silesian University of Technology, and for the past
+                    I reside in the Silesian Voivodeship in Poland. I graduated
+                    from the Silesian University of Technology and over the past
                     7 years, I have been working as a{" "}
                     <span
                         id="my-job-popup-btn"
                         className="txt-highlight open-popup-btn"
-                        onClick={() => setPopupHandle("myJob", true)}
+                        onClick={() =>
+                            setPopup({ content: "myJob", isShow: true })
+                        }
                     >
                         Robotics Programmer.
                     </span>
                 </p>
                 <p>
-                    Currently, most of my time is spent broadening my knowledge
-                    of Front-End Development. I am learning how to create
-                    responsive websites and applications. In the beginning, I
-                    started with Python. Next, I went through HTML, CSS, and
-                    JavaScript courses, as well as various documentations. I
-                    also got acquainted with SASS and Bootstrap. After that, I
-                    delved into React and TypeScript. It has opened my eyes to
-                    how clean and composable the code can be. Curently I've
-                    started expand my knowledge towards Node.js/Express.js and
-                    REST API. All the projects I work on are stored using GIT
-                    commands.
-                    <br /> Let check some examples of{" "}
-                    <span
-                        id="my-work-btn"
-                        className="txt-highlight scroll-to"
-                        onClick={() => {
-                            const target: HTMLElement | null =
-                                document.getElementById("my-work");
-                            if (target)
-                                target.scrollIntoView({
-                                    behavior: "smooth",
-                                    block: "start",
-                                    inline: "nearest",
-                                });
-                        }}
-                    >
-                        my work
-                    </span>
-                    .
+                    I have always enjoyed programming and various challenges
+                    requiring logical thinking have always been within my scope
+                    of interest. After studying I have started worked as
+                    Robotics programmer and the demanding nature of my
+                    responsibilities has kept me dedicated to my role, but now,
+                    I am ready for a change. Currently, most of my time is
+                    dedicated to expanding my programming knowledge, as I
+                    prepare to transition into a role that aligns more closely
+                    with my passion.
                 </p>
                 <p>
-                    I am aware that I am at the beginning, and there is a lot of
-                    hard work ahead of me, but I am determined and 100% focused
-                    on this type of job. Various challenges requiring logical
-                    thinking have always been within my scope of interest.
-                    Solving programming tasks makes me satisfied, and I really
-                    enjoy it. Give me a chance, and I promise I will do my best
-                    not to let you down.
+                    I am excited about the opportunity to contribute my skills
+                    and promise to bring my best to the table. Your
+                    consideration is greatly appreciated, and I look forward to
+                    the possibility of working with you
                 </p>
                 <p>
-                    A bit more about me →{" "}
+                    Short look on →{" "}
                     <span
                         id="my-hobbies-popup-btn"
                         className="txt-highlight"
@@ -120,8 +81,6 @@ const AboutMe: React.FC<setPopupProps> = ({ setPopupHandle }) => {
                     .
                 </p>
             </div>
-            <h2>Technologies I've Studied</h2>
-            <div className="langs">{languageElements}</div>
             {displayHobbies && (
                 <HobbiesCarousel toggleHobbiesHandle={toggleHobbies} />
             )}

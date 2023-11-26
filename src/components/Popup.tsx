@@ -1,9 +1,11 @@
 import React, { useEffect } from "react";
 import "../styles/partials/popup.scss";
-import { popupDataInterface, popupProps } from "../data/interfaces";
+import { popupDataInterface } from "../data/interfaces";
 import { popupData } from "../data/PopupData";
+import usePopup from "../Hooks/usePopup";
 
-const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
+const Popup: React.FC = () => {
+    const { popup, setPopup } = usePopup();
     useEffect(() => {
         const body = document.querySelector("body");
         if (body) body.classList.add("stop-scrolling");
@@ -13,7 +15,7 @@ const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
     }, []);
 
     const targetPopupContent: popupDataInterface | undefined = popupData.find(
-        ({ name }) => name === popupContent.content
+        ({ name }) => name === popup.content
     ); // finding content for popup in popupData based on content name passed by props
 
     let targetContent;
@@ -34,7 +36,9 @@ const Popup: React.FC<popupProps> = ({ setPopupHandle, popupContent }) => {
                 {targetPopupContent?.name}
                 <button
                     className="popup--nav--close"
-                    onClick={() => setPopupHandle(popupContent.content, false)}
+                    onClick={() =>
+                        setPopup({ content: popup.content, isShow: false })
+                    }
                 >
                     x
                 </button>

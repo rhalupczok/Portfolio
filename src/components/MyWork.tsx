@@ -1,10 +1,12 @@
 import React from "react";
 import "../styles/partials/myWork.scss";
 import { myWorkData } from "../data/myworkData";
-import { myWorkInterface, setPopupProps } from "../data/interfaces";
+import { myWorkInterface } from "../data/interfaces";
 import { languages } from "../data/languagesData";
+import usePopup from "../Hooks/usePopup";
 
-const MyWork: React.FC<setPopupProps> = ({ setPopupHandle }) => {
+const MyWork: React.FC = () => {
+    const { setPopup } = usePopup();
     const addHover = (e: Element) => {
         e.classList.add("project-buttons--hover"); //adding class which set opactity to 1
         e.childNodes.forEach((child) => {
@@ -78,7 +80,7 @@ const MyWork: React.FC<setPopupProps> = ({ setPopupHandle }) => {
                 <button
                     className="btn scaled-down"
                     onClick={() => {
-                        setPopupHandle(myWorkElement.name, true);
+                        setPopup({ content: myWorkElement.name, isShow: true });
                     }}
                 >
                     Learn more
@@ -92,7 +94,44 @@ const MyWork: React.FC<setPopupProps> = ({ setPopupHandle }) => {
         <div id="my-work" className="main-section">
             <div className="nav-menu--margin"></div>
             <h1>My Work</h1>
-            <div id="projects-container">{myWorkElements}</div>
+            <div className="tenzi-game-container">
+                <div>{myWorkElements[1]}</div>
+                <div>
+                    <h3>TENZI GAME</h3>
+                    <p>
+                        Tenzi is a app based on simply family game. The goal is
+                        to set all dice the same in the shortest possible time.
+                    </p>
+                    <p>
+                        From programming point of view it is my most advanced
+                        project buit in react framework, using react routing.
+                        <br /> <br />
+                        Back-end side created in node.js using express
+                        framework. <br /> <br />
+                        There is complete user registration and auteuthication
+                        process according to JSON WEB TOKENS including refresh
+                        token rotation and hashing by bcrypt. <br /> <br />
+                        Server is connected to Mongo DataBase where are kept
+                        user data like name, hashed password and best scores
+                        based on mongoose model.
+                        <br /> <br /> Click the button below to get detailed
+                        information about application
+                    </p>
+                    <div className="tenzi-btns">
+                        <button className="btn">PLAY</button>
+                        <button className="btn">Full description</button>
+                    </div>
+                </div>
+            </div>
+
+            <div className="others-projects-container">
+                <h3>ANOTHER WORK</h3>
+                <p>
+                    My another project builed on various stage of my studying
+                    progress.
+                </p>
+                <div id="projects-container">{myWorkElements}</div>
+            </div>
         </div>
     );
 };
