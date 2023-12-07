@@ -1,5 +1,4 @@
-import { Routes, Route } from "react-router-dom";
-import "./styles/global.scss";
+import { Routes, Route, ScrollRestoration } from "react-router-dom";
 import NavMenu from "./components/navMenu";
 import AboutMe from "./components/AboutMe";
 import Knowledge from "./components/Knowledge";
@@ -9,6 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Popup from "./components/Popup";
 import Intro from "./components/Intro";
+import TenziDescription from "./components/TenziDescription";
 import usePopup from "./Hooks/usePopup";
 
 const App: React.FC = () => {
@@ -20,9 +20,9 @@ const App: React.FC = () => {
                 element={
                     <>
                         <Intro />
+                        <NavMenu />
                         <AboutMe />
                         <Knowledge />
-                        <NavMenu />
                         <MyWork />
                         <CV />
                         <Contact />
@@ -31,6 +31,7 @@ const App: React.FC = () => {
                     </>
                 }
             />
+            <Route path="tenzidescription" element={<TenziDescription />} />
         </Routes>
     );
 };

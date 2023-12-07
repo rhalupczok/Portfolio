@@ -1,0 +1,110 @@
+@use "../vars/colours.scss" as *;
+@use "../vars/global.scss" as *;
+
+.mainSection h2 {
+    font-size: 1.5rem;
+    color: $highlight_color;
+    text-align: center;
+    text-shadow: 0 0 1px rgb(0, 0, 0);
+    margin: 0;
+    margin-bottom: 0.5rem;
+}
+
+.technologyBlock {
+    width: 100%;
+    margin: 25px 0;
+    @include flex;
+    flex-direction: row;
+}
+
+.technologyBlock h3 {
+    margin: 0;
+}
+
+.technologyBlockLangs {
+    @include flex;
+    flex-shrink: 0;
+    width: 200px;
+    flex-wrap: wrap;
+    padding: 0;
+    gap: 1rem;
+}
+
+.technologyBlockDescription {
+    margin: 0 25px;
+}
+
+.langsContainer {
+    text-decoration: none;
+    height: 75px;
+    width: 75px;
+    // background: $highlight_color;
+    border-radius: 10px;
+    box-shadow: 0 0 5px 2px rgb(0, 0, 0);
+    text-align: center;
+    font-weight: 700;
+    color: $fonts_color;
+    font-size: 0.7rem;
+    transition: transform 0.2s;
+    position: relative;
+}
+
+.langsContainer.inProgress {
+    background: linear-gradient(0deg, rgb(175, 0, 0), rgba(255, 255, 255, 0));
+    // opacity: 0.7;
+    position: relative;
+}
+
+.technologyBlockLangs img {
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    top: 2px;
+    left: 0;
+    right: 0;
+    height: 70%;
+    margin-bottom: 0.2rem;
+}
+
+.technologyBlockLangs p {
+    position: absolute;
+    margin: 0 auto;
+    bottom: 3px;
+    left: 0;
+    right: 0;
+}
+
+.langsContainer:hover,
+.characters div img:hover {
+    background: $highlight_color_hover;
+    transform: scale(1.2);
+}
+
+.langsContainer.inProgress:hover {
+    background: linear-gradient(0deg, rgb(175, 0, 0), rgba(255, 255, 255, 0));
+}
+
+.langsContainer.inProgress:hover::after {
+    content: "IN PROGRESS";
+    position: absolute;
+    background: rgba(0, 0, 0, 0.9);
+    color: white;
+}
+
+@media screen and (max-width: 480px) {
+    .technologyBlock {
+        flex-direction: column;
+    }
+    .technologyBlockLangs {
+        width: 100%;
+        flex-wrap: wrap;
+    }
+
+    .technologyBlockDescription h3 {
+        margin-top: 10px;
+        text-align: center;
+    }
+}
+.hidden {
+    @include hide;
+}

@@ -1,11 +1,11 @@
 import React from "react";
-import "../styles/partials/CV.scss";
+import componentStyle from "../styles/partials/CV.module.scss";
 
 const CV: React.FC = () => {
     return (
-        <div id="cv" className="main-section">
+        <div id="cv" className={componentStyle.mainSection}>
             <h1>CV</h1>
-            <div className="CV--content">
+            <div className={componentStyle.CVContent}>
                 <a
                     href="https://drive.google.com/file/d/1SbrPWtqw2_H5UrPctwIUUvNgaqiiBsVe/view?usp=drive_link"
                     target="_blank"
@@ -14,7 +14,7 @@ const CV: React.FC = () => {
                     <img
                         src={require(`../images/cv/CV-icon.png`)}
                         alt="CV"
-                        className="CV--img"
+                        className="CVImg"
                     />
                 </a>
             </div>

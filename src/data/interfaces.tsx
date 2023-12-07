@@ -16,7 +16,6 @@ export interface languagesInterface {
 export interface contactInterface {
     imgSrc: string;
     alt: string;
-    className: string;
     name: string;
     link: string;
     target?: string;
@@ -34,6 +33,7 @@ export interface myWorkInterface {
     description: string;
     isPlay: boolean;
     isOpen?: boolean;
+    noLearnMore?: boolean;
     href: string;
     technologies: string[];
 }
@@ -69,8 +69,16 @@ export interface PopupContextProps {
             isShow: boolean;
         }>
     >;
+    dayMode: boolean;
+    setDayMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface PopupDataProviderProps {
     children: ReactNode;
+}
+
+export interface frontElementsDataInterface {
+    title: string;
+    description: string;
+    img: [{ img: string }, { img: string }];
 }

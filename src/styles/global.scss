@@ -11,11 +11,10 @@ body {
     position: absolute;
     top: 0;
     left: 0;
-    width: 100vw;
+    width: 100dvw;
     max-width: 100%;
     height: auto;
     background: $bg_color_grey;
-    // background: linear-gradient(180deg, $bg_color_grey, $bg_color_black);
     color: $fonts_color;
     cursor: default;
 }

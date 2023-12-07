@@ -1,7 +1,13 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
+import "./styles/global.scss";
 import { PopupDataProvider } from "./context/PopupContext";
-import { HashRouter, Routes, Route } from "react-router-dom";
+import {
+    createHashRouter,
+    createRoutesFromElements,
+    RouterProvider,
+    Route,
+} from "react-router-dom";
 import { disableReactDevTools } from "@fvilers/disable-react-devtools";
 if (process.env.NODE_ENV === "production") {
     disableReactDevTools();
@@ -10,12 +16,12 @@ if (process.env.NODE_ENV === "production") {
 const root = ReactDOM.createRoot(
     document.getElementById("root") as HTMLElement
 );
+const router = createHashRouter(
+    createRoutesFromElements(<Route path="/*" element={<App />} />)
+);
+
 root.render(
-    <HashRouter>
-        <PopupDataProvider>
-            <Routes>
-                <Route path="/*" element={<App />} />
-            </Routes>
-        </PopupDataProvider>
-    </HashRouter>
+    <PopupDataProvider>
+        <RouterProvider router={router} />
+    </PopupDataProvider>
 );

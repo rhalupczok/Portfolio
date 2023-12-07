@@ -1,18 +1,12 @@
-import React, { useEffect } from "react";
-import "../styles/partials/popup.scss";
+import { useEffect, FC } from "react";
+import componentStyle from "../styles/partials/popup.module.scss";
 import { popupDataInterface } from "../data/interfaces";
 import { popupData } from "../data/PopupData";
 import usePopup from "../Hooks/usePopup";
+import { fullScreenIMG } from "../data/helperfunc";
 
-const Popup: React.FC = () => {
+const Popup: FC = () => {
     const { popup, setPopup } = usePopup();
-    useEffect(() => {
-        const body = document.querySelector("body");
-        if (body) body.classList.add("stop-scrolling");
-        return () => {
-            if (body) body.classList.remove("stop-scrolling");
-        };
-    }, []);
 
     const targetPopupContent: popupDataInterface | undefined = popupData.find(
         ({ name }) => name === popup.content
@@ -31,11 +25,15 @@ const Popup: React.FC = () => {
     // first condition: if the name passed by props in not matching to any object in popupdata then targetContent is undefined. In that case object targetContent get the content of "underConstruction" popup. Second condition: If the content of popup is not finished (marked property in data) then targetContent is "underConstruction" too.
 
     const popupCards = targetContent.map((card, index) => (
-        <div className="popup-card carousel__item" data-pos={index} key={index}>
-            <header className="popup-card--header">
+        <div
+            className={`${componentStyle.popupCard} ${componentStyle.carouselItem}`}
+            data-pos={index}
+            key={index}
+        >
+            <header className={componentStyle.popupCardHeader}>
                 {targetPopupContent?.name}
                 <button
-                    className="popup--nav--close"
+                    className={componentStyle.popupNavClose}
                     onClick={() =>
                         setPopup({ content: popup.content, isShow: false })
                     }
@@ -43,19 +41,19 @@ const Popup: React.FC = () => {
                     x
                 </button>
             </header>
-            <div className="popup-card--content">
+            <div className={componentStyle.popupCardContent}>
                 <img
-                    className="popup-card--img"
+                    className={componentStyle.popupCardImg}
                     src={require(`../images/popup/${card.img}`)}
                     alt="popup"
                     onClick={(e) => fullScreenIMG(e.target)}
                 />
-                <div className="popup-card--description">
+                <div className={componentStyle.popupCardDescription}>
                     {
                         //creating separate paragrapf for each content element in text array in popupdata
                         card.text.map((el, elIndex) => (
                             <p
-                                className="popup-card--description--p"
+                                className={componentStyle.popupCardDescriptionP}
                                 key={elIndex}
                             >
                                 {el}
@@ -71,7 +69,7 @@ const Popup: React.FC = () => {
                                     href={href.link}
                                     target="_blank"
                                     rel="noreferrer"
-                                    className="txt-highlight popup-card--description--p"
+                                    className={`${componentStyle.txtHighlight} ${componentStyle.popupCardDescriptionP}`}
                                     key={href.link}
                                 >
                                     <span>{href.desc}</span>
@@ -84,7 +82,9 @@ const Popup: React.FC = () => {
     ));
 
     const swipeLeft = () => {
-        const popups = document.querySelectorAll(".carousel__item");
+        const popups = document.querySelectorAll(
+            `.${componentStyle.carouselItem}`
+        );
         if (popups[0].getAttribute("data-pos") === "0") return; //first element - cannot swipe left
         popups.forEach((el) => {
             const position: number = parseInt(
@@ -96,7 +96,9 @@ const Popup: React.FC = () => {
     };
 
     const swipeRight = () => {
-        const popups = document.querySelectorAll(".carousel__item");
+        const popups = document.querySelectorAll(
+            `.${componentStyle.carouselItem}`
+        );
         if (popups[popups.length - 1].getAttribute("data-pos") === "0") {
             return;
         } // last element - cannot swipe right
@@ -109,39 +111,28 @@ const Popup: React.FC = () => {
         });
     };
 
-    const fullScreenIMG = (e: EventTarget) => {
-        const fullScreen = document.querySelector(
-            ".popup--full-screen-img"
-        ) as HTMLElement;
-        const target = e as HTMLElement;
-        if (target.className === fullScreen.className) {
-            fullScreen.style.display = "none";
-        } else {
-            const src = target.getAttribute("src");
-            if (src) {
-                if (fullScreen) {
-                    fullScreen.style.backgroundImage = `url("${src}")`;
-                    fullScreen.style.display = "block";
-                }
-            }
-        }
-    };
-
     return (
-        <div className="popupBg">
+        <div className={componentStyle.popupBg}>
             {popupCards}
             {popupCards.length > 1 && (
-                <div className="popup--nav">
-                    <button className="popup--nav--prev" onClick={swipeLeft}>
+                <div className={componentStyle.popupNav}>
+                    <button
+                        className={componentStyle.popupNavPrev}
+                        onClick={swipeLeft}
+                    >
                         &#8810;
                     </button>
-                    <button className="popup--nav--next" onClick={swipeRight}>
+                    <button
+                        className={componentStyle.popupNavNext}
+                        onClick={swipeRight}
+                    >
                         &#8811;
                     </button>
                 </div>
             )}
             <div
-                className="popup--full-screen-img"
+                id="fullScreenIMG"
+                className={componentStyle.fullScreenImg}
                 onClick={(e) => {
                     fullScreenIMG(e.target);
                 }}

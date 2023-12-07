@@ -407,24 +407,24 @@ export const popupData: popupDataInterface[] = [
         ],
     },
 
-    {
-        name: "other_projects",
-        isFinished: true,
-        content: [
-            {
-                img: "my-work-others.png",
-                text: ["Small projects built during various courses"],
-                href: [
-                    {
-                        link: "https://rhalupczok.github.io/Meme-Generator",
-                        desc: "Meme generator - OPEN",
-                    },
-                    {
-                        link: "https://github.com/rhalupczok/Meme-Generator/tree/master/src",
-                        desc: "Meme generator - GITHUB repositorium [HTML / JS / CSS / REACT]",
-                    },
-                ],
-            },
-        ],
-    },
+    // {
+    //     name: "other_projects",
+    //     isFinished: true,
+    //     content: [
+    //         {
+    //             img: "my-work-others.png",
+    //             text: ["Small projects built during various courses"],
+    //             href: [
+    //                 {
+    //                     link: "https://rhalupczok.github.io/Meme-Generator",
+    //                     desc: "Meme generator - OPEN",
+    //                 },
+    //                 {
+    //                     link: "https://github.com/rhalupczok/Meme-Generator/tree/master/src",
+    //                     desc: "Meme generator - GITHUB repositorium [HTML / JS / CSS / REACT]",
+    //                 },
+    //             ],
+    //         },
+    //     ],
+    // },
 ];

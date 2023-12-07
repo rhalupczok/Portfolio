@@ -2,20 +2,12 @@ import { myWorkInterface } from "./interfaces";
 
 export const myWorkData: myWorkInterface[] = [
     {
-        name: "portfolio", //name used in popup component
-        imgSrc: "my-work-portfolio.png", //cover img
-        description: "This portfolio page", //description displayed below img
-        isPlay: false, //true if game
-        isOpen: false, // true if application/game. If true remember to add link in next line! If false there is no OPEN/PLAY button
-        href: "https://rhalupczok.github.io/Portfolio/", //link to app
-        technologies: ["HTML", "JAVASCRIPT", "SCSS", "REACT", "TYPESCRIPT"], //display tiles with used technologies [HTML, JAVASCRIPT, SCSS, REACT, TYPESCRIPT, NODE.JS, GIT]
-    },
-    {
         name: "tenzi",
         imgSrc: "my-work-tenzi.png",
         description: "Tenzi Game",
         isPlay: true,
         isOpen: true,
+        noLearnMore: true,
         href: "https://rhalupczok.github.io/Tenzies/",
         technologies: [
             "HTML",
@@ -29,6 +21,15 @@ export const myWorkData: myWorkInterface[] = [
             "JSON WEB TOKEN",
             "BCRYPT",
         ],
+    },
+    {
+        name: "portfolio", //name used in popup component
+        imgSrc: "my-work-portfolio.png", //cover img
+        description: "This portfolio page", //description displayed below img
+        isPlay: false, //true if game
+        isOpen: false, // true if application/game. If true remember to add link in next line! If false there is no OPEN/PLAY button
+        href: "https://rhalupczok.github.io/Portfolio/", //link to app
+        technologies: ["HTML", "JAVASCRIPT", "SCSS", "REACT", "TYPESCRIPT"], //display tiles with used technologies [HTML, JAVASCRIPT, SCSS, REACT, TYPESCRIPT, NODE.JS, GIT]
     },
     {
         name: "weather",
@@ -66,13 +67,13 @@ export const myWorkData: myWorkInterface[] = [
         href: "https://rhalupczok.github.io/Snake/",
         technologies: ["HTML", "JAVASCRIPT", "CSS"],
     },
-    {
-        name: "other_projects",
-        imgSrc: "my-work-others.png",
-        description: "Small learning projects",
-        isPlay: false,
-        isOpen: false,
-        href: "",
-        technologies: ["HTML", "JAVASCRIPT", "CSS", "REACT"],
-    },
+    // {
+    //     name: "other_projects",
+    //     imgSrc: "my-work-others.png",
+    //     description: "Small learning projects",
+    //     isPlay: false,
+    //     isOpen: false,
+    //     href: "",
+    //     technologies: ["HTML", "JAVASCRIPT", "CSS", "REACT"],
+    // },
 ];

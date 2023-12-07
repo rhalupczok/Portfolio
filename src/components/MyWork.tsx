@@ -1,45 +1,46 @@
-import React from "react";
-import "../styles/partials/myWork.scss";
+import { FC, MouseEvent } from "react";
+import { Link } from "react-router-dom";
+import componentStyle from "../styles/partials/myWork.module.scss";
 import { myWorkData } from "../data/myworkData";
 import { myWorkInterface } from "../data/interfaces";
 import { languages } from "../data/languagesData";
 import usePopup from "../Hooks/usePopup";
 
-const MyWork: React.FC = () => {
+const MyWork: FC = () => {
     const { setPopup } = usePopup();
     const addHover = (e: Element) => {
-        e.classList.add("project-buttons--hover"); //adding class which set opactity to 1
+        e.classList.add(componentStyle.projectButtonsHover); //adding class which set opactity to 1
         e.childNodes.forEach((child) => {
             //display btns - upscale all childnodes bo remove a class "scaled-down"
             if (child instanceof Element) {
-                child.classList.remove("scaled-down");
+                child.classList.remove(componentStyle.scaledDown);
             }
         });
     };
 
     const removeHover = () => {
         const hoverElements = document.querySelectorAll(
-            ".project-buttons--hover"
+            `.${componentStyle.projectButtonsHover}`
         );
-        hoverElements.forEach((el) => {
-            el.classList.remove("project-buttons--hover");
+        hoverElements?.forEach((el) => {
+            el.classList.remove(componentStyle.projectButtonsHover);
             if (el instanceof Element) {
                 el.childNodes.forEach((child) => {
                     if (child instanceof Element) {
-                        child.classList.add("scaled-down");
+                        child.classList.add(componentStyle.scaledDown);
                     }
                 });
             }
         });
     };
 
-    const mouseEvent = (e: React.MouseEvent) => {
+    const mouseEvent = (e: MouseEvent) => {
         if (e.target instanceof Element) addHover(e.target);
     };
 
     const myWorkElements = myWorkData.map((myWorkElement: myWorkInterface) => (
-        <div key={myWorkElement.name} className="project">
-            <div className="used-technologies">
+        <div key={myWorkElement.name} className={componentStyle.project}>
+            <div className={componentStyle.usedTechnologies}>
                 {myWorkElement.technologies.map((lang) => {
                     const launguageData = languages.find(
                         (el) => el.name === lang
@@ -47,7 +48,7 @@ const MyWork: React.FC = () => {
                     return launguageData ? (
                         <img
                             key={lang}
-                            className="used-technologies--img"
+                            className={componentStyle.usedTechnologiesImg}
                             src={require(`../images/languages/${launguageData.imgSrc}`)}
                             title={`${lang}`}
                             alt={launguageData.imgSrc}
@@ -58,10 +59,10 @@ const MyWork: React.FC = () => {
             <img
                 src={require(`../images/myWork/${myWorkElement.imgSrc}`)}
                 alt={`${myWorkElement.description} img`}
-                className="project-img"
+                className={componentStyle.projectImg}
             />
             <div
-                className="project-buttons"
+                className={componentStyle.projectButtons}
                 onMouseEnter={(e) => {
                     mouseEvent(e);
                 }}
@@ -69,7 +70,7 @@ const MyWork: React.FC = () => {
             >
                 {myWorkElement.isOpen && (
                     <a
-                        className="btn scaled-down"
+                        className={`${componentStyle.btn} ${componentStyle.scaledDown}`}
                         href={myWorkElement.href}
                         target="_blank"
                         rel="noreferrer"
@@ -77,60 +78,94 @@ const MyWork: React.FC = () => {
                         {myWorkElement.isPlay ? "PLAY" : "OPEN"}
                     </a>
                 )}
-                <button
-                    className="btn scaled-down"
-                    onClick={() => {
-                        setPopup({ content: myWorkElement.name, isShow: true });
-                    }}
-                >
-                    Learn more
-                </button>
+                {!myWorkElement.noLearnMore && (
+                    <button
+                        className={`${componentStyle.btn} ${componentStyle.scaledDown}`}
+                        onClick={() =>
+                            setPopup((prevState) => ({
+                                ...prevState,
+                                content: myWorkElement.name,
+                                isShow: true,
+                            }))
+                        }
+                    >
+                        Learn more
+                    </button>
+                )}
             </div>
-            <p className="project-desc">{myWorkElement.description}</p>
+            <p className={componentStyle.projectDesc}>
+                {myWorkElement.description}
+            </p>
         </div>
     ));
 
+    const myWorkTenzi = myWorkElements.shift();
+
     return (
-        <div id="my-work" className="main-section">
-            <div className="nav-menu--margin"></div>
+        <div id="my-work" className={componentStyle.mainSection}>
+            <div className={componentStyle.navMenuMargin}></div>
             <h1>My Work</h1>
-            <div className="tenzi-game-container">
-                <div>{myWorkElements[1]}</div>
+            <div className={componentStyle.tenziGameContainer}>
+                <div>
+                    <p>{myWorkTenzi}</p>
+                </div>
                 <div>
                     <h3>TENZI GAME</h3>
                     <p>
-                        Tenzi is a app based on simply family game. The goal is
-                        to set all dice the same in the shortest possible time.
+                        From a programming perspective, the Tenzi Game stands as
+                        my most advanced project built using the{" "}
+                        <b>React framework</b>.
+                        <div className={componentStyle.tenziBtns}>
+                            <a
+                                className={`${componentStyle.btn}`}
+                                href="https://rhalupczok.github.io/Tenzies"
+                                target="_blank"
+                                rel="noreferrer"
+                            >
+                                PLAY
+                            </a>
+
+                            <Link to="/tenzidescription">
+                                <button
+                                    style={{
+                                        background: "gold",
+                                        color: "black",
+                                    }}
+                                    className={componentStyle.btn}
+                                >
+                                    Application details
+                                    <img
+                                        src={require(`../images/myWork/click_on.png`)}
+                                        alt="clickon"
+                                    ></img>
+                                </button>
+                            </Link>
+                        </div>
+                        On the back-end, I employed <b>Node.js</b> along with
+                        the <b>Express</b> framework. <br /> The project contain
+                        a complete user registration and authentication process,
+                        employing <b>JSON Web Tokens</b>. This includes{" "}
+                        <b>refresh token rotation</b> and password hashing using{" "}
+                        <b>bcrypt</b> for enhanced security. <br /> The server
+                        connects to a <b>MongoDB</b> database where user data
+                        such as names, hashed passwords, and best scores are
+                        stored using a <b>Mongoose model</b>.
                     </p>
-                    <p>
-                        From programming point of view it is my most advanced
-                        project buit in react framework, using react routing.
-                        <br /> <br />
-                        Back-end side created in node.js using express
-                        framework. <br /> <br />
-                        There is complete user registration and auteuthication
-                        process according to JSON WEB TOKENS including refresh
-                        token rotation and hashing by bcrypt. <br /> <br />
-                        Server is connected to Mongo DataBase where are kept
-                        user data like name, hashed password and best scores
-                        based on mongoose model.
-                        <br /> <br /> Click the button below to get detailed
-                        information about application
-                    </p>
-                    <div className="tenzi-btns">
-                        <button className="btn">PLAY</button>
-                        <button className="btn">Full description</button>
-                    </div>
                 </div>
             </div>
 
-            <div className="others-projects-container">
+            <div className={componentStyle.othersProjectsContainer}>
                 <h3>ANOTHER WORK</h3>
                 <p>
-                    My another project builed on various stage of my studying
+                    Another project builed on various stage of my studying
                     progress.
                 </p>
-                <div id="projects-container">{myWorkElements}</div>
+                <div
+                    id="projects-container"
+                    className={componentStyle.projectsContainer}
+                >
+                    {myWorkElements}
+                </div>
             </div>
         </div>
     );

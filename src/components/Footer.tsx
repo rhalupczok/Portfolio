@@ -1,10 +1,10 @@
 import React from "react";
-import "../styles/partials/footer.scss";
+import componentStyle from "../styles/partials/footer.module.scss";
 
 const Footer: React.FC = () => {
     return (
         <div>
-            <footer className="footer">
+            <footer className={componentStyle.footer}>
                 <p>
                     Radoslaw Halupczok <span>© 2023</span>
                 </p>

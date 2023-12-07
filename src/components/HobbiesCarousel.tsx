@@ -1,22 +1,26 @@
-import React, { ReactElement, useEffect, useRef, useState } from "react";
+import { ReactElement, useEffect, useRef, useState, FC } from "react";
+import componentStyle from "../styles/partials/hobbiesCarousel.module.scss";
 import { myHobbiesData } from "../data/myHobbiesData";
 import { myhobbiesProps } from "../data/interfaces";
 
-const HobbiesCarousel: React.FC<myhobbiesProps> = (props) => {
+const HobbiesCarousel: FC<myhobbiesProps> = (props) => {
     useEffect(() => {
         const body = document.querySelector("body");
-        if (body) body.classList.add("stop-scrolling");
+        if (body) body.classList.add(componentStyle.stopScrolling);
         return () => {
-            if (body) body.classList.remove("stop-scrolling");
+            if (body) body.classList.remove(componentStyle.stopScrolling);
         };
     }, []);
 
     const myHobbiesElements: ReactElement[] = myHobbiesData.map((hobby) => (
-        <div key={hobby.name} className="hobbies-carousel-item">
+        <div
+            key={hobby.name}
+            className={`${componentStyle.hobbiesCarouselItem} carouselEffect`}
+        >
             <img
                 src={require(`../images/popup/${hobby.imgSrc}`)}
                 alt="hobby"
-                className="hobby-img"
+                className={componentStyle.hobbyImg}
             />
             <p>{hobby.name}</p>
         </div>
@@ -24,14 +28,16 @@ const HobbiesCarousel: React.FC<myhobbiesProps> = (props) => {
 
     //carousel content:
     const items: Element[] = Array.from(
-        document.querySelectorAll(".hobbies-carousel-item")
+        document.querySelectorAll(`.carouselEffect`)
     );
+    console.log(items);
 
     //start effect - each hobby element comes-in separately
     items.forEach((el, index) => {
         setTimeout(() => {
-            el.classList.add(`it${index + 1}`);
+            el.setAttribute("data-pos", String(index));
         }, index * 500);
+        console.log("done");
     });
 
     //animationframe:
@@ -72,14 +78,14 @@ const HobbiesCarousel: React.FC<myhobbiesProps> = (props) => {
     useAnimationFrame(animateCallback);
 
     return (
-        <div className="popupBg">
-            <div className="hobbies-popup">
-                <div style={style} className="hobbies-carousel">
+        <div className={componentStyle.popupBg}>
+            <div className={componentStyle.hobbiesPopup}>
+                <div style={style} className={componentStyle.hobbiesCarousel}>
                     {myHobbiesElements}
                 </div>
             </div>
             <button
-                className="popup--nav--close"
+                className={componentStyle.popupNavClose}
                 onClick={() => props.toggleHobbiesHandle()}
             >
                 x
