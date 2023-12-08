@@ -57,10 +57,9 @@
     display: none;
     position: fixed;
     z-index: 9999;
-    top: 5dvh;
-    left: 5dvw;
-    width: 90dvw;
-    height: 90dvh;
+    width: 100dvw;
+    height: 100dvh;
+    background: rgba(0, 0, 0, 0.9);
     background-size: contain;
     background-repeat: no-repeat no-repeat;
     background-position: center center;

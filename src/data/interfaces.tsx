@@ -76,9 +76,3 @@ export interface PopupContextProps {
 export interface PopupDataProviderProps {
     children: ReactNode;
 }
-
-export interface frontElementsDataInterface {
-    title: string;
-    description: string;
-    img: [{ img: string }, { img: string }];
-}

@@ -4,6 +4,7 @@ import FullScreenImage from "./FullScreenImage";
 import componentStyle from "../styles/partials/tenziDescription.module.scss";
 import { useNavigate, ScrollRestoration } from "react-router-dom";
 import { findAllNeighboringImages } from "../data/helperfunc";
+import { appShotsIMG } from "../data/tenziDescData";
 
 const TenziDescription: FC = () => {
     const navigate = useNavigate();
@@ -21,6 +22,42 @@ const TenziDescription: FC = () => {
             clickedIndex: 0,
         });
     };
+
+    const appShots = appShotsIMG.map((img) => {
+        return (
+            <img
+                src={require(`../images/tenziDescription/${img}`)}
+                alt="code"
+                onClick={(e) =>
+                    setFullScreenIMGArr(findAllNeighboringImages(e))
+                }
+            />
+        );
+    });
+
+    // const frontTechSection = frontTechSectionData.map((element) => {
+    //     return (
+    //         <div className={componentStyle.techSection}>
+    //             <h4>{element.title}</h4>
+    //             <p>{element.description}</p>
+    //             <div className={componentStyle.techSectionIMG}>
+    //                 {element.img.map((img) => {
+    //                     return (
+    //                         <img
+    //                             src={require(`../images/tenziDescription/${img}`)}
+    //                             alt="code"
+    //                             onClick={(e) =>
+    //                                 setFullScreenIMGArr(
+    //                                     findAllNeighboringImages(e)
+    //                                 )
+    //                             }
+    //                         />
+    //                     );
+    //                 })}
+    //             </div>
+    //         </div>
+    //     );
+    // });
 
     return (
         <div className={componentStyle.mainSection}>
@@ -53,48 +90,7 @@ const TenziDescription: FC = () => {
                         <i>A few shots from app:</i>
                     </b>
                 </p>
-                <img
-                    src={require(`../images/tenziDescription/head_1.png`)}
-                    alt="code"
-                    onClick={(e) =>
-                        setFullScreenIMGArr(findAllNeighboringImages(e))
-                    }
-                />
-                <img
-                    src={require(`../images/tenziDescription/head_2.png`)}
-                    alt="code"
-                    onClick={(e) =>
-                        setFullScreenIMGArr(findAllNeighboringImages(e))
-                    }
-                />
-                <img
-                    src={require(`../images/tenziDescription/head_3.png`)}
-                    alt="code"
-                    onClick={(e) =>
-                        setFullScreenIMGArr(findAllNeighboringImages(e))
-                    }
-                />
-                <img
-                    src={require(`../images/tenziDescription/head_4.png`)}
-                    alt="code"
-                    onClick={(e) =>
-                        setFullScreenIMGArr(findAllNeighboringImages(e))
-                    }
-                />
-                <img
-                    src={require(`../images/tenziDescription/head_5.png`)}
-                    alt="code"
-                    onClick={(e) =>
-                        setFullScreenIMGArr(findAllNeighboringImages(e))
-                    }
-                />
-                <img
-                    src={require(`../images/tenziDescription/head_6.png`)}
-                    alt="code"
-                    onClick={(e) =>
-                        setFullScreenIMGArr(findAllNeighboringImages(e))
-                    }
-                />
+                {appShots}
             </div>
             <div className={componentStyle.globalDiagram}>
                 <h2>Application diagram</h2>

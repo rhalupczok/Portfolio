@@ -7,6 +7,13 @@ import { fullScreenIMG } from "../data/helperfunc";
 
 const Popup: FC = () => {
     const { popup, setPopup } = usePopup();
+    useEffect(() => {
+        const body = document.querySelector("body");
+        if (body) body.classList.add(componentStyle.stopScrolling);
+        return () => {
+            if (body) body.classList.remove(componentStyle.stopScrolling);
+        };
+    }, []);
 
     const targetPopupContent: popupDataInterface | undefined = popupData.find(
         ({ name }) => name === popup.content
