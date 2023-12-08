@@ -1,7 +1,7 @@
 {
     "name": "portfolio",
     "version": "0.1.0",
-    "homepage": "https://rhalupczok.github.io/Portfolio",
+    "homepage": "https://radoslawhalupczok.pl/",
     "private": true,
     "dependencies": {
         "@fvilers/disable-react-devtools": "^1.3.0",

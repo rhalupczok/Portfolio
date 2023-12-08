@@ -31,6 +31,32 @@ const Popup: FC = () => {
 
     // first condition: if the name passed by props in not matching to any object in popupdata then targetContent is undefined. In that case object targetContent get the content of "underConstruction" popup. Second condition: If the content of popup is not finished (marked property in data) then targetContent is "underConstruction" too.
 
+    const swipeLeft = () => {
+        const popups = document.querySelectorAll(
+            `.${componentStyle.carouselItem}`
+        );
+        popups.forEach((el) => {
+            const position: number = parseInt(
+                el.getAttribute("data-pos") as string
+            );
+            let newPosition: number = position + 1;
+            el.setAttribute("data-pos", String(newPosition));
+        });
+    };
+
+    const swipeRight = () => {
+        const popups = document.querySelectorAll(
+            `.${componentStyle.carouselItem}`
+        );
+        popups.forEach((el) => {
+            const position: number = parseInt(
+                el.getAttribute("data-pos") as string
+            );
+            let newPosition: number = position - 1;
+            el.setAttribute("data-pos", String(newPosition));
+        });
+    };
+
     const popupCards = targetContent.map((card, index) => (
         <div
             className={`${componentStyle.popupCard} ${componentStyle.carouselItem}`}
@@ -39,14 +65,6 @@ const Popup: FC = () => {
         >
             <header className={componentStyle.popupCardHeader}>
                 {targetPopupContent?.name}
-                <button
-                    className={componentStyle.popupNavClose}
-                    onClick={() =>
-                        setPopup({ content: popup.content, isShow: false })
-                    }
-                >
-                    x
-                </button>
             </header>
             <div className={componentStyle.popupCardContent}>
                 <img
@@ -85,58 +103,36 @@ const Popup: FC = () => {
                     }
                 </div>
             </div>
+            <button
+                className={componentStyle.popupNavClose}
+                onClick={() =>
+                    setPopup({ content: popup.content, isShow: false })
+                }
+            >
+                x
+            </button>
+            {index !== 0 && (
+                <button
+                    className={componentStyle.popupNavPrev}
+                    onClick={swipeLeft}
+                >
+                    &#8810;
+                </button>
+            )}
+            {index + 1 < targetContent.length && (
+                <button
+                    className={componentStyle.popupNavNext}
+                    onClick={swipeRight}
+                >
+                    &#8811;
+                </button>
+            )}
         </div>
     ));
-
-    const swipeLeft = () => {
-        const popups = document.querySelectorAll(
-            `.${componentStyle.carouselItem}`
-        );
-        if (popups[0].getAttribute("data-pos") === "0") return; //first element - cannot swipe left
-        popups.forEach((el) => {
-            const position: number = parseInt(
-                el.getAttribute("data-pos") as string
-            );
-            let newPosition: number = position + 1;
-            el.setAttribute("data-pos", String(newPosition));
-        });
-    };
-
-    const swipeRight = () => {
-        const popups = document.querySelectorAll(
-            `.${componentStyle.carouselItem}`
-        );
-        if (popups[popups.length - 1].getAttribute("data-pos") === "0") {
-            return;
-        } // last element - cannot swipe right
-        popups.forEach((el) => {
-            const position: number = parseInt(
-                el.getAttribute("data-pos") as string
-            );
-            let newPosition: number = position - 1;
-            el.setAttribute("data-pos", String(newPosition));
-        });
-    };
 
     return (
         <div className={componentStyle.popupBg}>
             {popupCards}
-            {popupCards.length > 1 && (
-                <div className={componentStyle.popupNav}>
-                    <button
-                        className={componentStyle.popupNavPrev}
-                        onClick={swipeLeft}
-                    >
-                        &#8810;
-                    </button>
-                    <button
-                        className={componentStyle.popupNavNext}
-                        onClick={swipeRight}
-                    >
-                        &#8811;
-                    </button>
-                </div>
-            )}
             <div
                 id="fullScreenIMG"
                 className={componentStyle.fullScreenImg}
