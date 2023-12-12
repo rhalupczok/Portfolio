@@ -79,6 +79,21 @@
 }
 .globalDiagram h2 {
     margin: 0;
+    position: relative;
+}
+
+h2 {
+    position: relative;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: -2px;
+    left: calc(50% - 200px);
+    height: 0.2rem;
+    background: $fonts_color;
+    width: 400px;
 }
 
 .globalDiagram p {

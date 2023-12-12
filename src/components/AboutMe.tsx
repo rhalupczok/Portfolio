@@ -64,10 +64,7 @@ const AboutMe: FC = () => {
                 <p>
                     I have always enjoyed programming and various challenges
                     requiring logical thinking have always been within my scope
-                    of interest. After studying I have started worked as
-                    Robotics programmer and the demanding nature of my
-                    responsibilities has kept me dedicated to my role, but now,
-                    I am ready for a change.
+                    of interest.
                 </p>
                 <p>
                     Currently, most of my time is dedicated to expanding my
@@ -76,9 +73,12 @@ const AboutMe: FC = () => {
                 </p>
                 <p>
                     I am excited about the opportunity to contribute my skills
-                    and promise to bring my best to the table. Your
-                    consideration is greatly appreciated, and I look forward to
-                    the possibility of working with you
+                    and promise to bring my best to the table.
+                </p>
+                <p>
+                    {" "}
+                    Your consideration is greatly appreciated, and I look
+                    forward to the possibility of working with you
                 </p>
                 <p>
                     Short look on →{" "}

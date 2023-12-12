@@ -40,12 +40,10 @@
     height: 50px;
     font-size: 1.5rem;
     border-radius: 25px;
-    opacity: 0.5;
 }
 .popupNavPrev:hover,
 .popupNavNext:hover,
 .popupNavClose:hover {
-    opacity: 1;
     background: $highlight_color_hover;
     color: $fonts_color;
 }

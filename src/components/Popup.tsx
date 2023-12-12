@@ -133,13 +133,16 @@ const Popup: FC = () => {
     return (
         <div className={componentStyle.popupBg}>
             {popupCards}
-            <div
-                id="fullScreenIMG"
-                className={componentStyle.fullScreenImg}
-                onClick={(e) => {
-                    fullScreenIMG(e.target);
-                }}
-            ></div>
+            <div id="fullScreenIMG" className={componentStyle.fullScreenImg}>
+                <button
+                    className={componentStyle.popupNavClose}
+                    onClick={(e) => {
+                        fullScreenIMG(e.target);
+                    }}
+                >
+                    x
+                </button>
+            </div>
         </div>
     );
 };

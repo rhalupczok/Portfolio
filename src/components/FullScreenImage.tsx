@@ -1,4 +1,4 @@
-import { useEffect, FC, SetStateAction, useState } from "react";
+import { useEffect, FC, useState } from "react";
 import componentStyle from "../styles/partials/fullScreenImage.module.scss";
 // import usePopup from "../Hooks/usePopup";
 

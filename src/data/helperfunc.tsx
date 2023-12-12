@@ -12,7 +12,7 @@ export const fullScreenIMG = (e: EventTarget) => {
     const fullScreen: HTMLElement | null =
         document.querySelector(`#fullScreenIMG`);
     const target = e as HTMLElement;
-    if (target.className && target.className === fullScreen?.className) {
+    if (fullScreen && target.tagName === "BUTTON") {
         fullScreen.style.display = "none";
     } else {
         const src = target.getAttribute("src");
