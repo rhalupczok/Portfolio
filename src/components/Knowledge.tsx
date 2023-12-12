@@ -55,10 +55,7 @@ const Knowledge: React.FC = () => {
                         I have delved into advanced web development by mastering{" "}
                         <b>React, React Router</b>, and <b>TypeScript</b>. With
                         React, I can efficiently build dynamic and reusable user
-                        interfaces, leveraging components for modular design.
-                        React Router enhances navigation, enabling seamless
-                        transitions between components and improving the overall
-                        user experience.
+                        interfaces, using components for modular design.
                         <br />
                         With each small project I am focused on extending my
                         knowlegde f.ex use <b>useContext</b> module for passing
@@ -72,23 +69,21 @@ const Knowledge: React.FC = () => {
                     {languageElements.slice(8, 12)}
                 </div>
                 <div className={componentStyle.technologyBlockDescription}>
-                    <h3>Back end side - NODE.JS-EXPRESS.JS MONGODB mySQL</h3>
+                    <h3>NODE.JS-EXPRESS MONGODB mySQL</h3>
                     <p>
-                        I've expanded my expertise in server-side development
+                        I've expanded my knowlegde in server-side development
                         with the integration of <b>Node.js</b> and{" "}
                         <b>Express.js</b>, complemented by{" "}
                         <b>MongoDB, Mongoose</b>, and <b>MySQL</b> for robust
                         data management.
                         <br />
-                        Applying this comprehensive stack, I've successfully
-                        developed <b>server-side logic, RESTful APIs</b>, and{" "}
-                        <b>database interactions</b>. My experience encompasses
-                        the flexibility of NoSQL databases like <b>MongoDB</b>,
-                        the schema enforcement of <b>Mongoose</b>, and the
-                        relational structure of <b>MySQL</b>. This diverse skill
-                        set allows me to adapt to various project requirements,
-                        delivering scalable and responsive server-side
-                        applications.
+                        I've successfully developed{" "}
+                        <b>server-side logic, RESTful APIs</b>, and{" "}
+                        <b>database interactions</b>. To connect the FrontEnd I
+                        delved into <b>AXIOS</b>.
+                        <br /> This diverse skill set allows me to adapt to
+                        various project requirements, delivering scalable and
+                        responsive server-side applications.
                     </p>
                 </div>
             </section>
@@ -102,11 +97,11 @@ const Knowledge: React.FC = () => {
                         I adeptly implement secure authentication and
                         authorization using <b>JSON Web Tokens (JWT)</b> in
                         React frontend and Express.js backend. In the frontend,
-                        I employ JWTs for user authentication, securely storing
+                        I employ JWTs for user authentication, securely storing{" "}
                         <b>access tokens</b> and managing sessions with{" "}
                         <b>refresh tokens</b>.
                         <br />
-                        To enhance security, I use <b>bcrypt</b> for secure{" "}
+                        To enhance security, I use <b>Bcrypt</b> for secure{" "}
                         <b>password hashing</b>, ensuring robust protection of
                         user credentials.
                         <br />
@@ -117,15 +112,7 @@ const Knowledge: React.FC = () => {
                         Additionally, I leverage <b>
                             React interceptors
                         </b> for <b>refresh token rotation</b>, providing a
-                        seamless and secure approach
-                        <br />
-                        <br />
-                        to managing user sessions. This combined approach of{" "}
-                        <b>JWT, Bcrypt</b>, and <b>React Interceptors</b>{" "}
-                        establishes a comprehensive authentication system,
-                        ensuring both the protection of sensitive information
-                        and a smooth user experience on both the frontend and
-                        backend.
+                        seamless and secure approach to managing user sessions.
                     </p>
                 </div>
             </section>

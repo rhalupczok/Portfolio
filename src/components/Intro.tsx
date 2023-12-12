@@ -124,7 +124,10 @@ const Intro: FC = () => {
                             className={componentStyle.introCarouselItemContent}
                         >
                             <h1>
-                                <p>Full Stack Developer Candidate</p>
+                                <p>
+                                    FrontEnd
+                                    <br /> FullStack Developer Candidate
+                                </p>
                             </h1>
                         </div>
                     </div>
