@@ -138,7 +138,7 @@ const Intro: FC = () => {
                 className={`${componentStyle.btn} ${componentStyle.carouselBtn}`}
                 onClick={() => toggleCarousel()} // Add a function to toggle carousel play
             >
-                {playCarousel ? "STOP" : "Carousel"} {/* Toggle button label */}
+                {playCarousel ? "Stop" : "Carousel"} {/* Toggle button label */}
             </button>
             <button
                 className={`${componentStyle.downBtn} ${componentStyle.btn}`}

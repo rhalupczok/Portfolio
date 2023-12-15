@@ -126,13 +126,7 @@ const MyWork: FC = () => {
                             </a>
 
                             <Link to="/tenzidescription">
-                                <button
-                                    style={{
-                                        background: "gold",
-                                        color: "black",
-                                    }}
-                                    className={componentStyle.btn}
-                                >
+                                <button className={componentStyle.btn}>
                                     Application details
                                     <img
                                         src={require(`../images/myWork/click_on.png`)}
