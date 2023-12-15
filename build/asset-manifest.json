@@ -1,11 +1,20 @@
 {
   "files": {
+<<<<<<< HEAD
     "main.css": "https://radoslawhalupczok.pl/static/css/main.22c488b3.css",
     "main.js": "https://radoslawhalupczok.pl/static/js/main.b36ac9a6.js",
+=======
+    "main.css": "https://radoslawhalupczok.pl/static/css/main.64695509.css",
+    "main.js": "https://radoslawhalupczok.pl/static/js/main.6fa99720.js",
+>>>>>>> fdd76d5a7a3883c9f2f28fe53a8308f38923a524
     "static/media/intro-background-day.png": "https://radoslawhalupczok.pl/static/media/intro-background-day.115a3a8a18001b37d30e.png",
     "static/media/my-job-0.png": "https://radoslawhalupczok.pl/static/media/my-job-0.e65fa4d81706c7d88e3b.png",
     "static/media/intro-my-picture.png": "https://radoslawhalupczok.pl/static/media/intro-my-picture.5badecdf97942ac2bcda.png",
     "static/media/langs-node-express — kopia.png": "https://radoslawhalupczok.pl/static/media/langs-node-express — kopia.3bd19473c9623050046c.png",
+<<<<<<< HEAD
+=======
+    "static/media/my-work-portfolio.png": "https://radoslawhalupczok.pl/static/media/my-work-portfolio.0c6d10c1bf603cb6ee13.png",
+>>>>>>> fdd76d5a7a3883c9f2f28fe53a8308f38923a524
     "static/media/popup-portfolio-1.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-1.fe6f6be97b9cd5cdab88.png",
     "static/media/popup-pocket-organiser-1.png": "https://radoslawhalupczok.pl/static/media/popup-pocket-organiser-1.b9aec2f65e9ba84faed9.png",
     "static/media/popup-hobby-mechanics.jpg": "https://radoslawhalupczok.pl/static/media/popup-hobby-mechanics.a5dc9107048e016f64de.jpg",
@@ -119,11 +128,20 @@
     "static/media/langs-html5.svg": "https://radoslawhalupczok.pl/static/media/langs-html5.68fdf451aa340db1b8fd.svg",
     "static/media/toggle-on.svg": "https://radoslawhalupczok.pl/static/media/toggle-on.34ea02b91754ffe3b20f.svg",
     "static/media/langs-css3.svg": "https://radoslawhalupczok.pl/static/media/langs-css3.9cc4f134228dba496efc.svg",
+<<<<<<< HEAD
     "main.22c488b3.css.map": "https://radoslawhalupczok.pl/static/css/main.22c488b3.css.map",
     "main.b36ac9a6.js.map": "https://radoslawhalupczok.pl/static/js/main.b36ac9a6.js.map"
   },
   "entrypoints": [
     "static/css/main.22c488b3.css",
     "static/js/main.b36ac9a6.js"
+=======
+    "main.64695509.css.map": "https://radoslawhalupczok.pl/static/css/main.64695509.css.map",
+    "main.6fa99720.js.map": "https://radoslawhalupczok.pl/static/js/main.6fa99720.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.64695509.css",
+    "static/js/main.6fa99720.js"
+>>>>>>> fdd76d5a7a3883c9f2f28fe53a8308f38923a524
   ]
 }
