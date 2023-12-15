@@ -58,7 +58,7 @@ const AboutMe: FC = () => {
                             }))
                         }
                     >
-                        Robotics Programmer.
+                        <u>Robotics Programmer</u>.
                     </span>
                 </p>
                 <p>
@@ -72,13 +72,15 @@ const AboutMe: FC = () => {
                     role that aligns more closely with my passion.
                 </p>
                 <p>
-                    I am excited about the opportunity to contribute my skills
-                    and promise to bring my best to the table.
+                    My advantage is logical thinking and ability to solving
+                    various issues on my own. I learning fast and I have mind
+                    open for new challenges.
                 </p>
                 <p>
                     {" "}
                     Your consideration is greatly appreciated, and I look
-                    forward to the possibility of working with you
+                    forward to the possibility of working with you and promise
+                    to bring my best to the table.
                 </p>
                 <p>
                     Short look on →{" "}
