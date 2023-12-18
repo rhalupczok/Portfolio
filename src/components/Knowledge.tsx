@@ -73,14 +73,12 @@ const Knowledge: React.FC = () => {
                     <p>
                         I've expanded my knowlegde in server-side development
                         with the integration of <b>Node.js</b> and{" "}
-                        <b>Express.js</b>, complemented by{" "}
-                        <b>MongoDB, Mongoose</b>, and <b>MySQL</b> for robust
-                        data management.
+                        <b>Express.js</b>, complemented by <b>MongoDB</b>
                         <br />
-                        I've successfully developed{" "}
-                        <b>server-side logic, RESTful APIs</b>, and{" "}
-                        <b>database interactions</b>. To connect the FrontEnd I
-                        delved into <b>AXIOS</b>.
+                        I've successfully developed server-side logic,{" "}
+                        <b>RESTful APIs</b>, and <b>database interactions</b>.
+                        To connect the FrontEnd, I delved into <b>AXIOS</b> and
+                        for deployment - into <b>Docker</b>.
                         <br /> This diverse skill set allows me to adapt to
                         various project requirements, delivering scalable and
                         responsive server-side applications.

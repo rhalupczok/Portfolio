@@ -32,7 +32,10 @@ const FullScreenImage: FC<Props> = ({
     return (
         <div className={componentStyle.popupBg}>
             <div className={componentStyle.imgGallery}>
-                <img src={allImages[index]?.src}></img>
+                <img
+                    src={allImages[index]?.src}
+                    alt="full screen gallery item"
+                ></img>
                 <div className={componentStyle.popupNav}>
                     {index > 0 && (
                         <button

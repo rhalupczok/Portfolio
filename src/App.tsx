@@ -1,4 +1,4 @@
-import { Routes, Route, ScrollRestoration } from "react-router-dom";
+import { Routes, Route } from "react-router-dom";
 import NavMenu from "./components/navMenu";
 import AboutMe from "./components/AboutMe";
 import Knowledge from "./components/Knowledge";
