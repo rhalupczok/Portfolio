@@ -65,8 +65,12 @@
         cursor: pointer;
     }
     span:hover {
-        color: $highlight_color;
+        color: $highlight_color_hover;
     }
+}
+
+.active {
+    color: $highlight_color_hover;
 }
 
 @media screen and (max-width: 800px) {

@@ -77,11 +77,18 @@
 .introCarouselItem.it1 {
     z-index: 0;
     left: -300px;
+    transform: rotateY(-20deg);
+}
+
+.introCarouselItem.it2 {
+    transform: translateZ(40px);
+    z-index: 1;
 }
 
 .introCarouselItem.it3 {
     right: -300px;
     z-index: 2;
+    transform: rotateY(20deg);
 }
 
 .introCarouselItem.it1.carousel {
@@ -103,15 +110,25 @@
     position: absolute;
     top: 60px;
     right: 20px;
-    font-size: 1rem;
-    padding: 8px;
+    font-size: 0.7rem;
+    font-weight: 400;
+    padding: 4px;
 }
 .downBtn {
     position: absolute;
     bottom: 30px;
     right: 30px;
-    font-size: 3rem;
-    padding: 0 1rem;
+    font-size: 1rem;
+    font-weight: 400;
+    padding: 0 0.2rem;
+    @include flex;
+    gap: 0.4rem;
+}
+
+.downBtnArr {
+    font-size: 1.5rem;
+    font-weight: 700;
+    transition: transform 0.3s ease;
 }
 
 // ---------------------/button---------------------------

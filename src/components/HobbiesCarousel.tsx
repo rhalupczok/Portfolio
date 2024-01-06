@@ -30,14 +30,12 @@ const HobbiesCarousel: FC<myhobbiesProps> = (props) => {
     const items: Element[] = Array.from(
         document.querySelectorAll(`.carouselEffect`)
     );
-    console.log(items);
 
     //start effect - each hobby element comes-in separately
     items.forEach((el, index) => {
         setTimeout(() => {
             el.setAttribute("data-pos", String(index));
         }, index * 500);
-        console.log("done");
     });
 
     //animationframe:

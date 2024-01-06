@@ -4,6 +4,32 @@ import { scrollTo } from "../data/helperfunc";
 
 const Intro: FC = () => {
     const [playCarousel, setPlayCarousel] = useState<boolean>(false); // Add play state
+    const [scrollOpacity, setScrollOpacity] = useState<number>(1);
+    const [isCursorOverBtn, setIsCursorOverBtn] = useState(false);
+
+    const downBtnArrStyle = {
+        transform: isCursorOverBtn ? "rotateZ(90deg)" : "rotateZ(0deg)",
+    };
+
+    const handleScroll = () => {
+        const scrollPosition = window.scrollY;
+        const maxScroll = 300;
+        const opacity = Math.max(0, 1 - scrollPosition / maxScroll);
+        setScrollOpacity(opacity);
+    };
+
+    useEffect(() => {
+        window.addEventListener("scroll", handleScroll);
+        return () => {
+            window.removeEventListener("scroll", handleScroll);
+        };
+    }, []);
+
+    const introStyle = {
+        opacity: scrollOpacity,
+        transform: `scale(${scrollOpacity})`,
+    };
+
     const useAnimationFrame = (callback: (deltaTime: number) => void) => {
         const requestRef = useRef<number | null>(null);
         const previousTimeRef = useRef<number | undefined>(undefined);
@@ -44,18 +70,6 @@ const Intro: FC = () => {
         });
     };
 
-    useEffect(() => {
-        const neonBtn: Element[] | null = Array.from(
-            document.querySelectorAll(".neonButton")
-        );
-        setTimeout(() => {
-            neonBtn?.forEach((el) => el.classList.add("focus"));
-        }, 500);
-        setTimeout(() => {
-            neonBtn?.forEach((el) => el.classList.remove("focus"));
-        }, 3000);
-    }, []);
-
     useAnimationFrame(animateCallback);
 
     const toggleCarousel = () => {
@@ -64,7 +78,7 @@ const Intro: FC = () => {
 
     return (
         <div id="intro" className={componentStyle.introBg}>
-            <div className={componentStyle.intro}>
+            <div className={componentStyle.intro} style={introStyle}>
                 <div
                     style={playCarousel ? style.cards : undefined}
                     className={componentStyle.introCarousel}
@@ -146,8 +160,16 @@ const Intro: FC = () => {
                     setPlayCarousel(false);
                     scrollTo("about");
                 }}
+                onMouseEnter={() => setIsCursorOverBtn(true)}
+                onMouseLeave={() => setIsCursorOverBtn(false)}
             >
-                ⇩
+                View my work{" "}
+                <div
+                    className={componentStyle.downBtnArr}
+                    style={downBtnArrStyle}
+                >
+                    ⇨
+                </div>
             </button>
         </div>
     );
