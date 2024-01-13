@@ -1,6 +1,6 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
-import "./styles/global.scss";
+import "./styles/style.scss";
 import { PopupDataProvider } from "./context/PopupContext";
 import {
     createBrowserRouter,

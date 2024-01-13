@@ -2,22 +2,23 @@ import { contactInterface } from "./interfaces";
 
 export const contact: contactInterface[] = [
     {
-        imgSrc: "footer-envelope.svg",
+        icon: "fa-regular fa-envelope",
         alt: "email--icon",
-        name: "email",
+        name: "r.halupczok@gmail.com",
         link: "mailto:r.halupczok@gmail.com",
     },
     {
-        imgSrc: "footer-linkedin.svg",
+        icon: "fa-brands fa-linkedin",
         alt: "linkedIn--icon",
-        name: "linkedin",
+        name: "linkedIn",
         link: "https://www.linkedin.com/in/rados%C5%82aw-halupczok-6b6a75104/",
         target: "_blank",
     },
     {
-        imgSrc: "footer-github.svg",
+        icon: "fa-brands fa-github",
         alt: "github--icon",
-        name: "github",
+        name: "github.com/rhalupczok",
         link: "https://github.com/rhalupczok",
+        target: "_blank",
     },
 ];

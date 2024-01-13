@@ -8,6 +8,7 @@ import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 import Popup from "./components/Popup";
 import Intro from "./components/Intro";
+import ThemeToggle from "./components/ThemeControls";
 import TenziDescription from "./components/TenziDescription";
 import usePopup from "./Hooks/usePopup";
 
@@ -28,10 +29,19 @@ const App: React.FC = () => {
                         <Contact />
                         <Footer />
                         {popup.isShow && <Popup />}
+                        <ThemeToggle />
                     </>
                 }
             />
-            <Route path="tenzidescription" element={<TenziDescription />} />
+            <Route
+                path="tenzidescription"
+                element={
+                    <>
+                        <TenziDescription /> <Footer />
+                        <ThemeToggle />
+                    </>
+                }
+            />
         </Routes>
     );
 };

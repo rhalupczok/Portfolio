@@ -15,31 +15,6 @@
     align-items: center;
 }
 
-.popupNavClose {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: black;
-    background: $bg_color_grey;
-    text-decoration: none;
-    position: absolute;
-    transition: all 150ms ease;
-    z-index: 110;
-    border-radius: 22px;
-    width: 44px;
-    height: 44px;
-    top: 10px;
-    right: 10px;
-    font-size: 30px;
-}
-
-.popupNavClose:hover {
-    opacity: 1;
-    background-color: $bg_color_black;
-    text-shadow: 0;
-    color: white;
-}
-
 //hobbies
 
 .hobbiesPopup {

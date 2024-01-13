@@ -40,7 +40,7 @@
     width: 200px;
     height: 250px;
     border: 2px solid black;
-    box-shadow: 0 0 5px 2px black;
+    box-shadow: 0 0 4px 0px $text-primary;
     border-radius: 1rem;
     // background: $highlight_color;
     position: relative;
@@ -84,38 +84,23 @@
 .projectDesc {
     font-size: 1rem;
     font-weight: 700;
-    color: $fonts_color;
+    color: $text-primary;
     margin-top: 0.7rem;
 }
 
 .usedTechnologies {
     position: absolute;
     width: 100%;
-    top: 240px;
+    height: 16px;
+    bottom: -25px;
     left: 0;
-    display: flex;
+    @include flex;
     flex-direction: row;
     flex-wrap: wrap;
     justify-content: center;
     gap: 7px;
-}
-.usedTechnologiesImg {
-    flex-grow: 0;
-    flex-shrink: 0;
-    position: relative;
-    width: 30px;
-    height: 30px;
-    background: $bg_color_grey;
-    border-radius: 5px;
-    box-shadow: 0 0 1px 2px black;
-    z-index: 1;
-    transition: all 0.2s;
-}
-
-.usedTechnologiesImg:hover {
-    scale: 1.5;
-    background: $highlight_color_hover;
     z-index: 2;
+    color: $text-primary;
 }
 
 @media screen and (max-width: 768px) {
@@ -154,17 +139,11 @@
     .projectDesc {
         font-size: 0.7rem;
         font-weight: 700;
-        color: $fonts_color;
+        color: $text-primary;
         margin-top: 0.7rem;
     }
 
     .usedTechnologies {
-        top: 185px;
-    }
-
-    .usedTechnologiesImg {
-        width: 20px;
-        height: 20px;
-        border-radius: 2px;
+        bottom: -25px;
     }
 }

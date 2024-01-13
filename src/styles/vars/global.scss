@@ -27,26 +27,40 @@
     margin: 0 auto;
     @include flex;
     flex-direction: column;
-
     box-sizing: border-box;
 }
 
-.mainSection > h1 {
-    font-size: 1.5rem;
-    margin: 5px;
-    color: $fonts_color;
-    text-shadow: 0 0 1px rgb(117, 117, 117);
+h1 {
+    font-size: 2em;
+    /*Responsive text with min and max limit*/
+    font-size: clamp(1.5em, 2vw, 5em);
+    text-transform: uppercase;
     text-align: center;
     position: relative;
+    display: inline-block;
 }
-.mainSection > h1::after {
+.h1Wrapper {
+    @include flex;
+    width: 100%;
+}
+h1::before,
+h1::after {
     content: "";
     position: absolute;
-    bottom: -2px;
-    left: calc(50% - 200px);
-    height: 0.2rem;
-    background: $fonts_color;
-    width: 400px;
+    background-color: $highlight_color;
+    width: 1.5em;
+    height: 4px;
+    top: 50%;
+    transform: translateY(-50%);
+    overflow: hidden;
+}
+
+h1::before {
+    left: -2.5em;
+}
+
+h1::after {
+    right: -2.5em;
 }
 
 .stopScrolling {
@@ -64,33 +78,6 @@
     background-repeat: no-repeat no-repeat;
     background-position: center center;
 }
-
-// .fullScreenImg button {
-//     display: flex;
-//     justify-content: center;
-//     align-items: center;
-//     color: black;
-//     background: $bg_color_grey;
-//     text-decoration: none;
-//     position: absolute;
-//     transition: all 150ms ease;
-//     border-radius: 25px;
-//     width: 50px;
-//     height: 50px;
-//     font-size: 30px;
-//     opacity: 0.4;
-//     font-weight: 700;
-//     cursor: pointer;
-//     top: 10px;
-//     right: 10px;
-// }
-
-// .fullScreenImg button:hover {
-//     opacity: 1;
-//     background-color: $bg_color_black;
-//     text-shadow: 0;
-//     color: white;
-// }
 
 @mixin flex {
     display: flex;
@@ -110,12 +97,13 @@
 }
 
 .txtHighlightNoHover {
+    color: $highlight_color;
     font-weight: 700;
     text-decoration: none;
 }
 
 .txtHighlight:hover {
-    color: $highlight_color_hover;
+    color: $highlight_color_darken;
     font-weight: 700;
     text-decoration: underline;
     cursor: pointer;
@@ -124,8 +112,8 @@
 .btn {
     margin: 1rem;
     padding: 1rem;
-    color: $fonts_color;
-    background: $bg_color_grey;
+    color: $text-primary;
+    background: $secondary;
     // box-shadow: 0 0 5px 1px rgb(0, 0, 0);
     border-radius: 0.5rem;
     border-width: 3px;
@@ -153,6 +141,52 @@
 }
 
 .btn:hover {
-    background: $highlight_color_hover;
-    // box-shadow: 0 0 2px 1px $highlight_color_hover;
+    background: $highlight_color_darken;
+    // box-shadow: 0 0 2px 1px $highlight_color_darken;
+}
+
+.popupNavPrev,
+.popupNavNext,
+.popupNavClose {
+    padding: 0;
+    margin: 0;
+    @include flex;
+    color: $highlight_color;
+    background: $secondary;
+    text-decoration: none;
+    position: absolute;
+    transition: all 150ms ease;
+    border-radius: 22px;
+    width: 44px;
+    height: 44px;
+    font-size: 30px;
+    font-weight: 700;
+    cursor: pointer;
+}
+
+.popupNavPrev {
+    left: 2px;
+    bottom: 2px;
+}
+.popupNavNext {
+    right: 2px;
+    bottom: 2px;
+}
+
+.popupNavClose {
+    top: 2px;
+    right: 2px;
+}
+.popupNavPrev:hover,
+.popupNavNext:hover,
+.popupNavClose:hover {
+    background-color: $highlight_color;
+    text-shadow: 0;
+    color: $text-primary;
+}
+
+@media screen and (max-width: 600px) {
+    .h1Wrapper {
+        width: 60%;
+    }
 }

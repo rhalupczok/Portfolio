@@ -13,11 +13,9 @@ const AboutMe: FC = () => {
 
     const characterElements: ReactElement[] = characters.map((character) => (
         <div key={character.name}>
-            <img
-                src={require(`../images/aboutMe/${character.imgSrc}`)}
-                alt={character.alt}
-                className="characters-img"
-            />
+            <div>
+                <i className={`${character.icon} fa-2x`}></i>
+            </div>
             <p>{character.name}</p>
         </div>
     ));

@@ -2,90 +2,74 @@ import { languagesInterface } from "./interfaces";
 
 export const languages: languagesInterface[] = [
     {
-        imgSrc: "langs-html5.svg",
+        icon: "fa-brands fa-html5",
         alt: "IT software logo",
         name: "HTML",
     },
     {
-        imgSrc: "langs-css.png",
+        icon: "fa-brands fa-css3",
         alt: "IT software logo",
         name: "CSS",
     },
     {
-        imgSrc: "langs-sass.png",
+        icon: "fa-brands fa-sass",
         alt: "IT software logo",
         name: "SCSS",
     },
     {
-        imgSrc: "langs-square-js.svg",
+        icon: "fa-brands fa-js",
         alt: "IT software logo",
         name: "JAVASCRIPT",
     },
     {
-        imgSrc: "langs-react.svg",
+        icon: "fa-brands fa-react",
         alt: "IT software logo",
         name: "REACT",
     },
     {
-        imgSrc: "langs-react-router.png",
+        icon: "fa-solid fa-route",
         alt: "IT software logo",
         name: "REACT-ROUTER",
     },
     {
-        imgSrc: "langs-typescript.png",
+        icon: "fa-solid fa-file-circle-check",
         alt: "IT software logo",
         name: "TYPESCRIPT",
     },
     {
-        imgSrc: "langs-redux-react.png",
-        alt: "IT software logo",
-        name: "REDUX",
-        inprogress: true,
-    },
-    {
-        imgSrc: "langs-node-express.png",
+        icon: "fa-brands fa-node",
         alt: "IT software logo",
         name: "EXPRESS.JS",
     },
     {
-        imgSrc: "langs-mongodb.png",
+        icon: "fa-solid fa-database",
         alt: "IT software logo",
         name: "MONGODB",
     },
     {
-        imgSrc: "langs-docker.png",
+        icon: "fa-brands fa-docker",
         alt: "IT software logo",
         name: "docker",
     },
 
     {
-        imgSrc: "langs-restapi.png",
+        icon: "fa-solid fa-cloud-sun",
         alt: "IT software logo",
         name: "REST API",
     },
     {
-        imgSrc: "langs-key.png",
-        alt: "IT software logo",
-        name: "SECURITY",
-    },
-    {
-        imgSrc: "langs-jwt.png",
+        icon: "fa-solid fa-key",
         alt: "IT software logo",
         name: "JSON WEB TOKEN",
     },
     {
-        imgSrc: "langs-bcrypt.png",
+        icon: "fa-solid fa-shield-halved",
         alt: "IT software logo",
         name: "BCRYPT",
     },
     {
-        imgSrc: "langs-code-branch-solid.svg",
+        icon: "fa-solid fa-code-branch",
         alt: "IT software logo",
         name: "GIT",
-    },
-    {
-        imgSrc: "langs-mysql.png",
-        alt: "IT software logo",
-        name: "mySQL",
     },
 ];

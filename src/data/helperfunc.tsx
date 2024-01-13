@@ -1,18 +1,26 @@
 export const scrollTo: (el: string) => void = (el) => {
     const element: HTMLElement | null = document.getElementById(`${el}`); //get target from navMenuData
-    if (element)
+    if (element) {
+        const vh = Math.max(
+            document.documentElement.clientHeight || 0,
+            window.innerHeight || 0
+        );
         element.scrollIntoView({
             behavior: "smooth",
-            block: "start",
+            block:
+                document.documentElement.scrollHeight < element.offsetTop + vh
+                    ? "end"
+                    : "start",
             inline: "nearest",
         });
+    }
 };
 
 export const fullScreenIMG = (e: EventTarget) => {
     const fullScreen: HTMLElement | null =
         document.querySelector(`#fullScreenIMG`);
     const target = e as HTMLElement;
-    if (fullScreen && target.tagName === "BUTTON") {
+    if (fullScreen && target.tagName === "I") {
         fullScreen.style.display = "none";
     } else {
         const src = target.getAttribute("src");
@@ -35,13 +43,5 @@ export const findAllNeighboringImages = (
     );
     const clickedIndex = allImages.indexOf(clickedImage);
 
-    // const neighboringImages: string[] = [];
-    // if (clickedIndex > 0) {
-    //     neighboringImages.push(allImages[clickedIndex - 1].src);
-    // }
-    // neighboringImages.push(clickedImage.src);
-    // if (clickedIndex < allImages.length - 1) {
-    //     neighboringImages.push(allImages[clickedIndex + 1].src);
-    // }
     return { allImages, clickedIndex };
 };

@@ -46,13 +46,7 @@ const MyWork: FC = () => {
                         (el) => el.name === lang
                     );
                     return launguageData ? (
-                        <img
-                            key={lang}
-                            className={componentStyle.usedTechnologiesImg}
-                            src={require(`../images/languages/${launguageData.imgSrc}`)}
-                            title={`${lang}`}
-                            alt={launguageData.imgSrc}
-                        />
+                        <i className={`${launguageData.icon}`}></i>
                     ) : null;
                 })}
             </div>
@@ -68,7 +62,7 @@ const MyWork: FC = () => {
                 }}
                 onMouseLeave={removeHover}
             >
-                {myWorkElement.isOpen && (
+                {myWorkElement.href && (
                     <a
                         className={`${componentStyle.btn} ${componentStyle.scaledDown}`}
                         href={myWorkElement.href}

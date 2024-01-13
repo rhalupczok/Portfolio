@@ -6,7 +6,7 @@ const Footer: React.FC = () => {
         <div>
             <footer className={componentStyle.footer}>
                 <p>
-                    Radoslaw Halupczok <span>© 2023</span>
+                    Radoslaw Halupczok <span>© 2024</span>
                 </p>
             </footer>
         </div>

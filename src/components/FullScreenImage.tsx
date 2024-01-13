@@ -42,7 +42,7 @@ const FullScreenImage: FC<Props> = ({
                             className={componentStyle.popupNavPrev}
                             onClick={swipeLeft}
                         >
-                            &#8810;
+                            <i className="fa-solid fa-caret-left"></i>
                         </button>
                     )}
                     {index < allImages.length - 1 && (
@@ -50,14 +50,14 @@ const FullScreenImage: FC<Props> = ({
                             className={componentStyle.popupNavNext}
                             onClick={swipeRight}
                         >
-                            &#8811;
+                            <i className="fa-solid fa-caret-right"></i>
                         </button>
                     )}
                     <button
                         className={componentStyle.popupNavClose}
                         onClick={closeFullScreenIMGHandle}
                     >
-                        x
+                        <i className="fa-solid fa-xmark"></i>
                     </button>
                 </div>
             </div>

@@ -1,12 +1,13 @@
 import { FC, useState } from "react";
 import parse from "html-react-parser";
-import ThemeToggle from "./ThemeToggle";
+import ThemeToggle from "./ThemeControls";
 import FullScreenImage from "./FullScreenImage";
 import componentStyle from "../styles/partials/tenziDescription.module.scss";
 import { useNavigate, ScrollRestoration } from "react-router-dom";
 import { findAllNeighboringImages } from "../data/helperfunc";
 import { appShotsIMG } from "../data/tenziDescData";
 import { techSectionData } from "../data/tenziDescData";
+import { transform } from "typescript";
 
 const TenziDescription: FC = () => {
     const navigate = useNavigate();
@@ -37,9 +38,17 @@ const TenziDescription: FC = () => {
         );
     });
 
-    const techSectionArr = techSectionData.map((element) => {
+    const techSectionArr = techSectionData.map((element, index) => {
         return (
-            <div key={element.title} className={componentStyle.techSection}>
+            <div
+                key={element.title}
+                className={`${componentStyle.techSection} ${componentStyle.checkpoint}`}
+                // style={{
+                //     transform: `translateX(${
+                //         index % 2 === 0 ? "-" : ""
+                //     }270px) translateY(-${200 * index}px)`,
+                // }}
+            >
                 <h4>{element.title}</h4>
                 <p>{parse(element.description)}</p>
                 <div className={componentStyle.techSectionIMG}>
@@ -79,10 +88,7 @@ const TenziDescription: FC = () => {
                     {`<< `}BACK
                 </span>
                 <h5>TENZI GAME</h5>
-                <ThemeToggle />
             </div>
-            <div className={componentStyle.navMenuMargin}></div>
-
             <div className={componentStyle.appShotsContainer}>
                 <p>
                     Tenzi is a app based on simply family game. The goal is to
@@ -94,8 +100,11 @@ const TenziDescription: FC = () => {
                 </p>
                 {appShots}
             </div>
+
             <div className={componentStyle.globalDiagram}>
-                <h2>Application diagram</h2>
+                <div className={componentStyle.h1Wrapper}>
+                    <h1>Application diagram</h1>
+                </div>
                 <p>Simplified diagram of the application's operation.</p>
                 <img
                     src={require(`../images/tenziDescription/mainDiagram.png`)}
@@ -105,12 +114,18 @@ const TenziDescription: FC = () => {
                     }
                 />
             </div>
-            <h2>FrontEnd</h2>
-            <section className={componentStyle.branchSection}>
+            <div className={componentStyle.h1Wrapper}>
+                <h1>FrontEnd</h1>
+            </div>
+            <section
+                className={`${componentStyle.branchSection} ${componentStyle.timeline}`}
+            >
                 {techSectionArr.slice(0, 7)}
             </section>
             <section className={componentStyle.globalDiagram}>
-                <h2>Server</h2>
+                <div className={componentStyle.h1Wrapper}>
+                    <h1>Server</h1>
+                </div>
                 <p>Simplified diagram of server's operation</p>
                 <img
                     src={require(`../images/tenziDescription/serverDiagram.png`)}
@@ -120,11 +135,15 @@ const TenziDescription: FC = () => {
                     }
                 />
             </section>
-            <section className={componentStyle.branchSection}>
+            <section
+                className={`${componentStyle.branchSection} ${componentStyle.timeline}`}
+            >
                 {techSectionArr.slice(7, 11)}
             </section>
             <section className={componentStyle.globalDiagram}>
-                <h2>REFRESH TOKEN ROTATION</h2>
+                <div className={componentStyle.h1Wrapper}>
+                    <h1>REFRESH TOKEN ROTATION</h1>
+                </div>
                 <p>
                     Each request demanding user authentication contains an
                     <b>AccessToken</b> in the header, obtained after a
@@ -142,7 +161,9 @@ const TenziDescription: FC = () => {
                     }
                 />
             </section>
-            <section className={componentStyle.branchSection}>
+            <section
+                className={`${componentStyle.branchSection} ${componentStyle.timeline}`}
+            >
                 {techSectionArr.slice(11, 15)}
             </section>
             <ScrollRestoration />

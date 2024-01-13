@@ -36,14 +36,14 @@
 
 .langsContainer {
     text-decoration: none;
-    height: 75px;
-    width: 75px;
-    // background: $highlight_color;
+    box-sizing: border-box;
+    padding-top: 5px;
+    height: 80px;
+    width: 80px;
     border-radius: 10px;
-    box-shadow: 0 0 5px 2px rgb(0, 0, 0);
+    box-shadow: 0 0 4px 0px $text-primary;
     text-align: center;
-    font-weight: 700;
-    color: $fonts_color;
+    color: $highlight_color;
     font-size: 0.7rem;
     transition: transform 0.2s;
     position: relative;
@@ -55,28 +55,17 @@
     position: relative;
 }
 
-.technologyBlockLangs img {
-    position: absolute;
-    margin-left: auto;
-    margin-right: auto;
-    top: 2px;
-    left: 0;
-    right: 0;
-    height: 70%;
-    margin-bottom: 0.2rem;
-}
-
 .technologyBlockLangs p {
     position: absolute;
     margin: 0 auto;
     bottom: 3px;
     left: 0;
     right: 0;
+    font-weight: 700;
+    color: $text-primary;
 }
 
-.langsContainer:hover,
-.characters div img:hover {
-    background: $highlight_color_hover;
+.langsContainer:hover {
     transform: scale(1.2);
 }
 

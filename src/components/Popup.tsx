@@ -109,14 +109,14 @@ const Popup: FC = () => {
                     setPopup({ content: popup.content, isShow: false })
                 }
             >
-                x
+                <i className="fa-solid fa-xmark"></i>
             </button>
             {index !== 0 && (
                 <button
                     className={componentStyle.popupNavPrev}
                     onClick={swipeLeft}
                 >
-                    &#8810;
+                    <i className="fa-solid fa-caret-left"></i>
                 </button>
             )}
             {index + 1 < targetContent.length && (
@@ -124,7 +124,7 @@ const Popup: FC = () => {
                     className={componentStyle.popupNavNext}
                     onClick={swipeRight}
                 >
-                    &#8811;
+                    <i className="fa-solid fa-caret-right"></i>
                 </button>
             )}
         </div>
@@ -140,7 +140,7 @@ const Popup: FC = () => {
                         fullScreenIMG(e.target);
                     }}
                 >
-                    x
+                    <i className="fa-solid fa-xmark"></i>
                 </button>
             </div>
         </div>

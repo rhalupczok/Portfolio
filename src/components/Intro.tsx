@@ -13,9 +13,10 @@ const Intro: FC = () => {
 
     const handleScroll = () => {
         const scrollPosition = window.scrollY;
-        const maxScroll = 300;
+        const maxScroll = 800;
         const opacity = Math.max(0, 1 - scrollPosition / maxScroll);
         setScrollOpacity(opacity);
+        if (scrollPosition > maxScroll) setPlayCarousel(false);
     };
 
     useEffect(() => {
@@ -27,7 +28,9 @@ const Intro: FC = () => {
 
     const introStyle = {
         opacity: scrollOpacity,
-        transform: `scale(${scrollOpacity})`,
+        transform: `scale(${scrollOpacity}) translateY(${
+            (1 - scrollOpacity) * 600
+        }px)`,
     };
 
     const useAnimationFrame = (callback: (deltaTime: number) => void) => {
@@ -117,9 +120,11 @@ const Intro: FC = () => {
                         >
                             <h1>
                                 <p>
-                                    <span>My name is </span>
+                                    <span>HELLO I'm </span>
                                     <span
-                                        className={componentStyle.txtHighlight}
+                                        className={
+                                            componentStyle.txtHighlightNoHover
+                                        }
                                     >
                                         Radosław Halupczok
                                     </span>
@@ -152,12 +157,16 @@ const Intro: FC = () => {
                 className={`${componentStyle.btn} ${componentStyle.carouselBtn}`}
                 onClick={() => toggleCarousel()} // Add a function to toggle carousel play
             >
-                {playCarousel ? "Stop" : "Carousel"} {/* Toggle button label */}
+                {playCarousel ? (
+                    <i className="fa-solid fa-stop"></i>
+                ) : (
+                    <i className="fa-solid fa-play"></i>
+                )}
+                {/* Toggle button label */}
             </button>
             <button
                 className={`${componentStyle.downBtn} ${componentStyle.btn}`}
                 onClick={() => {
-                    setPlayCarousel(false);
                     scrollTo("about");
                 }}
                 onMouseEnter={() => setIsCursorOverBtn(true)}
@@ -168,7 +177,7 @@ const Intro: FC = () => {
                     className={componentStyle.downBtnArr}
                     style={downBtnArrStyle}
                 >
-                    ⇨
+                    <i className="fa-solid fa-xl fa-right-long"></i>
                 </div>
             </button>
         </div>

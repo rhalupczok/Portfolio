@@ -2,27 +2,27 @@ import { charactersInterface } from "./interfaces";
 
 export const characters: charactersInterface[] = [
     {
-        imgSrc: "characters-reiable.png",
+        icon: "fa-solid fa-handshake",
         alt: "character",
         name: "REILABLE",
     },
     {
-        imgSrc: "characters-organised.png",
+        icon: "fa-regular fa-clock",
         alt: "character",
         name: "ORGANISED",
     },
     {
-        imgSrc: "characters-motivated.png",
+        icon: "fa-regular fa-hand-back-fist",
         alt: "character",
         name: "MOTIVATED",
     },
     {
-        imgSrc: "characters-creative.png",
+        icon: "fa-regular fa-lightbulb",
         alt: "character",
         name: "CREATIVE",
     },
     {
-        imgSrc: "characters-self-improvement.png",
+        icon: "fa-solid fa-arrow-up-right-dots",
         alt: "character",
         name: "SELF - IMPROVEMENT",
     },

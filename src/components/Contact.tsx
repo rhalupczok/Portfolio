@@ -4,20 +4,29 @@ import { contact } from "../data/contactData";
 
 const Contact: FC = () => {
     const contactElements: ReactElement[] = contact.map((contact) => (
-        <a href={contact.link} target={contact?.target} key={contact.name}>
-            <img
-                src={require(`../images/contact/${contact.imgSrc}`)}
-                alt={contact.alt}
-            />
-        </a>
+        <div className={componentStyle.card}>
+            <div>
+                <a
+                    href={contact.link}
+                    target={contact?.target}
+                    key={contact.name}
+                >
+                    <i className={contact.icon}></i>
+                </a>
+                <p>{contact.name}</p>
+            </div>
+        </div>
     ));
     return (
         <div
             id="contact"
             className={`${componentStyle.contact}, ${componentStyle.mainSection}`}
         >
+            <div className={componentStyle.navMenuMargin}></div>
             <h1>Contact</h1>
-            <div className={componentStyle.social}>{contactElements}</div>
+            <div className={componentStyle.cardsContainer}>
+                {contactElements}
+            </div>
         </div>
     );
 };

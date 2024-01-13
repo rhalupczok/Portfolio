@@ -4,19 +4,8 @@ import { languages } from "../data/languagesData";
 
 const Knowledge: React.FC = () => {
     const languageElements: ReactElement[] = languages.map((language) => (
-        <div
-            key={language.name}
-            className={
-                language.inprogress
-                    ? `${componentStyle.langsContainer}, ${componentStyle.inProgress}`
-                    : componentStyle.langsContainer
-            }
-        >
-            <img
-                src={require(`../images/languages/${language.imgSrc}`)}
-                alt={language.alt}
-                className={componentStyle.langsImg}
-            />
+        <div key={language.name} className={componentStyle.langsContainer}>
+            <i className={`${language.icon} fa-4x`}></i>
             <p>{language.name}</p>
         </div>
     ));
@@ -24,7 +13,7 @@ const Knowledge: React.FC = () => {
     return (
         <div id="knowledge" className={componentStyle.mainSection}>
             <div className={componentStyle.navMenuMargin}></div>
-            <h1>Technologies I've Studied</h1>
+            <h1>SKILLS</h1>
             <section className={componentStyle.technologyBlock}>
                 <div className={componentStyle.technologyBlockLangs}>
                     {languageElements.slice(0, 4)}
@@ -66,10 +55,10 @@ const Knowledge: React.FC = () => {
             </section>
             <section className={componentStyle.technologyBlock}>
                 <div className={componentStyle.technologyBlockLangs}>
-                    {languageElements.slice(8, 12)}
+                    {languageElements.slice(7, 11)}
                 </div>
                 <div className={componentStyle.technologyBlockDescription}>
-                    <h3>NODE.JS-EXPRESS MONGODB mySQL</h3>
+                    <h3>Node.js-Express.js MongoDB Docker</h3>
                     <p>
                         I've expanded my knowlegde in server-side development
                         with the integration of <b>Node.js</b> and{" "}
@@ -87,10 +76,10 @@ const Knowledge: React.FC = () => {
             </section>
             <section className={componentStyle.technologyBlock}>
                 <div className={componentStyle.technologyBlockLangs}>
-                    {languageElements.slice(13, 15)}
+                    {languageElements.slice(11, 13)}
                 </div>
                 <div className={componentStyle.technologyBlockDescription}>
-                    <h3>JSON WEB TOKEN</h3>
+                    <h3>Json Web Token</h3>
                     <p>
                         I adeptly implement secure authentication and
                         authorization using <b>JSON Web Tokens (JWT)</b> in
@@ -116,7 +105,7 @@ const Knowledge: React.FC = () => {
             </section>
             <section className={componentStyle.technologyBlock}>
                 <div className={componentStyle.technologyBlockLangs}>
-                    {languageElements.slice(15, 16)}
+                    {languageElements.slice(13, 14)}
                 </div>
                 <div className={componentStyle.technologyBlockDescription}>
                     <h3>Version Control System GIT</h3>

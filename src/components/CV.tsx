@@ -4,19 +4,21 @@ import componentStyle from "../styles/partials/CV.module.scss";
 const CV: React.FC = () => {
     return (
         <div id="cv" className={componentStyle.mainSection}>
+            <div className={componentStyle.navMenuMargin}></div>
             <h1>CV</h1>
-            <div className={componentStyle.CVContent}>
-                <a
-                    href="https://drive.google.com/file/d/1SbrPWtqw2_H5UrPctwIUUvNgaqiiBsVe/view?usp=drive_link"
-                    target="_blank"
-                    rel="noreferrer"
-                >
-                    <img
-                        src={require(`../images/cv/CV-icon.png`)}
-                        alt="CV"
-                        className="CVImg"
-                    />
-                </a>
+            <div className={componentStyle.cardsContainer}>
+                <div className={componentStyle.card}>
+                    <div>
+                        <a
+                            href="https://drive.google.com/file/d/1SbrPWtqw2_H5UrPctwIUUvNgaqiiBsVe/view?usp=drive_link"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            <i className="fa-solid fa-file"></i>
+                        </a>
+                        <p>Radosław Halupczok</p>
+                    </div>
+                </div>
             </div>
         </div>
     );

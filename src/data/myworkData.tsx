@@ -6,7 +6,6 @@ export const myWorkData: myWorkInterface[] = [
         imgSrc: "my-work-tenzi.png",
         description: "Tenzi Game",
         isPlay: true,
-        isOpen: true,
         noLearnMore: true,
         href: "https://rhalupczok.github.io/Tenzies/",
         technologies: [
@@ -27,7 +26,6 @@ export const myWorkData: myWorkInterface[] = [
         imgSrc: "my-work-portfolio.png", //cover img
         description: "This portfolio page", //description displayed below img
         isPlay: false, //true if game
-        isOpen: false, // true if application/game. If true remember to add link in next line! If false there is no OPEN/PLAY button
         href: "https://rhalupczok.github.io/Portfolio/", //link to app
         technologies: ["HTML", "JAVASCRIPT", "SCSS", "REACT", "TYPESCRIPT"], //display tiles with used technologies [HTML, JAVASCRIPT, SCSS, REACT, TYPESCRIPT, NODE.JS, GIT]
     },
@@ -36,7 +34,6 @@ export const myWorkData: myWorkInterface[] = [
         imgSrc: "my-work-weather_app.png",
         description: "Weather app (API)",
         isPlay: false,
-        isOpen: true,
         href: "https://rhalupczok.github.io/Weather-Application/",
         technologies: ["HTML", "JAVASCRIPT", "CSS", "REACT", "TYPESCRIPT"],
     },
@@ -45,7 +42,6 @@ export const myWorkData: myWorkInterface[] = [
         imgSrc: "my-work-airhockey.jpg",
         description: "Air Hockey",
         isPlay: true,
-        isOpen: true,
         href: "https://rhalupczok.github.io/Air-Hockey/",
         technologies: ["HTML", "JAVASCRIPT", "CSS"],
     },
@@ -54,7 +50,6 @@ export const myWorkData: myWorkInterface[] = [
         imgSrc: "my-work-pocket_organiser.png",
         description: "Pocket organiser",
         isPlay: false,
-        isOpen: true,
         href: "https://rhalupczok.github.io/Pocket-Organiser/",
         technologies: ["HTML", "JAVASCRIPT", "CSS"],
     },
@@ -63,7 +58,6 @@ export const myWorkData: myWorkInterface[] = [
         imgSrc: "my-work-snake_game.png",
         description: "SNAKE",
         isPlay: true,
-        isOpen: true,
         href: "https://rhalupczok.github.io/Snake/",
         technologies: ["HTML", "JAVASCRIPT", "CSS"],
     },

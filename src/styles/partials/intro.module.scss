@@ -2,9 +2,6 @@
 @use "../vars/global.scss" as *;
 
 .introBg {
-    background-image: url("../../images/intro/intro-background-day.png");
-    background-position: center;
-    background-size: cover;
     width: 100%;
     height: 100svh;
     position: relative;
@@ -56,13 +53,13 @@
     width: 90%;
     height: 90%;
     border-radius: 2vh;
-    background: $bg_color_grey;
-    box-shadow: 0px 0px 10px 0px $fonts_color;
+    background: $secondary;
+    box-shadow: 0px 0px 10px 0px $text-primary;
     position: relative;
 }
 
 .introCarousel p {
-    color: $fonts_color;
+    color: $text-primary;
     font-size: 1.5rem;
     font-weight: 700;
     text-align: center;
@@ -76,7 +73,7 @@
 
 .introCarouselItem.it1 {
     z-index: 0;
-    left: -300px;
+    left: -400px;
     transform: rotateY(-20deg);
 }
 
@@ -113,6 +110,7 @@
     font-size: 0.7rem;
     font-weight: 400;
     padding: 4px;
+    width: 50px;
 }
 .downBtn {
     position: absolute;
@@ -120,14 +118,13 @@
     right: 30px;
     font-size: 1rem;
     font-weight: 400;
-    padding: 0 0.2rem;
+    padding: 0.3rem;
     @include flex;
     gap: 0.4rem;
 }
 
 .downBtnArr {
-    font-size: 1.5rem;
-    font-weight: 700;
+    color: $highlight_color;
     transition: transform 0.3s ease;
 }
 
@@ -163,16 +160,16 @@
 
 @media screen and (max-width: 600px) {
     .introCarouselItem {
-        width: 90px;
+        width: 110px;
     }
 
     .introCarouselItem.it1 {
         z-index: 0;
-        left: 0;
+        left: -30px;
     }
 
     .introCarouselItem.it3 {
-        right: 0;
+        right: -30px;
         z-index: 2;
     }
 

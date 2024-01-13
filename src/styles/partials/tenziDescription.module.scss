@@ -8,7 +8,7 @@
 
 .header {
     width: 100%;
-    background: $bg_color_black;
+    background: $primary;
     position: fixed;
     padding: 10px 0;
     height: 20px;
@@ -42,14 +42,11 @@
     cursor: pointer;
 }
 .backBtn:hover {
-    color: $highlight_color_hover;
-}
-
-.tempMainSection {
-    margin: 0.5rem 2rem;
+    color: $highlight_color_darken;
 }
 
 .appShotsContainer {
+    margin-top: 50px;
     @include flex;
     flex-direction: row;
     gap: 1rem;
@@ -62,72 +59,52 @@
 
 .appShotsContainer img {
     width: 150px;
-    box-shadow: 0px 0px 2px 1px black;
-    border-radius: 1rem;
-    padding: 0.2rem;
+    height: 150px;
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0px 0px 4px 0px $highlight_color;
+    border-radius: 0.2rem;
+    padding: 0.5rem;
     cursor: zoom-in;
 }
 
 .globalDiagram {
-    margin: 0;
-    margin-top: 2rem;
-    margin-bottom: 2rem;
+    margin: 1rem;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
-.globalDiagram h2 {
-    margin: 0;
-    position: relative;
-}
-
-h2 {
-    position: relative;
-}
-
-h2::after {
-    content: "";
-    position: absolute;
-    bottom: -2px;
-    left: calc(50% - 200px);
-    height: 0.2rem;
-    background: $fonts_color;
-    width: 400px;
-}
 
 .globalDiagram p {
     max-width: 680px;
+    margin-top: 0;
 }
 
 .globalDiagram > img {
-    padding: 0.2rem;
-    border-radius: 1rem;
+    padding: 0.5rem;
+    border-radius: 0.5rem;
     max-width: 100%;
     max-height: 60dvh;
     background: rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 2px 1px black;
+    box-shadow: 0px 0px 4px 0px $highlight_color;
     cursor: zoom-in;
 }
 
 .branchSection {
+    box-sizing: border-box;
     width: 100%;
     margin: 0;
-    display: flex;
-    flex-direction: row;
-    gap: 1rem;
-    flex-wrap: wrap;
-    justify-content: space-around;
 }
 .techSection {
+    box-sizing: border-box;
     margin: 0;
-    width: 400px;
+    // width: 400px;
     display: flex;
     flex-direction: column;
-    border-radius: 1rem;
-    box-shadow: 0px 0px 2px 1px black;
+    // border-radius: 0.5rem;
+    // box-shadow: 0px 0px 4px 0px $highlight_color;
     padding: 10px;
-    background-color: rgba(0, 0, 0, 0.05);
+    // background-color: rgba(0, 0, 0, 0.05);
 }
 
 .techSection h4 {
@@ -145,7 +122,96 @@ h2::after {
     border-radius: 0.5rem;
     max-width: 45%;
     background: rgba(0, 0, 0, 0.2);
-    box-shadow: 0px 0px 2px 1px black;
+    box-shadow: 0px 0px 2px 0px $highlight_color;
     object-fit: scale-down;
     cursor: zoom-in;
+}
+
+.timeline {
+    margin: 2em auto;
+    max-width: 34.15em;
+}
+
+.checkpoint {
+    max-width: 34em;
+    padding-top: 2em;
+    padding-bottom: 2em;
+    position: relative;
+}
+
+.checkpoint:nth-child(odd) {
+    border-left: 4px solid $highlight_color;
+    padding-left: 3em;
+    transform: translateX(270px);
+}
+
+.checkpoint:nth-child(even) {
+    border-right: 4px solid $highlight_color;
+    padding-right: 3em;
+    transform: translateX(-270px);
+}
+
+.checkpoint:nth-child(odd)::before,
+.checkpoint:nth-child(even)::before {
+    content: "";
+    background: $highlight_color;
+    width: 3em;
+    height: 3px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+
+.checkpoint:nth-child(odd)::before {
+    left: 0;
+}
+
+.checkpoint:nth-child(even)::before {
+    right: 0;
+}
+
+.checkpoint:nth-child(odd) div::before,
+.checkpoint:nth-child(even) div::before {
+    content: "";
+    background: $highlight_color;
+    box-shadow: 0 0 0.5em $highlight_color;
+    width: 0.8em;
+    height: 0.8em;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    border-radius: 50%;
+}
+
+.checkpoint:nth-child(odd) div::before {
+    left: -0.5em;
+}
+
+.checkpoint:nth-child(even) div::before {
+    right: -0.5em;
+}
+
+@media screen and (max-width: 1150px) {
+    .timeline {
+        width: 80vw;
+    }
+    .timeline .checkpoint {
+        width: 100%;
+        transform: none;
+        padding-left: 0;
+        padding-right: 0;
+        border: none;
+    }
+    .timeline .checkpoint::before {
+        width: 3px;
+        height: 3em;
+        top: -1.5em;
+        left: 50%;
+        transform: translateX(-50%);
+    }
+    .timeline .checkpoint div::before {
+        top: -0.5em;
+        left: 50%;
+        transform: translateX(-50%);
+    }
 }

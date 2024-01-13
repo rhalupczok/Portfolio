@@ -1,0 +1,75 @@
+@use "../vars/colours.scss" as *;
+@use "../vars/global.scss" as *;
+
+ul {
+    list-style: none;
+}
+
+.themeControls {
+    @include flex;
+    background: $panel;
+    position: fixed;
+    top: 50%;
+    right: -3em;
+    transform: translateY(-50%);
+    padding: 1em;
+    z-index: 3;
+    flex-direction: column;
+    gap: 1.5em;
+    transition: 0.3s;
+}
+
+.themeBtn {
+    position: absolute;
+    top: 50%;
+    left: -2.5em;
+    transform: translateY(-50%);
+    padding: 0.5em;
+    background: $panel;
+    color: $text-primary;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    @include flex;
+    flex-direction: column;
+    gap: 0.5em;
+}
+
+.themeBtn:hover {
+    background: $primary;
+}
+
+.color {
+    width: 0.7em;
+    height: 0.7em;
+    border-radius: 50%;
+}
+
+.color1 {
+    background: #d61e2b;
+    color: #a0101a;
+}
+.color2 {
+    background: #2d85ff;
+    color: #256fd5;
+}
+.color3 {
+    background: #ffa527;
+    color: #db8e23;
+}
+.color4 {
+    background: #4cff5e;
+    color: #189f21;
+}
+
+.darkMode {
+    color: $text-primary;
+}
+
+.color,
+.darkMode,
+.themeBtn {
+    cursor: pointer;
+}
+
+.themeOpen {
+    right: 0;
+}

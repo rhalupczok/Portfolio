@@ -1,20 +1,19 @@
 import { ReactNode } from "react";
 
 export interface charactersInterface {
-    imgSrc: string;
+    icon: string;
     alt: string;
     name: string;
 }
 
 export interface languagesInterface {
-    imgSrc: string;
+    icon: string;
     alt: string;
     name: string;
-    inprogress?: true;
 }
 
 export interface contactInterface {
-    imgSrc: string;
+    icon: string;
     alt: string;
     name: string;
     link: string;
@@ -25,6 +24,7 @@ export interface navMenuInterface {
     name: string;
     id: string;
     target: string;
+    icon: string;
 }
 
 export interface myWorkInterface {
@@ -32,7 +32,6 @@ export interface myWorkInterface {
     imgSrc: string;
     description: string;
     isPlay: boolean;
-    isOpen?: boolean;
     noLearnMore?: boolean;
     href: string;
     technologies: string[];
@@ -69,8 +68,6 @@ export interface PopupContextProps {
             isShow: boolean;
         }>
     >;
-    dayMode: boolean;
-    setDayMode: React.Dispatch<React.SetStateAction<boolean>>;
 }
 
 export interface PopupDataProviderProps {
