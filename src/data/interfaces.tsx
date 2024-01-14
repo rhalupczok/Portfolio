@@ -30,7 +30,6 @@ export interface navMenuInterface {
 export interface myWorkInterface {
     name: string;
     imgSrc: string;
-    description: string;
     isPlay: boolean;
     noLearnMore?: boolean;
     href: string;

@@ -1,13 +1,11 @@
 import { FC, useState } from "react";
 import parse from "html-react-parser";
-import ThemeToggle from "./ThemeControls";
 import FullScreenImage from "./FullScreenImage";
 import componentStyle from "../styles/partials/tenziDescription.module.scss";
 import { useNavigate, ScrollRestoration } from "react-router-dom";
 import { findAllNeighboringImages } from "../data/helperfunc";
 import { appShotsIMG } from "../data/tenziDescData";
 import { techSectionData } from "../data/tenziDescData";
-import { transform } from "typescript";
 
 const TenziDescription: FC = () => {
     const navigate = useNavigate();
@@ -43,11 +41,6 @@ const TenziDescription: FC = () => {
             <div
                 key={element.title}
                 className={`${componentStyle.techSection} ${componentStyle.checkpoint}`}
-                // style={{
-                //     transform: `translateX(${
-                //         index % 2 === 0 ? "-" : ""
-                //     }270px) translateY(-${200 * index}px)`,
-                // }}
             >
                 <h4>{element.title}</h4>
                 <p>{parse(element.description)}</p>

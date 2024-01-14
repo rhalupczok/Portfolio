@@ -79,17 +79,6 @@ h1::after {
     background-position: center center;
 }
 
-@mixin flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-@mixin hide {
-    opacity: 0;
-    animation: none;
-}
-
 .txtHighlight {
     color: $highlight_color;
     font-weight: 700;
@@ -114,7 +103,6 @@ h1::after {
     padding: 1rem;
     color: $text-primary;
     background: $secondary;
-    // box-shadow: 0 0 5px 1px rgb(0, 0, 0);
     border-radius: 0.5rem;
     border-width: 3px;
     border-style: outset;
@@ -130,14 +118,6 @@ h1::after {
     cursor: pointer;
     position: relative;
     overflow: visible;
-}
-
-.btn > img {
-    position: absolute;
-    bottom: -25px;
-    right: -25px;
-    height: 50px;
-    width: 50px;
 }
 
 .btn:hover {

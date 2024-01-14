@@ -9,9 +9,9 @@ const Popup: FC = () => {
     const { popup, setPopup } = usePopup();
     useEffect(() => {
         const body = document.querySelector("body");
-        if (body) body.classList.add(componentStyle.stopScrolling);
+        body?.classList.add(componentStyle.stopScrolling);
         return () => {
-            if (body) body.classList.remove(componentStyle.stopScrolling);
+            body?.classList.remove(componentStyle.stopScrolling);
         };
     }, []);
 
@@ -19,17 +19,9 @@ const Popup: FC = () => {
         ({ name }) => name === popup.content
     ); // finding content for popup in popupData based on content name passed by props
 
-    let targetContent;
-    if (
-        targetPopupContent === undefined ||
-        targetPopupContent.isFinished === false
-    ) {
-        targetContent = popupData[0].content;
-    } else {
-        targetContent = targetPopupContent.content;
-    }
-
-    // first condition: if the name passed by props in not matching to any object in popupdata then targetContent is undefined. In that case object targetContent get the content of "underConstruction" popup. Second condition: If the content of popup is not finished (marked property in data) then targetContent is "underConstruction" too.
+    const targetContent = targetPopupContent
+        ? targetPopupContent.content
+        : popupData[0].content; //   if the name passed by props in not matching to any object or not finised - targetContent is "underConstruction".
 
     const swipeLeft = () => {
         const popups = document.querySelectorAll(

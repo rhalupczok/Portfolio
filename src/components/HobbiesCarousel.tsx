@@ -4,10 +4,17 @@ import { myHobbiesData } from "../data/myHobbiesData";
 import { myhobbiesProps } from "../data/interfaces";
 
 const HobbiesCarousel: FC<myhobbiesProps> = (props) => {
+    const handleScroll = (e: Event) => {
+        const wheelEvent = e as WheelEvent;
+        const delta = wheelEvent.deltaY / 10;
+        rotationAngleRef.current += delta;
+    };
     useEffect(() => {
+        window.addEventListener("mousewheel", (e) => handleScroll(e));
         const body = document.querySelector("body");
         if (body) body.classList.add(componentStyle.stopScrolling);
         return () => {
+            window.removeEventListener("mousewheel", (e) => handleScroll(e));
             if (body) body.classList.remove(componentStyle.stopScrolling);
         };
     }, []);

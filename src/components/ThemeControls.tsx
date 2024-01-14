@@ -17,13 +17,7 @@ const ThemeToggle: FC = () => {
 
     //Toggle theme controls open on click
     const showThemeMenu: () => void = () => {
-        const themeControls = document.getElementsByClassName(
-            `${componentStyle.themeControls}`
-        );
-        Array.from(themeControls).forEach((element: Element) => {
-            setThemeMenu(!themeMenu);
-            element.classList.toggle(`${componentStyle.themeOpen}`);
-        });
+        setThemeMenu(!themeMenu);
     };
 
     //Get root variables
@@ -88,17 +82,14 @@ const ThemeToggle: FC = () => {
         }
     }, []);
 
-    // //Check if any colors have been added to local storage
-    // if (localStorage.getItem("color") != null) {
-    //     //Get colors from local storage
-    //     const customColor = JSON.parse(localStorage.getItem("color"));
-    //     //Set new variable colors
-    //     r?.style.setProperty("--accent", customColor.accent);
-    //     r?.style.setProperty("--accent-darken", customColor.accentDark);
-    // }
-
     return (
-        <ul className={componentStyle.themeControls}>
+        <ul
+            className={`${
+                themeMenu
+                    ? `${componentStyle.themeControls} ${componentStyle.themeOpen}`
+                    : `${componentStyle.themeControls}`
+            }`}
+        >
             <li
                 className={`${componentStyle.color} ${componentStyle.color1}`}
                 onClick={(e) => colorChange(e)}

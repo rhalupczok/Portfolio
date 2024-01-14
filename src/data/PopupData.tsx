@@ -33,7 +33,7 @@ export const popupData: popupDataInterface[] = [
     },
 
     {
-        name: "airhockey",
+        name: "Air Hockey",
         isFinished: true,
         content: [
             {
@@ -97,7 +97,7 @@ export const popupData: popupDataInterface[] = [
     },
 
     {
-        name: "tenzi",
+        name: "Tenzi Game",
         isFinished: true,
         content: [
             {
@@ -172,7 +172,7 @@ export const popupData: popupDataInterface[] = [
     },
 
     {
-        name: "pocketOrganiser",
+        name: "Pocket organiser",
         isFinished: true,
         content: [
             {
@@ -245,7 +245,7 @@ export const popupData: popupDataInterface[] = [
     },
 
     {
-        name: "snake",
+        name: "Snake",
         isFinished: true,
         content: [
             {
@@ -307,7 +307,7 @@ export const popupData: popupDataInterface[] = [
     },
 
     {
-        name: "weather",
+        name: "Weather app",
         isFinished: true,
         content: [
             {
@@ -369,18 +369,18 @@ export const popupData: popupDataInterface[] = [
     },
 
     {
-        name: "portfolio",
+        name: "Portfolio",
         isFinished: true,
         content: [
             {
                 img: "popup-portfolio-0.png",
                 text: [
-                    "The page was created with React, TypeScript and SCSS superset technologies",
-                    "In accordance with composable idea the components, content, TS interfaces and style are kept in separate files and the page is builded mapping by them",
+                    "The page was created with React (React router), TypeScript and SCSS superset technologies",
+                    "In accordance with composable idea - components, content, TypeScript interfaces and Style are kept in separate files and the page is builded mapping by them",
                 ],
                 href: [
                     {
-                        link: "https://github.com/rhalupczok/Portfolio/tree/master/src",
+                        link: "https://github.com/rhalupczok/Portfolio/tree/master",
                         desc: "Complete repositorium on GITHUB",
                     },
                 ],
@@ -391,12 +391,12 @@ export const popupData: popupDataInterface[] = [
                 text: [
                     "All effects like intro, hobby carousel, popups were coded by myself without using any external libraries",
                 ],
-                href: [
-                    {
-                        link: "https://github.com/rhalupczok/Portfolio/blob/239f457b61b763062dab44e839da56d6778c92b6/src/components/HobbiesCarousel.tsx#L1",
-                        desc: "Part of code - hobby carousel popup",
-                    },
-                ],
+                // href: [
+                //     {
+                //         link: "https://github.com/rhalupczok/Portfolio/blob/239f457b61b763062dab44e839da56d6778c92b6/src/components/HobbiesCarousel.tsx#L1",
+                //         desc: "Part of code - hobby carousel popup",
+                //     },
+                // ],
             },
             {
                 img: "popup-portfolio-2.png",

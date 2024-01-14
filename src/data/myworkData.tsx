@@ -2,9 +2,8 @@ import { myWorkInterface } from "./interfaces";
 
 export const myWorkData: myWorkInterface[] = [
     {
-        name: "tenzi",
+        name: "Tenzi Game",
         imgSrc: "my-work-tenzi.png",
-        description: "Tenzi Game",
         isPlay: true,
         noLearnMore: true,
         href: "https://rhalupczok.github.io/Tenzies/",
@@ -22,41 +21,43 @@ export const myWorkData: myWorkInterface[] = [
         ],
     },
     {
-        name: "portfolio", //name used in popup component
+        name: "Portfolio",
         imgSrc: "my-work-portfolio.png", //cover img
-        description: "This portfolio page", //description displayed below img
         isPlay: false, //true if game
         href: "https://rhalupczok.github.io/Portfolio/", //link to app
-        technologies: ["HTML", "JAVASCRIPT", "SCSS", "REACT", "TYPESCRIPT"], //display tiles with used technologies [HTML, JAVASCRIPT, SCSS, REACT, TYPESCRIPT, NODE.JS, GIT]
+        technologies: [
+            "HTML",
+            "JAVASCRIPT",
+            "SCSS",
+            "REACT",
+            "TYPESCRIPT",
+            "GIT",
+        ], //display tiles with used technologies [HTML, JAVASCRIPT, SCSS, REACT, TYPESCRIPT, NODE.JS, GIT]
     },
     {
-        name: "weather",
+        name: "Weather app",
         imgSrc: "my-work-weather_app.png",
-        description: "Weather app (API)",
         isPlay: false,
         href: "https://rhalupczok.github.io/Weather-Application/",
         technologies: ["HTML", "JAVASCRIPT", "CSS", "REACT", "TYPESCRIPT"],
     },
     {
-        name: "airhockey",
+        name: "Air Hockey",
         imgSrc: "my-work-airhockey.jpg",
-        description: "Air Hockey",
         isPlay: true,
         href: "https://rhalupczok.github.io/Air-Hockey/",
         technologies: ["HTML", "JAVASCRIPT", "CSS"],
     },
     {
-        name: "pocketOrganiser",
+        name: "Pocket organiser",
         imgSrc: "my-work-pocket_organiser.png",
-        description: "Pocket organiser",
         isPlay: false,
         href: "https://rhalupczok.github.io/Pocket-Organiser/",
         technologies: ["HTML", "JAVASCRIPT", "CSS"],
     },
     {
-        name: "snake",
+        name: "Snake",
         imgSrc: "my-work-snake_game.png",
-        description: "SNAKE",
         isPlay: true,
         href: "https://rhalupczok.github.io/Snake/",
         technologies: ["HTML", "JAVASCRIPT", "CSS"],

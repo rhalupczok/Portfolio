@@ -52,7 +52,7 @@ const MyWork: FC = () => {
             </div>
             <img
                 src={require(`../images/myWork/${myWorkElement.imgSrc}`)}
-                alt={`${myWorkElement.description} img`}
+                alt={`${myWorkElement.name} img`}
                 className={componentStyle.projectImg}
             />
             <div
@@ -87,9 +87,7 @@ const MyWork: FC = () => {
                     </button>
                 )}
             </div>
-            <p className={componentStyle.projectDesc}>
-                {myWorkElement.description}
-            </p>
+            <p className={componentStyle.projectDesc}>{myWorkElement.name}</p>
         </div>
     ));
 

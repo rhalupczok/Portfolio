@@ -1,12 +1,6 @@
 @use "../vars/colours.scss" as *;
 @use "../vars/global.scss" as *;
 
-@mixin flex {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
 .navBorder {
     width: 100%;
     background: $primary;
