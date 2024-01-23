@@ -45,6 +45,11 @@ export interface popupDataInterface {
         href?: { link: string; desc: string }[];
     }[];
 }
+export interface techSectionDataInterface {
+    title: string;
+    description: string;
+    img: string[];
+}
 
 export interface myHobbiesInterface {
     name: string;

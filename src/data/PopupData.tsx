@@ -385,9 +385,19 @@ export const popupData: popupDataInterface[] = [
                     },
                 ],
             },
-
             {
                 img: "popup-portfolio-1.png",
+                text: [
+                    "Created accordingly with responsive web design.",
+                    "MQ Berakpoints, tools like Flexbox and Grid, considered touchscreens",
+                ],
+            },
+            {
+                img: "popup-portfolio-2.png",
+                text: ["Dynamic themes"],
+            },
+            {
+                img: "popup-portfolio-3.png",
                 text: [
                     "All effects like intro, hobby carousel, popups were coded by myself without using any external libraries",
                 ],
@@ -399,7 +409,7 @@ export const popupData: popupDataInterface[] = [
                 // ],
             },
             {
-                img: "popup-portfolio-2.png",
+                img: "popup-portfolio-4.png",
                 text: [
                     "Data such as pop-ups or my work content is stored within a distinct container component and integrated into the website through universal methods, enhancing its flexibility and simplifying the process of expanding it.",
                 ],

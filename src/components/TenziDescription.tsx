@@ -1,11 +1,16 @@
-import { FC, useState } from "react";
+import { FC, useState, ReactElement } from "react";
 import parse from "html-react-parser";
 import FullScreenImage from "./FullScreenImage";
 import componentStyle from "../styles/partials/tenziDescription.module.scss";
 import { useNavigate, ScrollRestoration } from "react-router-dom";
 import { findAllNeighboringImages } from "../data/helperfunc";
-import { appShotsIMG } from "../data/tenziDescData";
-import { techSectionData } from "../data/tenziDescData";
+import {
+    appShotsIMG,
+    frontEndSectionData,
+    serverSectionData,
+    JWTSectionData,
+} from "../data/tenziDescData";
+import { techSectionDataInterface } from "../data/interfaces";
 
 const TenziDescription: FC = () => {
     const navigate = useNavigate();
@@ -36,32 +41,36 @@ const TenziDescription: FC = () => {
         );
     });
 
-    const techSectionArr = techSectionData.map((element, index) => {
-        return (
-            <div
-                key={element.title}
-                className={`${componentStyle.techSection} ${componentStyle.checkpoint}`}
-            >
-                <h4>{element.title}</h4>
-                <p>{parse(element.description)}</p>
-                <div className={componentStyle.techSectionIMG}>
-                    {element.img.map((img) => {
-                        return (
-                            <img
-                                src={require(`../images/tenziDescription/${img}`)}
-                                alt="code"
-                                onClick={(e) =>
-                                    setFullScreenIMGArr(
-                                        findAllNeighboringImages(e)
-                                    )
-                                }
-                            />
-                        );
-                    })}
+    const techSectionArr: (
+        techSectionData: techSectionDataInterface[]
+    ) => ReactElement[] = (techSectionData) => {
+        return techSectionData.map((element, index) => {
+            return (
+                <div
+                    key={element.title}
+                    className={`${componentStyle.techSection}`}
+                >
+                    <h4>{element.title}</h4>
+                    <p>{parse(element.description)}</p>
+                    <div className={componentStyle.techSectionIMG}>
+                        {element.img.map((img) => {
+                            return (
+                                <img
+                                    src={require(`../images/tenziDescription/${img}`)}
+                                    alt="code"
+                                    onClick={(e) =>
+                                        setFullScreenIMGArr(
+                                            findAllNeighboringImages(e)
+                                        )
+                                    }
+                                />
+                            );
+                        })}
+                    </div>
                 </div>
-            </div>
-        );
-    });
+            );
+        });
+    };
 
     return (
         <div className={componentStyle.mainSection}>
@@ -110,10 +119,8 @@ const TenziDescription: FC = () => {
             <div className={componentStyle.h1Wrapper}>
                 <h1>FrontEnd</h1>
             </div>
-            <section
-                className={`${componentStyle.branchSection} ${componentStyle.timeline}`}
-            >
-                {techSectionArr.slice(0, 7)}
+            <section className={`${componentStyle.branchSection}`}>
+                {techSectionArr(frontEndSectionData)}
             </section>
             <section className={componentStyle.globalDiagram}>
                 <div className={componentStyle.h1Wrapper}>
@@ -128,10 +135,8 @@ const TenziDescription: FC = () => {
                     }
                 />
             </section>
-            <section
-                className={`${componentStyle.branchSection} ${componentStyle.timeline}`}
-            >
-                {techSectionArr.slice(7, 11)}
+            <section className={`${componentStyle.branchSection}`}>
+                {techSectionArr(serverSectionData)}
             </section>
             <section className={componentStyle.globalDiagram}>
                 <div className={componentStyle.h1Wrapper}>
@@ -154,10 +159,8 @@ const TenziDescription: FC = () => {
                     }
                 />
             </section>
-            <section
-                className={`${componentStyle.branchSection} ${componentStyle.timeline}`}
-            >
-                {techSectionArr.slice(11, 15)}
+            <section className={`${componentStyle.branchSection}`}>
+                {techSectionArr(JWTSectionData)}
             </section>
             <ScrollRestoration />
         </div>

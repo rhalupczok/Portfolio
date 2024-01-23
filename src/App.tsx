@@ -37,7 +37,7 @@ const App: React.FC = () => {
                 path="tenzidescription"
                 element={
                     <>
-                        <TenziDescription /> <Footer />
+                        <TenziDescription /> <Footer /> <ThemeToggle />
                     </>
                 }
             />

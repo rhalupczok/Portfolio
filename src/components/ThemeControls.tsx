@@ -2,13 +2,10 @@ import { FC, useState, useEffect } from "react";
 import componentStyle from "../styles/partials/ThemeControls.module.scss";
 
 const ThemeToggle: FC = () => {
-    //Theme Controls
-    //Theme object
     const [themeMenu, setThemeMenu] = useState<boolean>(false);
     const [lightTheme, setLightTheme] = useState<boolean>(
         JSON.parse(localStorage.getItem("theme") || "false")
     );
-    //Theme color object
 
     const [themeColor, setThemeColor] = useState<{
         highlight_color: string;
@@ -22,7 +19,7 @@ const ThemeToggle: FC = () => {
 
     //Get root variables
     const r = document.querySelector(":root") as HTMLElement;
-    const rs = getComputedStyle(r);
+    // const rs = getComputedStyle(r);
 
     const themeChange: () => void = () => {
         //Toggle light theme variables

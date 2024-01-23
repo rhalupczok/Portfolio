@@ -1,23 +1,25 @@
 {
   "files": {
-    "main.css": "https://radoslawhalupczok.pl/static/css/main.6b7f4f93.css",
-    "main.js": "https://radoslawhalupczok.pl/static/js/main.fee00406.js",
+    "main.css": "https://radoslawhalupczok.pl/static/css/main.f0a32238.css",
+    "main.js": "https://radoslawhalupczok.pl/static/js/main.c80e6c0e.js",
     "static/media/my-job-0.png": "https://radoslawhalupczok.pl/static/media/my-job-0.e65fa4d81706c7d88e3b.png",
+    "static/media/popup-portfolio-2.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-2.e4fee9a8db6866c9743e.png",
+    "static/media/my-work-portfolio.png": "https://radoslawhalupczok.pl/static/media/my-work-portfolio.55b3092d897148b4db93.png",
+    "static/media/popup-portfolio-1.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-1.f7c6f00d0dd94bb3e19a.png",
     "static/media/intro-my-picture.png": "https://radoslawhalupczok.pl/static/media/intro-my-picture.5badecdf97942ac2bcda.png",
-    "static/media/popup-portfolio-1.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-1.fe6f6be97b9cd5cdab88.png",
+    "static/media/popup-portfolio-3.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-3.fe6f6be97b9cd5cdab88.png",
     "static/media/popup-pocket-organiser-1.png": "https://radoslawhalupczok.pl/static/media/popup-pocket-organiser-1.b9aec2f65e9ba84faed9.png",
     "static/media/popup-hobby-mechanics.jpg": "https://radoslawhalupczok.pl/static/media/popup-hobby-mechanics.a5dc9107048e016f64de.jpg",
     "static/media/popup-tenzi-0.png": "https://radoslawhalupczok.pl/static/media/popup-tenzi-0.8843f7d6c5cbe3a1c157.png",
     "static/media/popup-hobby-technologies.jpeg": "https://radoslawhalupczok.pl/static/media/popup-hobby-technologies.08d8d2776c9ae7720df4.jpeg",
-    "static/media/my-work-portfolio.png": "https://radoslawhalupczok.pl/static/media/my-work-portfolio.fac7f14eb7604c76ae8c.png",
     "static/media/popup-airhockey-2.png": "https://radoslawhalupczok.pl/static/media/popup-airhockey-2.335e3b79df3a4b9525ef.png",
     "static/media/popup-pocket-organiser-0.png": "https://radoslawhalupczok.pl/static/media/popup-pocket-organiser-0.1a974c24baed0992bcdf.png",
     "static/media/popup-snake-0.png": "https://radoslawhalupczok.pl/static/media/popup-snake-0.a8bb38f1a210a0222706.png",
     "static/media/popup-weather-0.png": "https://radoslawhalupczok.pl/static/media/popup-weather-0.9559305799ea14523c8d.png",
     "static/media/popup-hobby-lifestyle.jpg": "https://radoslawhalupczok.pl/static/media/popup-hobby-lifestyle.1f95136edb28d557c228.jpg",
+    "static/media/popup-portfolio-0.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-0.f9b4185a2d27f5d74b98.png",
     "static/media/my-work-pocket_organiser.png": "https://radoslawhalupczok.pl/static/media/my-work-pocket_organiser.fc40d3e48c52219dd2ab.png",
     "static/media/popup-pocket-organiser-3.png": "https://radoslawhalupczok.pl/static/media/popup-pocket-organiser-3.f8c68734c5c04dfc3c7a.png",
-    "static/media/popup-portfolio-0.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-0.fd3c24eb6e7341d45865.png",
     "static/media/mainDiagram.png": "https://radoslawhalupczok.pl/static/media/mainDiagram.68e7bc3287d28821178c.png",
     "static/media/popup-weather-1.png": "https://radoslawhalupczok.pl/static/media/popup-weather-1.b82dedbc4e2ad8aafd75.png",
     "static/media/popup-tenzi-3.png": "https://radoslawhalupczok.pl/static/media/popup-tenzi-3.8aaf198ba5d020044c42.png",
@@ -35,8 +37,8 @@
     "static/media/my-work-tenzi_old.png": "https://radoslawhalupczok.pl/static/media/my-work-tenzi_old.13a629d83cd37953beca.png",
     "static/media/serverDiagram.png": "https://radoslawhalupczok.pl/static/media/serverDiagram.ebe936755222c61212c4.png",
     "static/media/app_shot_4.png": "https://radoslawhalupczok.pl/static/media/app_shot_4.02d5b5b6c4e970f304a5.png",
+    "static/media/popup-portfolio-4.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-4.049d3991f833e2f32bff.png",
     "static/media/jwt_react_interceptors_1.png": "https://radoslawhalupczok.pl/static/media/jwt_react_interceptors_1.ff5a12c859ee005b6023.png",
-    "static/media/popup-portfolio-2.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-2.9e0bd53980bb6390c317.png",
     "static/media/popup-in-build-1.png": "https://radoslawhalupczok.pl/static/media/popup-in-build-1.1fa33ab5114d5359a85a.png",
     "static/media/app_shot_3.png": "https://radoslawhalupczok.pl/static/media/app_shot_3.4ee366d86b6e6906da0b.png",
     "static/media/back_auth_1.png": "https://radoslawhalupczok.pl/static/media/back_auth_1.bc8f5ed2ddb1f3449d58.png",
@@ -86,11 +88,11 @@
     "static/media/jwt_cookies_2.png": "https://radoslawhalupczok.pl/static/media/jwt_cookies_2.f06b3dce7488d8261cf9.png",
     "static/media/click_on.png": "https://radoslawhalupczok.pl/static/media/click_on.b5830fdf2a8f69862909.png",
     "index.html": "https://radoslawhalupczok.pl/index.html",
-    "main.6b7f4f93.css.map": "https://radoslawhalupczok.pl/static/css/main.6b7f4f93.css.map",
-    "main.fee00406.js.map": "https://radoslawhalupczok.pl/static/js/main.fee00406.js.map"
+    "main.f0a32238.css.map": "https://radoslawhalupczok.pl/static/css/main.f0a32238.css.map",
+    "main.c80e6c0e.js.map": "https://radoslawhalupczok.pl/static/js/main.c80e6c0e.js.map"
   },
   "entrypoints": [
-    "static/css/main.6b7f4f93.css",
-    "static/js/main.fee00406.js"
+    "static/css/main.f0a32238.css",
+    "static/js/main.c80e6c0e.js"
   ]
 }
