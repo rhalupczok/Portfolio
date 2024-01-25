@@ -21,7 +21,7 @@ const AboutMe: FC = () => {
     ));
 
     return (
-        <div id="about" className={componentStyle.mainSection}>
+        <section id="about" className={componentStyle.mainSection}>
             <div className={componentStyle.navMenuMargin}></div>
             <h1>About me</h1>
             <div className={componentStyle.description}>
@@ -95,7 +95,7 @@ const AboutMe: FC = () => {
             {displayHobbies && (
                 <HobbiesCarousel toggleHobbiesHandle={toggleHobbies} />
             )}
-        </div>
+        </section>
     );
 };
 export default AboutMe;

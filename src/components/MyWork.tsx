@@ -94,7 +94,7 @@ const MyWork: FC = () => {
     const myWorkTenzi = myWorkElements.shift();
 
     return (
-        <div id="my-work" className={componentStyle.mainSection}>
+        <section id="my-work" className={componentStyle.mainSection}>
             <div className={componentStyle.navMenuMargin}></div>
             <h1>My Work</h1>
             <div className={componentStyle.tenziGameContainer}>
@@ -153,7 +153,7 @@ const MyWork: FC = () => {
                     {myWorkElements}
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

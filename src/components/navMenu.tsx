@@ -64,7 +64,7 @@ const NavMenu: FC = () => {
     ));
 
     return (
-        <div>
+        <nav>
             <div className={componentStyle.navBorder}>
                 <span
                     className={componentStyle.navBorderMenuBtn}
@@ -74,7 +74,7 @@ const NavMenu: FC = () => {
                 </span>
             </div>
             <nav className={componentStyle.navMenu}>{navMenuElements}</nav>
-        </div>
+        </nav>
     );
 };
 

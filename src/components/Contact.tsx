@@ -18,7 +18,7 @@ const Contact: FC = () => {
         </div>
     ));
     return (
-        <div
+        <section
             id="contact"
             className={`${componentStyle.contact}, ${componentStyle.mainSection}`}
         >
@@ -27,7 +27,7 @@ const Contact: FC = () => {
             <div className={componentStyle.cardsContainer}>
                 {contactElements}
             </div>
-        </div>
+        </section>
     );
 };
 

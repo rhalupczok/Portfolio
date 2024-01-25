@@ -80,7 +80,7 @@ const Intro: FC = () => {
     };
 
     return (
-        <div id="intro" className={componentStyle.introBg}>
+        <header id="intro" className={componentStyle.introBg}>
             <div className={componentStyle.intro} style={introStyle}>
                 <div
                     style={playCarousel ? style.cards : undefined}
@@ -180,7 +180,7 @@ const Intro: FC = () => {
                     <i className="fa-solid fa-xl fa-right-long"></i>
                 </div>
             </button>
-        </div>
+        </header>
     );
 };
 

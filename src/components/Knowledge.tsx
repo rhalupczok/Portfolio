@@ -11,7 +11,7 @@ const Knowledge: React.FC = () => {
     ));
 
     return (
-        <div id="knowledge" className={componentStyle.mainSection}>
+        <section id="knowledge" className={componentStyle.mainSection}>
             <div className={componentStyle.navMenuMargin}></div>
             <h1>SKILLS</h1>
             <section className={componentStyle.technologyBlock}>
@@ -116,7 +116,7 @@ const Knowledge: React.FC = () => {
                     </p>
                 </div>
             </section>
-        </div>
+        </section>
     );
 };
 export default Knowledge;

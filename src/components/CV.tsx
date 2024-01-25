@@ -3,7 +3,7 @@ import componentStyle from "../styles/partials/CV.module.scss";
 
 const CV: React.FC = () => {
     return (
-        <div id="cv" className={componentStyle.mainSection}>
+        <section id="cv" className={componentStyle.mainSection}>
             <div className={componentStyle.navMenuMargin}></div>
             <h1>CV</h1>
             <div className={componentStyle.cardsContainer}>
@@ -20,7 +20,7 @@ const CV: React.FC = () => {
                     </div>
                 </div>
             </div>
-        </div>
+        </section>
     );
 };
 

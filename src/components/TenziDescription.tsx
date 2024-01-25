@@ -73,7 +73,7 @@ const TenziDescription: FC = () => {
     };
 
     return (
-        <div className={componentStyle.mainSection}>
+        <main className={componentStyle.mainSection}>
             {fullScreenIMGArr.allImages[0] && (
                 <FullScreenImage
                     allImages={fullScreenIMGArr.allImages}
@@ -163,7 +163,7 @@ const TenziDescription: FC = () => {
                 {techSectionArr(JWTSectionData)}
             </section>
             <ScrollRestoration />
-        </div>
+        </main>
     );
 };
 export default TenziDescription;
