@@ -1,227 +1,235 @@
-@use "../vars/colours.scss" as *;
-@use "../vars/global.scss" as *;
+@use "../vars/commonStyles.scss" as *;
 
-.introBg {
+.intro {
     width: 100%;
     height: 100svh;
     position: relative;
+
+    &__carousel {
+        position: relative;
+        width: 300px;
+        height: 10px;
+        perspective: 1000px;
+        margin: 0 auto;
+        bottom: -30vh;
+    }
 }
 
-.intro {
-    position: relative;
-    width: 300px;
-    perspective: 1000px;
-    margin: 0 auto;
-    bottom: -30vh;
-}
-
-.introCarousel {
+.carousel {
     @include flex;
     width: 100%;
     transform-style: preserve-3d;
-}
 
-.introPicture {
-    width: 200px;
-    position: absolute;
-    top: -100px;
-}
+    &__picture {
+        width: 200px;
+        position: absolute;
+        top: -100px;
+    }
 
-.introCarouselItem {
-    width: 100%;
-    max-width: 400px;
-    height: 150px;
-    position: absolute;
-    top: 120px;
-    overflow: hidden;
-    box-shadow: 0px 0px 20px 0px #000;
-    border-radius: 3vh;
-    @include flex;
-    flex-direction: column;
-    transition: all 1s;
-    transform: rotateY(0) translateZ(0);
-}
+    &__item {
+        @include flex;
+        flex-direction: column;
+        position: absolute;
+        top: 120px;
+        width: 100%;
+        max-width: 400px;
+        height: 150px;
+        background: $secondary;
+        box-shadow: 0px 0px 10px 0px $text-primary;
+        border-radius: 3vh;
+        transition: all 1s;
+        overflow: hidden;
+        transform: rotateY(0) translateZ(0);
+    }
 
-.introCarouselItemContent {
-    @include flex;
-    width: 90%;
-    height: 90%;
-    border-radius: 2vh;
-    background: $secondary;
-    box-shadow: 0px 0px 10px 0px $text-primary;
-    position: relative;
-}
+    &__it1 {
+        left: -350px;
+        z-index: 0;
+        transform: rotateY(-20deg);
 
-.introCarousel p {
-    color: $text-primary;
-    font-size: 1.5rem;
-    font-weight: 700;
-    text-align: center;
-    padding: 5%;
-}
+        &_isPlay {
+            left: unset;
+            transform: rotateY(0deg) translateZ(200px);
+        }
+    }
 
-.scale {
-    transition: all 0.5s;
-    position: absolute;
-}
+    &__it2 {
+        transform: translateZ(40px);
+        z-index: 1;
 
-.introCarouselItem.it1 {
-    z-index: 0;
-    left: -350px;
-    transform: rotateY(-20deg);
-}
+        &_isPlay {
+            transform: rotateY(-120deg) translateZ(200px);
+        }
+    }
 
-.introCarouselItem.it2 {
-    transform: translateZ(40px);
-    z-index: 1;
-}
+    &__it3 {
+        right: -350px;
+        z-index: 2;
+        transform: rotateY(20deg);
 
-.introCarouselItem.it3 {
-    right: -350px;
-    z-index: 2;
-    transform: rotateY(20deg);
-}
+        &_isPlay {
+            right: unset;
+            transform: rotateY(-240deg) translateZ(200px);
+        }
+    }
 
-.introCarouselItem.it1.carousel {
-    left: unset;
-
-    transform: rotateY(0deg) translateZ(200px);
-}
-.introCarouselItem.it2.carousel {
-    transform: rotateY(-120deg) translateZ(200px);
-}
-.introCarouselItem.it3.carousel {
-    right: unset;
-    transform: rotateY(-240deg) translateZ(200px);
+    &__paragraph {
+        font-size: 1.5rem;
+        font-weight: 700;
+        text-align: center;
+        color: $text-primary;
+    }
 }
 
 //-------------------------button----------------------------------
 
-.carouselBtn {
+.intro__button {
+    @include flex;
     position: absolute;
-    top: 60px;
-    right: 20px;
-    font-size: 0.7rem;
-    font-weight: 400;
-    padding: 4px;
-    width: 50px;
-}
-.downBtn {
-    position: absolute;
-    bottom: 30px;
     right: 30px;
+    padding: 0.5em;
     font-size: 1rem;
     font-weight: 400;
-    padding: 0.3rem;
-    @include flex;
-    gap: 0.4rem;
-}
 
-.downBtnArr {
-    color: $highlight_color;
-    transition: transform 0.3s ease;
+    &_play {
+        top: 60px;
+        width: 50px;
+    }
+
+    &_work {
+        bottom: 30px;
+        gap: 0.4rem;
+    }
+
+    &_arrow {
+        color: $highlight_color;
+        transition: transform 0.3s ease;
+    }
 }
 
 // ---------------------/button---------------------------
 
 @media screen and (max-width: 1200px) {
-    .introCarouselItem {
-        width: 180px;
-        height: 100px;
-        top: 180px;
-    }
+    .carousel {
+        &__item {
+            width: 180px;
+            height: 100px;
+            top: 180px;
+        }
 
-    .introCarouselItem.it1 {
-        left: -150px;
-        z-index: 0;
-    }
+        &__it1 {
+            left: -150px;
 
-    .introCarouselItem.it3 {
-        right: -150px;
-        z-index: 2;
-    }
+            &_isPlay {
+                left: unset;
+                width: 250px;
+            }
+        }
 
-    .introCarouselItem.carousel {
-        width: 250px;
-    }
+        &__it2 {
+            &_isPlay {
+                width: 250px;
+            }
+        }
 
-    .introCarousel p {
-        font-size: 0.9rem;
-        font-weight: 700;
-        text-align: center;
+        &__it3 {
+            right: -150px;
+
+            &_isPlay {
+                right: unset;
+                width: 250px;
+            }
+        }
+
+        &__paragraph {
+            font-size: 0.9rem;
+        }
     }
 }
 
 @media screen and (max-width: 600px) {
-    .introCarouselItem {
-        width: 110px;
-    }
+    .carousel {
+        &__item {
+            width: 110px;
+        }
 
-    .introCarouselItem.it1 {
-        z-index: 0;
-        left: -30px;
-    }
+        &__it1 {
+            left: -30px;
 
-    .introCarouselItem.it3 {
-        right: -30px;
-        z-index: 2;
-    }
+            &_isPlay {
+                left: unset;
+                width: 150px;
+                transform: rotateY(0deg) translateZ(100px);
+            }
+        }
 
-    .introCarousel p {
-        font-size: 0.8rem;
-        font-weight: 700;
-        text-align: center;
-    }
+        &__it2 {
+            &_isPlay {
+                width: 150px;
+                transform: rotateY(-120deg) translateZ(100px);
+            }
+        }
 
-    .introCarouselItem.carousel {
-        width: 150px;
-    }
-    .introCarouselItem.it1.carousel {
-        transform: rotateY(0deg) translateZ(100px);
-    }
-    .introCarouselItem.it2.carousel {
-        transform: rotateY(-120deg) translateZ(100px);
-    }
-    .introCarouselItem.it3.carousel {
-        transform: rotateY(-240deg) translateZ(100px);
+        &__it3 {
+            right: -30px;
+
+            &_isPlay {
+                right: unset;
+                width: 150px;
+                transform: rotateY(-240deg) translateZ(100px);
+            }
+        }
+
+        &__paragraph {
+            font-size: 0.8rem;
+        }
     }
 }
 
 @media screen and (max-height: 500px) {
-    .intro {
+    .carousel {
         bottom: 0px;
-    }
 
-    .introPicture {
-        width: 120px;
-        position: absolute;
-        top: 50px;
-    }
+        &__picture {
+            top: 50px;
+            width: 120px;
+        }
 
-    .introCarouselItem {
-        width: 180px;
-        height: 100px;
-        top: 180px;
-    }
+        &__item {
+            top: 180px;
+            width: 180px;
+            height: 100px;
+        }
 
-    .introCarouselItem.it1 {
-        left: -150px;
-        z-index: 0;
-    }
+        &__it1 {
+            left: -150px;
 
-    .introCarouselItem.it3 {
-        right: -150px;
-        z-index: 2;
-    }
+            &_isPlay {
+                top: 100px;
+                left: unset;
+                width: 250px;
+            }
+        }
 
-    .introCarouselItem.carousel {
-        width: 250px;
-        top: 100px;
-    }
+        &__it2 {
+            &_isPlay {
+                width: 250px;
+                top: 100px;
+            }
+        }
 
-    .introCarousel p {
-        font-size: 0.9rem;
-        font-weight: 700;
-        text-align: center;
+        &__it3 {
+            right: -150px;
+
+            &_isPlay {
+                top: 100px;
+                right: unset;
+                width: 250px;
+            }
+        }
+
+        &__paragraph {
+            font-size: 0.9rem;
+        }
     }
 }

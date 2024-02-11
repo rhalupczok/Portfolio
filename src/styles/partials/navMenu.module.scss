@@ -1,18 +1,49 @@
-@use "../vars/colours.scss" as *;
-@use "../vars/global.scss" as *;
+@use "../vars/commonStyles.scss" as *;
 
-.navBorder {
-    width: 100%;
-    background: $primary;
+.navmenu {
+    @include flex;
+    flex-direction: row;
+    flex-wrap: nowrap;
     position: fixed;
-    padding: 10px 0;
+    width: 100%;
     height: 20px;
     top: 0;
     left: 0;
+    padding: 10px 0;
+    background: $primary;
     z-index: 98;
+
+    &__item {
+        padding: 0 20px;
+        border: 3px solid $primary;
+        font-size: 1rem;
+        font-weight: 700;
+        text-decoration: none;
+        transition: all 0.3s;
+        z-index: 99;
+        cursor: pointer;
+
+        &_active {
+            background-color: $primary;
+            border: 3px solid $highlight_color !important;
+            border-radius: 5px;
+            color: $highlight_color;
+            transform: translateY(20px);
+        }
+    }
+
+    &__item:hover {
+        color: $highlight_color_darken;
+    }
+
+    &__icon {
+        display: none;
+        margin: 0;
+        padding: 0;
+    }
 }
 
-.navBorder::after {
+.navmenu::after {
     content: "";
     position: absolute;
     left: 0;
@@ -22,111 +53,18 @@
     background: $highlight_color;
 }
 
-.navBorderMenuBtn {
-    display: none;
-    cursor: pointer;
-    float: left;
-    font-size: 1rem;
-    padding: 0px 20px;
-    font-weight: 700;
-    text-decoration: none;
-    transition: color 0.2s ease-out;
-}
+@media screen and (max-width: 700px) {
+    .navmenu {
+        &__item {
+            padding: 0 4vw;
+        }
 
-.navBorderMenuBtn:hover {
-    color: $highlight_color;
-}
-
-.navMenu {
-    top: 0;
-    left: 0;
-    width: 100%;
-    @include flex;
-    flex-direction: row;
-    flex-wrap: nowrap;
-    position: fixed;
-    padding: 10px;
-    height: 16px;
-    z-index: 98;
-}
-.navMenu {
-    span {
-        font-size: 1rem;
-        padding: 0 20px;
-        font-weight: 700;
-        text-decoration: none;
-        transition: color 0.2s ease-out;
-        cursor: pointer;
-        border: 3px solid $primary;
-        transition: all 0.3s;
-    }
-    span:hover {
-        color: $highlight_color_darken;
-    }
-}
-
-.navMenu {
-    span {
-        i {
-            padding: 0;
-            margin: 0;
+        &__name {
             display: none;
         }
-    }
-}
 
-.active {
-    transform: translateY(20px);
-    color: $highlight_color;
-    background-color: $primary;
-    border: 3px solid $highlight_color !important;
-    border-radius: 5px;
-}
-
-@media screen and (max-width: 700px) {
-    .fullName {
-        display: none;
-    }
-    .navMenu {
-        span {
-            padding: 0 4vw;
-            i {
-                padding: 0;
-                margin: 0;
-                display: inline;
-            }
+        &__icon {
+            display: inline;
         }
     }
 }
-
-//     .navBorderMenuBtn {
-//         display: block;
-//     }
-
-//     .navMenu {
-//         visibility: hidden;
-//         flex-direction: column;
-//         justify-content: space-around;
-//         top: 40px;
-//         width: 160px;
-//         height: 150px;
-//         background: $primary;
-//         transform: translateY(-100%);
-//         transition: all 0.2s;
-//         z-index: 97;
-//     }
-
-//     .navMenu.responsive {
-//         visibility: visible;
-//         transform: translateY(0);
-//         border-bottom: 2px solid $highlight_color;
-//         border-right: 2px solid $highlight_color;
-//     }
-//     .active {
-//         transform: translateY(0);
-//         color: $highlight_color;
-//         background-color: $primary;
-//         border: none;
-//         border-radius: 0px;
-//     }
-// }

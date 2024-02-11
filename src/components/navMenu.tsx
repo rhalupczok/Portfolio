@@ -1,34 +1,27 @@
 import { ReactElement, FC, useState, useEffect } from "react";
-
 import componentStyle from "../styles/partials/navMenu.module.scss";
 import { navMenuData } from "../data/navMenuData";
 import { scrollTo } from "../data/helperfunc";
-
-// const openMenu: () => void = () => {
-//     const navMenu: HTMLElement | null = document.querySelector(
-//         `.${componentStyle.navMenu}`
-//     );
-//     if (navMenu && window.innerWidth < 800)
-//         navMenu.classList.toggle(componentStyle.responsive);
-// };
 
 const NavMenu: FC = () => {
     const [activeElement, setActiveElement] = useState<string | null>(null);
 
     const handleScroll = () => {
         const threshold = 50;
+
         // Check which section is currently in the viewport
         navMenuData.forEach((menuElement) => {
             const targetElement = document.getElementById(menuElement.target);
-            if (targetElement) {
-                const rect = targetElement.getBoundingClientRect();
-                if (
-                    (rect.top - threshold <= 0 && rect.bottom >= threshold) ||
-                    (rect.height <= window.innerHeight &&
-                        rect.bottom - threshold <= window.innerHeight)
-                ) {
-                    setActiveElement(menuElement.id);
-                }
+            const rect = targetElement?.getBoundingClientRect();
+            if (
+                (rect &&
+                    rect.top - threshold <= 0 &&
+                    rect.bottom >= threshold) ||
+                (rect &&
+                    rect.height <= window.innerHeight &&
+                    rect.bottom - threshold <= window.innerHeight)
+            ) {
+                setActiveElement(menuElement.id);
             }
         });
     };
@@ -39,43 +32,31 @@ const NavMenu: FC = () => {
             window.removeEventListener("scroll", handleScroll);
         };
     }, []);
+
+    //mapping by navmenu data to print elements
     const navMenuElements: ReactElement[] = navMenuData.map((menuElement) => (
         <span
             key={menuElement.id}
             id={menuElement.id}
             onClick={() => {
-                scrollTo(menuElement.target);
-                // openMenu();
+                scrollTo(menuElement.target); //func to scroll the target element
             }}
-            className={
-                menuElement.id === activeElement ? componentStyle.active : ""
-            }
+            className={`${componentStyle.navmenu__item} ${
+                menuElement.id === activeElement
+                    ? componentStyle.navmenu__item_active
+                    : ""
+            }`}
         >
-            <div className={componentStyle.fullName}>{menuElement.name}</div>
-
-            <i className={`${menuElement.icon}`}></i>
-
-            {/* {window.innerWidth > 700 ? (
-                menuElement.name
-            ) : (
-                <i className={`${menuElement.icon}`}></i>
-            )} */}
+            <span className={componentStyle.navmenu__name}>
+                {menuElement.name}
+            </span>
+            <i
+                className={`${menuElement.icon} ${componentStyle.navmenu__icon}`}
+            ></i>
         </span>
     ));
 
-    return (
-        <nav>
-            <div className={componentStyle.navBorder}>
-                <span
-                    className={componentStyle.navBorderMenuBtn}
-                    // onClick={openMenu}
-                >
-                    MENU
-                </span>
-            </div>
-            <nav className={componentStyle.navMenu}>{navMenuElements}</nav>
-        </nav>
-    );
+    return <nav className={componentStyle.navmenu}>{navMenuElements}</nav>;
 };
 
 export default NavMenu;

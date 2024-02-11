@@ -1,5 +1,5 @@
-@use "../vars/colours.scss" as *;
-@use "../vars/global.scss" as *;
+@use "../vars/colors.scss" as *;
+@use "../vars/commonStyles.scss" as *;
 
 .projectsContainer {
     @include flex;

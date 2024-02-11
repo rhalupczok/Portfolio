@@ -1,19 +1,17 @@
 export const scrollTo: (el: string) => void = (el) => {
     const element: HTMLElement | null = document.getElementById(`${el}`); //get target from navMenuData
-    if (element) {
-        const vh = Math.max(
-            document.documentElement.clientHeight || 0,
-            window.innerHeight || 0
-        );
-        element.scrollIntoView({
-            behavior: "smooth",
-            block:
-                document.documentElement.scrollHeight < element.offsetTop + vh
-                    ? "end"
-                    : "start",
-            inline: "nearest",
-        });
-    }
+    const vh = Math.max(
+        document.documentElement.clientHeight || 0,
+        window.innerHeight || 0
+    );
+    element?.scrollIntoView({
+        behavior: "smooth",
+        block:
+            document.documentElement.scrollHeight < element.offsetTop + vh
+                ? "end"
+                : "start",
+        inline: "nearest",
+    });
 };
 
 export const fullScreenIMG = (e: EventTarget) => {

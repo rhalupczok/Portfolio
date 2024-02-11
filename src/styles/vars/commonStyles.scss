@@ -1,4 +1,36 @@
-@use "./colours.scss" as *;
+.main_darkTheme {
+    --primary: #191919;
+    --secondary: #111111;
+    --highlight_color: #2d85ff;
+    --highlight_color_darken: #256fd5;
+    --text-primary: #fff;
+    --text-secondary: #8d8d8d;
+    --panel: #1e1e1e;
+}
+
+.main_lightTheme {
+    --primary: #efefef;
+    --secondary: #e4e4e4;
+    --panel: #fff;
+    --text-primary: #000;
+    --text-secondary: #7a7a7a;
+}
+
+$primary: var(--primary);
+$secondary: var(--secondary);
+$highlight_color: var(--highlight_color);
+$highlight_color_darken: var(--highlight_color_darken);
+$text-primary: var(--text-primary);
+$text-secondary: var(--text-secondary);
+$panel: var(--panel);
+$bgGradient: linear-gradient(
+    30deg,
+    var(--highlight_color),
+    var(--highlight_color_darken),
+    var(--primary),
+    var(--highlight_color_darken),
+    var(--highlight_color)
+);
 
 @mixin flex {
     display: flex;

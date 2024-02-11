@@ -80,81 +80,64 @@ const Intro: FC = () => {
     };
 
     return (
-        <header id="intro" className={componentStyle.introBg}>
-            <div className={componentStyle.intro} style={introStyle}>
-                <div
+        <section id="intro" className={componentStyle.intro}>
+            <article
+                className={componentStyle.intro__carousel}
+                style={introStyle}
+            >
+                <section
                     style={playCarousel ? style.cards : undefined}
-                    className={componentStyle.introCarousel}
+                    className={componentStyle.carousel}
                 >
                     <img
                         style={playCarousel ? style.picture : undefined}
                         src={require("../images/intro/intro-my-picture.png")}
                         alt="Profile"
-                        className={componentStyle.introPicture}
+                        className={componentStyle.carousel__picture}
                     />
-                    <div className={componentStyle.introPictureGradient}></div>
-                    <div
+                    <section
                         className={
                             playCarousel
-                                ? `${componentStyle.introCarouselItem} ${componentStyle.it1} ${componentStyle.carousel}`
-                                : `${componentStyle.introCarouselItem} ${componentStyle.it1}`
+                                ? `${componentStyle.carousel__item} ${componentStyle.carousel__it1} ${componentStyle.carousel__it1_isPlay}`
+                                : `${componentStyle.carousel__item} ${componentStyle.carousel__it1}`
                         }
                     >
-                        <div
-                            className={componentStyle.introCarouselItemContent}
-                        >
-                            <h1>
-                                <p>Welcome on my portfolio page</p>
-                            </h1>
-                        </div>
-                    </div>
-                    <div
+                        <p className={componentStyle.carousel__paragraph}>
+                            Welcome on my portfolio page
+                        </p>
+                    </section>
+                    <section
                         className={
                             playCarousel
-                                ? `${componentStyle.introCarouselItem} ${componentStyle.it2} ${componentStyle.carousel}`
-                                : `${componentStyle.introCarouselItem} ${componentStyle.it2}`
+                                ? `${componentStyle.carousel__item} ${componentStyle.carousel__it2} ${componentStyle.carousel__it2_isPlay}`
+                                : `${componentStyle.carousel__item} ${componentStyle.carousel__it2}`
                         }
                     >
-                        <div
-                            className={componentStyle.introCarouselItemContent}
-                        >
-                            <h1>
-                                <p>
-                                    <span>HELLO I'm </span>
-                                    <span
-                                        className={
-                                            componentStyle.txtHighlightNoHover
-                                        }
-                                    >
-                                        Radosław Halupczok
-                                    </span>
-                                </p>
-                            </h1>
-                        </div>
-                    </div>
-                    <div
+                        <p className={componentStyle.carousel__paragraph}>
+                            HELLO I'm{" "}
+                            <span
+                                className={componentStyle.txtHighlightNoHover}
+                            >
+                                Radosław Halupczok
+                            </span>
+                        </p>
+                    </section>
+                    <section
                         className={
                             playCarousel
-                                ? `${componentStyle.introCarouselItem} ${componentStyle.it3} ${componentStyle.carousel}`
-                                : `${componentStyle.introCarouselItem} ${componentStyle.it3}`
+                                ? `${componentStyle.carousel__item} ${componentStyle.carousel__it3} ${componentStyle.carousel__it3_isPlay}`
+                                : `${componentStyle.carousel__item} ${componentStyle.carousel__it3}`
                         }
                     >
-                        <div
-                            className={componentStyle.introCarouselItemContent}
-                        >
-                            <h1>
-                                <p>
-                                    FrontEnd
-                                    <br /> FullStack Developer Candidate
-                                </p>
-                            </h1>
-                        </div>
-                    </div>
-                </div>
-            </div>
+                        <p className={componentStyle.carousel__paragraph}>
+                            FrontEnd Developer Candidate
+                        </p>
+                    </section>
+                </section>
+            </article>
 
             <button
-                className={`${componentStyle.btn} ${componentStyle.carouselBtn}`}
+                className={`${componentStyle.btn} ${componentStyle.intro__button} ${componentStyle.intro__button_play}`}
                 onClick={() => toggleCarousel()} // Add a function to toggle carousel play
             >
                 {playCarousel ? (
@@ -162,10 +145,9 @@ const Intro: FC = () => {
                 ) : (
                     <i className="fa-solid fa-play"></i>
                 )}
-                {/* Toggle button label */}
             </button>
             <button
-                className={`${componentStyle.downBtn} ${componentStyle.btn}`}
+                className={`${componentStyle.btn} ${componentStyle.intro__button} ${componentStyle.intro__button_work}`}
                 onClick={() => {
                     scrollTo("about");
                 }}
@@ -174,13 +156,13 @@ const Intro: FC = () => {
             >
                 View my work{" "}
                 <div
-                    className={componentStyle.downBtnArr}
+                    className={componentStyle.intro__button_arrow}
                     style={downBtnArrStyle}
                 >
                     <i className="fa-solid fa-xl fa-right-long"></i>
                 </div>
             </button>
-        </header>
+        </section>
     );
 };
 

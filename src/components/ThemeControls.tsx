@@ -18,18 +18,17 @@ const ThemeToggle: FC = () => {
     };
 
     //Get root variables
-    const r = document.querySelector(":root") as HTMLElement;
+    const r = document.querySelector("#root") as HTMLElement;
     // const rs = getComputedStyle(r);
 
     const themeChange: () => void = () => {
         //Toggle light theme variables
-        document.body.classList.toggle("light-theme");
+        r.classList.toggle("main_darkTheme");
+        r.classList.toggle("main_lightTheme");
         //Check if the theme is changed to light
-        document.body.classList.contains("light-theme")
-            ? //Set lighTheme to true if it is
-              setLightTheme(true)
-            : //Set lighTheme to false it is not
-              setLightTheme(false);
+        r.classList.contains("main_lightTheme")
+            ? setLightTheme(true)
+            : setLightTheme(false);
     };
 
     const colorChange: (
@@ -80,41 +79,54 @@ const ThemeToggle: FC = () => {
     }, []);
 
     return (
-        <ul
-            className={`${
-                themeMenu
-                    ? `${componentStyle.themeControls} ${componentStyle.themeOpen}`
-                    : `${componentStyle.themeControls}`
-            }`}
-        >
-            <li
-                className={`${componentStyle.color} ${componentStyle.color1}`}
-                onClick={(e) => colorChange(e)}
-            ></li>
-            <li
-                className={`${componentStyle.color} ${componentStyle.color2}`}
-                onClick={(e) => colorChange(e)}
-            ></li>
-            <li
-                className={`${componentStyle.color} ${componentStyle.color3}`}
-                onClick={(e) => colorChange(e)}
-            ></li>
-            <li
-                className={`${componentStyle.color} ${componentStyle.color4}`}
-                onClick={(e) => colorChange(e)}
-            ></li>
-            <li className={componentStyle.darkMode} onClick={themeChange}>
-                <i className={`fas  ${lightTheme ? "fa-sun" : "fa-moon"}`}></i>
-            </li>
-            <div className={componentStyle.themeBtn} onClick={showThemeMenu}>
-                <i
-                    className={`fas ${
-                        themeMenu ? "fa-arrow-right" : "fa-arrow-left"
-                    }`}
-                ></i>
-                <i className="fa-solid fa-palette"></i>
-            </div>
-        </ul>
+        <main className="themeControl">
+            <section
+                className={`${componentStyle.themeControl__mainBackground}`}
+            ></section>
+            <section
+                className={`${componentStyle.themeControl__gradientBackground}`}
+            ></section>
+            <ul
+                className={`${
+                    themeMenu
+                        ? `${componentStyle.themeControls} ${componentStyle.themeOpen}`
+                        : `${componentStyle.themeControls}`
+                }`}
+            >
+                <li
+                    className={`${componentStyle.color} ${componentStyle.color1}`}
+                    onClick={(e) => colorChange(e)}
+                ></li>
+                <li
+                    className={`${componentStyle.color} ${componentStyle.color2}`}
+                    onClick={(e) => colorChange(e)}
+                ></li>
+                <li
+                    className={`${componentStyle.color} ${componentStyle.color3}`}
+                    onClick={(e) => colorChange(e)}
+                ></li>
+                <li
+                    className={`${componentStyle.color} ${componentStyle.color4}`}
+                    onClick={(e) => colorChange(e)}
+                ></li>
+                <li className={componentStyle.darkMode} onClick={themeChange}>
+                    <i
+                        className={`fas  ${lightTheme ? "fa-sun" : "fa-moon"}`}
+                    ></i>
+                </li>
+                <div
+                    className={componentStyle.themeBtn}
+                    onClick={showThemeMenu}
+                >
+                    <i
+                        className={`fas ${
+                            themeMenu ? "fa-arrow-right" : "fa-arrow-left"
+                        }`}
+                    ></i>
+                    <i className="fa-solid fa-palette"></i>
+                </div>
+            </ul>
+        </main>
     );
 };
 export default ThemeToggle;
