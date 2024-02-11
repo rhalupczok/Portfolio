@@ -4,23 +4,24 @@ import { languages } from "../data/languagesData";
 
 const Knowledge: React.FC = () => {
     const languageElements: ReactElement[] = languages.map((language) => (
-        <div key={language.name} className={componentStyle.langsContainer}>
+        <figure key={language.name} className={componentStyle.skill__picture}>
             <i className={`${language.icon} fa-4x`}></i>
             <p>{language.name}</p>
-        </div>
+        </figure>
     ));
 
     return (
-        <section id="knowledge" className={componentStyle.mainSection}>
-            <div className={componentStyle.navMenuMargin}></div>
-            <h1>SKILLS</h1>
-            <section className={componentStyle.technologyBlock}>
-                <div className={componentStyle.technologyBlockLangs}>
+        <section id="knowledge" className={componentStyle.skills}>
+            <header className={componentStyle.skills__header}>
+                <h1>SKILLS</h1>
+            </header>
+            <article className={componentStyle.skill}>
+                <section className={componentStyle.skill__pictures}>
                     {languageElements.slice(0, 4)}
-                </div>
-                <div className={componentStyle.technologyBlockDescription}>
-                    <h3>Basics</h3>
-                    <p>
+                </section>
+                <section className={componentStyle.skill__description}>
+                    <h3 className={componentStyle.skill__header}>Basics</h3>
+                    <p className={componentStyle.skill__paragraph}>
                         At very begining I went through{" "}
                         <b>HTML, CSS (SCSS), and JavaScript</b> courses, as well
                         as various documentations.
@@ -31,16 +32,18 @@ const Knowledge: React.FC = () => {
                         <br />I am familiar with popular libraries such as{" "}
                         <b>Bootstrap</b> for responsive and mobile-first design.
                     </p>
-                </div>
-            </section>
+                </section>
+            </article>
 
-            <section className={componentStyle.technologyBlock}>
-                <div className={componentStyle.technologyBlockLangs}>
+            <article className={componentStyle.skill}>
+                <section className={componentStyle.skill__pictures}>
                     {languageElements.slice(4, 7)}
-                </div>
-                <div className={componentStyle.technologyBlockDescription}>
-                    <h3>React framework + TypeScript</h3>
-                    <p>
+                </section>
+                <section className={componentStyle.skill__description}>
+                    <h3 className={componentStyle.skill__header}>
+                        React framework + TypeScript
+                    </h3>
+                    <p className={componentStyle.skill__paragraph}>
                         I have delved into advanced web development by mastering{" "}
                         <b>React, React Router</b>, and <b>TypeScript</b>. With
                         React, I can efficiently build dynamic and reusable user
@@ -51,15 +54,18 @@ const Knowledge: React.FC = () => {
                         the state throught all components without using props by
                         each level.
                     </p>
-                </div>
-            </section>
-            <section className={componentStyle.technologyBlock}>
-                <div className={componentStyle.technologyBlockLangs}>
+                </section>
+            </article>
+
+            <article className={componentStyle.skill}>
+                <section className={componentStyle.skill__pictures}>
                     {languageElements.slice(7, 11)}
-                </div>
-                <div className={componentStyle.technologyBlockDescription}>
-                    <h3>Node.js-Express.js MongoDB Docker</h3>
-                    <p>
+                </section>
+                <section className={componentStyle.skill__description}>
+                    <h3 className={componentStyle.skill__header}>
+                        Node.js-Express.js MongoDB Docker
+                    </h3>
+                    <p className={componentStyle.skill__paragraph}>
                         I've expanded my knowlegde in server-side development
                         with the integration of <b>Node.js</b> and{" "}
                         <b>Express.js</b>, complemented by <b>MongoDB</b>
@@ -72,15 +78,18 @@ const Knowledge: React.FC = () => {
                         various project requirements, delivering scalable and
                         responsive server-side applications.
                     </p>
-                </div>
-            </section>
-            <section className={componentStyle.technologyBlock}>
-                <div className={componentStyle.technologyBlockLangs}>
+                </section>
+            </article>
+
+            <article className={componentStyle.skill}>
+                <section className={componentStyle.skill__pictures}>
                     {languageElements.slice(11, 13)}
-                </div>
-                <div className={componentStyle.technologyBlockDescription}>
-                    <h3>Json Web Token</h3>
-                    <p>
+                </section>
+                <section className={componentStyle.skill__description}>
+                    <h3 className={componentStyle.skill__header}>
+                        Json Web Token
+                    </h3>
+                    <p className={componentStyle.skill__paragraph}>
                         I adeptly implement secure authentication and
                         authorization using <b>JSON Web Tokens (JWT)</b> in
                         React frontend and Express.js backend. In the frontend,
@@ -101,21 +110,24 @@ const Knowledge: React.FC = () => {
                         </b> for <b>refresh token rotation</b>, providing a
                         seamless and secure approach to managing user sessions.
                     </p>
-                </div>
-            </section>
-            <section className={componentStyle.technologyBlock}>
-                <div className={componentStyle.technologyBlockLangs}>
+                </section>
+            </article>
+
+            <article className={componentStyle.skill}>
+                <section className={componentStyle.skill__pictures}>
                     {languageElements.slice(13, 14)}
-                </div>
-                <div className={componentStyle.technologyBlockDescription}>
-                    <h3>Version Control System GIT</h3>
-                    <p>
+                </section>
+                <section className={componentStyle.skill__description}>
+                    <h3 className={componentStyle.skill__header}>
+                        Version Control System GIT
+                    </h3>
+                    <p className={componentStyle.skill__paragraph}>
                         With all projects I am working on I am using <b>Git</b>,
                         a version control system that enables efficient
                         collaboration and tracking of code changes.
                     </p>
-                </div>
-            </section>
+                </section>
+            </article>
         </section>
     );
 };
