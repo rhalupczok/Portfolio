@@ -11,10 +11,12 @@
 }
 
 .card {
-    width: 18em;
-    height: 12em;
     @include flex;
     position: relative;
+    width: 18em;
+    height: 12em;
+    margin: 0;
+
     &__content {
         box-sizing: border-box;
         padding: 2.5em;
@@ -32,11 +34,13 @@
         flex-direction: column;
         text-decoration: none;
     }
+
     &__content:hover {
         background: $highlight_color_darken;
         cursor: pointer;
         box-shadow: 0 0 6px 0 $highlight_color;
     }
+
     &__icon {
         font-size: 4em;
         color: $highlight_color;

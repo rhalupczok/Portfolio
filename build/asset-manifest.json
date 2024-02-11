@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "https://radoslawhalupczok.pl/static/css/main.24bd2aac.css",
-    "main.js": "https://radoslawhalupczok.pl/static/js/main.d79a6d2b.js",
+    "main.css": "https://radoslawhalupczok.pl/static/css/main.ff73b43b.css",
+    "main.js": "https://radoslawhalupczok.pl/static/js/main.b04702d9.js",
     "static/media/my-job-0.png": "https://radoslawhalupczok.pl/static/media/my-job-0.e65fa4d81706c7d88e3b.png",
     "static/media/popup-portfolio-2.png": "https://radoslawhalupczok.pl/static/media/popup-portfolio-2.e4fee9a8db6866c9743e.png",
     "static/media/my-work-portfolio.png": "https://radoslawhalupczok.pl/static/media/my-work-portfolio.55b3092d897148b4db93.png",
@@ -89,11 +89,11 @@
     "static/media/jwt_cookies_2.png": "https://radoslawhalupczok.pl/static/media/jwt_cookies_2.f06b3dce7488d8261cf9.png",
     "static/media/click_on.png": "https://radoslawhalupczok.pl/static/media/click_on.b5830fdf2a8f69862909.png",
     "index.html": "https://radoslawhalupczok.pl/index.html",
-    "main.24bd2aac.css.map": "https://radoslawhalupczok.pl/static/css/main.24bd2aac.css.map",
-    "main.d79a6d2b.js.map": "https://radoslawhalupczok.pl/static/js/main.d79a6d2b.js.map"
+    "main.ff73b43b.css.map": "https://radoslawhalupczok.pl/static/css/main.ff73b43b.css.map",
+    "main.b04702d9.js.map": "https://radoslawhalupczok.pl/static/js/main.b04702d9.js.map"
   },
   "entrypoints": [
-    "static/css/main.24bd2aac.css",
-    "static/js/main.d79a6d2b.js"
+    "static/css/main.ff73b43b.css",
+    "static/js/main.b04702d9.js"
   ]
 }

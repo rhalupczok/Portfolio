@@ -5,7 +5,6 @@ const CV: React.FC = () => {
     return (
         <section id="cv" className={componentStyle.cv}>
             <header className={componentStyle.cv__header}>
-                {" "}
                 <h1>CV</h1>
             </header>
             <figure className={componentStyle.card}>
@@ -22,7 +21,6 @@ const CV: React.FC = () => {
                         Radosław Halupczok
                     </p>
                 </a>
-                <p>Radosław Halupczok</p>
             </figure>
         </section>
     );

@@ -2,25 +2,26 @@
 @use "../vars/commonStyles.scss" as *;
 
 .footer {
-    background: $primary;
     width: 100%;
     height: auto;
     margin-top: 2rem;
-    p {
+    background: $primary;
+    &__paragraph {
+        margin: auto;
         font-size: 1rem;
         font-weight: 700;
-        margin: auto;
-        text-align: center;
         color: $text-primary;
-        span {
-            color: $highlight_color;
-        }
+        text-align: center;
+    }
+
+    &__paragraph_highlight {
+        color: $highlight_color;
     }
 }
 
 @media screen and (max-width: 768px) {
     .footer {
-        p {
+        &__paragraph {
             font-size: 1rem;
         }
     }

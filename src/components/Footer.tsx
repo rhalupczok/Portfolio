@@ -4,8 +4,11 @@ import componentStyle from "../styles/partials/footer.module.scss";
 const Footer: React.FC = () => {
     return (
         <footer className={componentStyle.footer}>
-            <p>
-                Radoslaw Halupczok <span>© 2024</span>
+            <p className={componentStyle.footer__paragraph}>
+                Radoslaw Halupczok{" "}
+                <span className={componentStyle.footer__paragraph_highlight}>
+                    © 2024
+                </span>
             </p>
         </footer>
     );

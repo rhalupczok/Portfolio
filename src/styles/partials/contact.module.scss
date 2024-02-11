@@ -1,43 +1,72 @@
 @use "../vars/colors.scss" as *;
 @use "../vars/commonStyles.scss" as *;
 
-.cardsContainer {
+.contact {
     @include flex;
-    flex-wrap: wrap;
-    gap: 2em;
+    flex-direction: column;
     width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 3rem;
+
+    &__cardsContainer {
+        @include flex;
+        flex-wrap: wrap;
+        gap: 2em;
+        width: 100%;
+    }
 }
 
 .card {
-    width: 15em;
-    height: 10em;
     @include flex;
     position: relative;
+    width: 15em;
+    height: 10em;
+    margin: 0;
+
+    &__content {
+        box-sizing: border-box;
+        padding: 2.5em;
+        position: absolute;
+        top: 50%;
+        left: 50%;
+        width: 98%;
+        height: 98%;
+        transform: translate(-50%, -50%);
+        background-image: $bgGradient;
+        background-size: 1200% 1100%;
+        background-position: center;
+        border-radius: 1em;
+        @include flex;
+        flex-direction: column;
+        text-decoration: none;
+    }
+
+    &__content:hover {
+        background: $highlight_color_darken;
+        cursor: pointer;
+        box-shadow: 0 0 6px 0 $highlight_color;
+    }
+
+    &__icon {
+        font-size: 4em;
+        color: $highlight_color;
+        margin-bottom: 0.5em;
+        position: relative;
+    }
+
+    &__description {
+        padding: 0;
+        margin: 0;
+        font-size: 1rem;
+        font-weight: 700;
+        color: $text-primary;
+        margin-bottom: 0.5em;
+    }
 }
 
-.card div {
-    box-sizing: border-box;
-    padding: 2.5em;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    width: 98%;
-    height: 98%;
-    transform: translate(-50%, -50%);
-    background-image: $bgGradient;
-    background-size: 1000% 1000%;
-    background-position: center;
-    border-radius: 1em;
-    @include flex;
-    flex-direction: column;
-}
-.card div:hover {
-    background: $highlight_color_darken;
-    cursor: pointer;
-    box-shadow: 0 0 6px 0 $highlight_color;
-}
-
-.cardsContainer .card::before {
+.card::before {
     content: "";
     position: absolute;
     top: 50%;
@@ -48,21 +77,4 @@
     background-image: linear-gradient(0deg, $primary, $highlight_color);
     border-radius: 1.2em;
     z-index: 0;
-}
-
-.card i {
-    font-size: 4em;
-    color: $highlight_color;
-    margin-bottom: 0.5em;
-    position: relative;
-}
-
-.card p {
-    padding: 0;
-    margin: 0;
-    font-size: 1rem;
-    font-weight: 700;
-    color: $text-primary;
-    margin-bottom: 0.5em;
-    position: relative;
 }
