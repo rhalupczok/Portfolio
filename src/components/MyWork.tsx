@@ -8,29 +8,19 @@ import usePopup from "../Hooks/usePopup";
 
 const MyWork: FC = () => {
     const { setPopup } = usePopup();
+
     const addHover = (e: Element) => {
-        e.classList.add(componentStyle.projectButtonsHover); //adding class which set opactity to 1
-        e.childNodes.forEach((child) => {
-            //display btns - upscale all childnodes bo remove a class "scaled-down"
-            if (child instanceof Element) {
-                child.classList.remove(componentStyle.scaledDown);
-            }
-        });
+        e.classList.add(componentStyle.project__buttonContainer_jsHover); //adding class which set opactity to 1
     };
 
     const removeHover = () => {
         const hoverElements = document.querySelectorAll(
-            `.${componentStyle.projectButtonsHover}`
+            `.${componentStyle.project__buttonContainer_jsHover}`
         );
         hoverElements?.forEach((el) => {
-            el.classList.remove(componentStyle.projectButtonsHover);
-            if (el instanceof Element) {
-                el.childNodes.forEach((child) => {
-                    if (child instanceof Element) {
-                        child.classList.add(componentStyle.scaledDown);
-                    }
-                });
-            }
+            el.classList.remove(
+                componentStyle.project__buttonContainer_jsHover
+            );
         });
     };
 
@@ -38,25 +28,16 @@ const MyWork: FC = () => {
         if (e.target instanceof Element) addHover(e.target);
     };
 
+    //creating project figure
     const myWorkElements = myWorkData.map((myWorkElement: myWorkInterface) => (
-        <div key={myWorkElement.name} className={componentStyle.project}>
-            <div className={componentStyle.usedTechnologies}>
-                {myWorkElement.technologies.map((lang) => {
-                    const launguageData = languages.find(
-                        (el) => el.name === lang
-                    );
-                    return launguageData ? (
-                        <i className={`${launguageData.icon}`}></i>
-                    ) : null;
-                })}
-            </div>
+        <figure key={myWorkElement.name} className={componentStyle.project}>
             <img
                 src={require(`../images/myWork/${myWorkElement.imgSrc}`)}
                 alt={`${myWorkElement.name} img`}
-                className={componentStyle.projectImg}
+                className={componentStyle.project__picture}
             />
-            <div
-                className={componentStyle.projectButtons}
+            <p
+                className={componentStyle.project__buttonContainer}
                 onMouseEnter={(e) => {
                     mouseEvent(e);
                 }}
@@ -64,7 +45,7 @@ const MyWork: FC = () => {
             >
                 {myWorkElement.href && (
                     <a
-                        className={`${componentStyle.btn} ${componentStyle.scaledDown}`}
+                        className={`${componentStyle.btn}`}
                         href={myWorkElement.href}
                         target="_blank"
                         rel="noreferrer"
@@ -74,7 +55,7 @@ const MyWork: FC = () => {
                 )}
                 {!myWorkElement.noLearnMore && (
                     <button
-                        className={`${componentStyle.btn} ${componentStyle.scaledDown}`}
+                        className={`${componentStyle.btn}`}
                         onClick={() =>
                             setPopup((prevState) => ({
                                 ...prevState,
@@ -86,47 +67,56 @@ const MyWork: FC = () => {
                         Learn more
                     </button>
                 )}
-            </div>
-            <p className={componentStyle.projectDesc}>{myWorkElement.name}</p>
-        </div>
+            </p>
+            <p className={componentStyle.project__name}>{myWorkElement.name}</p>
+
+            <p className={componentStyle.project__usedTechnologies}>
+                {myWorkElement.technologies.map((lang) => {
+                    const launguageData = languages.find(
+                        (el) => el.name === lang
+                    );
+                    return launguageData ? (
+                        <i className={`${launguageData.icon}`}></i>
+                    ) : null;
+                })}
+            </p>
+        </figure>
     ));
 
     const myWorkTenzi = myWorkElements.shift();
 
     return (
-        <section id="my-work" className={componentStyle.mainSection}>
-            <div className={componentStyle.navMenuMargin}></div>
-            <h1>My Work</h1>
-            <div className={componentStyle.tenziGameContainer}>
-                <div>
-                    <p>{myWorkTenzi}</p>
-                </div>
-                <div>
-                    <h3>TENZI GAME</h3>
-                    <p>
+        <section id="my-work" className={componentStyle.myWork}>
+            <header className={componentStyle.myWork__header}>
+                <h1>My Work</h1>
+            </header>
+            <article className={componentStyle.tenziGame}>
+                {myWorkTenzi}
+                <article>
+                    <header className={componentStyle.tenziGame__header}>
+                        <h3>TENZI GAME</h3>
+                    </header>
+                    <p className={componentStyle.tenziGame__paragraph}>
                         From a programming perspective, the Tenzi Game stands as
                         my most advanced project built using the{" "}
                         <b>React framework</b>.
-                        <div className={componentStyle.tenziBtns}>
-                            <a
-                                className={`${componentStyle.btn}`}
-                                href="https://rhalupczok.github.io/Tenzies"
-                                target="_blank"
-                                rel="noreferrer"
-                            >
-                                PLAY
-                            </a>
-
-                            <Link to="/tenzidescription">
-                                <button className={componentStyle.btn}>
-                                    Application details
-                                    <img
-                                        src={require(`../images/myWork/click_on.png`)}
-                                        alt="clickon"
-                                    ></img>
-                                </button>
-                            </Link>
-                        </div>
+                    </p>
+                    <p className={componentStyle.tenziGame__buttonsContainer}>
+                        <a
+                            className={`${componentStyle.btn}`}
+                            href="https://rhalupczok.github.io/Tenzies"
+                            target="_blank"
+                            rel="noreferrer"
+                        >
+                            PLAY
+                        </a>
+                        <Link to="/tenzidescription">
+                            <button className={componentStyle.btn}>
+                                Application details
+                            </button>
+                        </Link>{" "}
+                    </p>
+                    <p className={componentStyle.tenziGame__paragraph}>
                         On the back-end, I employed <b>Node.js</b> along with
                         the <b>Express</b> framework. <br /> The project contain
                         a complete user registration and authentication process,
@@ -137,22 +127,14 @@ const MyWork: FC = () => {
                         such as names, hashed passwords, and best scores are
                         stored using a <b>Mongoose model</b>.
                     </p>
-                </div>
-            </div>
-
-            <div className={componentStyle.othersProjectsContainer}>
-                <h3>ANOTHER WORK</h3>
-                <p>
-                    Another project builed on various stage of my studying
-                    progress.
-                </p>
-                <div
-                    id="projects-container"
-                    className={componentStyle.projectsContainer}
-                >
-                    {myWorkElements}
-                </div>
-            </div>
+                </article>
+            </article>
+            <p className={componentStyle.myWork__description}>
+                Another project builed on various stage of my studying progress.
+            </p>
+            <section className={componentStyle.myWork__projectsContainer}>
+                {myWorkElements}
+            </section>
         </section>
     );
 };

@@ -1,154 +1,123 @@
-@use "../vars/colors.scss" as *;
 @use "../vars/commonStyles.scss" as *;
 
-.projectsContainer {
-    @include flex;
-    flex-wrap: wrap;
-    column-gap: 1rem;
-    row-gap: 3rem;
-    margin: 1rem;
-    margin-bottom: 3rem;
+.myWork {
+    width: 100%;
+    max-width: 800px;
+    height: auto;
+    margin: 0 auto;
+    padding-top: 3rem;
+
+    &__header {
+        text-align: center;
+    }
+
+    &__projectsContainer {
+        @include flex;
+        flex-wrap: wrap;
+        column-gap: 1rem;
+        row-gap: 3rem;
+        margin: 1rem;
+        margin-bottom: 3rem;
+    }
+
+    &__description {
+        margin: 0 1rem;
+        text-align: center;
+    }
 }
 
-.tenziGameContainer {
+.tenziGame {
     @include flex;
-    margin: 2rem;
     gap: 2rem;
-    align-items: flex-start;
-}
+    margin: 0 1rem 4rem;
 
-.tenziGameContainer h3 {
-    margin-top: 0;
-}
-.tenziBtns {
-    @include flex;
-    flex-wrap: wrap;
-    margin: 0;
-}
+    &__header {
+        margin-top: 0;
+    }
 
-.othersProjectsContainer {
-    margin: 1rem 2rem;
-}
+    &__paragraph {
+        text-align: justify;
+    }
 
-.othersProjectsContainer > h3 {
-    margin: 0;
-    text-align: center;
+    &__buttonsContainer {
+        @include flex;
+        flex-wrap: wrap;
+        margin: 0;
+    }
 }
 
 .project {
+    flex-shrink: 0;
+    flex-grow: 0;
+    position: relative;
     width: 200px;
     height: 250px;
+    margin: 0;
     border: 2px solid black;
+    border-radius: 1rem;
     box-shadow: 0 0 4px 0px $text-primary;
-    border-radius: 1rem;
-    // background: $highlight_color;
-    position: relative;
     text-align: center;
-}
 
-.projectImg {
-    height: 200px;
-    width: 100%;
-    // background: gray;
-    border-top-left-radius: 1rem;
-    border-top-right-radius: 1rem;
-}
-
-.projectButtons {
-    @include flex;
-    flex-direction: column;
-    box-sizing: border-box;
-    position: absolute;
-    width: 100%;
-    height: 100%;
-    top: 0;
-    left: 0;
-    background: linear-gradient(0deg, rgba(0, 0, 0, 0.9), rgba(0, 0, 0, 0.7));
-    border-radius: 1rem;
-    opacity: 0;
-    transition: 0.2s;
-    overflow: hidden;
-}
-
-.btn > img {
-    position: absolute;
-    bottom: -25px;
-    right: -25px;
-    height: 50px;
-    width: 50px;
-}
-
-.projectButtonsHover {
-    opacity: 1;
-}
-
-.scaledDown {
-    transform: scale(0);
-}
-
-.projectDesc {
-    font-size: 1rem;
-    font-weight: 700;
-    color: $text-primary;
-    margin-top: 0.7rem;
-}
-
-.usedTechnologies {
-    position: absolute;
-    width: 100%;
-    height: 16px;
-    bottom: -25px;
-    left: 0;
-    @include flex;
-    flex-direction: row;
-    flex-wrap: wrap;
-    justify-content: center;
-    gap: 7px;
-    z-index: 2;
-    color: $text-primary;
-}
-
-@media screen and (max-width: 768px) {
-    .projectsContainer {
-        column-gap: 0.8rem;
-        row-gap: 3rem;
-        margin: 1rem 0;
-        margin-bottom: 2rem;
+    &__picture {
+        height: 200px;
+        width: 100%;
+        border-top-left-radius: 1rem;
+        border-top-right-radius: 1rem;
     }
 
-    .tenziGameContainer {
+    &__buttonContainer {
+        @include flex;
         flex-direction: column;
-        align-items: center;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        margin: 0;
+        box-sizing: border-box;
+        background: linear-gradient(
+            0deg,
+            rgba(0, 0, 0, 0.9),
+            rgba(0, 0, 0, 0.7)
+        );
+        border-radius: 1rem;
+        opacity: 0;
+        transition: 0.2s;
+        overflow: hidden;
     }
 
-    .tenziGameContainer h3 {
-        flex-direction: column;
-        align-items: center;
-        margin-top: 1.5rem;
+    &__buttonContainer_jsHover {
+        opacity: 1;
     }
 
-    .project {
-        width: 150px; //
-        height: 200px; //
-        border-radius: 0.5rem; //
-    }
-    .projectImg {
-        height: 150px; //
-
-        border-top-left-radius: 0.5rem; //
-        border-top-right-radius: 0.5rem; //
-    }
-    .projectButtons {
-        border-radius: 0.5rem; //
-    }
-    .projectDesc {
-        font-size: 0.7rem;
+    &__name {
+        margin-top: 0.7rem;
+        font-size: 1rem;
         font-weight: 700;
         color: $text-primary;
-        margin-top: 0.7rem;
     }
 
-    .usedTechnologies {
-        bottom: -25px;
+    &__usedTechnologies {
+        @include flex;
+        flex-wrap: wrap;
+        gap: 7px;
+        position: absolute;
+        left: 0;
+        bottom: -40px;
+        width: 100%;
+        height: 16px;
+        color: $text-primary;
+        z-index: 2;
+    }
+}
+
+@media screen and (max-width: 500px) {
+    .tenziGame {
+        @include flex;
+        flex-direction: column;
+
+        &__header {
+            text-align: center;
+        }
     }
 }
