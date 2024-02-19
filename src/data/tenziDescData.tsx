@@ -1,10 +1,30 @@
-export const appShotsIMG = [
-    `app_shot_1.png`,
-    `app_shot_2.png`,
-    `app_shot_3.png`,
-    `app_shot_4.png`,
-    `app_shot_5.png`,
-    `app_shot_6.png`,
+export const diagramData = [
+    {
+        name: "Application",
+        description: "Simplified diagram of the application's operation.",
+        src: `/mainDiagram.png`,
+    },
+    {
+        name: "Server",
+        description: "Simplified diagram of server's operation",
+        src: `/serverDiagram.png`,
+    },
+    {
+        name: "Refresh token rotation",
+        description: "Simplified diagram of authentication.",
+        src: `/refreshDiagram.png`,
+    },
+];
+
+export const cardsData = [
+    {
+        name: "Frontend",
+        link: "https://github.com/rhalupczok/Tenzies",
+    },
+    {
+        name: "Server",
+        link: "https://github.com/rhalupczok/TenziServer",
+    },
 ];
 
 export const frontEndSectionData = [

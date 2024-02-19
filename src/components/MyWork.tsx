@@ -1,13 +1,19 @@
-import { FC, MouseEvent } from "react";
+import { FC, useState, MouseEvent } from "react";
 import { Link } from "react-router-dom";
+import Popup from "./Popup";
 import componentStyle from "../styles/partials/myWork.module.scss";
-import { myWorkData } from "../data/myworkData";
-import { myWorkInterface } from "../data/interfaces";
+import { myWorkData } from "../data/myWorkData";
+import { myWorkInterface, popupDataInterface } from "../data/interfaces";
 import { languages } from "../data/languagesData";
-import usePopup from "../Hooks/usePopup";
 
 const MyWork: FC = () => {
-    const { setPopup } = usePopup();
+    const [popupContent, setPopupContent] = useState<
+        popupDataInterface[] | null
+    >(null);
+
+    const setPopupHandle = (content: popupDataInterface[] | null) => {
+        setPopupContent(content || null);
+    };
 
     const addHover = (e: Element) => {
         e.classList.add(componentStyle.project__buttonContainer_jsHover); //adding class which set opactity to 1
@@ -53,15 +59,11 @@ const MyWork: FC = () => {
                         {myWorkElement.isPlay ? "PLAY" : "OPEN"}
                     </a>
                 )}
-                {!myWorkElement.noLearnMore && (
+                {myWorkElement.popupData && (
                     <button
                         className={`${componentStyle.btn}`}
                         onClick={() =>
-                            setPopup((prevState) => ({
-                                ...prevState,
-                                content: myWorkElement.name,
-                                isShow: true,
-                            }))
+                            setPopupHandle(myWorkElement.popupData || null)
                         }
                     >
                         Learn more
@@ -87,20 +89,29 @@ const MyWork: FC = () => {
 
     return (
         <section id="my-work" className={componentStyle.myWork}>
+            {popupContent && (
+                <Popup content={popupContent} close={setPopupHandle} />
+            )}
             <header className={componentStyle.myWork__header}>
                 <h1>My Work</h1>
             </header>
             <article className={componentStyle.tenziGame}>
                 {myWorkTenzi}
-                <article>
+                <section>
                     <header className={componentStyle.tenziGame__header}>
                         <h3>TENZI GAME</h3>
                     </header>
                     <p className={componentStyle.tenziGame__paragraph}>
-                        From a programming perspective, the Tenzi Game stands as
-                        my most advanced project built using the{" "}
-                        <b>React framework</b>.
+                        Tenzi is a simple game to set all dice the same
                     </p>
+                    <ul className={componentStyle.tenziGame__list}>
+                        <li>
+                            FrontEnd: React with TypeScript and SASS modules
+                        </li>
+                        <li>Backend: Express.js</li>
+                        <li>Authentication: Complete process using JWT</li>
+                        <li>Database: Stores and maintains best results</li>
+                    </ul>
                     <p className={componentStyle.tenziGame__buttonsContainer}>
                         <a
                             className={`${componentStyle.btn}`}
@@ -112,22 +123,11 @@ const MyWork: FC = () => {
                         </a>
                         <Link to="/tenzidescription">
                             <button className={componentStyle.btn}>
-                                Application details
+                                Details
                             </button>
-                        </Link>{" "}
+                        </Link>
                     </p>
-                    <p className={componentStyle.tenziGame__paragraph}>
-                        On the back-end, I employed <b>Node.js</b> along with
-                        the <b>Express</b> framework. <br /> The project contain
-                        a complete user registration and authentication process,
-                        employing <b>JSON Web Tokens</b>. This includes{" "}
-                        <b>refresh token rotation</b> and password hashing using{" "}
-                        <b>bcrypt</b> for enhanced security. <br /> The server
-                        connects to a <b>MongoDB</b> database where user data
-                        such as names, hashed passwords, and best scores are
-                        stored using a <b>Mongoose model</b>.
-                    </p>
-                </article>
+                </section>
             </article>
             <p className={componentStyle.myWork__description}>
                 Another project builed on various stage of my studying progress.

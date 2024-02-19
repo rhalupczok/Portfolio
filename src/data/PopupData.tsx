@@ -1,6 +1,4 @@
-import { popupDataInterface } from "./interfaces";
-
-export const popupData: popupDataInterface[] = [
+export const popupData = [
     {
         name: "underConstruction",
         isFinished: true,

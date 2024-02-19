@@ -1,7 +1,6 @@
-@use "../vars/colors.scss" as *;
 @use "../vars/commonStyles.scss" as *;
 
-.popupBg {
+.popup {
     position: fixed;
     top: 0;
     left: 0;

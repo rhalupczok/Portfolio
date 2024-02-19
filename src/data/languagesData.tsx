@@ -46,11 +46,6 @@ export const languages: languagesInterface[] = [
         alt: "IT software logo",
         name: "MONGODB",
     },
-    {
-        icon: "fa-brands fa-docker",
-        alt: "IT software logo",
-        name: "docker",
-    },
 
     {
         icon: "fa-solid fa-cloud-sun",
@@ -72,4 +67,9 @@ export const languages: languagesInterface[] = [
         alt: "IT software logo",
         name: "GIT",
     },
+    // {
+    //     icon: "fa-brands fa-docker",
+    //     alt: "IT software logo",
+    //     name: "docker",
+    // },
 ];

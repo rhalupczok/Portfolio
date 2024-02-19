@@ -33,13 +33,13 @@ export const fullScreenIMG = (e: EventTarget) => {
 
 export const findAllNeighboringImages = (
     event: React.MouseEvent<HTMLImageElement, MouseEvent>
-): { allImages: HTMLImageElement[]; clickedIndex: number } => {
+): { imagesContainer: HTMLImageElement[]; clickedIndex: number } => {
     const clickedImage = event.target as HTMLImageElement;
 
-    const allImages = Array.from(
+    const imagesContainer = Array.from(
         clickedImage.parentElement!.getElementsByTagName("img")
     );
-    const clickedIndex = allImages.indexOf(clickedImage);
+    const clickedIndex = imagesContainer.indexOf(clickedImage);
 
-    return { allImages, clickedIndex };
+    return { imagesContainer, clickedIndex };
 };

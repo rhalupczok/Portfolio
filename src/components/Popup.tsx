@@ -1,12 +1,25 @@
 import { useEffect, FC } from "react";
 import componentStyle from "../styles/partials/popup.module.scss";
 import { popupDataInterface } from "../data/interfaces";
-import { popupData } from "../data/PopupData";
-import usePopup from "../Hooks/usePopup";
 import { fullScreenIMG } from "../data/helperfunc";
 
-const Popup: FC = () => {
-    const { popup, setPopup } = usePopup();
+const fullScreenJSX = (
+    <section id="fullScreenIMG" className={componentStyle.fullScreenImg}>
+        <button
+            className={componentStyle.popupNavClose}
+            onClick={(e) => {
+                fullScreenIMG(e.target);
+            }}
+        >
+            <i className="fa-solid fa-xmark"></i>
+        </button>
+    </section>
+);
+
+const Popup: FC<{
+    content: popupDataInterface[] | null;
+    close: (content: popupDataInterface[] | null) => void;
+}> = (props) => {
     useEffect(() => {
         const body = document.querySelector("body");
         body?.classList.add(componentStyle.stopScrolling);
@@ -15,13 +28,10 @@ const Popup: FC = () => {
         };
     }, []);
 
-    const targetPopupContent: popupDataInterface | undefined = popupData.find(
-        ({ name }) => name === popup.content
-    ); // finding content for popup in popupData based on content name passed by props
-
-    const targetContent = targetPopupContent
-        ? targetPopupContent.content
-        : popupData[0].content; //   if the name passed by props in not matching to any object or not finised - targetContent is "underConstruction".
+    const targetPopupContent: popupDataInterface[] | null = props.content; // finding content for popup in popupData based on content name passed by props
+    // const targetContent = targetPopupContent
+    //     ? targetPopupContent.content
+    //     : popupData[0].content; //   if the name passed by props in not matching to any object or not finised - targetContent is "underConstruction".
 
     const swipeLeft = () => {
         const popups = document.querySelectorAll(
@@ -49,15 +59,13 @@ const Popup: FC = () => {
         });
     };
 
-    const popupCards = targetContent.map((card, index) => (
+    const popupCards = targetPopupContent?.map((card, index) => (
         <div
             className={`${componentStyle.popupCard} ${componentStyle.carouselItem}`}
             data-pos={index}
             key={index}
         >
-            <header className={componentStyle.popupCardHeader}>
-                {targetPopupContent?.name}
-            </header>
+            <header className={componentStyle.popupCardHeader}>HEADER</header>
             <div className={componentStyle.popupCardContent}>
                 <img
                     className={componentStyle.popupCardImg}
@@ -97,9 +105,7 @@ const Popup: FC = () => {
             </div>
             <button
                 className={componentStyle.popupNavClose}
-                onClick={() =>
-                    setPopup({ content: popup.content, isShow: false })
-                }
+                onClick={() => props.close(null)}
             >
                 <i className="fa-solid fa-xmark"></i>
             </button>
@@ -111,7 +117,7 @@ const Popup: FC = () => {
                     <i className="fa-solid fa-caret-left"></i>
                 </button>
             )}
-            {index + 1 < targetContent.length && (
+            {index + 1 < targetPopupContent.length && (
                 <button
                     className={componentStyle.popupNavNext}
                     onClick={swipeRight}
@@ -123,19 +129,10 @@ const Popup: FC = () => {
     ));
 
     return (
-        <div className={componentStyle.popupBg}>
+        <section className={componentStyle.popup}>
             {popupCards}
-            <div id="fullScreenIMG" className={componentStyle.fullScreenImg}>
-                <button
-                    className={componentStyle.popupNavClose}
-                    onClick={(e) => {
-                        fullScreenIMG(e.target);
-                    }}
-                >
-                    <i className="fa-solid fa-xmark"></i>
-                </button>
-            </div>
-        </div>
+            {fullScreenJSX}
+        </section>
     );
 };
 

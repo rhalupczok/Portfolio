@@ -1,17 +1,17 @@
 @use "../vars/commonStyles.scss" as *;
 
 .aboutMe {
+    @include flex;
     width: 100%;
     max-width: 800px;
     height: auto;
     margin: 0 auto;
-    padding-top: 3rem;
+    padding-top: 6rem;
     &__header {
         text-align: center;
     }
 
     &__picCharContainer {
-        float: left;
         width: 250px;
         @include flex;
         flex-direction: column;
@@ -19,7 +19,6 @@
     }
 
     &__picture {
-        margin: 2rem;
         border-radius: 2rem;
         width: 150px;
         height: 190px;
@@ -38,12 +37,18 @@
         flex-wrap: wrap;
     }
 
+    &__listItem {
+        font-size: 1rem;
+        list-style: disc;
+        padding: 0 1rem 0.5rem;
+        text-align: justify;
+    }
+
     &__paragraph {
         font-size: 1rem;
         margin: 0;
         padding: 1rem 1rem;
-        padding-bottom: 0;
-        text-align: justify;
+        text-align: center;
     }
 }
 
@@ -74,16 +79,6 @@
 
 @media screen and (max-width: 768px) {
     .aboutMe {
-        @include flex;
         flex-direction: column;
-    }
-    .aboutMe > :nth-child(1) {
-        order: -2;
-    }
-    .aboutMe > :nth-child(2) {
-        order: 0;
-    }
-    .aboutMe > :nth-child(3) {
-        order: -1;
     }
 }

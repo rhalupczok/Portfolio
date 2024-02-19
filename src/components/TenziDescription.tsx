@@ -1,169 +1,83 @@
-import { FC, useState, ReactElement } from "react";
-import parse from "html-react-parser";
-import FullScreenImage from "./FullScreenImage";
+import { FC, ReactElement } from "react";
 import componentStyle from "../styles/partials/tenziDescription.module.scss";
 import { useNavigate, ScrollRestoration } from "react-router-dom";
-import { findAllNeighboringImages } from "../data/helperfunc";
-import {
-    appShotsIMG,
-    frontEndSectionData,
-    serverSectionData,
-    JWTSectionData,
-} from "../data/tenziDescData";
-import { techSectionDataInterface } from "../data/interfaces";
+import { diagramData, cardsData } from "../data/tenziDescData";
+import { diagramDataInterface, cardDataInterface } from "../data/interfaces";
+
+import { fullScreenIMG } from "../data/helperfunc";
+const fullScreenJSX = (
+    <section id="fullScreenIMG" className={componentStyle.fullScreenImg}>
+        <button
+            className={componentStyle.popupNavClose}
+            onClick={(e) => {
+                fullScreenIMG(e.target);
+            }}
+        >
+            <i className="fa-solid fa-xmark"></i>
+        </button>
+    </section>
+);
 
 const TenziDescription: FC = () => {
     const navigate = useNavigate();
-    const [fullScreenIMGArr, setFullScreenIMGArr] = useState<{
-        allImages: HTMLImageElement[];
-        clickedIndex: number;
-    }>({
-        allImages: [],
-        clickedIndex: 0,
-    });
 
-    const closeFullScreenIMG: () => void = () => {
-        setFullScreenIMGArr({
-            allImages: [],
-            clickedIndex: 0,
-        });
-    };
+    const diagrams: ReactElement[] = diagramData.map(
+        (diagram: diagramDataInterface) => (
+            <article className={componentStyle.diagram}>
+                <header className={componentStyle.diagram__header}>
+                    <h1>{diagram.name}</h1>
+                </header>
+                <p className={componentStyle.diagram__paragraph}>
+                    {diagram.description}
+                </p>
+                <img
+                    className={componentStyle.diagram__picture}
+                    src={require(`../images/tenziDescription${diagram.src}`)}
+                    alt={diagram.name}
+                    onClick={(e) => fullScreenIMG(e.target)}
+                />
+            </article>
+        )
+    );
 
-    const appShots = appShotsIMG.map((img) => {
-        return (
-            <img
-                src={require(`../images/tenziDescription/${img}`)}
-                alt="code"
-                onClick={(e) =>
-                    setFullScreenIMGArr(findAllNeighboringImages(e))
-                }
-            />
-        );
-    });
-
-    const techSectionArr: (
-        techSectionData: techSectionDataInterface[]
-    ) => ReactElement[] = (techSectionData) => {
-        return techSectionData.map((element, index) => {
-            return (
-                <div
-                    key={element.title}
-                    className={`${componentStyle.techSection}`}
+    const cards: ReactElement[] = cardsData.map(
+        (cardsData: cardDataInterface) => (
+            <figure className={componentStyle.card}>
+                <a
+                    className={componentStyle.card__content}
+                    href={cardsData.link}
+                    target="_blank"
+                    rel="noreferrer"
+                    key={cardsData.name}
                 >
-                    <h4>{element.title}</h4>
-                    <p>{parse(element.description)}</p>
-                    <div className={componentStyle.techSectionIMG}>
-                        {element.img.map((img) => {
-                            return (
-                                <img
-                                    src={require(`../images/tenziDescription/${img}`)}
-                                    alt="code"
-                                    onClick={(e) =>
-                                        setFullScreenIMGArr(
-                                            findAllNeighboringImages(e)
-                                        )
-                                    }
-                                />
-                            );
-                        })}
-                    </div>
-                </div>
-            );
-        });
-    };
+                    <i
+                        className={`${componentStyle.card__icon} fa-brands fa-github`}
+                    ></i>
+                    <p className={componentStyle.card__description}>
+                        {cardsData.name}
+                    </p>
+                </a>
+            </figure>
+        )
+    );
 
     return (
-        <main className={componentStyle.mainSection}>
-            {fullScreenIMGArr.allImages[0] && (
-                <FullScreenImage
-                    allImages={fullScreenIMGArr.allImages}
-                    clickedIndex={fullScreenIMGArr.clickedIndex}
-                    closeFullScreenIMGHandle={closeFullScreenIMG}
-                />
-            )}
-
-            <div className={componentStyle.header}>
+        <section className={componentStyle.mainSection}>
+            <nav className={componentStyle.navbar}>
                 <span
-                    className={componentStyle.backBtn}
+                    className={componentStyle.navbar__backBtn}
                     onClick={() => navigate(-1)}
                 >
                     {`<< `}BACK
                 </span>
-                <h5>TENZI GAME</h5>
-            </div>
-            <div className={componentStyle.appShotsContainer}>
-                <p>
-                    Tenzi is a app based on simply family game. The goal is to
-                    set all dice the same in the shortest possible time.
-                    <br />
-                    <b>
-                        <i>A few shots from app:</i>
-                    </b>
-                </p>
-                {appShots}
-            </div>
-
-            <div className={componentStyle.globalDiagram}>
-                <div className={componentStyle.h1Wrapper}>
-                    <h1>Application diagram</h1>
-                </div>
-                <p>Simplified diagram of the application's operation.</p>
-                <img
-                    src={require(`../images/tenziDescription/mainDiagram.png`)}
-                    alt="Application flow diagram"
-                    onClick={(e) =>
-                        setFullScreenIMGArr(findAllNeighboringImages(e))
-                    }
-                />
-            </div>
-            <div className={componentStyle.h1Wrapper}>
-                <h1>FrontEnd</h1>
-            </div>
-            <section className={`${componentStyle.branchSection}`}>
-                {techSectionArr(frontEndSectionData)}
-            </section>
-            <section className={componentStyle.globalDiagram}>
-                <div className={componentStyle.h1Wrapper}>
-                    <h1>Server</h1>
-                </div>
-                <p>Simplified diagram of server's operation</p>
-                <img
-                    src={require(`../images/tenziDescription/serverDiagram.png`)}
-                    alt="Application flow diagram"
-                    onClick={(e) =>
-                        setFullScreenIMGArr(findAllNeighboringImages(e))
-                    }
-                />
-            </section>
-            <section className={`${componentStyle.branchSection}`}>
-                {techSectionArr(serverSectionData)}
-            </section>
-            <section className={componentStyle.globalDiagram}>
-                <div className={componentStyle.h1Wrapper}>
-                    <h1>REFRESH TOKEN ROTATION</h1>
-                </div>
-                <p>
-                    Each request demanding user authentication contains an
-                    <b>AccessToken</b> in the header, obtained after a
-                    successful login. If the AccessToken expires, the server
-                    responds with "Access Forbidden." At this point, a
-                    background request loop initiates the
-                    <b>Refresh Token Rotation</b> process. <br /> All operations
-                    occur without user awareness.
-                </p>
-                <img
-                    src={require(`../images/tenziDescription/refreshDiagram.png`)}
-                    alt="Application flow diagram"
-                    onClick={(e) =>
-                        setFullScreenIMGArr(findAllNeighboringImages(e))
-                    }
-                />
-            </section>
-            <section className={`${componentStyle.branchSection}`}>
-                {techSectionArr(JWTSectionData)}
-            </section>
+                <h4 className={componentStyle.navbar__header}>TENZI GAME</h4>
+            </nav>
+            {diagrams}
+            <h1>Github links</h1>
+            <section className={componentStyle.cardsContainer}>{cards}</section>
             <ScrollRestoration />
-        </main>
+            {fullScreenJSX}
+        </section>
     );
 };
 export default TenziDescription;

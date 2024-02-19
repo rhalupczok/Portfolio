@@ -24,74 +24,66 @@ const AboutMe: FC = () => {
 
     return (
         <section id="about" className={componentStyle.aboutMe}>
-            <header className={componentStyle.aboutMe__header}>
-                <h1>About me</h1>
-            </header>
             <aside className={componentStyle.aboutMe__picCharContainer}>
                 <img
                     src={require(`../images/aboutMe/profile_picture.png`)}
                     alt="profile"
                     className={componentStyle.aboutMe__picture}
                 />
+                <p className={componentStyle.aboutMe__paragraph}>
+                    <b>Radosław Halupczok</b>
+                </p>
                 <section className={componentStyle.aboutMe__characters}>
                     {characterElements}
                 </section>
             </aside>
-            <p className={componentStyle.aboutMe__paragraph}>
-                Hi! My name is
-                <span className={componentStyle.txtHighlightNoHover}>
-                    {" "}
-                    Radoslaw
-                </span>
-                . I reside in the Silesian Voivodeship in Poland. I graduated
-                from the Silesian University of Technology and over the past 7
-                years, I have been working as a{" "}
-                <span
-                    id="my-job-popup-btn"
-                    className={componentStyle.txtHighlight}
-                    onClick={() =>
-                        setPopup((prevState) => ({
-                            ...prevState,
-                            content: "myJob",
-                            isShow: true,
-                        }))
-                    }
-                >
-                    <u>Robotics Programmer</u>.
-                </span>
-            </p>
-            <p className={componentStyle.aboutMe__paragraph}>
-                I have always enjoyed programming and various challenges
-                requiring logical thinking have always been within my scope of
-                interest.
-            </p>
-            <p className={componentStyle.aboutMe__paragraph}>
-                Currently, most of my time is dedicated to expanding my
-                programming knowledge, as I prepare to transition into a role
-                that aligns more closely with my passion.
-            </p>
-            <p className={componentStyle.aboutMe__paragraph}>
-                My advantage is logical thinking and ability to solving various
-                issues on my own. I learning fast and I have mind open for new
-                challenges.
-            </p>
-            <p className={componentStyle.aboutMe__paragraph}>
-                {" "}
-                Your consideration is greatly appreciated, and I look forward to
-                the possibility of working with you and promise to bring my best
-                to the table.
-            </p>
-            <p className={componentStyle.aboutMe__paragraph}>
-                Short look on →{" "}
-                <span
-                    id="my-hobbies-popup-btn"
-                    className={componentStyle.txtHighlight}
-                    onClick={() => setDisplayHobbies(true)}
-                >
-                    my hobbies
-                </span>
-                .
-            </p>
+            <article>
+                <header className={componentStyle.aboutMe__header}>
+                    <h1>About me</h1>
+                </header>
+                <ul>
+                    <li className={componentStyle.aboutMe__listItem}>
+                        Silesian University of Technology graduate
+                    </li>
+                    <li className={componentStyle.aboutMe__listItem}>
+                        <span
+                            id="my-job-popup-btn"
+                            className={componentStyle.txtHighlight}
+                            onClick={() =>
+                                setPopup((prevState) => ({
+                                    ...prevState,
+                                    content: "myJob",
+                                    isShow: true,
+                                }))
+                            }
+                        >
+                            <u>Robotics Programmer</u>
+                        </span>{" "}
+                        for 7 years
+                    </li>
+                    <li className={componentStyle.aboutMe__listItem}>
+                        Lifelong passion for computer technology and coding
+                    </li>
+                    <li className={componentStyle.aboutMe__listItem}>
+                        Strong problem-solving skills, especialy in logical
+                        thinking
+                    </li>
+                    <li className={componentStyle.aboutMe__listItem}>
+                        <span
+                            id="my-hobbies-popup-btn"
+                            className={componentStyle.txtHighlight}
+                            onClick={() => setDisplayHobbies(true)}
+                        >
+                            My hobbies
+                        </span>
+                    </li>
+                </ul>
+
+                <p className={componentStyle.aboutMe__paragraph}>
+                    Give me a chance. I guarantee to be a valuable player
+                </p>
+            </article>
+
             {displayHobbies && (
                 <HobbiesCarousel toggleHobbiesHandle={toggleHobbies} />
             )}

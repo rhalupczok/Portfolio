@@ -3,13 +3,13 @@ import componentStyle from "../styles/partials/fullScreenImage.module.scss";
 // import usePopup from "../Hooks/usePopup";
 
 interface Props {
-    allImages: HTMLImageElement[];
+    imagesContainer: HTMLImageElement[];
     clickedIndex: number;
     closeFullScreenIMGHandle: () => void;
 }
 
 const FullScreenImage: FC<Props> = ({
-    allImages,
+    imagesContainer,
     clickedIndex,
     closeFullScreenIMGHandle,
 }) => {
@@ -26,14 +26,14 @@ const FullScreenImage: FC<Props> = ({
         if (index > 0) setIndex(index - 1);
     };
     const swipeRight = () => {
-        if (index < allImages.length - 1) setIndex(index + 1);
+        if (index < imagesContainer.length - 1) setIndex(index + 1);
     };
 
     return (
         <div className={componentStyle.popupBg}>
             <div className={componentStyle.imgGallery}>
                 <img
-                    src={allImages[index]?.src}
+                    src={imagesContainer[index]?.src}
                     alt="full screen gallery item"
                 ></img>
                 <div className={componentStyle.popupNav}>
@@ -45,7 +45,7 @@ const FullScreenImage: FC<Props> = ({
                             <i className="fa-solid fa-caret-left"></i>
                         </button>
                     )}
-                    {index < allImages.length - 1 && (
+                    {index < imagesContainer.length - 1 && (
                         <button
                             className={componentStyle.popupNavNext}
                             onClick={swipeRight}

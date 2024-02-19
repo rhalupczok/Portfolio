@@ -31,20 +31,32 @@ export interface myWorkInterface {
     name: string;
     imgSrc: string;
     isPlay: boolean;
-    noLearnMore?: boolean;
-    href: string;
+    href?: string;
     technologies: string[];
-}
-
-export interface popupDataInterface {
-    name: string;
-    isFinished: boolean;
-    content: {
+    popupData?: {
         img: string;
         text: string[];
         href?: { link: string; desc: string }[];
     }[];
 }
+
+export interface popupDataInterface {
+    img: string;
+    text: string[];
+    href?: { link: string; desc: string }[];
+}
+
+export interface diagramDataInterface {
+    name: string;
+    description: string;
+    src: string;
+}
+
+export interface cardDataInterface {
+    name: string;
+    link: string;
+}
+
 export interface techSectionDataInterface {
     title: string;
     description: string;
@@ -55,7 +67,6 @@ export interface myHobbiesInterface {
     name: string;
     imgSrc: string;
 }
-[];
 
 export interface myhobbiesProps {
     toggleHobbiesHandle: () => void;

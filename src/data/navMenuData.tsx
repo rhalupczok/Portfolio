@@ -1,12 +1,12 @@
 import { navMenuInterface } from "../data/interfaces";
 
 export const navMenuData: navMenuInterface[] = [
-    {
-        name: "INTRO",
-        id: "intro__button",
-        target: "intro",
-        icon: "fa-solid fa-user",
-    },
+    // {
+    //     name: "INTRO",
+    //     id: "intro__button",
+    //     target: "intro",
+    //     icon: "fa-solid fa-user",
+    // },
     {
         name: "ABOUT ME",
         id: "about__button",

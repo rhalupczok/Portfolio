@@ -11,21 +11,26 @@
     &__header {
         text-align: center;
     }
+
+    &__container {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+    }
 }
 
 .skill {
     @include flex;
-    flex-direction: row;
-    width: 100%;
-    margin: 3rem 0;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    margin: 0 0 3rem;
 
     &__pictures {
         @include flex;
         flex-wrap: wrap;
         flex-shrink: 0;
         gap: 1rem;
-        width: 200px;
-        padding: 0;
+        padding: 0.5rem 0;
     }
 
     &__picture {
@@ -57,22 +62,19 @@
         padding: 0 1rem;
     }
 
+    &__list {
+        list-style: disc;
+    }
+
     &__header {
         margin: 0;
     }
 }
 
-@media screen and (max-width: 480px) {
-    .skill {
-        flex-direction: column;
-
-        &__pictures {
-            width: 100%;
-        }
-
-        &__header {
-            margin-top: 10px;
-            text-align: center;
+@media screen and (max-width: 768px) {
+    .skills {
+        &__container {
+            display: block;
         }
     }
 }
