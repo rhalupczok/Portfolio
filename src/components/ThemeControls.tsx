@@ -39,7 +39,10 @@ const ThemeToggle: FC = () => {
                 highlight_color_darken: "rgb(141, 141, 141)",
             });
         }
-        if (themeColor?.highlight_color === "rgb(255, 255, 255)") {
+        if (
+            themeColor === null ||
+            themeColor?.highlight_color === "rgb(255, 255, 255)"
+        ) {
             r.style.setProperty("--highlight_color", "rgb(0, 0, 0)");
             r.style.setProperty(
                 "--highlight_color_darken",

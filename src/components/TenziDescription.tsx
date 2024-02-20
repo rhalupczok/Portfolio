@@ -23,7 +23,7 @@ const TenziDescription: FC = () => {
 
     const diagrams: ReactElement[] = diagramData.map(
         (diagram: diagramDataInterface) => (
-            <article className={componentStyle.diagram}>
+            <article key={diagram.name} className={componentStyle.diagram}>
                 <header className={componentStyle.diagram__header}>
                     <h1>{diagram.name}</h1>
                 </header>
