@@ -3,16 +3,16 @@ import componentStyle from "../styles/partials/ThemeControls.module.scss";
 
 const ThemeToggle: FC = () => {
     const [themeMenu, setThemeMenu] = useState<boolean>(false);
-    const [lightTheme, setLightTheme] = useState<boolean>(
-        JSON.parse(localStorage.getItem("theme") || "false")
-    );
 
+    const [lightTheme, setLightTheme] = useState<boolean>(
+        JSON.parse(localStorage.getItem("light-theme") || "false")
+    );
     const [themeColor, setThemeColor] = useState<{
         highlight_color: string;
         highlight_color_darken: string;
     } | null>(JSON.parse(localStorage.getItem("color") || "null"));
 
-    //Toggle theme controls open on click
+    //Display menu
     const showThemeMenu: () => void = () => {
         setThemeMenu(!themeMenu);
     };
@@ -26,9 +26,30 @@ const ThemeToggle: FC = () => {
         r.classList.toggle("main_darkTheme");
         r.classList.toggle("main_lightTheme");
         //Check if the theme is changed to light
-        r.classList.contains("main_lightTheme")
-            ? setLightTheme(true)
-            : setLightTheme(false);
+        setLightTheme(!lightTheme);
+
+        if (themeColor?.highlight_color === "rgb(0, 0, 0)") {
+            r.style.setProperty("--highlight_color", "rgb(255, 255, 255)");
+            r.style.setProperty(
+                "--highlight_color_darken",
+                "rgb(141, 141, 141)"
+            );
+            setThemeColor({
+                highlight_color: "rgb(255, 255, 255)",
+                highlight_color_darken: "rgb(141, 141, 141)",
+            });
+        }
+        if (themeColor?.highlight_color === "rgb(255, 255, 255)") {
+            r.style.setProperty("--highlight_color", "rgb(0, 0, 0)");
+            r.style.setProperty(
+                "--highlight_color_darken",
+                "rgb(122, 122, 122)"
+            );
+            setThemeColor({
+                highlight_color: "rgb(0, 0, 0)",
+                highlight_color_darken: "rgb(122, 122, 122)",
+            });
+        }
     };
 
     const colorChange: (
@@ -55,13 +76,9 @@ const ThemeToggle: FC = () => {
 
     useEffect(() => {
         //Add lightTheme to local storage
-        localStorage.setItem("theme", JSON.stringify(lightTheme));
+        localStorage.setItem("light-theme", JSON.stringify(lightTheme));
         //Set themeColor object to local storage
         localStorage.setItem("color", JSON.stringify(themeColor));
-        if (lightTheme === true) {
-            //Set light theme
-            document.body.classList.add("light-theme");
-        }
     }, [lightTheme, themeColor]);
 
     useEffect(() => {
@@ -76,7 +93,28 @@ const ThemeToggle: FC = () => {
                 themeColor.highlight_color_darken
             );
         }
+
+        if (lightTheme) {
+            //Set light theme
+            r.classList?.remove("main_darkTheme");
+            r.classList?.add("main_lightTheme");
+        }
     }, []);
+
+    const colorListItems = [
+        componentStyle.color1,
+        componentStyle.color2,
+        componentStyle.color3,
+        componentStyle.color4,
+        componentStyle.color5,
+    ].map((color) => (
+        <li
+            key={color}
+            className={`${componentStyle.color} ${color}
+            }`}
+            onClick={(e) => colorChange(e)}
+        ></li>
+    ));
 
     return (
         <main className="themeControl">
@@ -93,28 +131,13 @@ const ThemeToggle: FC = () => {
                         : `${componentStyle.themeControls}`
                 }`}
             >
-                <li
-                    className={`${componentStyle.color} ${componentStyle.color1}`}
-                    onClick={(e) => colorChange(e)}
-                ></li>
-                <li
-                    className={`${componentStyle.color} ${componentStyle.color2}`}
-                    onClick={(e) => colorChange(e)}
-                ></li>
-                <li
-                    className={`${componentStyle.color} ${componentStyle.color3}`}
-                    onClick={(e) => colorChange(e)}
-                ></li>
-                <li
-                    className={`${componentStyle.color} ${componentStyle.color4}`}
-                    onClick={(e) => colorChange(e)}
-                ></li>
+                {colorListItems}
                 <li className={componentStyle.darkMode} onClick={themeChange}>
                     <i
                         className={`fas  ${lightTheme ? "fa-sun" : "fa-moon"}`}
                     ></i>
                 </li>
-                <div
+                <aside
                     className={componentStyle.themeBtn}
                     onClick={showThemeMenu}
                 >
@@ -124,7 +147,7 @@ const ThemeToggle: FC = () => {
                         }`}
                     ></i>
                     <i className="fa-solid fa-palette"></i>
-                </div>
+                </aside>
             </ul>
         </main>
     );

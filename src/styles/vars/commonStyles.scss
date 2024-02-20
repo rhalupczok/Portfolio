@@ -194,7 +194,7 @@ h1::after {
 .popupNavPrev:hover,
 .popupNavNext:hover,
 .popupNavClose:hover {
-    background-color: $highlight_color;
+    background-color: $highlight_color_darken;
     text-shadow: 0;
     color: $text-primary;
 }

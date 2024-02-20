@@ -1,16 +1,22 @@
 import { ReactNode } from "react";
 
+//-----------------ABOUT ME
+
 export interface charactersInterface {
     icon: string;
     alt: string;
     name: string;
 }
 
+//-----------------SKILLS
+
 export interface languagesInterface {
     icon: string;
     alt: string;
     name: string;
 }
+
+//-----------------CONTACT
 
 export interface contactInterface {
     icon: string;
@@ -20,6 +26,8 @@ export interface contactInterface {
     target?: string;
 }
 
+//-----------------NAVBAR
+
 export interface navMenuInterface {
     name: string;
     id: string;
@@ -27,34 +35,36 @@ export interface navMenuInterface {
     icon: string;
 }
 
+//-----------------MY WORK
+
 export interface myWorkInterface {
     name: string;
     imgSrc: string;
     isPlay: boolean;
     href?: string;
+    repo: string;
     technologies: string[];
     popupData?: {
         img: string;
         text: string[];
-        href?: { link: string; desc: string }[];
+        href?: { link: string; desc: string };
     }[];
 }
+
+//-----------------POPUP
 
 export interface popupDataInterface {
     img: string;
     text: string[];
-    href?: { link: string; desc: string }[];
+    href?: { link: string; desc: string };
 }
+
+//-----------------TENZI DESCRIPTION
 
 export interface diagramDataInterface {
     name: string;
     description: string;
     src: string;
-}
-
-export interface cardDataInterface {
-    name: string;
-    link: string;
 }
 
 export interface techSectionDataInterface {
@@ -63,6 +73,15 @@ export interface techSectionDataInterface {
     img: string[];
 }
 
+//-----------------CONTACT CARDS
+
+export interface cardDataInterface {
+    name: string;
+    link: string;
+}
+
+//-----------------MY HOBBIES
+
 export interface myHobbiesInterface {
     name: string;
     imgSrc: string;
@@ -70,21 +89,4 @@ export interface myHobbiesInterface {
 
 export interface myhobbiesProps {
     toggleHobbiesHandle: () => void;
-}
-
-export interface PopupContextProps {
-    popup: {
-        content: string;
-        isShow: boolean;
-    };
-    setPopup: React.Dispatch<
-        React.SetStateAction<{
-            content: string;
-            isShow: boolean;
-        }>
-    >;
-}
-
-export interface PopupDataProviderProps {
-    children: ReactNode;
 }

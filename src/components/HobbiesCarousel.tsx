@@ -83,19 +83,22 @@ const HobbiesCarousel: FC<myhobbiesProps> = (props) => {
     useAnimationFrame(animateCallback);
 
     return (
-        <div className={componentStyle.popupBg}>
-            <div className={componentStyle.hobbiesPopup}>
-                <div style={style} className={componentStyle.hobbiesCarousel}>
+        <section className={componentStyle.popupBg}>
+            <section className={componentStyle.hobbiesPopup}>
+                <article
+                    style={style}
+                    className={componentStyle.hobbiesCarousel}
+                >
                     {myHobbiesElements}
-                </div>
-            </div>
+                </article>
+            </section>
             <button
                 className={componentStyle.popupNavClose}
                 onClick={() => props.toggleHobbiesHandle()}
             >
                 x
             </button>
-        </div>
+        </section>
     );
 };
 

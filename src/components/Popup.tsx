@@ -28,10 +28,7 @@ const Popup: FC<{
         };
     }, []);
 
-    const targetPopupContent: popupDataInterface[] | null = props.content; // finding content for popup in popupData based on content name passed by props
-    // const targetContent = targetPopupContent
-    //     ? targetPopupContent.content
-    //     : popupData[0].content; //   if the name passed by props in not matching to any object or not finised - targetContent is "underConstruction".
+    const targetPopupContent: popupDataInterface[] | null = props.content;
 
     const swipeLeft = () => {
         const popups = document.querySelectorAll(
@@ -69,13 +66,13 @@ const Popup: FC<{
             <div className={componentStyle.popupCardContent}>
                 <img
                     className={componentStyle.popupCardImg}
-                    src={require(`../images/popup/${card.img}`)}
+                    src={require(`../${card.img}`)}
                     alt="popup"
                     onClick={(e) => fullScreenIMG(e.target)}
                 />
                 <div className={componentStyle.popupCardDescription}>
                     {
-                        //creating separate paragrapf for each content element in text array in popupdata
+                        //creating separate paragrapfs
                         card.text.map((el, elIndex) => (
                             <p
                                 className={componentStyle.popupCardDescriptionP}
@@ -87,19 +84,18 @@ const Popup: FC<{
                         //-------------------------------------------------------------------------------
                     }
                     {
-                        //adding link if exists in data
-                        card.href &&
-                            card.href.map((href) => (
-                                <a
-                                    href={href.link}
-                                    target="_blank"
-                                    rel="noreferrer"
-                                    className={`${componentStyle.txtHighlight} ${componentStyle.popupCardDescriptionP}`}
-                                    key={href.link}
-                                >
-                                    <span>{href.desc}</span>
-                                </a>
-                            ))
+                        //add link if exists in data
+                        card.href && (
+                            <a
+                                href={card.href.link}
+                                target="_blank"
+                                rel="noreferrer"
+                                className={`${componentStyle.txtHighlight} ${componentStyle.popupCardDescriptionP}`}
+                                key={card.href.link}
+                            >
+                                <span>{card.href.desc}</span>
+                            </a>
+                        )
                     }
                 </div>
             </div>

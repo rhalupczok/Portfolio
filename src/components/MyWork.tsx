@@ -51,7 +51,7 @@ const MyWork: FC = () => {
             >
                 {myWorkElement.href && (
                     <a
-                        className={`${componentStyle.btn}`}
+                        className={`${componentStyle.btn} ${componentStyle.project__btn}`}
                         href={myWorkElement.href}
                         target="_blank"
                         rel="noreferrer"
@@ -61,7 +61,7 @@ const MyWork: FC = () => {
                 )}
                 {myWorkElement.popupData && (
                     <button
-                        className={`${componentStyle.btn}`}
+                        className={`${componentStyle.btn} ${componentStyle.project__btn}`}
                         onClick={() =>
                             setPopupHandle(myWorkElement.popupData || null)
                         }
@@ -69,6 +69,14 @@ const MyWork: FC = () => {
                         Learn more
                     </button>
                 )}
+                <a
+                    className={`${componentStyle.btn} ${componentStyle.project__btn}`}
+                    href={myWorkElement.repo}
+                    target="_blank"
+                    rel="noreferrer"
+                >
+                    <i className="fa-brands fa-github"></i> REPOSITORY
+                </a>
             </p>
             <p className={componentStyle.project__name}>{myWorkElement.name}</p>
 

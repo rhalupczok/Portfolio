@@ -1,7 +1,6 @@
 import ReactDOM from "react-dom/client";
 import App from "./App";
 import "./styles/style.scss";
-import { PopupDataProvider } from "./context/PopupContext";
 import {
     createBrowserRouter,
     createRoutesFromElements,
@@ -20,8 +19,4 @@ const router = createBrowserRouter(
     createRoutesFromElements(<Route path="/*" element={<App />} />)
 );
 
-root.render(
-    <PopupDataProvider>
-        <RouterProvider router={router} />
-    </PopupDataProvider>
-);
+root.render(<RouterProvider router={router} />);
