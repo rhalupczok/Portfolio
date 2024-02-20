@@ -86,7 +86,10 @@ const MyWork: FC = () => {
                         (el) => el.name === lang
                     );
                     return launguageData ? (
-                        <i className={`${launguageData.icon}`}></i>
+                        <i
+                            key={launguageData.icon}
+                            className={`${launguageData.icon}`}
+                        ></i>
                     ) : null;
                 })}
             </p>

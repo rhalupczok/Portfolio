@@ -4,12 +4,11 @@ import { contact } from "../data/contactData";
 
 const Contact: FC = () => {
     const contactElements: ReactElement[] = contact.map((contact) => (
-        <figure className={componentStyle.card}>
+        <figure key={contact.name} className={componentStyle.card}>
             <a
                 className={componentStyle.card__content}
                 href={contact.link}
                 target={contact?.target}
-                key={contact.name}
             >
                 <i
                     className={`${componentStyle.card__icon} ${contact.icon}`}
