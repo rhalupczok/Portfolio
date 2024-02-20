@@ -1,5 +1,5 @@
 # Portfolio page
 
-## [Radoslaw Halupczok](https://radoslawhalupczok.pl).
+## [https://radoslawhalupczok.pl](https://radoslawhalupczok.pl)
 
-![Screenshot](https://github.com/rhalupczok/Portfolio/blob/master/src/images/myWork/my-work-portfolio.png)
+![Screenshot](https://github.com/rhalupczok/Portfolio/blob/master/src/images/myWork/popup-portfolio-1.png)
