@@ -25,7 +25,7 @@ const HobbiesCarousel: FC<myhobbiesProps> = (props) => {
             className={`${componentStyle.hobbiesCarouselItem} carouselEffect`}
         >
             <img
-                src={require(`../images/popup/${hobby.imgSrc}`)}
+                src={require(`../images/hobby/${hobby.imgSrc}`)}
                 alt="hobby"
                 className={componentStyle.hobbyImg}
             />
