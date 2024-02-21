@@ -1,17 +1,17 @@
 export const diagramData = [
     {
         name: "Application",
-        description: "Simplified diagram of the application's operation.",
+        description: "Simplified diagram of the application's operations",
         src: `/mainDiagram.png`,
     },
     {
         name: "Server",
-        description: "Simplified diagram of server's operation",
+        description: "Simplified diagram of server's operations",
         src: `/serverDiagram.png`,
     },
     {
         name: "Refresh token rotation",
-        description: "Simplified diagram of authentication.",
+        description: "Simplified diagram of authentication process",
         src: `/refreshDiagram.png`,
     },
 ];

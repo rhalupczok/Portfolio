@@ -79,28 +79,19 @@ export const myWorkData: myWorkInterface[] = [
                     `Simple weather application fetching the API weather data`,
                     `Created using React and Typescript`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Weather-Application/tree/master/src",
-                    desc: "Complete repositorium on GITHUB",
-                },
             },
             {
                 img: "images/myWork/popup-weather-1.png",
                 text: [
                     `The city is set using GPS data (by default) or can be input by user`,
-                    `All data is catching using react components / props etc.`,
                 ],
             },
             {
                 img: "images/myWork/popup-weather-2.png",
                 text: [
-                    "Added sun walk effect.",
+                    "Sun walk effect.",
                     "The sun is going from the sunrise to sunset symbol taken into account the time of sunrise/sunset from fetched data and current time",
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Weather-Application/blob/44e7837cc951be6553c356640cc62815244dae4c/src/components/CurrentWeather.tsx#L11",
-                    desc: "Part of code - sunwalk effect",
-                },
             },
         ],
     },
@@ -117,22 +108,14 @@ export const myWorkData: myWorkInterface[] = [
                 text: [
                     `The game was created inspired by standard Air Hockey game which you can find in many touristic places.`,
                     `At the begining I saw a simple pong game and decided to connect the pong game idea with phisics of colliding circle objects`,
-                    `It is one on my first projects made directly after I met first JavaScript possibilities. Using classes, expressions. The canvas size adjusting to screen dimension and whole layout depends on size of screen and the type of device (f.eg. touchpad is displayed when mobile phone.)`,
+                    `It is one on my first projects made directly after I met first JavaScript possibilities. Using classes, expressions, RWD`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Air-Hockey",
-                    desc: "Complete repositorium on GITHUB",
-                },
             },
             {
                 img: "images/myWork/popup-airhockey-1.png",
                 text: [
                     `Player can be control by mouse or touchpad on mobile devices`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Air-Hockey/blob/46bebdb416639659070b656af910f70b3b4b4566/main.js#L596",
-                    desc: "Part of code - control",
-                },
             },
             {
                 img: "images/myWork/popup-airhockey-2.png",
@@ -142,20 +125,12 @@ export const myWorkData: myWorkInterface[] = [
                     `There is also taken into account the table friction to add more reality`,
                     `When the time is up, the friction is increased like in real AirHockey game`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Air-Hockey/blob/46bebdb416639659070b656af910f70b3b4b4566/main.js#L343",
-                    desc: "Part of code - phisics",
-                },
             },
             {
                 img: "images/myWork/popup-airhockey-3.png",
                 text: [
                     `There is added simple AI Player logic - Tries to save the goal and score`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Air-Hockey/blob/46bebdb416639659070b656af910f70b3b4b4566/main.js#L402",
-                    desc: "Part of code - AI",
-                },
             },
         ],
     },
@@ -169,11 +144,7 @@ export const myWorkData: myWorkInterface[] = [
         popupData: [
             {
                 img: "images/myWork/popup-pocket-organiser-0.png",
-                text: [`Simple app for task or shopping list`],
-                href: {
-                    link: "https://github.com/rhalupczok/Pocket-Organiser",
-                    desc: "Complete repositorium on GITHUB",
-                },
+                text: [`Simple app for task and shopping list`],
             },
             {
                 img: "images/myWork/popup-pocket-organiser-1.png",
@@ -187,29 +158,17 @@ export const myWorkData: myWorkInterface[] = [
                 text: [
                     `Language can be directly switched by onClick on the flag`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Pocket-Organiser/blob/8e018d4cb854b6eede0b46bfc7f11cfa7b25ebb4/main.js#L440C9-L440C9",
-                    desc: "Part of code - Langue selection",
-                },
             },
             {
                 img: "images/myWork/popup-pocket-organiser-3.png",
                 text: [
                     `The items can be filter by shop name`,
-                    `Popup window is free moveable`,
+                    `Popup window is free movable`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Pocket-Organiser/blob/8e018d4cb854b6eede0b46bfc7f11cfa7b25ebb4/main.js#L504",
-                    desc: "Part of code - move window",
-                },
             },
             {
                 img: "images/myWork/popup-pocket-organiser-4.png",
                 text: [`The data are kept in local storage`],
-                href: {
-                    link: "https://github.com/rhalupczok/Pocket-Organiser/blob/8e018d4cb854b6eede0b46bfc7f11cfa7b25ebb4/main.js#L413",
-                    desc: "Part of code - storage",
-                },
             },
             {
                 img: "images/myWork/popup-pocket-organiser-5.png",
@@ -232,39 +191,21 @@ export const myWorkData: myWorkInterface[] = [
                 text: [
                     `The game was created inspired by memories of iconic phone Nokia 3310.`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Snake",
-                    desc: "Complete repositorium on GITHUB",
-                },
             },
             {
                 img: "images/myWork/popup-snake-1.png",
-                text: [
-                    `Level define the Snake speed and amount of points for each food.`,
-                ],
-            },
-            {
-                img: "images/myWork/popup-snake-2.png",
                 text: [
                     `3 way of control:`,
                     `-Keyboard arrows`,
                     `-Wirtual keyboard`,
                     `-By touching the game area - Snake will follow the touch`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Snake/blob/dbebc3df3e0f3719ef8787b385b00096c9a845ec/snake.js#L260",
-                    desc: "Part of code - control",
-                },
             },
             {
-                img: "images/myWork/popup-snake-3.png",
+                img: "images/myWork/popup-snake-2.png",
                 text: [
-                    `The dimensions of canvas depends on screen size and visibility of virtual arrows.`,
+                    `RWD - The dimensions of canvas depends on screen size and visibility of virtual arrows.`,
                 ],
-                href: {
-                    link: "https://github.com/rhalupczok/Snake/blob/dbebc3df3e0f3719ef8787b385b00096c9a845ec/snake.js#L350",
-                    desc: "Part of code - resize canvas",
-                },
             },
         ],
     },
