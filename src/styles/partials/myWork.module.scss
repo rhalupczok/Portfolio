@@ -86,12 +86,14 @@
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
         opacity: 0;
-        transition: 0.2s;
+        transform: scale(0);
+        transition: all 0.2s;
         overflow: hidden;
-    }
 
-    &__buttonContainer_jsHover {
-        opacity: 1;
+        &_jsHover {
+            opacity: 1;
+            transform: scale(1);
+        }
     }
 
     &__btn {

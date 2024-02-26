@@ -16,7 +16,9 @@ const MyWork: FC = () => {
     };
 
     const addHover = (e: Element) => {
-        e.classList.add(componentStyle.project__buttonContainer_jsHover); //adding class which set opactity to 1
+        removeHover();
+        const btns = e.nextElementSibling;
+        btns?.classList.add(componentStyle.project__buttonContainer_jsHover);
     };
 
     const removeHover = () => {
@@ -41,13 +43,14 @@ const MyWork: FC = () => {
                 src={require(`../images/myWork/${myWorkElement.imgSrc}`)}
                 alt={`${myWorkElement.name} img`}
                 className={componentStyle.project__picture}
-            />
-            <p
-                className={componentStyle.project__buttonContainer}
                 onMouseEnter={(e) => {
                     mouseEvent(e);
                 }}
+            />
+            <p
+                className={componentStyle.project__buttonContainer}
                 onMouseLeave={removeHover}
+                onTouchEnd={removeHover}
             >
                 {myWorkElement.href && (
                     <a

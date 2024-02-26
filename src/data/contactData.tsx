@@ -11,7 +11,7 @@ export const contact: contactInterface[] = [
         icon: "fa-brands fa-linkedin",
         alt: "linkedIn--icon",
         name: "linkedIn",
-        link: "https://www.linkedin.com/in/rados%C5%82aw-halupczok-6b6a75104/",
+        link: "https://www.linkedin.com/in/radoslaw-halupczok-6b6a75104/",
         target: "_blank",
     },
     {
