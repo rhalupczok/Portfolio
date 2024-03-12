@@ -63,9 +63,9 @@ $bgGradient: linear-gradient(
 }
 
 h1 {
-    font-size: 2em;
+    margin-top: 1em;
     /*Responsive text with min and max limit*/
-    font-size: clamp(1.5em, 2vw, 5em);
+    font-size: clamp(1.5em, 2vw, 2em);
     text-transform: uppercase;
     text-align: center;
     position: relative;

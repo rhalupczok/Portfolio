@@ -6,7 +6,7 @@ export const myWorkData: myWorkInterface[] = [
         imgSrc: "my-work-tenzi.png",
         isPlay: true,
         href: "https://rhalupczok.github.io/Tenzies/",
-        repo: "https://github.com/rhalupczok/Portfolio/tree/master",
+        repo: "https://github.com/rhalupczok/Tenzies",
         technologies: [
             "HTML",
             "JAVASCRIPT",
