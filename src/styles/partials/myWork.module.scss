@@ -86,13 +86,13 @@
         border-top-left-radius: 1rem;
         border-top-right-radius: 1rem;
         opacity: 0;
-        transform: scale(0);
-        transition: all 0.2s;
+        transform: rotateY(90deg);
+        transition: all 0.5s;
         overflow: hidden;
 
         &_jsHover {
             opacity: 1;
-            transform: scale(1);
+            transform: rotateY(0deg);
         }
     }
 

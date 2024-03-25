@@ -3,7 +3,7 @@ import NavMenu from "./components/navMenu";
 import AboutMe from "./components/AboutMe";
 import Knowledge from "./components/Knowledge";
 import MyWork from "./components/MyWork";
-import CV from "./components/CV";
+// import CV from "./components/CV";
 import Contact from "./components/Contact";
 import Footer from "./components/Footer";
 // import Intro from "./components/Intro";
@@ -22,7 +22,7 @@ const App: React.FC = () => {
                         <AboutMe />
                         <Knowledge />
                         <MyWork />
-                        <CV />
+                        {/* <CV /> */}
                         <Contact />
                         <Footer />
                         <ThemeToggle />

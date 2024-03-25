@@ -25,12 +25,12 @@ export const navMenuData: navMenuInterface[] = [
         target: "my-work",
         icon: "fa-regular fa-folder-open",
     },
-    {
-        name: "CV",
-        id: "cv__button",
-        target: "cv",
-        icon: "fa-solid fa-address-card",
-    },
+    // {
+    //     name: "CV",
+    //     id: "cv__button",
+    //     target: "cv",
+    //     icon: "fa-solid fa-address-card",
+    // },
     {
         name: "CONTACT",
         id: "contact__button",

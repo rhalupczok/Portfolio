@@ -10,7 +10,7 @@ const CV: React.FC = () => {
             <figure className={componentStyle.card}>
                 <a
                     className={componentStyle.card__content}
-                    href="https://drive.google.com/file/d/1SbrPWtqw2_H5UrPctwIUUvNgaqiiBsVe/view?usp=drive_link"
+                    href="/#"
                     target="_blank"
                     rel="noreferrer"
                 >
